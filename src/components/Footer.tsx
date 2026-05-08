@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer style={{ background: '#111827', color: '#9CA3AF', marginTop: 80 }}>
+    <footer style={{ background: 'var(--bg)', borderTop: '2px solid var(--border)', color: 'var(--text-secondary)', marginTop: 80 }}>
       <style>{`
         .footer-link { color: #9CA3AF; text-decoration: none; font-size: 14px; transition: color 0.2s; }
         .footer-link:hover { color: #fff; }
@@ -13,14 +13,14 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: 10, background: 'linear-gradient(135deg, #1A56DB, #6366f1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
+              <div style={{ width: 36, height: 36, borderRadius: 'var(--radius)', background: 'var(--primary)', border: '2px solid #000', boxShadow: '2px 2px 0px 0px #000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
                 </svg>
               </div>
               <div>
-                <div style={{ fontWeight: 800, fontSize: 16, color: '#fff' }}>ReverseTax Calculator</div>
-                <div style={{ fontSize: 12, color: '#6B7280' }}>Free • No Signup • Works Worldwide</div>
+                <div style={{ fontWeight: 800, fontSize: 16, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase' }}>ReverseTax SYS.CALC</div>
+                <div style={{ fontSize: 12, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>FREE // NO_SIGNUP // GLOBAL</div>
               </div>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7 }}>
@@ -77,7 +77,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div style={{ marginTop: 24, padding: 16, background: '#1F2937', borderRadius: 12 }}>
+            <div style={{ marginTop: 24, padding: 16, background: '#000', border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
               <p style={{ fontSize: 12, lineHeight: 1.6 }}>
                 ⚠️ This calculator is for estimation only. Always verify tax rates with official government sources for legal/financial decisions.
               </p>

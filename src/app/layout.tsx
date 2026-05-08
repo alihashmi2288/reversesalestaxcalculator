@@ -1,14 +1,19 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const inter = Inter({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
-  preload: true,
+  variable: '--font-bricolage',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
 });
 
 const SITE_URL = 'https://reversetaxcalculator.com';
@@ -103,12 +108,12 @@ const faqSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${bricolage.variable} ${jetbrains.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#1A56DB" />
+        <meta name="theme-color" content="#09090b" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
@@ -122,7 +127,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+      <body className="font-sans antialiased">
+        <div className="noise-overlay pointer-events-none fixed inset-0 z-50 opacity-[0.04]"></div>
+        <div className="grid-bg pointer-events-none fixed inset-0 z-[-1]"></div>
         <Navbar />
         {children}
         <Footer />

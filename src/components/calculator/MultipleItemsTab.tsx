@@ -60,7 +60,7 @@ export default function MultipleItemsTab() {
       </p>
 
       {/* Table */}
-      <div style={{ overflowX: 'auto', borderRadius: 12, border: '1px solid var(--border)' }}>
+      <div style={{ overflowX: 'auto', borderRadius: 'var(--radius)', border: '2px solid var(--border)' }}>
         <table className="data-table" style={{ minWidth: 600 }}>
           <thead>
             <tr>
@@ -82,7 +82,7 @@ export default function MultipleItemsTab() {
                       type="text"
                       value={row.name}
                       onChange={(e) => updateRow(row.id, 'name', e.target.value)}
-                      style={{ width: '100%', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px', fontSize: 14 }}
+                      style={{ width: '100%', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 12px', fontSize: 14, fontFamily: 'var(--font-mono)' }}
                       placeholder="Item name"
                     />
                   </td>
@@ -95,7 +95,7 @@ export default function MultipleItemsTab() {
                         step="0.01"
                         value={row.totalPrice}
                         onChange={(e) => updateRow(row.id, 'totalPrice', e.target.value)}
-                        style={{ width: '100%', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 12px 8px 24px', fontSize: 14 }}
+                        style={{ width: '100%', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 12px 8px 24px', fontSize: 14, fontFamily: 'var(--font-mono)' }}
                         placeholder="0.00"
                       />
                     </div>
@@ -108,7 +108,7 @@ export default function MultipleItemsTab() {
                         step="0.001"
                         value={row.taxRate}
                         onChange={(e) => updateRow(row.id, 'taxRate', e.target.value)}
-                        style={{ width: '100%', border: '1px solid var(--border)', borderRadius: 8, padding: '8px 32px 8px 12px', fontSize: 14 }}
+                        style={{ width: '100%', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 32px 8px 12px', fontSize: 14, fontFamily: 'var(--font-mono)' }}
                         placeholder="8.25"
                       />
                       <span style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14 }}>%</span>

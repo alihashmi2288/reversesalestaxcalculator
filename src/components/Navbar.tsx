@@ -24,22 +24,24 @@ export default function Navbar() {
             style={{
               width: 36,
               height: 36,
-              borderRadius: 10,
-              background: 'linear-gradient(135deg, #1A56DB, #6366f1)',
+              borderRadius: 'var(--radius)',
+              background: 'var(--primary)',
+              border: '2px solid #000',
+              boxShadow: '2px 2px 0px 0px #000',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M2 17l10 5 10-5" />
               <path d="M2 12l10 5 10-5" />
             </svg>
           </div>
           <div>
-            <div style={{ fontWeight: 800, fontSize: 16, color: 'var(--text-primary)', lineHeight: 1.1 }}>ReverseTax</div>
-            <div style={{ fontWeight: 500, fontSize: 11, color: 'var(--text-secondary)', lineHeight: 1 }}>Calculator</div>
+            <div style={{ fontWeight: 800, fontSize: 16, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)', textTransform: 'uppercase' }}>ReverseTax</div>
+            <div style={{ fontWeight: 700, fontSize: 11, color: 'var(--primary)', lineHeight: 1, fontFamily: 'var(--font-mono)' }}>SYS.CALC</div>
           </div>
         </Link>
 
@@ -59,17 +61,19 @@ export default function Navbar() {
             href="/#calculator"
             style={{
               background: 'var(--primary)',
-              color: '#fff',
+              color: '#000',
               padding: '10px 20px',
-              borderRadius: 10,
-              fontWeight: 600,
+              borderRadius: 'var(--radius)',
+              fontWeight: 800,
               fontSize: 14,
               textDecoration: 'none',
-              boxShadow: '0 2px 8px rgba(26,86,219,0.3)',
-              transition: 'background 0.2s',
+              boxShadow: 'var(--shadow-solid-dark)',
+              border: '2px solid transparent',
+              transition: 'all 0.2s',
+              fontFamily: 'var(--font-mono)',
             }}
           >
-            Try Calculator →
+            TRY_CALC_NOW
           </Link>
         </div>
 

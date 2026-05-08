@@ -138,8 +138,8 @@ export default function BasicTab() {
 
       {/* Error */}
       {error && (
-        <div style={{ background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 10, padding: '12px 16px', color: '#dc2626', fontSize: 14, fontWeight: 500 }}>
-          ⚠️ {error}
+        <div style={{ background: '#000', border: '2px solid #ef4444', borderRadius: 'var(--radius)', padding: '12px 16px', color: '#ef4444', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+          [ERROR] {error}
         </div>
       )}
 
@@ -206,8 +206,8 @@ export default function BasicTab() {
           </div>
 
           {/* Formula reminder */}
-          <div style={{ background: '#f0f4ff', borderRadius: 10, padding: '12px 16px', fontSize: 13, color: '#4338ca', marginTop: 12 }}>
-            <strong>Formula used:</strong> ${fmt(result.preTaxPrice)} = ${fmt(result.totalPaid)} ÷ (1 + {result.taxRate}/100)
+          <div style={{ background: 'var(--bg)', border: '2px dashed var(--border)', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: 13, color: 'var(--primary)', marginTop: 12, fontFamily: 'var(--font-mono)' }}>
+            <strong>SYS.FORMULA:</strong> ${fmt(result.preTaxPrice)} = ${fmt(result.totalPaid)} ÷ (1 + {result.taxRate}/100)
           </div>
         </div>
       )}

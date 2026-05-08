@@ -26,46 +26,34 @@ export default function HomePage() {
   return (
     <main>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section
-        style={{
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1A56DB 100%)',
-          padding: '80px 0 100px',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Background decoration */}
-        <div style={{ position: 'absolute', top: -100, right: -100, width: 500, height: 500, borderRadius: '50%', background: 'rgba(255,255,255,0.03)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: -80, left: -80, width: 350, height: 350, borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
-
+      <section style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
         <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.1)', borderRadius: 100, padding: '6px 16px', marginBottom: 24, backdropFilter: 'blur(10px)' }}>
-            <span style={{ fontSize: 16 }}>🧮</span>
-            <span style={{ color: '#a5b4fc', fontSize: 13, fontWeight: 600, letterSpacing: '0.04em' }}>FREE CALCULATOR · NO SIGNUP</span>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '6px 16px', marginBottom: 24, boxShadow: '4px 4px 0px 0px rgba(255,255,255,0.1)' }}>
+            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>SYS.CALC.FREE // NO.SIGNUP</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 900, color: '#fff', lineHeight: 1.1, marginBottom: 20, letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontSize: 'clamp(48px, 8vw, 84px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
             Reverse Sales Tax<br />
-            <span style={{ background: 'linear-gradient(90deg, #60a5fa, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
               Calculator
             </span>
           </h1>
 
-          <p style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', color: '#94a3b8', maxWidth: 620, margin: '0 auto 36px', lineHeight: 1.6 }}>
-            Enter any total price (with tax) and instantly calculate the original pre-tax price.
-            Works for all 50 US states, Canada, and worldwide.
+          <p style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', color: 'var(--text-secondary)', maxWidth: 680, margin: '0 auto 40px', lineHeight: 1.6, fontFamily: 'var(--font-mono)' }}>
+            &gt; Enter final price. Calculate original pre-tax base.<br />
+            &gt; Valid for US50, CA, EU & Global modules.
           </p>
 
           {/* Trust Badges */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 32, flexWrap: 'wrap', marginBottom: 16 }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap', marginBottom: 16 }}>
             {[
-              { icon: '✓', text: 'No signup required' },
-              { icon: '✓', text: 'Free forever' },
-              { icon: '✓', text: 'Works worldwide' },
-              { icon: '✓', text: '100% client-side' },
-            ].map(({ icon, text }) => (
-              <div key={text} className="trust-badge" style={{ color: '#a5b4fc' }}>
-                <span style={{ color: '#34d399', fontWeight: 800 }}>{icon}</span>
+              { text: 'NO SIGNUP' },
+              { text: 'FREE FOREVER' },
+              { text: 'GLOBAL RATES' },
+              { text: 'CLIENT-SIDE SECURE' },
+            ].map(({ text }) => (
+              <div key={text} className="trust-badge">
+                <span>✓</span>
                 <span>{text}</span>
               </div>
             ))}
@@ -143,7 +131,7 @@ export default function HomePage() {
       `}</style>
 
       {/* ── How It Works ─────────────────────────────────────── */}
-      <div style={{ background: '#f0f4ff', padding: '80px 0' }}>
+      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '80px 0' }}>
         <div className="container-main">
           <HowItWorks />
         </div>
@@ -157,13 +145,13 @@ export default function HomePage() {
           </div>
           <div className="formula-text">Original Price = Final Price ÷ (1 + Tax Rate / 100)</div>
           <div style={{ marginTop: 20, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, opacity: 0.85 }}>
-            <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: 10, padding: 14 }}>
+            <div style={{ background: 'var(--bg)', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: 14 }}>
               <div style={{ fontSize: 12, marginBottom: 4, opacity: 0.7 }}>EXAMPLE</div>
               <div style={{ fontSize: 14 }}>$107.50 ÷ (1 + 7.5/100)</div>
               <div style={{ fontSize: 14 }}>= $107.50 ÷ 1.075</div>
               <div style={{ fontWeight: 700, marginTop: 4 }}>= $100.00 ✓</div>
             </div>
-            <div style={{ background: 'rgba(255,255,255,0.1)', borderRadius: 10, padding: 14 }}>
+            <div style={{ background: 'var(--bg)', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: 14 }}>
               <div style={{ fontSize: 12, marginBottom: 4, opacity: 0.7 }}>TAX AMOUNT</div>
               <div style={{ fontSize: 14 }}>$107.50 − $100.00</div>
               <div style={{ fontWeight: 700, marginTop: 4 }}>= $7.50 tax paid</div>
@@ -205,7 +193,7 @@ export default function HomePage() {
       </div>
 
       {/* ── Why You Might Need This ──────────────────────────── */}
-      <div style={{ background: '#f0f4ff', marginTop: 64, padding: '64px 0' }}>
+      <div style={{ background: 'var(--bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', marginTop: 64, padding: '64px 0' }}>
         <div className="container-main">
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <span className="section-label">Use Cases</span>
@@ -214,7 +202,7 @@ export default function HomePage() {
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16 }}>
               {USE_CASES.map((uc, i) => (
-                <div key={i} style={{ background: '#fff', borderRadius: 12, padding: '16px 20px', display: 'flex', alignItems: 'flex-start', gap: 12, boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+                <div key={i} className="card" style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                   <span style={{ fontSize: 20 }}>{uc.split(' ')[0]}</span>
                   <span style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{uc.substring(uc.indexOf(' ') + 1)}</span>
                 </div>
@@ -277,7 +265,7 @@ export default function HomePage() {
       </div>
 
       {/* ── Related Tools ─────────────────────────────────────── */}
-      <div style={{ background: '#f0f4ff', marginTop: 64, padding: '64px 0' }}>
+      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', marginTop: 64, padding: '64px 0' }}>
         <div className="container-main">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="section-label">Related Tools</span>
