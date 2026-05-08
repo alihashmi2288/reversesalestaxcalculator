@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reversetaxcalculator.com/sitemap.xml
+
+# Disallow admin / dev paths
+Disallow: /_next/
+Disallow: /api/
