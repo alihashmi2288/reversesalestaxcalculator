@@ -11,7 +11,7 @@ export default function Navbar() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        background: 'rgba(255,255,255,0.95)',
+        background: 'rgba(9, 9, 11, 0.95)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid var(--border)',
         boxShadow: '0 1px 16px rgba(0,0,0,0.05)',
@@ -104,7 +104,7 @@ export default function Navbar() {
       {open && (
         <div
           style={{
-            background: '#fff',
+            background: 'var(--bg)',
             borderTop: '1px solid var(--border)',
             padding: '16px 24px',
             display: 'flex',

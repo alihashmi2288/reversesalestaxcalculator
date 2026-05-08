@@ -79,6 +79,7 @@ export default function FAQSection() {
         {FAQS.map((faq, i) => (
           <div key={i} className="faq-item">
             <button
+              suppressHydrationWarning
               className="faq-trigger"
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
               aria-expanded={openIndex === i}

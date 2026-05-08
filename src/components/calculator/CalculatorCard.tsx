@@ -20,7 +20,7 @@ export default function CalculatorCard() {
   return (
     <div id="calculator" className="calc-card">
       {/* Tab Bar */}
-      <div style={{ display: 'flex', gap: 6, marginBottom: 32, overflowX: 'auto', paddingBottom: 4 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 32, paddingBottom: 4 }}>
         {TABS.map((tab) => (
           <button
             key={tab.id}

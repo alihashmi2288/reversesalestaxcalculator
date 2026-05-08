@@ -206,18 +206,12 @@ export default function BasicTab() {
           </div>
 
           {/* Formula reminder */}
-          <div style={{ background: 'var(--bg)', border: '2px dashed var(--border)', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: 13, color: 'var(--primary)', marginTop: 12, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ background: 'var(--bg)', border: '2px dashed var(--border)', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: 13, color: 'var(--primary)', marginTop: 12, fontFamily: 'var(--font-mono)', wordBreak: 'break-word' }}>
             <strong>SYS.FORMULA:</strong> ${fmt(result.preTaxPrice)} = ${fmt(result.totalPaid)} ÷ (1 + {result.taxRate}/100)
           </div>
         </div>
       )}
 
-      <style>{`
-        @media (max-width: 640px) {
-          .grid-responsive { grid-template-columns: 1fr !important; }
-          .grid-results { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </div>
   );
 }

@@ -32,7 +32,7 @@ export default function HomePage() {
             <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>SYS.CALC.FREE // NO.SIGNUP</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(48px, 8vw, 84px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontSize: 'clamp(32px, 8vw, 84px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
             Reverse Sales Tax<br />
             <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
               Calculator

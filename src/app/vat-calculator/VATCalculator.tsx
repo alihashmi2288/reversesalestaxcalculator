@@ -105,7 +105,6 @@ export default function VATCalculator() {
           </div>
         </div>
       )}
-      <style>{`@media(max-width:640px){.grid-responsive{grid-template-columns:1fr!important}.grid-results{grid-template-columns:1fr!important}}`}</style>
     </div>
   );
 }

@@ -34,18 +34,19 @@ export default function StateTable() {
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
           <input
+            suppressHydrationWarning
             type="text"
             placeholder="Search state..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            style={{ width: '100%', padding: '12px 16px 12px 42px', borderRadius: 12, border: '2px solid var(--border)', fontSize: 15, outline: 'none' }}
-            onFocus={(e) => (e.target.style.borderColor = 'var(--primary)')}
+            style={{ width: '100%', padding: '12px 16px 12px 42px', borderRadius: 'var(--radius)', border: '2px solid var(--border)', background: 'var(--bg)', color: 'var(--text-primary)', fontSize: 15, fontFamily: 'var(--font-mono)', outline: 'none' }}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--border-focus)')}
             onBlur={(e) => (e.target.style.borderColor = 'var(--border)')}
           />
         </div>
       </div>
 
-      <div style={{ background: '#fff', borderRadius: 16, boxShadow: 'var(--shadow)', overflow: 'hidden' }}>
+      <div style={{ background: 'var(--card-bg)', border: '2px solid var(--border)', borderRadius: 'var(--radius)', boxShadow: 'var(--shadow-solid-dark)', overflow: 'hidden' }}>
         <div style={{ overflowX: 'auto' }}>
           <table className="data-table">
             <thead>
@@ -63,7 +64,7 @@ export default function StateTable() {
                 <tr key={s.abbreviation}>
                   <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{s.state}</td>
                   <td>
-                    <span style={{ background: '#eff6ff', color: 'var(--primary)', padding: '2px 8px', borderRadius: 6, fontSize: 13, fontWeight: 700 }}>
+                    <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 'var(--radius)', fontSize: 13, fontWeight: 700, fontFamily: 'var(--font-mono)', border: '1px solid #000' }}>
                       {s.abbreviation}
                     </span>
                   </td>
@@ -74,7 +75,7 @@ export default function StateTable() {
                       {s.rate === 0 ? '0%' : `${s.rate}%`}
                     </span>
                     {s.notes && (
-                      <span style={{ marginLeft: 8, background: '#d1fae5', color: '#047857', fontSize: 11, padding: '1px 6px', borderRadius: 4, fontWeight: 600 }}>
+                      <span style={{ marginLeft: 8, background: '#d1fae5', color: '#047857', fontSize: 11, padding: '1px 6px', borderRadius: 'var(--radius)', fontWeight: 600, fontFamily: 'var(--font-mono)', border: '1px solid #047857' }}>
                         {s.notes}
                       </span>
                     )}
@@ -92,7 +93,7 @@ export default function StateTable() {
             </tbody>
           </table>
         </div>
-        <div style={{ padding: '16px 24px', background: '#f9fafb', borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--text-secondary)' }}>
+        <div style={{ padding: '16px 24px', background: 'var(--bg)', borderTop: '2px solid var(--border)', fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
           Showing {filtered.length} of {STATE_TAX_RATES.length} states · Rates are combined averages · Last updated 2024
         </div>
       </div>
