@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reversetaxcalculator.com/sitemap.xml
+Sitemap: https://salestaxreversecalculator.com/sitemap.xml
 
 # Disallow admin / dev paths
 Disallow: /_next/

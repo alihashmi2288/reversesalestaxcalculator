@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About ReverseTax Calculator — Free Sales Tax Tool',
-  description: 'Learn about ReverseTax Calculator — a free, privacy-first tool helping consumers and businesses calculate original prices before tax.',
-  alternates: { canonical: 'https://reversetaxcalculator.com/about' },
+  title: 'About Sales Tax Reverse Calculator — Free & Private Tool',
+  description: 'Learn about salestaxreversecalculator.com — a free, privacy-first tool helping shoppers, freelancers, and accountants calculate original prices before sales tax.',
+  alternates: { canonical: 'https://salestaxreversecalculator.com/about' },
 };
 
 export default function AboutPage() {
@@ -28,12 +28,12 @@ export default function AboutPage() {
           {[
             {
               icon: '🎯',
-              title: 'Our Mission',
-              body: 'ReverseTax Calculator was built with a simple mission: give everyone — consumers, business owners, accountants, and students — a fast, free, and accurate way to calculate the original price before sales tax. No registration, no subscriptions, no data collection.',
+              title: 'Why We Built This',
+              body: 'We built salestaxreversecalculator.com because calculating the original price before tax shouldn\'t require a math degree. Whether you\'re a shopper checking a receipt, a freelancer tracking expenses, or an accountant separating revenue from tax — our free tool gives you an instant, accurate answer.',
             },
             {
               icon: '🔒',
-              title: '100% Private',
+              title: 'No Signup. No Fees. No Data Collected.',
               body: 'All calculations happen directly in your browser using JavaScript. We never send your price data to any server. There are no accounts, no cookies tracking your calculations, and no selling your data. What you calculate stays on your device.',
             },
             {
@@ -44,7 +44,12 @@ export default function AboutPage() {
             {
               icon: '🔄',
               title: 'Constantly Updated',
-              body: 'Tax rates change. We monitor US state rate updates and refresh our database regularly to ensure you always have accurate combined average rates at your fingertips. Our last comprehensive rate review was in 2024.',
+              body: 'Tax rates change. We monitor US state rate updates and refresh our database regularly to ensure you always have accurate combined average rates at your fingertips. Our last comprehensive rate review was in 2026.',
+            },
+            {
+              icon: '✉️',
+              title: 'Contact Us',
+              body: 'Have a question, suggestion, or spotted a rate that needs updating? We\'d love to hear from you. Reach us at salestaxreversecalculator@gmail.com',
             },
           ].map(({ icon, title, body }) => (
             <div key={title} className="card" style={{ borderLeft: '4px solid var(--primary)' }}>

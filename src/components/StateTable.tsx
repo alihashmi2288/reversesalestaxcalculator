@@ -23,7 +23,7 @@ export default function StateTable() {
       <div style={{ textAlign: 'center', marginBottom: 40 }}>
         <span className="section-label">State Rates</span>
         <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
-          US State Sales Tax Rates 2024
+          US State Sales Tax Rates 2026
         </h2>
         <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 600, margin: '0 auto 24px' }}>
           Combined average rates (state + local). Click any state to use that rate in the calculator.
@@ -94,7 +94,7 @@ export default function StateTable() {
           </table>
         </div>
         <div style={{ padding: '16px 24px', background: 'var(--bg)', borderTop: '2px solid var(--border)', fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
-          Showing {filtered.length} of {STATE_TAX_RATES.length} states · Rates are combined averages · Last updated 2024
+          Showing {filtered.length} of {STATE_TAX_RATES.length} states · Rates are combined averages · Last updated 2026
         </div>
       </div>
     </section>

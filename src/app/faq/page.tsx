@@ -6,15 +6,15 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Sales Tax FAQ — Frequently Asked Questions',
   description: 'Answers to the most common questions about reverse sales tax calculation, US state tax rates, VAT, and more.',
-  alternates: { canonical: 'https://reversetaxcalculator.com/faq' },
+  alternates: { canonical: 'https://salestaxreversecalculator.com/faq' },
 };
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reversetaxcalculator.com' },
-    { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://reversetaxcalculator.com/faq' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+    { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://salestaxreversecalculator.com/faq' },
   ],
 };
 

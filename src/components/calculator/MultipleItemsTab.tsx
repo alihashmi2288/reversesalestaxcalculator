@@ -13,17 +13,18 @@ let nextId = 4;
 
 export default function MultipleItemsTab() {
   const [rows, setRows] = useState<RowItem[]>([
-    { id: 1, name: 'Item 1', totalPrice: '', taxRate: '' },
-    { id: 2, name: 'Item 2', totalPrice: '', taxRate: '' },
-    { id: 3, name: 'Item 3', totalPrice: '', taxRate: '' },
+    { id: 1, name: 'Item 1', totalPrice: '', taxRate: '8.25' },
+    { id: 2, name: 'Item 2', totalPrice: '', taxRate: '8.25' },
+    { id: 3, name: 'Item 3', totalPrice: '', taxRate: '8.25' },
   ]);
+  const [calculated, setCalculated] = useState(false);
 
   const updateRow = (id: number, field: keyof RowItem, value: string) => {
     setRows((prev) => prev.map((r) => (r.id === id ? { ...r, [field]: value } : r)));
   };
 
   const addRow = () => {
-    setRows((prev) => [...prev, { id: nextId++, name: `Item ${nextId - 1}`, totalPrice: '', taxRate: '' }]);
+    setRows((prev) => [...prev, { id: nextId++, name: `Item ${nextId - 1}`, totalPrice: '', taxRate: rows[0]?.taxRate || '8.25' }]);
   };
 
   const removeRow = (id: number) => {
@@ -52,6 +53,20 @@ export default function MultipleItemsTab() {
   );
 
   const hasAnyData = rows.some((r) => r.totalPrice && r.taxRate);
+
+  const handleCalculate = () => {
+    if (hasAnyData) setCalculated(true);
+  };
+
+  const handleReset = () => {
+    setRows([
+      { id: 1, name: 'Item 1', totalPrice: '', taxRate: '8.25' },
+      { id: 2, name: 'Item 2', totalPrice: '', taxRate: '8.25' },
+      { id: 3, name: 'Item 3', totalPrice: '', taxRate: '8.25' },
+    ]);
+    setCalculated(false);
+    nextId = 4;
+  };
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -115,10 +130,10 @@ export default function MultipleItemsTab() {
                     </div>
                   </td>
                   <td style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 15 }}>
-                    {calc ? `$${fmt(calc.preTaxPrice)}` : '—'}
+                    {calculated && calc ? `$${fmt(calc.preTaxPrice)}` : '—'}
                   </td>
                   <td style={{ fontWeight: 600, color: '#dc2626', fontSize: 14 }}>
-                    {calc ? `$${fmt(calc.taxAmount)}` : '—'}
+                    {calculated && calc ? `$${fmt(calc.taxAmount)}` : '—'}
                   </td>
                   <td>
                     <button
@@ -136,8 +151,8 @@ export default function MultipleItemsTab() {
             })}
           </tbody>
 
-          {/* Totals */}
-          {hasAnyData && (
+          {/* Totals row — only after Calculate */}
+          {calculated && hasAnyData && (
             <tfoot>
               <tr style={{ background: '#f9fafb', fontWeight: 700 }}>
                 <td colSpan={2} style={{ padding: '14px 16px', fontSize: 14, color: 'var(--text-primary)' }}>
@@ -159,12 +174,34 @@ export default function MultipleItemsTab() {
         </table>
       </div>
 
-      <button onClick={addRow} className="btn-secondary" style={{ alignSelf: 'flex-start', minHeight: 48 }}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
-        </svg>
-        Add Another Item
-      </button>
+      {/* Action bar */}
+      <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+        <button onClick={addRow} className="btn-secondary" style={{ minHeight: 48 }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+          Add Another Item
+        </button>
+
+        <button
+          suppressHydrationWarning
+          onClick={handleCalculate}
+          className="btn-primary"
+          style={{ minHeight: 48, opacity: hasAnyData ? 1 : 0.5, cursor: hasAnyData ? 'pointer' : 'not-allowed' }}
+          disabled={!hasAnyData}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+          </svg>
+          Calculate All Items
+        </button>
+
+        {calculated && (
+          <button suppressHydrationWarning onClick={handleReset} className="btn-secondary" style={{ minHeight: 48 }}>
+            Reset
+          </button>
+        )}
+      </div>
     </div>
   );
 }

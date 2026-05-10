@@ -3,17 +3,17 @@ import StateTable from '@/components/StateTable';
 import AdSlot from '@/components/AdSlot';
 
 export const metadata: Metadata = {
-  title: 'US State Sales Tax Rates 2024 — All 50 States',
+  title: 'US State Sales Tax Rates 2026 — All 50 States',
   description: 'Complete list of US state sales tax rates for all 50 states plus DC. Combined average rates (state + local) with filterable table.',
-  alternates: { canonical: 'https://reversetaxcalculator.com/tax-rates' },
+  alternates: { canonical: 'https://salestaxreversecalculator.com/tax-rates' },
 };
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reversetaxcalculator.com' },
-    { '@type': 'ListItem', position: 2, name: 'Tax Rates', item: 'https://reversetaxcalculator.com/tax-rates' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+    { '@type': 'ListItem', position: 2, name: 'Tax Rates', item: 'https://salestaxreversecalculator.com/tax-rates' },
   ],
 };
 
@@ -27,7 +27,7 @@ export default function TaxRatesPage() {
         <div className="container-main">
           <span className="section-label" style={{ background: 'rgba(255,255,255,0.15)', color: '#a5b4fc' }}>US Tax Rates</span>
           <h1 style={{ fontSize: 'clamp(28px,5vw,48px)', fontWeight: 900, color: '#fff', margin: '16px 0 16px', lineHeight: 1.15 }}>
-            US State Sales Tax Rates 2024
+            US State Sales Tax Rates 2026
           </h1>
           <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 560, margin: '0 auto' }}>
             Combined average sales tax rates (state + local) for all 50 states and Washington DC.

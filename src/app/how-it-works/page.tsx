@@ -6,15 +6,15 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'How to Calculate Reverse Sales Tax — Step-by-Step Guide',
   description: 'Learn how to calculate the original price before tax with the reverse sales tax formula. Step-by-step guide with examples.',
-  alternates: { canonical: 'https://reversetaxcalculator.com/how-it-works' },
+  alternates: { canonical: 'https://salestaxreversecalculator.com/how-it-works' },
 };
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reversetaxcalculator.com' },
-    { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://reversetaxcalculator.com/how-it-works' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+    { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://salestaxreversecalculator.com/how-it-works' },
   ],
 };
 

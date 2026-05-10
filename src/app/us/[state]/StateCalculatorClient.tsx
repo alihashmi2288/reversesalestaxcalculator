@@ -36,7 +36,7 @@ export default function StateCalculatorClient({ stateData }: Props) {
           <label style={{ display: 'block', fontWeight: 600, fontSize: 14, marginBottom: 8 }}>Total Price Paid (with tax)</label>
           <div className="input-wrapper">
             <span className="input-prefix">$</span>
-            <input type="number" min="0" step="0.01" placeholder="107.50" value={finalPrice}
+            <input suppressHydrationWarning type="number" min="0" step="0.01" placeholder="107.50" value={finalPrice}
               onChange={(e) => { setFinalPrice(e.target.value); setResult(null); }} className="calc-input with-prefix" />
           </div>
         </div>
@@ -45,7 +45,7 @@ export default function StateCalculatorClient({ stateData }: Props) {
             {stateData.state} Tax Rate
           </label>
           <div className="input-wrapper">
-            <input type="number" min="0" step="0.001" value={taxRate}
+            <input suppressHydrationWarning type="number" min="0" step="0.001" value={taxRate}
               onChange={(e) => { setTaxRate(e.target.value); setResult(null); }} className="calc-input with-suffix" />
             <span className="input-suffix">%</span>
           </div>
@@ -55,7 +55,7 @@ export default function StateCalculatorClient({ stateData }: Props) {
 
       {error && <div style={{ background: '#fef2f2', border: '1px solid #fca5a5', borderRadius: 10, padding: '12px 16px', color: '#dc2626', fontSize: 14, marginBottom: 16 }}>⚠️ {error}</div>}
 
-      <button onClick={calculate} className="btn-primary" style={{ minHeight: 56, marginBottom: 20 }}>
+      <button suppressHydrationWarning onClick={calculate} className="btn-primary" style={{ minHeight: 56, marginBottom: 20 }}>
         Calculate {stateData.state} Pre-Tax Price
       </button>
 
@@ -76,8 +76,8 @@ export default function StateCalculatorClient({ stateData }: Props) {
             </div>
           </div>
           <div style={{ display: 'flex', gap: 12 }}>
-            <button onClick={copy} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>{copied ? '✓ Copied!' : 'Copy Results'}</button>
-            <button onClick={reset} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>Reset</button>
+            <button suppressHydrationWarning onClick={copy} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>{copied ? '✓ Copied!' : 'Copy Results'}</button>
+            <button suppressHydrationWarning onClick={reset} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>Reset</button>
           </div>
         </div>
       )}

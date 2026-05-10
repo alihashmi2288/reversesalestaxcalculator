@@ -4,11 +4,11 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Terms of Service — ReverseTax Calculator',
   description: 'Terms of service for ReverseTax Calculator. For informational purposes only — not professional tax advice.',
-  alternates: { canonical: 'https://reversetaxcalculator.com/terms-of-service' },
+  alternates: { canonical: 'https://salestaxreversecalculator.com/terms-of-service' },
 };
 
 export default function TermsPage() {
-  const updated = 'January 1, 2024';
+  const updated = 'January 1, 2026';
   return (
     <main>
       <div className="container-main" style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px 80px' }}>
@@ -32,7 +32,7 @@ export default function TermsPage() {
         {[
           {
             title: '1. Acceptance of Terms',
-            body: 'By accessing and using reversetaxcalculator.com, you accept and agree to be bound by these Terms of Service. If you do not agree, please discontinue use of the website immediately.',
+            body: 'By accessing and using https://www.salestaxreversecalculator.com, you accept and agree to be bound by these Terms of Service. If you do not agree, please discontinue use of the website immediately.',
           },
           {
             title: '2. Description of Service',
@@ -65,6 +65,10 @@ export default function TermsPage() {
           {
             title: '9. Governing Law',
             body: 'These Terms shall be governed by and construed in accordance with the laws of the United States. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts of competent jurisdiction.',
+          },
+          {
+            title: '10. Contact',
+            body: 'For questions about these Terms of Service, please email us at salestaxreversecalculator@gmail.com.',
           },
         ].map(({ title, body }) => (
           <div key={title} style={{ marginBottom: 32 }}>

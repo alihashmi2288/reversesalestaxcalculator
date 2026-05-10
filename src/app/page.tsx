@@ -8,7 +8,7 @@ import StateTable from '@/components/StateTable';
 
 export const metadata: Metadata = {
   title: 'Reverse Sales Tax Calculator — Calculate Original Price Before Tax | Free',
-  alternates: { canonical: 'https://reversetaxcalculator.com' },
+  alternates: { canonical: 'https://salestaxreversecalculator.com' },
 };
 
 const USE_CASES = [
@@ -29,7 +29,7 @@ export default function HomePage() {
       <section style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
         <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '6px 16px', marginBottom: 24, boxShadow: '4px 4px 0px 0px rgba(255,255,255,0.1)' }}>
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>SYS.CALC.FREE // NO.SIGNUP</span>
+            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>FREE · NO SIGNUP · INSTANT RESULTS</span>
           </div>
 
           <h1 style={{ fontSize: 'clamp(32px, 8vw, 84px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
@@ -61,10 +61,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Ad: Hero Leaderboard ─────────────────────────────── */}
-      <div className="container-main" style={{ marginTop: -20, marginBottom: 8 }}>
-        <AdSlot slot="hero-leaderboard" size="leaderboard" label="Leaderboard — Above Calculator" />
-      </div>
 
       {/* ── Calculator (with sidebar layout on desktop) ───────── */}
       <div className="container-main" style={{ marginTop: 32, marginBottom: 64 }}>
@@ -79,7 +75,6 @@ export default function HomePage() {
 
           {/* Sidebar */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24, position: 'sticky', top: 80 }} className="sidebar">
-            <AdSlot slot="sidebar-halfpage" size="halfpage" label="Sidebar 300×600" />
 
             {/* Quick Tips Card */}
             <div className="card">
@@ -264,6 +259,75 @@ export default function HomePage() {
         <FAQSection />
       </div>
 
+      {/* ── References & Sources ──────────────────────────────── */}
+      <div className="container-main" style={{ marginTop: 80 }}>
+        <div style={{ maxWidth: 860, margin: '0 auto' }}>
+          <span className="section-label">Sources</span>
+          <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 8px' }}>
+            References &amp; Official Sources
+          </h2>
+          <p style={{ fontSize: 15, color: 'var(--text-secondary)', marginBottom: 32, lineHeight: 1.6 }}>
+            All tax rates and information on this site are derived from official government publications and recognized tax research organizations. We recommend verifying current rates directly with these authoritative sources before use in official filings.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
+            {[
+              {
+                title: 'IRS — Sales Tax Deduction',
+                desc: 'Official IRS guidance on deducting state and local general sales taxes.',
+                href: 'https://www.irs.gov/taxtopics/tc503',
+                badge: 'IRS.gov',
+              },
+              {
+                title: 'Tax Foundation — State Sales Tax Rates',
+                desc: 'Annual data and analysis of all 50 state combined sales tax rates, updated each year.',
+                href: 'https://taxfoundation.org/data/all/state/2024-sales-taxes/',
+                badge: 'taxfoundation.org',
+              },
+              {
+                title: 'Sales Tax Institute',
+                desc: 'Comprehensive database of US state, county, and city sales tax rates and nexus rules.',
+                href: 'https://www.salestaxinstitute.com/resources/rates',
+                badge: 'salestaxinstitute.com',
+              },
+              {
+                title: 'Canada Revenue Agency — GST/HST',
+                desc: 'Official CRA guidance on Canadian GST/HST rates, registration, and filing requirements.',
+                href: 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses.html',
+                badge: 'canada.ca',
+              },
+              {
+                title: 'OECD — Consumption Tax Trends',
+                desc: 'International VAT/GST rates and consumption tax policy data across 38 member countries.',
+                href: 'https://www.oecd.org/en/publications/consumption-tax-trends_ctpa-2024-en.html',
+                badge: 'oecd.org',
+              },
+              {
+                title: 'Tax Policy Center — State & Local Tax Data',
+                desc: 'Research briefs and data on US state and local government tax revenue and policy.',
+                href: 'https://www.taxpolicycenter.org/statistics/state-and-local-general-sales-and-gross-receipts-tax-revenue',
+                badge: 'taxpolicycenter.org',
+              },
+            ].map(({ title, desc, href, badge }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: 'none' }}
+              >
+                <div className="card" style={{ height: '100%', cursor: 'pointer', transition: 'border-color 0.2s' }}>
+                  <div style={{ display: 'inline-block', background: 'var(--primary)', color: '#000', fontSize: 11, fontWeight: 800, letterSpacing: '0.05em', padding: '3px 8px', borderRadius: 4, marginBottom: 10 }}>
+                    {badge}
+                  </div>
+                  <h3 style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 8 }}>{title}</h3>
+                  <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{desc}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* ── Related Tools ─────────────────────────────────────── */}
       <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', marginTop: 64, padding: '64px 0' }}>
         <div className="container-main">
@@ -292,10 +356,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── Ad: Footer Leaderboard ───────────────────────────── */}
-      <div className="container-main" style={{ marginTop: 48, marginBottom: 48 }}>
-        <AdSlot slot="footer-leaderboard" size="leaderboard" label="Footer Leaderboard" />
-      </div>
+
     </main>
   );
 }

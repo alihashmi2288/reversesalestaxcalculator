@@ -4,11 +4,11 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Privacy Policy — ReverseTax Calculator',
   description: 'Privacy policy for ReverseTax Calculator. We collect no personal data — all calculations are performed locally in your browser.',
-  alternates: { canonical: 'https://reversetaxcalculator.com/privacy-policy' },
+  alternates: { canonical: 'https://salestaxreversecalculator.com/privacy-policy' },
 };
 
 export default function PrivacyPolicyPage() {
-  const updated = 'January 1, 2024';
+  const updated = 'January 1, 2026';
   return (
     <main>
       <div className="container-main" style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px 80px' }}>
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
         {[
           {
             title: '1. Overview',
-            body: 'ReverseTax Calculator ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy describes how we handle information when you visit reversetaxcalculator.com. The short version: we collect almost nothing, and what little we do collect is anonymous.',
+            body: 'Sales Tax Reverse Calculator ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy describes how we handle information when you visit https://www.salestaxreversecalculator.com. The short version: we collect almost nothing, and what little we do collect is anonymous.',
           },
           {
             title: '2. Information We Do NOT Collect',
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
           },
           {
             title: '9. Contact',
-            body: 'If you have questions about this Privacy Policy, please contact us through our website\'s contact page.',
+            body: 'If you have questions about this Privacy Policy, please contact us at salestaxreversecalculator@gmail.com — we typically respond within 1–2 business days.',
           },
         ].map(({ title, body }) => (
           <div key={title} style={{ marginBottom: 32 }}>

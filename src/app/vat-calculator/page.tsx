@@ -6,7 +6,7 @@ import VATCalculator from './VATCalculator';
 export const metadata: Metadata = {
   title: 'Reverse VAT Calculator — Remove VAT from Any Price (UK, EU, AU)',
   description: 'Free reverse VAT calculator. Remove VAT from prices for the UK (20%), EU, Australia, and more. Calculate ex-VAT prices instantly.',
-  alternates: { canonical: 'https://reversetaxcalculator.com/vat-calculator' },
+  alternates: { canonical: 'https://salestaxreversecalculator.com/vat-calculator' },
 };
 
 export default function VATPage() {

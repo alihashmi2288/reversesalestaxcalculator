@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import { getStateBySlug, STATE_TAX_RATES } from '@/data/stateTaxRates';
+import { getStateContentBySlug } from '@/data/stateContent';
 import StateCalculatorClient from './StateCalculatorClient';
 
 // Generate static paths for top 10 states + all others
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${stateData.state} Reverse Sales Tax Calculator — ${stateData.rate}% Combined Rate`,
     description: `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`,
-    alternates: { canonical: `https://reversetaxcalculator.com/us/${stateSlug}` },
+    alternates: { canonical: `https://salestaxreversecalculator.com/us/${stateSlug}` },
   };
 }
 
@@ -33,19 +34,35 @@ export default async function StatePage({ params }: Props) {
   const stateData = getStateBySlug(stateSlug);
   if (!stateData) notFound();
 
+  const stateContent = getStateContentBySlug(stateSlug);
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reversetaxcalculator.com' },
-      { '@type': 'ListItem', position: 2, name: 'US States', item: 'https://reversetaxcalculator.com/tax-rates' },
-      { '@type': 'ListItem', position: 3, name: stateData.state, item: `https://reversetaxcalculator.com/us/${stateSlug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+      { '@type': 'ListItem', position: 2, name: 'US States', item: 'https://salestaxreversecalculator.com/tax-rates' },
+      { '@type': 'ListItem', position: 3, name: stateData.state, item: `https://salestaxreversecalculator.com/us/${stateSlug}` },
     ],
   };
+
+  const faqSchema = stateContent?.faqs.length ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: stateContent.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  } : null;
 
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
 
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">
@@ -97,7 +114,11 @@ export default async function StatePage({ params }: Props) {
             About {stateData.state} Sales Tax
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.75 }}>
-            {stateData.rate === 0 ? (
+            {stateContent?.aboutText ? (
+              stateContent.aboutText.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))
+            ) : stateData.rate === 0 ? (
               <p>{stateData.state} is one of five US states with <strong>no sales tax</strong>. Shoppers in {stateData.state} pay the listed price — no tax is added at checkout for most purchases.</p>
             ) : (
               <>
@@ -113,6 +134,72 @@ export default async function StatePage({ params }: Props) {
             )}
           </div>
         </div>
+
+        {/* City Rates */}
+        {stateContent && stateContent.cities.length > 0 && (
+          <div style={{ marginTop: 64 }}>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 24, textAlign: 'center' }}>
+              Tax Rates in Major {stateData.state} Cities
+            </h2>
+            <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                <thead>
+                  <tr style={{ background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border)' }}>
+                    <th style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--text-primary)' }}>City</th>
+                    <th style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--text-primary)' }}>Combined Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {stateContent.cities.map((city, idx) => (
+                    <tr key={idx} style={{ borderBottom: idx === stateContent.cities.length - 1 ? 'none' : '1px solid var(--border)' }}>
+                      <td style={{ padding: '16px 24px', color: 'var(--text-secondary)' }}>{city.name}</td>
+                      <td style={{ padding: '16px 24px', fontWeight: 600, color: 'var(--primary)' }}>{city.rate.toFixed(2)}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* Use Cases */}
+        {stateContent && stateContent.useCases.length > 0 && (
+          <div style={{ marginTop: 64 }}>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 24, textAlign: 'center' }}>
+              When to Use This Calculator in {stateData.state}
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+              {stateContent.useCases.map((useCase, idx) => (
+                <div key={idx} className="card" style={{ padding: 32 }}>
+                  <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 16 }}>{useCase.title}</h3>
+                  <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7 }}>{useCase.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* FAQs */}
+        {stateContent && stateContent.faqs.length > 0 && (
+          <div style={{ marginTop: 64, maxWidth: 800, margin: '64px auto 0' }}>
+            <h2 style={{ fontSize: 26, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 32, textAlign: 'center' }}>
+              Frequently Asked Questions: {stateData.state} Taxes
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              {stateContent.faqs.map((faq, idx) => (
+                <details key={idx} className="card" style={{ padding: '24px 32px', cursor: 'pointer', outline: 'none' }}>
+                  <summary style={{ fontSize: 18, fontWeight: 600, color: 'var(--text-primary)', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    {faq.question}
+                    <span style={{ color: 'var(--primary)', fontSize: 24 }}>+</span>
+                  </summary>
+                  <p style={{ marginTop: 16, fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7, paddingTop: 16, borderTop: '1px solid var(--border)' }}>
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div style={{ marginTop: 48, marginBottom: 64 }}>
           <AdSlot slot={`${stateSlug}-rectangle`} size="rectangle" label={`${stateData.state} — Rectangle`} />
