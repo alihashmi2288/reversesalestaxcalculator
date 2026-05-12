@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   description:
     'Free reverse sales tax calculator. Enter your total price and tax rate to instantly find the original price before tax. Works for US, Canada & worldwide. No signup.',
-  authors: [{ name: 'PreTaxPrice' }],
-  creator: 'PreTaxPrice',
-  publisher: 'PreTaxPrice',
+  authors: [{ name: 'ReverseTaxCalc' }],
+  creator: 'ReverseTaxCalc',
+  publisher: 'ReverseTaxCalc',
   robots: {
     index: true,
     follow: true,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'PreTaxPrice',
+    siteName: 'ReverseTaxCalc',
     title: 'Reverse Sales Tax Calculator — Free & Instant',
     description: 'Calculate the original price before tax instantly. Free, no signup, works for all US states, Canada, and worldwide.',
     url: SITE_URL,
@@ -85,7 +85,7 @@ const webApplicationSchema = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'PreTaxPrice',
+    name: 'ReverseTaxCalc',
     url: SITE_URL
   }
 };
@@ -108,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
         />
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=G-MVWDKTE5V4"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -116,7 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-MVWDKTE5V4');
           `}
         </Script>
       </head>

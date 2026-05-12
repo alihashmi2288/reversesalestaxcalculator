@@ -118,32 +118,9 @@ export const metadata: Metadata = {
     ]
   };
 
-  const webAppSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Reverse Sales Tax Calculator",
-    "url": "https://salestaxreversecalculator.com",
-    "description": "Free reverse sales tax calculator. Enter your total price and tax rate to instantly find the original price before tax. Works for US, Canada & worldwide.",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "PreTaxPrice",
-      "url": "https://salestaxreversecalculator.com"
-    }
-  };
 
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -304,7 +281,7 @@ export const metadata: Metadata = {
         </div>
       </div>
 
-      {/* ── Ad: In-Article 1 ─────────────────────────────────── */}
+
       <div className="container-main" style={{ marginTop: 48 }}>
         <AdSlot slot="in-article-1" size="in-article" />
       </div>
@@ -333,7 +310,7 @@ export const metadata: Metadata = {
         <StateTable />
       </div>
 
-      {/* ── Ad: In-Article 2 ─────────────────────────────────── */}
+
       <div className="container-main" style={{ marginTop: 48 }}>
         <AdSlot slot="in-article-2" size="in-article" />
       </div>

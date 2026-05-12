@@ -19,7 +19,7 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>PreTaxPrice</div>
+                <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>ReverseTaxCalc</div>
                 <div style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)', marginTop: 2 }}>Free · No signup · Works globally.</div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div style={{ borderTop: '1px solid #374151', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ fontSize: 13 }}>© {year} PreTaxPrice. All rights reserved.</p>
+          <p style={{ fontSize: 13 }}>© {year} ReverseTaxCalc. All rights reserved.</p>
           <p style={{ fontSize: 13 }}>Made with ❤️ for taxpayers everywhere</p>
         </div>
       </div>
