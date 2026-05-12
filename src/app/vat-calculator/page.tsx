@@ -25,7 +25,7 @@ export default function VATPage() {
       </section>
 
       <div className="container-main" style={{ marginTop: 16 }}>
-        <AdSlot slot="vat-leaderboard" size="leaderboard" label="VAT — Leaderboard" />
+        <AdSlot slot="vat-leaderboard" size="leaderboard" />
       </div>
 
       <div className="container-main" style={{ marginTop: 32, marginBottom: 80 }}>
@@ -51,7 +51,7 @@ export default function VATPage() {
         </div>
 
         <div style={{ marginTop: 32 }}>
-          <AdSlot slot="vat-rectangle" size="rectangle" label="VAT — Rectangle" />
+          <AdSlot slot="vat-rectangle" size="rectangle" />
         </div>
       </div>
     </main>

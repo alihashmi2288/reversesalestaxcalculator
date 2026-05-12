@@ -89,7 +89,7 @@ export default async function StatePage({ params }: Props) {
       </section>
 
       <div className="container-main" style={{ marginTop: 16 }}>
-        <AdSlot slot={`${stateSlug}-leaderboard`} size="leaderboard" label={`${stateData.state} — Leaderboard`} />
+        <AdSlot slot={`${stateSlug}-leaderboard`} size="leaderboard" />
       </div>
 
       <div className="container-main" style={{ marginTop: 32 }}>
@@ -211,7 +211,7 @@ export default async function StatePage({ params }: Props) {
         )}
 
         <div style={{ marginTop: 48, marginBottom: 64 }}>
-          <AdSlot slot={`${stateSlug}-rectangle`} size="rectangle" label={`${stateData.state} — Rectangle`} />
+          <AdSlot slot={`${stateSlug}-rectangle`} size="rectangle" />
         </div>
       </div>
     </main>

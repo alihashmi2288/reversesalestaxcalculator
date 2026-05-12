@@ -74,20 +74,12 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* ─── Ad Slots ──────────────────────────────────────────────── */
 .adslot {
-  background: #18181b;
-  border: 1px dashed #3f3f46;
-  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #52525b;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 500;
   width: 100%;
   overflow: hidden;
+  margin: 32px 0;
 }
 .adslot-leaderboard   { min-height: 90px;  }
 .adslot-rectangle     { min-height: 250px; }

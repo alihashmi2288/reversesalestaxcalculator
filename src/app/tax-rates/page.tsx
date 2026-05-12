@@ -36,7 +36,7 @@ export default function TaxRatesPage() {
       </section>
 
       <div className="container-main" style={{ marginTop: 16, marginBottom: 12 }}>
-        <AdSlot slot="tax-rates-leaderboard" size="leaderboard" label="Leaderboard — Tax Rates Page" />
+        <AdSlot slot="tax-rates-leaderboard" size="leaderboard" />
       </div>
 
       {/* Breadcrumb */}

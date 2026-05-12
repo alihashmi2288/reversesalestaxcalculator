@@ -29,7 +29,7 @@ export default function CanadaPage() {
       </section>
 
       <div className="container-main" style={{ marginTop: 16 }}>
-        <AdSlot slot="canada-leaderboard" size="leaderboard" label="Canada — Leaderboard" />
+        <AdSlot slot="canada-leaderboard" size="leaderboard" />
       </div>
 
       <div className="container-main" style={{ marginTop: 32, marginBottom: 80 }}>
@@ -43,7 +43,7 @@ export default function CanadaPage() {
           <div>
             <CanadaCalculator />
             <div style={{ marginTop: 24 }}>
-              <AdSlot slot="canada-rectangle" size="rectangle" label="Canada — Rectangle" />
+              <AdSlot slot="canada-rectangle" size="rectangle" />
             </div>
           </div>
           <div>

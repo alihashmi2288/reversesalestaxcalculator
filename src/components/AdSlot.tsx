@@ -21,7 +21,7 @@ export default function AdSlot({ slot, size, label, className = '' }: AdSlotProp
       style={{ minHeight: minH }}
       aria-label={`Advertisement - ${label || slot}`}
     >
-      <span>Ad · {label || slot}</span>
+      {/* Ad content will be injected here */}
     </div>
   );
 }

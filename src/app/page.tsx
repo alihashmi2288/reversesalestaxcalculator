@@ -19,24 +19,137 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Reverse%20Sales%20Tax%20Calculator&rate=7.53', alt: 'Reverse Sales Tax Calculator Tool Home' }],
   },
-};
+};const USE_CASES = [
+  'Verifying itemized receipts match advertised prices',
+  'Reconciling business expense reports',
+  'Calculating pre-tax amounts for insurance claims',
+  'Accounting for sales tax on corporate purchases',
+  'Comparing prices across states with different tax rates',
+  'Converting VAT-inclusive prices to net amounts',
+  'Preparing tax returns that require pre-tax amounts',
+  'Auditing vendor invoices for correct tax charges',
+];export default function HomePage() {
+  const SITE_URL = 'https://salestaxreversecalculator.com';
 
-const USE_CASES = [
-  '🧾 Verifying itemized receipts match advertised prices',
-  '📦 Reconciling business expense reports',
-  '🏠 Calculating pre-tax amounts for insurance claims',
-  '💼 Accounting for sales tax on corporate purchases',
-  '🛒 Comparing prices across states with different tax rates',
-  '🌍 Converting VAT-inclusive prices to net amounts',
-  '📊 Preparing tax returns that require pre-tax amounts',
-  '🔍 Auditing vendor invoices for correct tax charges',
-];
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        "@type": "Question",
+        "name": "What is a reverse sales tax calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A reverse sales tax calculator works backwards from the total price you paid (including tax) to find the original pre-tax price. Instead of adding tax onto a price, it removes the tax to reveal what the item actually cost before tax was applied."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the formula for reverse sales tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The formula is: Original Price = Final Price ÷ (1 + Tax Rate / 100). For example, if you paid $107.50 and the tax rate is 7.5%, the calculation is: $107.50 ÷ 1.075 = $100.00. The tax amount paid was $7.50."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which US states have no sales tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Five US states have no state-level general sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate the original price before tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Step 1: Convert your tax rate to a decimal by dividing by 100 (e.g., 8.5% → 0.085). Step 2: Add 1 to that decimal (1 + 0.085 = 1.085). Step 3: Divide your total price by that number ($115.13 ÷ 1.085 = $106.11 pre-tax price)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do you divide instead of just subtracting the tax percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because sales tax is applied to the pre-tax price, not the final total. If you incorrectly subtract 7.5% from $107.50, you get $99.44 (wrong). The correct method divides: $107.50 ÷ 1.075 = $100.00."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which state has the highest combined sales tax rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Louisiana and Tennessee have among the highest combined average sales tax rates, followed closely by Arkansas, Alabama, and Oklahoma. These high rates are driven by significant local district taxes added on top of the state base rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this calculator for UK VAT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The UK standard VAT rate is 20%. Divide your VAT-inclusive price by 1.20 to find the ex-VAT (net) price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I remove GST from a price in Alberta, Canada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Alberta only charges the federal 5% GST with no provincial tax. Divide your total by 1.05. Example: $105.00 ÷ 1.05 = $100.00 pre-tax price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this calculator free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, completely free, forever. There is no account registration required, no trial period, and no premium tier. All calculations run entirely in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the average US combined sales tax rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The average combined US sales tax rate (state base + average local) is approximately 7.53% as of 2026, according to the Tax Foundation. This varies from 0% in tax-free states to over 9.5% in high-tax states."
+        }
+      }
+    ]
+  };
 
-export default function HomePage() {
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Reverse Sales Tax Calculator",
+    "url": "https://salestaxreversecalculator.com",
+    "description": "Free reverse sales tax calculator. Enter your total price and tax rate to instantly find the original price before tax. Works for US, Canada & worldwide.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PreTaxPrice",
+      "url": "https://salestaxreversecalculator.com"
+    }
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
+      <section id="calculator" style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
         <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '6px 16px', marginBottom: 24, boxShadow: '4px 4px 0px 0px rgba(255,255,255,0.1)' }}>
             <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>Free · No signup · Instant results</span>
@@ -49,17 +162,17 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', color: 'var(--text-secondary)', maxWidth: 680, margin: '0 auto 40px', lineHeight: 1.6, fontFamily: 'var(--font-mono)' }}>
-            &gt; Enter final price. Calculate original pre-tax base.<br />
-            &gt; Valid for US50, CA, EU & Global modules.
+          <p className="hero-tagline" style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', color: 'var(--text-secondary)', maxWidth: 680, margin: '0 auto 40px', lineHeight: 1.6, fontFamily: 'var(--font-mono)' }}>
+            Enter any total price. Get the original pre-tax amount instantly.<br />
+            Works for all 50 US states, Canada, UK, EU, and worldwide.
           </p>
 
           {/* Trust Badges */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap', marginBottom: 16 }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap', marginBottom: 40 }}>
             {[
-              { text: 'No signup' },
-              { text: 'Free forever' },
-              { text: 'Global rates' },
+              { text: 'all 50 US states' },
+              { text: 'Canada GST/HST' },
+              { text: 'EU VAT' },
               { text: 'Client-side secure' },
             ].map(({ text }) => (
               <div key={text} className="trust-badge">
@@ -68,18 +181,44 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
+          {/* CALCULATOR MOVED HERE */}
+          <div style={{ maxWidth: 800, margin: '0 auto' }}>
+            <CalculatorCard />
+          </div>
         </div>
       </section>
 
-
-      {/* ── Calculator (with sidebar layout on desktop) ───────── */}
-      <div className="container-main" style={{ marginTop: 32, marginBottom: 64 }}>
+      {/* ── Additional Info ───────── */}
+      <div className="container-main" style={{ marginTop: 64, marginBottom: 64 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 32, alignItems: 'start' }} className="calc-layout">
           <div>
-            <CalculatorCard />
-            {/* Ad: After Results */}
-            <div style={{ marginTop: 24 }}>
-              <AdSlot slot="results-rectangle" size="rectangle" label="Rectangle — After Calculator" />
+            <div style={{ marginBottom: 24 }}>
+              <AdSlot slot="results-rectangle" size="rectangle" />
+            </div>
+
+            <div style={{ maxWidth: 860 }}>
+              <span className="section-label">About</span>
+              <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                What Is a Reverse Sales Tax Calculator?
+              </h2>
+              <div style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <p>
+                  A <strong>reverse sales tax calculator</strong> is a financial tool that works backwards from a tax-inclusive
+                  price to reveal the original pre-tax amount. Unlike a standard sales tax calculator that adds tax to a price,
+                  our tool removes the tax — answering the question: <em>"How much did this item actually cost before tax?"</em>
+                </p>
+                <p>
+                  This is particularly useful when you receive a receipt, invoice, or price tag that already includes tax, and you
+                  need to know the base price. The math isn't as simple as just subtracting the tax percentage — because the tax
+                  was calculated on the pre-tax price, not the total. That's why the correct formula divides by <code>(1 + rate/100)</code>.
+                </p>
+                <p>
+                  Our calculator supports all 50 US states plus DC with their current combined average tax rates (state + local),
+                  Canadian provincial taxes (GST, HST, PST/QST), and European VAT rates. All calculations happen instantly in
+                  your browser — no data is sent to any server, and no account is required.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -167,34 +306,7 @@ export default function HomePage() {
 
       {/* ── Ad: In-Article 1 ─────────────────────────────────── */}
       <div className="container-main" style={{ marginTop: 48 }}>
-        <AdSlot slot="in-article-1" size="in-article" label="In-Article Unit 1" />
-      </div>
-
-      {/* ── What Is Section ──────────────────────────────────── */}
-      <div className="container-main" style={{ marginTop: 48 }}>
-        <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <span className="section-label">About</span>
-          <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
-            What Is a Reverse Sales Tax Calculator?
-          </h2>
-          <div style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <p>
-              A <strong>reverse sales tax calculator</strong> is a financial tool that works backwards from a tax-inclusive
-              price to reveal the original pre-tax amount. Unlike a standard sales tax calculator that adds tax to a price,
-              our tool removes the tax — answering the question: <em>"How much did this item actually cost before tax?"</em>
-            </p>
-            <p>
-              This is particularly useful when you receive a receipt, invoice, or price tag that already includes tax, and you
-              need to know the base price. The math isn't as simple as just subtracting the tax percentage — because the tax
-              was calculated on the pre-tax price, not the total. That's why the correct formula divides by <code>(1 + rate/100)</code>.
-            </p>
-            <p>
-              Our calculator supports all 50 US states plus DC with their current combined average tax rates (state + local),
-              Canadian provincial taxes (GST, HST, PST/QST), and European VAT rates. All calculations happen instantly in
-              your browser — no data is sent to any server, and no account is required.
-            </p>
-          </div>
-        </div>
+        <AdSlot slot="in-article-1" size="in-article" />
       </div>
 
       {/* ── Why You Might Need This ──────────────────────────── */}
@@ -208,8 +320,7 @@ export default function HomePage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16 }}>
               {USE_CASES.map((uc, i) => (
                 <div key={i} className="card" style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                  <span role="img" aria-label="Use case icon" style={{ fontSize: 20 }}>{uc.split(' ')[0]}</span>
-                  <span style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{uc.substring(uc.indexOf(' ') + 1)}</span>
+                  <span style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{uc}</span>
                 </div>
               ))}
             </div>
@@ -224,7 +335,7 @@ export default function HomePage() {
 
       {/* ── Ad: In-Article 2 ─────────────────────────────────── */}
       <div className="container-main" style={{ marginTop: 48 }}>
-        <AdSlot slot="in-article-2" size="in-article" label="In-Article Unit 2" />
+        <AdSlot slot="in-article-2" size="in-article" />
       </div>
 
       {/* ── Business Use Section ──────────────────────────────── */}
@@ -367,8 +478,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
-
     </main>
   );
 }

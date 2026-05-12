@@ -95,9 +95,13 @@ export default function StateTable() {
           </table>
         </div>
         <div style={{ padding: '16px 24px', background: 'var(--bg)', borderTop: '2px solid var(--border)', fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
-          Showing {filtered.length} of {STATE_TAX_RATES.length} states · Rates are combined averages · Last updated 2026
+          Showing 51 of 51 states · Combined average rates · Rates verified May 2026
         </div>
       </div>
+      <p className="table-note" style={{ marginTop: 16, fontSize: 13, color: 'var(--text-secondary)', textAlign: 'center' }}>
+        Combined average rates (state + local). Last verified: May 2026. 
+        Source: <a href="https://taxfoundation.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>Tax Foundation</a>.
+      </p>
     </section>
   );
 }
