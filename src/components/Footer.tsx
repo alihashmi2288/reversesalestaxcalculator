@@ -19,8 +19,8 @@ export default function Footer() {
                 </svg>
               </div>
               <div>
-                <div style={{ fontWeight: 800, fontSize: 16, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase' }}>ReverseTax SYS.CALC</div>
-                <div style={{ fontSize: 12, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>FREE // NO_SIGNUP // GLOBAL</div>
+                <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>PreTaxPrice</div>
+                <div style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)', marginTop: 2 }}>Free · No signup · Works globally.</div>
               </div>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7 }}>
@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div style={{ borderTop: '1px solid #374151', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ fontSize: 13 }}>© {year} ReverseTax Calculator. All rights reserved.</p>
+          <p style={{ fontSize: 13 }}>© {year} PreTaxPrice. All rights reserved.</p>
           <p style={{ fontSize: 13 }}>Made with ❤️ for taxpayers everywhere</p>
         </div>
       </div>

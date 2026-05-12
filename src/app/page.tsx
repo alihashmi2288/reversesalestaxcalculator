@@ -8,7 +8,17 @@ import StateTable from '@/components/StateTable';
 
 export const metadata: Metadata = {
   title: 'Reverse Sales Tax Calculator — Calculate Original Price Before Tax | Free',
-  alternates: { canonical: 'https://salestaxreversecalculator.com' },
+  alternates: { 
+    canonical: 'https://salestaxreversecalculator.com',
+    languages: {
+      'en-US': 'https://salestaxreversecalculator.com',
+      'en-CA': 'https://salestaxreversecalculator.com/canada',
+      'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
+    },
+  },
+  openGraph: {
+    images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Reverse%20Sales%20Tax%20Calculator&rate=7.53', alt: 'Reverse Sales Tax Calculator Tool Home' }],
+  },
 };
 
 const USE_CASES = [
@@ -29,7 +39,7 @@ export default function HomePage() {
       <section style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
         <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '6px 16px', marginBottom: 24, boxShadow: '4px 4px 0px 0px rgba(255,255,255,0.1)' }}>
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>FREE · NO SIGNUP · INSTANT RESULTS</span>
+            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>Free · No signup · Instant results</span>
           </div>
 
           <h1 style={{ fontSize: 'clamp(32px, 8vw, 84px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
@@ -47,10 +57,10 @@ export default function HomePage() {
           {/* Trust Badges */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap', marginBottom: 16 }}>
             {[
-              { text: 'NO SIGNUP' },
-              { text: 'FREE FOREVER' },
-              { text: 'GLOBAL RATES' },
-              { text: 'CLIENT-SIDE SECURE' },
+              { text: 'No signup' },
+              { text: 'Free forever' },
+              { text: 'Global rates' },
+              { text: 'Client-side secure' },
             ].map(({ text }) => (
               <div key={text} className="trust-badge">
                 <span>✓</span>
@@ -164,7 +174,7 @@ export default function HomePage() {
       <div className="container-main" style={{ marginTop: 48 }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           <span className="section-label">About</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+          <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
             What Is a Reverse Sales Tax Calculator?
           </h2>
           <div style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -193,12 +203,12 @@ export default function HomePage() {
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
             <span className="section-label">Use Cases</span>
             <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 32px' }}>
-              Why You Might Need Reverse Tax Calculation
+              Why Use a Reverse Sales Tax Calculator?
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16 }}>
               {USE_CASES.map((uc, i) => (
                 <div key={i} className="card" style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                  <span style={{ fontSize: 20 }}>{uc.split(' ')[0]}</span>
+                  <span role="img" aria-label="Use case icon" style={{ fontSize: 20 }}>{uc.split(' ')[0]}</span>
                   <span style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{uc.substring(uc.indexOf(' ') + 1)}</span>
                 </div>
               ))}
@@ -338,20 +348,22 @@ export default function HomePage() {
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-            {[
-              { href: '/vat-calculator', icon: '🇪🇺', title: 'VAT Calculator', desc: 'Remove VAT from prices for UK, EU, and Australia' },
-              { href: '/canada', icon: '🇨🇦', title: 'Canada Tax Calculator', desc: 'GST, HST, PST and Quebec QST reverse calculations' },
-              { href: '/us/california', icon: '🌴', title: 'California Calculator', desc: "Pre-filled with California's 9.06% combined rate" },
-              { href: '/us/texas', icon: '⭐', title: 'Texas Calculator', desc: "Pre-filled with Texas's 8.19% combined rate" },
-              { href: '/us/new-york', icon: '🗽', title: 'New York Calculator', desc: "Pre-filled with New York's 8.54% combined rate" },
-              { href: '/tax-rates', icon: '📊', title: 'All State Tax Rates', desc: 'Complete table of all 50 state combined tax rates' },
-            ].map(({ href, icon, title, desc }) => (
-              <Link key={href} href={href} className="tool-card">
-                <div style={{ fontSize: 32, marginBottom: 12 }}>{icon}</div>
-                <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--primary)', marginBottom: 8 }}>{title}</h3>
-                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{desc}</p>
-              </Link>
-            ))}
+            {/* Related Tools List */}
+            { [
+                { href: '/vat-calculator', icon: '🇪🇺', title: 'VAT Calculator', desc: 'Remove VAT from prices for UK, EU, and Australia', alt: 'European Union flag icon' },
+                { href: '/canada', icon: '🇨🇦', title: 'Canada Tax Calculator', desc: 'GST, HST, PST and Quebec QST reverse calculations', alt: 'Canada flag icon' },
+                { href: '/us/california', icon: '🌴', title: 'California Calculator', desc: "Pre-filled with California's 9.06% combined rate", alt: 'California palm tree icon' },
+                { href: '/us/texas', icon: '⭐', title: 'Texas Calculator', desc: "Pre-filled with Texas's 8.19% combined rate", alt: 'Texas star icon' },
+                { href: '/us/new-york', icon: '🗽', title: 'New York Calculator', desc: "Pre-filled with New York's 8.54% combined rate", alt: 'Statue of Liberty icon' },
+                { href: '/tax-rates', icon: '📊', title: 'All State Tax Rates', desc: 'Complete table of all 50 state combined tax rates', alt: 'Chart icon' },
+              ].map(({ href, icon, title, desc, alt }) => (
+                <Link key={href} href={href} className="tool-card">
+                  <div role="img" aria-label={alt} style={{ fontSize: 32, marginBottom: 12 }}>{icon}</div>
+                  <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--primary)', marginBottom: 8 }}>{title}</h3>
+                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{desc}</p>
+                </Link>
+              ))}
+
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ export default function FindTaxRateTab() {
       {result && (
         <div style={{ animation: 'slideIn 0.3s ease' }}>
           <div style={{ background: 'linear-gradient(135deg, #1e3a8a, #1A56DB)', borderRadius: 16, padding: 28, color: '#fff', textAlign: 'center', marginBottom: 16 }}>
-            <div style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', opacity: 0.8, marginBottom: 8 }}>Tax Rate Applied</div>
+            <div style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', opacity: 0.8, marginBottom: 8 }}>Tax rate applied</div>
             <div style={{ fontSize: 56, fontWeight: 800, lineHeight: 1 }}>{result.taxRate.toFixed(3)}%</div>
             <div style={{ fontSize: 14, opacity: 0.7, marginTop: 8 }}>${fmt(result.taxAmount)} added in tax</div>
           </div>
@@ -61,11 +61,11 @@ export default function FindTaxRateTab() {
               <div style={{ fontSize: 24, fontWeight: 800, color: '#374151' }}>${fmt(result.originalPrice)}</div>
             </div>
             <div className="result-card danger">
-              <div style={{ fontSize: 12, fontWeight: 700, color: '#991b1b', textTransform: 'uppercase', marginBottom: 6 }}>Tax Amount</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#991b1b', textTransform: 'uppercase', marginBottom: 6 }}>Tax amount</div>
               <div style={{ fontSize: 24, fontWeight: 800, color: '#dc2626' }}>${fmt(result.taxAmount)}</div>
             </div>
             <div className="result-card success">
-              <div style={{ fontSize: 12, fontWeight: 700, color: '#065f46', textTransform: 'uppercase', marginBottom: 6 }}>Total Paid</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: '#065f46', textTransform: 'uppercase', marginBottom: 6 }}>Total paid</div>
               <div style={{ fontSize: 24, fontWeight: 800, color: '#047857' }}>${fmt(result.finalPrice)}</div>
             </div>
           </div>

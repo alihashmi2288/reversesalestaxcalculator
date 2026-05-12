@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   description:
     'Free reverse sales tax calculator. Enter your total price and tax rate to instantly find the original price before tax. Works for US, Canada & worldwide. No signup.',
-  authors: [{ name: SITE_NAME }],
-  creator: SITE_NAME,
-  publisher: SITE_NAME,
+  authors: [{ name: 'PreTaxPrice' }],
+  creator: 'PreTaxPrice',
+  publisher: 'PreTaxPrice',
   robots: {
     index: true,
     follow: true,
@@ -38,14 +38,21 @@ export const metadata: Metadata = {
     'max-image-preview': 'large',
     'max-video-preview': -1,
   },
-  alternates: { canonical: SITE_URL },
+  alternates: { 
+    canonical: SITE_URL,
+    languages: {
+      'en-US': SITE_URL,
+      'en-CA': `${SITE_URL}/canada`,
+      'en-GB': `${SITE_URL}/vat-calculator`,
+    },
+  },
   openGraph: {
     type: 'website',
-    siteName: SITE_NAME,
+    siteName: 'PreTaxPrice',
     title: 'Reverse Sales Tax Calculator — Free & Instant',
     description: 'Calculate the original price before tax instantly. Free, no signup, works for all US states, Canada, and worldwide.',
     url: SITE_URL,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Reverse Sales Tax Calculator' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Reverse Sales Tax Calculator and Pre-tax Price Finder Tool' }],
   },
   twitter: {
     card: 'summary_large_image',

@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — ReverseTax Calculator',
-  description: 'Terms of service for ReverseTax Calculator. For informational purposes only — not professional tax advice.',
+  title: 'Terms of Service — PreTaxPrice',
+  description: 'Terms of service for PreTaxPrice. For informational purposes only — not professional tax advice.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/terms-of-service' },
 };
 
@@ -23,7 +23,7 @@ export default function TermsPage() {
 
         <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 12, padding: 20, marginBottom: 40 }}>
           <p style={{ color: '#92400e', fontWeight: 600, fontSize: 15 }}>
-            ⚠️ <strong>Important Disclaimer:</strong> ReverseTax Calculator is for informational and estimation purposes only.
+            ⚠️ <strong>Important Disclaimer:</strong> PreTaxPrice is for informational and estimation purposes only.
             It does not constitute professional tax, legal, or financial advice. Always verify tax rates and calculations with
             official government sources or a qualified tax professional before making financial or legal decisions.
           </p>
@@ -36,7 +36,7 @@ export default function TermsPage() {
           },
           {
             title: '2. Description of Service',
-            body: 'ReverseTax Calculator provides a free, browser-based tool for calculating reverse sales tax, VAT, and related tax computations. The service is provided "as is" and "as available" without warranties of any kind.',
+            body: 'PreTaxPrice provides a free, browser-based tool for calculating reverse sales tax, VAT, and related tax computations. The service is provided "as is" and "as available" without warranties of any kind.',
           },
           {
             title: '3. Disclaimer of Accuracy',
@@ -48,11 +48,11 @@ export default function TermsPage() {
           },
           {
             title: '5. Limitation of Liability',
-            body: 'To the maximum extent permitted by law, ReverseTax Calculator and its operators shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, this service. This includes but is not limited to errors in tax calculations, incorrect rate data, or decisions made based on information provided by this tool.',
+            body: 'To the maximum extent permitted by law, PreTaxPrice and its operators shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, this service. This includes but is not limited to errors in tax calculations, incorrect rate data, or decisions made based on information provided by this tool.',
           },
           {
             title: '6. Intellectual Property',
-            body: 'All content on this website, including text, graphics, design, and code, is the property of ReverseTax Calculator and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.',
+            body: 'All content on this website, including text, graphics, design, and code, is the property of PreTaxPrice and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.',
           },
           {
             title: '7. Advertising',

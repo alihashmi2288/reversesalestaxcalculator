@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
+import LinkifiedText from '@/components/LinkifiedText';
 import { getStateBySlug, STATE_TAX_RATES } from '@/data/stateTaxRates';
 import { getStateContentBySlug } from '@/data/stateContent';
 import StateCalculatorClient from './StateCalculatorClient';
@@ -22,10 +23,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stateData = getStateBySlug(stateSlug);
   if (!stateData) return { title: 'State Not Found' };
 
+  const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
+  ogUrl.searchParams.set('title', `${stateData.state} Reverse Tax Calculator`);
+  ogUrl.searchParams.set('location', stateData.state);
+  ogUrl.searchParams.set('rate', stateData.rate.toString());
+
   return {
     title: `${stateData.state} Reverse Sales Tax Calculator — ${stateData.rate}% Combined Rate`,
     description: `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`,
     alternates: { canonical: `https://salestaxreversecalculator.com/us/${stateSlug}` },
+    openGraph: {
+      images: [{ url: ogUrl.toString() }],
+    },
   };
 }
 
@@ -116,7 +125,7 @@ export default async function StatePage({ params }: Props) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.75 }}>
             {stateContent?.aboutText ? (
               stateContent.aboutText.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
+                <p key={idx}><LinkifiedText text={paragraph} currentState={stateData.state} /></p>
               ))
             ) : stateData.rate === 0 ? (
               <p>{stateData.state} is one of five US states with <strong>no sales tax</strong>. Shoppers in {stateData.state} pay the listed price — no tax is added at checkout for most purchases.</p>
@@ -172,7 +181,7 @@ export default async function StatePage({ params }: Props) {
               {stateContent.useCases.map((useCase, idx) => (
                 <div key={idx} className="card" style={{ padding: 32 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 16 }}>{useCase.title}</h3>
-                  <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7 }}>{useCase.description}</p>
+                  <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7 }}><LinkifiedText text={useCase.description} currentState={stateData.state} /></p>
                 </div>
               ))}
             </div>
@@ -193,7 +202,7 @@ export default async function StatePage({ params }: Props) {
                     <span style={{ color: 'var(--primary)', fontSize: 24 }}>+</span>
                   </summary>
                   <p style={{ marginTop: 16, fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7, paddingTop: 16, borderTop: '1px solid var(--border)' }}>
-                    {faq.answer}
+                    <LinkifiedText text={faq.answer} currentState={stateData.state} />
                   </p>
                 </details>
               ))}

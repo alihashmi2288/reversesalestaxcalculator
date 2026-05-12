@@ -190,7 +190,7 @@ export default function FAQSection() {
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <span className="section-label">FAQ</span>
         <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
-          Frequently Asked Questions
+          Reverse Sales Tax Calculator FAQ
         </h2>
         <p style={{ fontSize: 18, color: 'var(--text-secondary)', maxWidth: 640, margin: '0 auto' }}>
           Everything you need to know about reverse sales tax — from the formula to business accounting, US states, Canada, and international VAT.

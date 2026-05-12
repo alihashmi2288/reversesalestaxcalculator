@@ -34,14 +34,14 @@ export default function Navbar() {
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
+              <title>PreTaxPrice Logo</title>
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M2 17l10 5 10-5" />
               <path d="M2 12l10 5 10-5" />
             </svg>
           </div>
           <div>
-            <div style={{ fontWeight: 800, fontSize: 16, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)', textTransform: 'uppercase' }}>ReverseTax</div>
-            <div style={{ fontWeight: 700, fontSize: 11, color: 'var(--primary)', lineHeight: 1, fontFamily: 'var(--font-mono)' }}>SYS.CALC</div>
+            <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)' }}>PreTaxPrice</div>
           </div>
         </Link>
 
@@ -70,10 +70,10 @@ export default function Navbar() {
               boxShadow: 'var(--shadow-solid-dark)',
               border: '2px solid transparent',
               transition: 'all 0.2s',
-              fontFamily: 'var(--font-mono)',
+              fontFamily: 'var(--font-sans)',
             }}
           >
-            TRY_CALC_NOW
+            Try the calculator
           </Link>
         </div>
 

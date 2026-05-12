@@ -156,7 +156,7 @@ export default function MultipleItemsTab() {
             <tfoot>
               <tr style={{ background: '#f9fafb', fontWeight: 700 }}>
                 <td colSpan={2} style={{ padding: '14px 16px', fontSize: 14, color: 'var(--text-primary)' }}>
-                  TOTALS ({rows.filter((r) => getCalc(r)).length} items)
+                  Totals ({rows.filter((r) => getCalc(r)).length} items)
                 </td>
                 <td style={{ padding: '14px 16px', color: 'var(--text-secondary)', fontSize: 13 }}>
                   Total Paid: ${fmt(totals.totalPaid)}

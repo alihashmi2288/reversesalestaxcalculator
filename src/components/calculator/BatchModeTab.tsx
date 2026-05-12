@@ -114,7 +114,7 @@ export default function BatchModeTab() {
               </tbody>
               <tfoot>
                 <tr style={{ background: '#f9fafb', fontWeight: 700 }}>
-                  <td colSpan={3} style={{ padding: '14px 16px' }}>TOTALS</td>
+                  <td colSpan={3} style={{ padding: '14px 16px' }}>Totals</td>
                   <td style={{ padding: '14px 16px', color: 'var(--accent)' }}>
                     ${fmt(results.filter(r => !r.error).reduce((s, r) => s + r.preTaxPrice, 0))}
                   </td>

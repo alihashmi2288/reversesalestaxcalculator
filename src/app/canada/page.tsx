@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
+import LinkifiedText from '@/components/LinkifiedText';
 import CanadaCalculator from './CanadaCalculator';
 
 export const metadata: Metadata = {
   title: 'Canada Reverse Tax Calculator — GST, HST, PST by Province',
   description: 'Free Canada reverse sales tax calculator. Remove GST, HST, or PST from any price. Supports all 13 provinces and territories with current 2026 rates.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/canada' },
+  openGraph: {
+    images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Canada%20Reverse%20Tax%20Calculator&location=Canada' }],
+  },
 };
 
 export default function CanadaPage() {
@@ -79,10 +83,10 @@ export default function CanadaPage() {
               </h2>
               <div style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <p>
-                  Canadian sales tax can be quite complex because it varies significantly depending on which province or territory you are in. At the federal level, Canada imposes a blanket 5% Goods and Services Tax (GST). However, that is usually just the starting point, as most provinces add their own specific taxes on top.
+                  <LinkifiedText text="Unlike the US state sales tax system (which is collected only at the final point of sale), Canada operates on a Value Added Tax (VAT) model. The base federal tax is the GST (Goods and Services Tax) at 5%. Most provinces combine this with a provincial tax to create the HST (Harmonized Sales Tax) at 13% to 15%. Other provinces charge GST and a separate PST (Provincial Sales Tax), while Quebec charges GST and QST (Quebec Sales Tax)." currentState="Canada" />
                 </p>
                 <p>
-                  In provinces like Ontario, New Brunswick, and Nova Scotia, the federal and provincial taxes are merged into a single Harmonized Sales Tax (HST), which ranges from 13% to 15%. Other provinces, such as British Columbia, Manitoba, and Saskatchewan, maintain a separate Provincial Sales Tax (PST) that is calculated alongside the 5% GST. Quebec operates its own unique system with the Quebec Sales Tax (QST) at 9.975%, which brings their effective combined rate to 14.975%. Meanwhile, Alberta and the territories (Northwest Territories, Nunavut, and Yukon) are the only regions that charge strictly the 5% GST with absolutely no provincial additions.
+                  <LinkifiedText text="If you're a business owner or consumer trying to extract the exact pre-tax cost from a receipt, you cannot simply subtract the tax percentage from the final total. You must use the reverse tax formula. Our calculator does this instantly for every province." currentState="Canada" />
                 </p>
                 <p>
                   When you purchase items in Canada, these taxes are automatically added at the register. If you are looking at a final receipt and need to know the original price before tax was applied, our Canada Reverse Sales Tax Calculator allows you to work backwards instantly, no matter which province's tax rules apply to your purchase.
@@ -98,13 +102,13 @@ export default function CanadaPage() {
                 <div className="card" style={{ padding: 24 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>Claiming Input Tax Credits (ITCs)</h3>
                   <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    For Canadian businesses registered for GST/HST, reclaiming taxes paid on business expenses is crucial. If a vendor receipt only shows a final total, our calculator extracts the exact GST/HST amount so you can accurately claim your ITCs from the CRA.
+                    <LinkifiedText text="Canadian businesses can claim Input Tax Credits (ITCs) to recover the GST/HST paid on eligible business expenses. To claim an ITC, you must know the exact amount of GST/HST paid. If your receipt only shows the total, our calculator extracts the precise tax amount required for your CRA return." currentState="Canada" />
                   </p>
                 </div>
                 <div className="card" style={{ padding: 24 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>Cross-Border Budgeting</h3>
                   <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    If you live in Alberta (5% tax) but are purchasing a vehicle or heavy equipment in British Columbia (12% tax), understanding the true cost of the item can be tricky. Use our tool to strip away the tax and see the actual sticker price of the goods you are buying.
+                    <LinkifiedText text="If your business operates nationally, reconciling expenses from Ontario (13% HST), British Columbia (5% GST + 7% PST), and Alberta (5% GST) is an accounting headache. Using our province dropdown lets you standardize all inter-provincial receipts back to their base cost instantly." currentState="Canada" />
                   </p>
                 </div>
                 <div className="card" style={{ padding: 24 }}>
@@ -123,29 +127,29 @@ export default function CanadaPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {[
                   {
-                    q: 'How do I calculate a price before 13% HST in Ontario?',
-                    a: 'To manually find the pre-tax price in Ontario, you divide the final total by 1.13. For example, if you paid $113.00 total, you divide by 1.13 to get the original pre-tax price of $100.00. Our calculator does this math for you automatically.'
+                    question: 'How do I calculate a price before 13% HST in Ontario?',
+                    answer: 'To manually find the pre-tax price in Ontario, you divide the final total by 1.13. For example, if you paid $113.00 total, you divide by 1.13 to get the original pre-tax price of $100.00. Our calculator does this math for you automatically.'
                   },
                   {
-                    q: 'Are groceries taxed in Canada?',
-                    a: 'Basic groceries (like milk, bread, and fresh vegetables) are generally "zero-rated" in Canada, meaning they are taxed at 0%. However, snack foods, hot prepared meals, and alcohol are fully taxable under standard GST/HST/PST/QST rules.'
+                    question: 'Are groceries taxed in Canada?',
+                    answer: 'Basic groceries (like milk, bread, and fresh vegetables) are generally "zero-rated" in Canada, meaning they are taxed at 0%. However, snack foods, hot prepared meals, and alcohol are fully taxable under standard GST/HST/PST/QST rules.'
                   },
                   {
-                    q: 'Does the calculator work for Quebec\'s QST?',
-                    a: 'Yes! Quebec charges a 5% federal GST and a 9.975% provincial QST, bringing the combined rate to 14.975%. Our calculator natively supports Quebec\'s unique tax structure.'
+                    question: 'Does the calculator work for Quebec\'s QST?',
+                    answer: 'Yes! Quebec charges a 5% federal GST and a 9.975% provincial QST, bringing the combined rate to 14.975%. Our calculator natively supports Quebec\'s unique tax structure.'
                   },
                   {
-                    q: 'Why do Alberta and the Territories only charge 5%?',
-                    a: 'Alberta, the Northwest Territories, Nunavut, and Yukon do not have a provincial sales tax (PST). Residents and businesses in these areas only pay the federal 5% Goods and Services Tax (GST) on taxable items.'
+                    question: 'Why do Alberta and the Territories only charge 5%?',
+                    answer: 'Alberta, the Northwest Territories, Nunavut, and Yukon do not have a provincial sales tax (PST). Residents and businesses in these areas only pay the federal 5% Goods and Services Tax (GST) on taxable items.'
                   }
                 ].map((faq, idx) => (
                   <details key={idx} className="card" style={{ padding: '24px 32px', cursor: 'pointer', outline: 'none' }}>
                     <summary style={{ fontSize: 18, fontWeight: 600, color: 'var(--text-primary)', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      {faq.q}
+                      {faq.question}
                       <span style={{ color: 'var(--primary)', fontSize: 24 }}>+</span>
                     </summary>
                     <p style={{ marginTop: 16, fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7, paddingTop: 16, borderTop: '1px solid var(--border)' }}>
-                      {faq.a}
+                      <LinkifiedText text={faq.answer} currentState="Canada" />
                     </p>
                   </details>
                 ))}
