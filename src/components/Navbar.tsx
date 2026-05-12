@@ -34,14 +34,14 @@ export default function Navbar() {
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
-              <title>ReverseTaxCalc Logo</title>
+              <title>PreTaxPrice Logo</title>
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M2 17l10 5 10-5" />
               <path d="M2 12l10 5 10-5" />
             </svg>
           </div>
           <div>
-            <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)' }}>ReverseTaxCalc</div>
+            <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)' }}>PreTaxPrice</div>
           </div>
         </Link>
 

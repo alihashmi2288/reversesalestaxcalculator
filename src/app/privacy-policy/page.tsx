@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — ReverseTaxCalc',
-  description: 'Privacy policy for ReverseTaxCalc. We collect no personal data — all calculations are performed locally in your browser.',
+  title: 'Privacy Policy — PreTaxPrice',
+  description: 'Privacy policy for PreTaxPrice. We collect no personal data — all calculations are performed locally in your browser.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/privacy-policy' },
 };
 
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
         {[
           {
             title: '1. Overview',
-            body: 'ReverseTaxCalc ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy describes how we handle information when you visit https://www.salestaxreversecalculator.com. The short version: we collect almost nothing, and what little we do collect is anonymous.',
+            body: 'PreTaxPrice ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy describes how we handle information when you visit https://www.salestaxreversecalculator.com. The short version: we collect almost nothing, and what little we do collect is anonymous.',
           },
           {
             title: '2. Information We Do NOT Collect',

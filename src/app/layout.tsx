@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   description:
     'Free reverse sales tax calculator. Enter your total price and tax rate to instantly find the original price before tax. Works for US, Canada & worldwide. No signup.',
-  authors: [{ name: 'ReverseTaxCalc' }],
-  creator: 'ReverseTaxCalc',
-  publisher: 'ReverseTaxCalc',
+  authors: [{ name: 'PreTaxPrice' }],
+  creator: 'PreTaxPrice',
+  publisher: 'PreTaxPrice',
   robots: {
     index: true,
     follow: true,
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'ReverseTaxCalc',
+    siteName: 'PreTaxPrice',
     title: 'Reverse Sales Tax Calculator — Free & Instant',
     description: 'Calculate the original price before tax instantly. Free, no signup, works for all US states, Canada, and worldwide.',
     url: SITE_URL,
@@ -85,7 +85,7 @@ const webApplicationSchema = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'ReverseTaxCalc',
+    name: 'PreTaxPrice',
     url: SITE_URL
   }
 };

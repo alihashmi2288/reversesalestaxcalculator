@@ -77,7 +77,7 @@ export async function GET(req: NextRequest) {
                   letterSpacing: '-0.02em',
                 }}
               >
-                ReverseTaxCalculator
+                PreTaxPrice
               </span>
             </div>
 
