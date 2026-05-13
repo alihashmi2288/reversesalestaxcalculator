@@ -31,20 +31,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 9.29
+        "name": "Birmingham",
+        "rate": 10.0
       },
       {
-        "name": "Second City",
-        "rate": 9.04
+        "name": "Montgomery",
+        "rate": 10.0
       },
       {
-        "name": "Third City",
-        "rate": 9.54
+        "name": "Mobile",
+        "rate": 10.0
       },
       {
-        "name": "Fourth City",
-        "rate": 9.29
+        "name": "Huntsville",
+        "rate": 9.0
       }
     ],
     "useCases": [
@@ -93,20 +93,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 1.76
+        "name": "Anchorage",
+        "rate": 0.0
       },
       {
-        "name": "Second City",
-        "rate": 1.51
+        "name": "Fairbanks",
+        "rate": 0.0
       },
       {
-        "name": "Third City",
-        "rate": 2.01
+        "name": "Juneau",
+        "rate": 5.0
       },
       {
-        "name": "Fourth City",
-        "rate": 1.76
+        "name": "Sitka",
+        "rate": 5.0
       }
     ],
     "useCases": [
@@ -155,20 +155,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.42
+        "name": "Phoenix",
+        "rate": 9.1
       },
       {
-        "name": "Second City",
-        "rate": 8.17
+        "name": "Tucson",
+        "rate": 8.7
       },
       {
-        "name": "Third City",
-        "rate": 8.67
+        "name": "Mesa",
+        "rate": 8.3
       },
       {
-        "name": "Fourth City",
-        "rate": 8.42
+        "name": "Chandler",
+        "rate": 7.8
       }
     ],
     "useCases": [
@@ -217,20 +217,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 9.49
+        "name": "Little Rock",
+        "rate": 9.125
       },
       {
-        "name": "Second City",
-        "rate": 9.24
+        "name": "Fort Smith",
+        "rate": 9.75
       },
       {
-        "name": "Third City",
-        "rate": 9.74
+        "name": "Fayetteville",
+        "rate": 9.75
       },
       {
-        "name": "Fourth City",
-        "rate": 9.49
+        "name": "Springdale",
+        "rate": 9.75
       }
     ],
     "useCases": [
@@ -279,20 +279,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 9.06
+        "name": "Los Angeles",
+        "rate": 10.25
       },
       {
-        "name": "Second City",
-        "rate": 8.81
+        "name": "San Francisco",
+        "rate": 8.625
       },
       {
-        "name": "Third City",
-        "rate": 9.31
+        "name": "San Diego",
+        "rate": 7.75
       },
       {
-        "name": "Fourth City",
-        "rate": 9.06
+        "name": "San Jose",
+        "rate": 9.375
       }
     ],
     "useCases": [
@@ -341,20 +341,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.86
+        "name": "Denver",
+        "rate": 7.71
       },
       {
-        "name": "Second City",
-        "rate": 7.61
+        "name": "Colorado Springs",
+        "rate": 7.2
       },
       {
-        "name": "Third City",
-        "rate": 8.11
+        "name": "Aurora",
+        "rate": 8.5
       },
       {
-        "name": "Fourth City",
-        "rate": 7.86
+        "name": "Fort Collins",
+        "rate": 7.55
       }
     ],
     "useCases": [
@@ -403,19 +403,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Hartford",
         "rate": 6.35
       },
       {
-        "name": "Second City",
-        "rate": 6.1
+        "name": "New Haven",
+        "rate": 6.35
       },
       {
-        "name": "Third City",
-        "rate": 6.6
+        "name": "Stamford",
+        "rate": 6.35
       },
       {
-        "name": "Fourth City",
+        "name": "Bridgeport",
         "rate": 6.35
       }
     ],
@@ -465,19 +465,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Wilmington",
         "rate": 0
       },
       {
-        "name": "Second City",
+        "name": "Dover",
         "rate": 0
       },
       {
-        "name": "Third City",
+        "name": "Newark",
         "rate": 0
       },
       {
-        "name": "Fourth City",
+        "name": "Middletown",
         "rate": 0
       }
     ],
@@ -527,20 +527,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.05
+        "name": "Jacksonville",
+        "rate": 7.5
       },
       {
-        "name": "Second City",
-        "rate": 6.8
+        "name": "Miami",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 7.3
+        "name": "Tampa",
+        "rate": 7.5
       },
       {
-        "name": "Fourth City",
-        "rate": 7.05
+        "name": "Orlando",
+        "rate": 6.5
       }
     ],
     "useCases": [
@@ -589,20 +589,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.36
+        "name": "Atlanta",
+        "rate": 8.9
       },
       {
-        "name": "Second City",
-        "rate": 7.11
+        "name": "Augusta",
+        "rate": 8.0
       },
       {
-        "name": "Third City",
-        "rate": 7.61
+        "name": "Columbus",
+        "rate": 8.0
       },
       {
-        "name": "Fourth City",
-        "rate": 7.36
+        "name": "Savannah",
+        "rate": 7.0
       }
     ],
     "useCases": [
@@ -651,19 +651,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Honolulu",
         "rate": 4.5
       },
       {
-        "name": "Second City",
-        "rate": 4.25
+        "name": "Pearl City",
+        "rate": 4.5
       },
       {
-        "name": "Third City",
-        "rate": 4.75
+        "name": "Hilo",
+        "rate": 4.5
       },
       {
-        "name": "Fourth City",
+        "name": "Kailua",
         "rate": 4.5
       }
     ],
@@ -713,20 +713,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6.03
+        "name": "Boise",
+        "rate": 6.0
       },
       {
-        "name": "Second City",
-        "rate": 5.78
+        "name": "Meridian",
+        "rate": 6.0
       },
       {
-        "name": "Third City",
-        "rate": 6.28
+        "name": "Nampa",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6.03
+        "name": "Idaho Falls",
+        "rate": 6.0
       }
     ],
     "useCases": [
@@ -775,20 +775,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.84
+        "name": "Chicago",
+        "rate": 10.25
       },
       {
-        "name": "Second City",
-        "rate": 8.59
+        "name": "Aurora",
+        "rate": 8.25
       },
       {
-        "name": "Third City",
-        "rate": 9.09
+        "name": "Joliet",
+        "rate": 8.75
       },
       {
-        "name": "Fourth City",
-        "rate": 8.84
+        "name": "Naperville",
+        "rate": 7.75
       }
     ],
     "useCases": [
@@ -837,20 +837,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7
+        "name": "Indianapolis",
+        "rate": 7.0
       },
       {
-        "name": "Second City",
-        "rate": 6.75
+        "name": "Fort Wayne",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 7.25
+        "name": "Evansville",
+        "rate": 7.0
       },
       {
-        "name": "Fourth City",
-        "rate": 7
+        "name": "South Bend",
+        "rate": 7.0
       }
     ],
     "useCases": [
@@ -899,20 +899,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6.95
+        "name": "Des Moines",
+        "rate": 7.0
       },
       {
-        "name": "Second City",
-        "rate": 6.7
+        "name": "Cedar Rapids",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 7.2
+        "name": "Davenport",
+        "rate": 7.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6.95
+        "name": "Sioux City",
+        "rate": 7.0
       }
     ],
     "useCases": [
@@ -961,20 +961,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.79
+        "name": "Wichita",
+        "rate": 7.5
       },
       {
-        "name": "Second City",
-        "rate": 8.54
+        "name": "Overland Park",
+        "rate": 9.1
       },
       {
-        "name": "Third City",
-        "rate": 9.04
+        "name": "Kansas City",
+        "rate": 9.125
       },
       {
-        "name": "Fourth City",
-        "rate": 8.79
+        "name": "Topeka",
+        "rate": 9.15
       }
     ],
     "useCases": [
@@ -1023,20 +1023,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6
+        "name": "Louisville",
+        "rate": 6.0
       },
       {
-        "name": "Second City",
-        "rate": 5.75
+        "name": "Lexington",
+        "rate": 6.0
       },
       {
-        "name": "Third City",
-        "rate": 6.25
+        "name": "Bowling Green",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6
+        "name": "Owensboro",
+        "rate": 6.0
       }
     ],
     "useCases": [
@@ -1085,20 +1085,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 9.55
+        "name": "New Orleans",
+        "rate": 9.45
       },
       {
-        "name": "Second City",
-        "rate": 9.3
+        "name": "Baton Rouge",
+        "rate": 9.95
       },
       {
-        "name": "Third City",
-        "rate": 9.8
+        "name": "Shreveport",
+        "rate": 9.05
       },
       {
-        "name": "Fourth City",
-        "rate": 9.55
+        "name": "Lafayette",
+        "rate": 8.45
       }
     ],
     "useCases": [
@@ -1147,19 +1147,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Portland",
         "rate": 5.5
       },
       {
-        "name": "Second City",
-        "rate": 5.25
+        "name": "Lewiston",
+        "rate": 5.5
       },
       {
-        "name": "Third City",
-        "rate": 5.75
+        "name": "Bangor",
+        "rate": 5.5
       },
       {
-        "name": "Fourth City",
+        "name": "South Portland",
         "rate": 5.5
       }
     ],
@@ -1209,20 +1209,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6
+        "name": "Baltimore",
+        "rate": 6.0
       },
       {
-        "name": "Second City",
-        "rate": 5.75
+        "name": "Frederick",
+        "rate": 6.0
       },
       {
-        "name": "Third City",
-        "rate": 6.25
+        "name": "Gaithersburg",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6
+        "name": "Rockville",
+        "rate": 6.0
       }
     ],
     "useCases": [
@@ -1271,19 +1271,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Boston",
         "rate": 6.25
       },
       {
-        "name": "Second City",
-        "rate": 6
+        "name": "Worcester",
+        "rate": 6.25
       },
       {
-        "name": "Third City",
-        "rate": 6.5
+        "name": "Springfield",
+        "rate": 6.25
       },
       {
-        "name": "Fourth City",
+        "name": "Cambridge",
         "rate": 6.25
       }
     ],
@@ -1333,20 +1333,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6
+        "name": "Detroit",
+        "rate": 6.0
       },
       {
-        "name": "Second City",
-        "rate": 5.75
+        "name": "Grand Rapids",
+        "rate": 6.0
       },
       {
-        "name": "Third City",
-        "rate": 6.25
+        "name": "Warren",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6
+        "name": "Sterling Heights",
+        "rate": 6.0
       }
     ],
     "useCases": [
@@ -1395,20 +1395,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.58
+        "name": "Minneapolis",
+        "rate": 8.025
       },
       {
-        "name": "Second City",
-        "rate": 7.33
+        "name": "St. Paul",
+        "rate": 7.875
       },
       {
-        "name": "Third City",
-        "rate": 7.83
+        "name": "Rochester",
+        "rate": 8.125
       },
       {
-        "name": "Fourth City",
-        "rate": 7.58
+        "name": "Duluth",
+        "rate": 8.875
       }
     ],
     "useCases": [
@@ -1457,20 +1457,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.08
+        "name": "Jackson",
+        "rate": 8.0
       },
       {
-        "name": "Second City",
-        "rate": 6.83
+        "name": "Gulfport",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 7.33
+        "name": "Southaven",
+        "rate": 7.0
       },
       {
-        "name": "Fourth City",
-        "rate": 7.08
+        "name": "Biloxi",
+        "rate": 7.0
       }
     ],
     "useCases": [
@@ -1519,20 +1519,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.35
-      },
-      {
-        "name": "Second City",
-        "rate": 8.1
-      },
-      {
-        "name": "Third City",
+        "name": "Kansas City",
         "rate": 8.6
       },
       {
-        "name": "Fourth City",
-        "rate": 8.35
+        "name": "St. Louis",
+        "rate": 9.679
+      },
+      {
+        "name": "Springfield",
+        "rate": 8.1
+      },
+      {
+        "name": "Independence",
+        "rate": 7.85
       }
     ],
     "useCases": [
@@ -1581,19 +1581,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Billings",
         "rate": 0
       },
       {
-        "name": "Second City",
+        "name": "Missoula",
         "rate": 0
       },
       {
-        "name": "Third City",
+        "name": "Great Falls",
         "rate": 0
       },
       {
-        "name": "Fourth City",
+        "name": "Bozeman",
         "rate": 0
       }
     ],
@@ -1643,20 +1643,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.05
+        "name": "Omaha",
+        "rate": 7.0
       },
       {
-        "name": "Second City",
-        "rate": 6.8
+        "name": "Lincoln",
+        "rate": 7.25
       },
       {
-        "name": "Third City",
-        "rate": 7.3
+        "name": "Bellevue",
+        "rate": 7.0
       },
       {
-        "name": "Fourth City",
-        "rate": 7.05
+        "name": "Grand Island",
+        "rate": 7.5
       }
     ],
     "useCases": [
@@ -1705,20 +1705,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.38
+        "name": "Las Vegas",
+        "rate": 8.375
       },
       {
-        "name": "Second City",
-        "rate": 8.13
+        "name": "Henderson",
+        "rate": 8.375
       },
       {
-        "name": "Third City",
-        "rate": 8.63
+        "name": "Reno",
+        "rate": 8.265
       },
       {
-        "name": "Fourth City",
-        "rate": 8.38
+        "name": "North Las Vegas",
+        "rate": 8.375
       }
     ],
     "useCases": [
@@ -1767,19 +1767,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Manchester",
         "rate": 0
       },
       {
-        "name": "Second City",
+        "name": "Nashua",
         "rate": 0
       },
       {
-        "name": "Third City",
+        "name": "Concord",
         "rate": 0
       },
       {
-        "name": "Fourth City",
+        "name": "Derry",
         "rate": 0
       }
     ],
@@ -1829,20 +1829,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6.65
+        "name": "Newark",
+        "rate": 6.625
       },
       {
-        "name": "Second City",
-        "rate": 6.4
+        "name": "Jersey City",
+        "rate": 6.625
       },
       {
-        "name": "Third City",
-        "rate": 6.9
+        "name": "Paterson",
+        "rate": 6.625
       },
       {
-        "name": "Fourth City",
-        "rate": 6.65
+        "name": "Elizabeth",
+        "rate": 6.625
       }
     ],
     "useCases": [
@@ -1891,20 +1891,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.95
+        "name": "Albuquerque",
+        "rate": 7.75
       },
       {
-        "name": "Second City",
-        "rate": 7.7
+        "name": "Las Cruces",
+        "rate": 8.3125
       },
       {
-        "name": "Third City",
-        "rate": 8.2
+        "name": "Rio Rancho",
+        "rate": 7.6875
       },
       {
-        "name": "Fourth City",
-        "rate": 7.95
+        "name": "Santa Fe",
+        "rate": 8.4375
       }
     ],
     "useCases": [
@@ -1953,20 +1953,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.54
+        "name": "New York City",
+        "rate": 8.875
       },
       {
-        "name": "Second City",
-        "rate": 8.29
+        "name": "Buffalo",
+        "rate": 8.75
       },
       {
-        "name": "Third City",
-        "rate": 8.79
+        "name": "Rochester",
+        "rate": 8.0
       },
       {
-        "name": "Fourth City",
-        "rate": 8.54
+        "name": "Yonkers",
+        "rate": 8.875
       }
     ],
     "useCases": [
@@ -2015,20 +2015,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7
-      },
-      {
-        "name": "Second City",
-        "rate": 6.75
-      },
-      {
-        "name": "Third City",
+        "name": "Charlotte",
         "rate": 7.25
       },
       {
-        "name": "Fourth City",
-        "rate": 7
+        "name": "Raleigh",
+        "rate": 7.25
+      },
+      {
+        "name": "Greensboro",
+        "rate": 6.75
+      },
+      {
+        "name": "Durham",
+        "rate": 7.5
       }
     ],
     "useCases": [
@@ -2077,20 +2077,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.23
+        "name": "Fargo",
+        "rate": 7.5
       },
       {
-        "name": "Second City",
-        "rate": 6.98
+        "name": "Bismarck",
+        "rate": 6.5
       },
       {
-        "name": "Third City",
-        "rate": 7.48
+        "name": "Grand Forks",
+        "rate": 7.25
       },
       {
-        "name": "Fourth City",
-        "rate": 7.23
+        "name": "Minot",
+        "rate": 7.5
       }
     ],
     "useCases": [
@@ -2139,20 +2139,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.31
+        "name": "Columbus",
+        "rate": 7.5
       },
       {
-        "name": "Second City",
-        "rate": 7.06
+        "name": "Cleveland",
+        "rate": 8.0
       },
       {
-        "name": "Third City",
-        "rate": 7.56
+        "name": "Cincinnati",
+        "rate": 7.0
       },
       {
-        "name": "Fourth City",
-        "rate": 7.31
+        "name": "Toledo",
+        "rate": 7.75
       }
     ],
     "useCases": [
@@ -2201,20 +2201,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.99
+        "name": "Oklahoma City",
+        "rate": 8.625
       },
       {
-        "name": "Second City",
-        "rate": 8.74
+        "name": "Tulsa",
+        "rate": 8.517
       },
       {
-        "name": "Third City",
-        "rate": 9.24
+        "name": "Norman",
+        "rate": 8.75
       },
       {
-        "name": "Fourth City",
-        "rate": 8.99
+        "name": "Broken Arrow",
+        "rate": 8.417
       }
     ],
     "useCases": [
@@ -2263,19 +2263,19 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
+        "name": "Portland",
         "rate": 0
       },
       {
-        "name": "Second City",
+        "name": "Eugene",
         "rate": 0
       },
       {
-        "name": "Third City",
+        "name": "Salem",
         "rate": 0
       },
       {
-        "name": "Fourth City",
+        "name": "Gresham",
         "rate": 0
       }
     ],
@@ -2325,20 +2325,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6.34
+        "name": "Philadelphia",
+        "rate": 8.0
       },
       {
-        "name": "Second City",
-        "rate": 6.09
+        "name": "Pittsburgh",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 6.59
+        "name": "Allentown",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6.34
+        "name": "Erie",
+        "rate": 6.0
       }
     ],
     "useCases": [
@@ -2387,20 +2387,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7
+        "name": "Providence",
+        "rate": 7.0
       },
       {
-        "name": "Second City",
-        "rate": 6.75
+        "name": "Warwick",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 7.25
+        "name": "Cranston",
+        "rate": 7.0
       },
       {
-        "name": "Fourth City",
-        "rate": 7
+        "name": "Pawtucket",
+        "rate": 7.0
       }
     ],
     "useCases": [
@@ -2449,20 +2449,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.51
+        "name": "Charleston",
+        "rate": 9.0
       },
       {
-        "name": "Second City",
-        "rate": 7.26
+        "name": "Columbia",
+        "rate": 8.0
       },
       {
-        "name": "Third City",
-        "rate": 7.76
+        "name": "North Charleston",
+        "rate": 9.0
       },
       {
-        "name": "Fourth City",
-        "rate": 7.51
+        "name": "Mount Pleasant",
+        "rate": 9.0
       }
     ],
     "useCases": [
@@ -2511,20 +2511,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6.19
+        "name": "Sioux Falls",
+        "rate": 6.5
       },
       {
-        "name": "Second City",
-        "rate": 5.94
+        "name": "Rapid City",
+        "rate": 6.5
       },
       {
-        "name": "Third City",
-        "rate": 6.44
+        "name": "Aberdeen",
+        "rate": 6.5
       },
       {
-        "name": "Fourth City",
-        "rate": 6.19
+        "name": "Brookings",
+        "rate": 6.5
       }
     ],
     "useCases": [
@@ -2573,20 +2573,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 9.55
+        "name": "Nashville",
+        "rate": 9.25
       },
       {
-        "name": "Second City",
-        "rate": 9.3
+        "name": "Memphis",
+        "rate": 9.75
       },
       {
-        "name": "Third City",
-        "rate": 9.8
+        "name": "Knoxville",
+        "rate": 9.25
       },
       {
-        "name": "Fourth City",
-        "rate": 9.55
+        "name": "Chattanooga",
+        "rate": 9.25
       }
     ],
     "useCases": [
@@ -2635,20 +2635,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 8.19
+        "name": "Houston",
+        "rate": 8.25
       },
       {
-        "name": "Second City",
-        "rate": 7.94
+        "name": "San Antonio",
+        "rate": 8.25
       },
       {
-        "name": "Third City",
-        "rate": 8.44
+        "name": "Dallas",
+        "rate": 8.25
       },
       {
-        "name": "Fourth City",
-        "rate": 8.19
+        "name": "Austin",
+        "rate": 8.25
       }
     ],
     "useCases": [
@@ -2697,20 +2697,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 7.29
+        "name": "Salt Lake City",
+        "rate": 7.75
       },
       {
-        "name": "Second City",
-        "rate": 7.04
+        "name": "West Valley City",
+        "rate": 7.25
       },
       {
-        "name": "Third City",
-        "rate": 7.54
+        "name": "Provo",
+        "rate": 7.25
       },
       {
-        "name": "Fourth City",
-        "rate": 7.29
+        "name": "West Jordan",
+        "rate": 7.25
       }
     ],
     "useCases": [
@@ -2759,20 +2759,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6.37
+        "name": "Burlington",
+        "rate": 7.0
       },
       {
-        "name": "Second City",
-        "rate": 6.12
+        "name": "South Burlington",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 6.62
+        "name": "Rutland",
+        "rate": 7.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6.37
+        "name": "Essex Junction",
+        "rate": 7.0
       }
     ],
     "useCases": [
@@ -2821,20 +2821,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 5.82
+        "name": "Virginia Beach",
+        "rate": 6.0
       },
       {
-        "name": "Second City",
-        "rate": 5.57
+        "name": "Norfolk",
+        "rate": 6.0
       },
       {
-        "name": "Third City",
-        "rate": 6.07
+        "name": "Chesapeake",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 5.82
+        "name": "Richmond",
+        "rate": 6.0
       }
     ],
     "useCases": [
@@ -2883,20 +2883,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 9.22
+        "name": "Seattle",
+        "rate": 10.25
       },
       {
-        "name": "Second City",
-        "rate": 8.97
+        "name": "Spokane",
+        "rate": 9.0
       },
       {
-        "name": "Third City",
-        "rate": 9.47
+        "name": "Tacoma",
+        "rate": 10.3
       },
       {
-        "name": "Fourth City",
-        "rate": 9.22
+        "name": "Vancouver",
+        "rate": 8.7
       }
     ],
     "useCases": [
@@ -2945,20 +2945,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6.59
+        "name": "Charleston",
+        "rate": 7.0
       },
       {
-        "name": "Second City",
-        "rate": 6.34
+        "name": "Huntington",
+        "rate": 7.0
       },
       {
-        "name": "Third City",
-        "rate": 6.84
+        "name": "Morgantown",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6.59
+        "name": "Parkersburg",
+        "rate": 7.0
       }
     ],
     "useCases": [
@@ -3007,20 +3007,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 5.64
+        "name": "Milwaukee",
+        "rate": 7.9
       },
       {
-        "name": "Second City",
-        "rate": 5.39
+        "name": "Madison",
+        "rate": 5.5
       },
       {
-        "name": "Third City",
-        "rate": 5.89
+        "name": "Green Bay",
+        "rate": 5.5
       },
       {
-        "name": "Fourth City",
-        "rate": 5.64
+        "name": "Kenosha",
+        "rate": 5.5
       }
     ],
     "useCases": [
@@ -3069,20 +3069,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 5.44
+        "name": "Cheyenne",
+        "rate": 6.0
       },
       {
-        "name": "Second City",
-        "rate": 5.19
+        "name": "Casper",
+        "rate": 5.0
       },
       {
-        "name": "Third City",
-        "rate": 5.69
+        "name": "Laramie",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 5.44
+        "name": "Gillette",
+        "rate": 5.0
       }
     ],
     "useCases": [
@@ -3131,20 +3131,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "cities": [
       {
-        "name": "Major City 1",
-        "rate": 6
+        "name": "Washington",
+        "rate": 6.0
       },
       {
-        "name": "Second City",
-        "rate": 5.75
+        "name": "Georgetown",
+        "rate": 6.0
       },
       {
-        "name": "Third City",
-        "rate": 6.25
+        "name": "Capitol Hill",
+        "rate": 6.0
       },
       {
-        "name": "Fourth City",
-        "rate": 6
+        "name": "Adams Morgan",
+        "rate": 6.0
       }
     ],
     "useCases": [
