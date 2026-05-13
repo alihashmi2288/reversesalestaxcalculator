@@ -70,6 +70,19 @@ export const viewport = {
 };
 
 // JSON-LD Schemas
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'PreTaxPrice',
+  url: SITE_URL,
+  logo: `${SITE_URL}/og-image.png`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    'email': 'salestaxreversecalculator@gmail.com',
+    'contactType': 'customer service'
+  }
+};
+
 const webApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
@@ -103,6 +116,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="geo.placename" content="United States" />
         <meta name="language" content="English" />
         <meta httpEquiv="content-language" content="en-US" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}

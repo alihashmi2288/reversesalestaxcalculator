@@ -13,9 +13,19 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+    { '@type': 'ListItem', position: 2, name: 'Canada Reverse Tax Calculator', item: 'https://salestaxreversecalculator.com/canada' },
+  ],
+};
+
 export default function CanadaPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #7c3aed)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">
           <div style={{ fontSize: 48, marginBottom: 12 }}>🇨🇦</div>

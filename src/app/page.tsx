@@ -118,12 +118,63 @@ export const metadata: Metadata = {
     ]
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Reverse Sales Tax",
+    "description": "Step-by-step guide to finding the original pre-tax price from a total price inclusive of sales tax.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Identify the total price and tax rate",
+        "text": "Look at your receipt or price tag to find the total amount paid and the applicable sales tax rate (e.g., 8.5%).",
+        "url": "https://salestaxreversecalculator.com/#calculator"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Convert tax rate to decimal",
+        "text": "Divide the tax rate by 100. For example, 8.5 / 100 = 0.085."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Add 1 to the decimal",
+        "text": "Add 1 to the result from the previous step. For example, 1 + 0.085 = 1.085."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Divide total price by the divisor",
+        "text": "Divide the final total price by the divisor you calculated. For example, $108.50 / 1.085 = $100.00."
+      }
+    ],
+    "totalTime": "PT1M",
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Total price paid"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Sales tax rate"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Reverse Sales Tax Calculator"
+      }
+    ]
+  };
+
 
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section id="calculator" style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>

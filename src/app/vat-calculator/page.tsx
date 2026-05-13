@@ -9,9 +9,19 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://salestaxreversecalculator.com/vat-calculator' },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+    { '@type': 'ListItem', position: 2, name: 'Reverse VAT Calculator', item: 'https://salestaxreversecalculator.com/vat-calculator' },
+  ],
+};
+
 export default function VATPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #065f46)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">
           <div style={{ fontSize: 48, marginBottom: 12 }}>🇪🇺</div>

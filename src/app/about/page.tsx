@@ -2,14 +2,24 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About Sales Tax Reverse Calculator — Free & Private Tool',
+  title: { absolute: 'About PreTaxPrice — Free Reverse Sales Tax Calculator' },
   description: 'Learn about salestaxreversecalculator.com — a free, privacy-first tool helping shoppers, freelancers, and accountants calculate original prices before sales tax.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/about' },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://salestaxreversecalculator.com/about' },
+  ],
 };
 
 export default function AboutPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">
           <h1 style={{ fontSize: 'clamp(28px,5vw,48px)', fontWeight: 900, color: '#fff', marginBottom: 16 }}>About Us</h1>

@@ -35,6 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       images: [{ url: ogUrl.toString() }],
     },
+    twitter: {
+      title: `${stateData.state} Reverse Sales Tax Calculator`,
+    },
   };
 }
 
