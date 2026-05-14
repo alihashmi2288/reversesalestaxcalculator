@@ -31,6 +31,7 @@ const webApplicationSchema = {
     "Custom VAT rate input",
     "No signup required"
   ],
+  "screenshot": `${SITE_URL}/og-image.png`,
   "publisher": {
     "@type": "Organization",
     "name": "PreTaxPrice",

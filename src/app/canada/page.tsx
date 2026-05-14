@@ -38,6 +38,7 @@ const webApplicationSchema = {
     "Saskatchewan GST + PST (11%)",
     "Manitoba GST + PST (12%)"
   ],
+  "screenshot": `${SITE_URL}/og-image.png`,
   "publisher": {
     "@type": "Organization",
     "name": "PreTaxPrice",

@@ -70,6 +70,10 @@ export const metadata: Metadata = {
       { url: '/apple-icon.png' },
     ],
   },
+  other: {
+    'geo.region': 'US',
+    'geo.placename': 'United States',
+  },
 };
 
 export const viewport = {
@@ -92,25 +96,7 @@ const organizationSchema = {
   }
 };
 
-const webApplicationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: 'Reverse Sales Tax Calculator',
-  url: SITE_URL,
-  description: 'Free reverse sales tax calculator. Enter your total price and tax rate to instantly find the original price before tax. Works for US, Canada & worldwide.',
-  applicationCategory: 'FinanceApplication',
-  operatingSystem: 'Any',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD'
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'PreTaxPrice',
-    url: SITE_URL
-  }
-};
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -118,20 +104,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#09090b" />
-        {/* Geo & Language signals for Google */}
-        <meta name="geo.region" content="US" />
-        <meta name="geo.placename" content="United States" />
-        <meta name="language" content="English" />
-        <meta httpEquiv="content-language" content="en-US" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
         />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MVWDKTE5V4"

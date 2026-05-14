@@ -89,7 +89,8 @@ export default async function StatePage({ params }: Props) {
       "@type": "Organization",
       "name": "PreTaxPrice",
       "url": "https://salestaxreversecalculator.com"
-    }
+    },
+    "screenshot": "https://salestaxreversecalculator.com/og-image.png"
   };
 
   const faqSchema = stateContent?.faqs.length ? {
