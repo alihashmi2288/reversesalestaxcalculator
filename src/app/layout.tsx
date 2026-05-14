@@ -61,6 +61,15 @@ export const metadata: Metadata = {
     description: 'Calculate pre-tax price from any total. Supports all US states, Canada GST/HST, and European VAT.',
     images: ['/og-image.png'],
   },
+  icons: {
+    icon: [
+      { url: '/icon.png' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png' },
+    ],
+  },
 };
 
 export const viewport = {
