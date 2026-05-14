@@ -31,16 +31,72 @@ export const metadata: Metadata = {
 ];export default function HomePage() {
   const SITE_URL = 'https://salestaxreversecalculator.com';
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PreTaxPrice — Reverse Sales Tax Calculator",
+    "url": SITE_URL,
+    "description": "Free reverse sales tax calculator. Find the original pre-tax price from any receipt total. Works for all 50 US states, Canada GST/HST, and EU VAT.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "PreTaxPrice",
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/og-image.png`
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${SITE_URL}/tax-rates?s={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const webApplicationSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Reverse Sales Tax Calculator",
+    "url": SITE_URL,
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "description": "A free reverse sales tax calculator that works backwards from a tax-inclusive total to find the original pre-tax price. Supports all 50 US states, Canada GST/HST/PST/QST, and European VAT.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Reverse sales tax calculation for all 50 US states",
+      "Canada GST, HST, PST and QST reverse calculation",
+      "EU and UK VAT reverse calculation",
+      "Batch/CSV mode for multiple receipts",
+      "Find Tax Rate mode",
+      "No signup required",
+      "Client-side calculation — no data sent to servers"
+    ],
+    "screenshot": `${SITE_URL}/og-image.png`,
+    "publisher": {
+      "@type": "Organization",
+      "name": "PreTaxPrice",
+      "url": SITE_URL
+    }
+  };
+
   const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
       {
         "@type": "Question",
         "name": "What is a reverse sales tax calculator?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A reverse sales tax calculator works backwards from the total price you paid (including tax) to find the original pre-tax price. Instead of adding tax onto a price, it removes the tax to reveal what the item actually cost before tax was applied."
+          "text": "A reverse sales tax calculator works backwards from a tax-inclusive total price to find the original pre-tax amount. Instead of adding tax to a price, it removes the tax using the formula: Original Price = Final Price divided by (1 + Tax Rate / 100)."
         }
       },
       {
@@ -48,7 +104,15 @@ export const metadata: Metadata = {
         "name": "What is the formula for reverse sales tax?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The formula is: Original Price = Final Price ÷ (1 + Tax Rate / 100). For example, if you paid $107.50 and the tax rate is 7.5%, the calculation is: $107.50 ÷ 1.075 = $100.00. The tax amount paid was $7.50."
+          "text": "The reverse sales tax formula is: Original Price = Final Price divided by (1 + Tax Rate / 100). For example, if you paid $107.50 at a 7.5% tax rate: $107.50 / 1.075 = $100.00 pre-tax price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do you divide instead of subtract the tax percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because sales tax is applied to the pre-tax price, not the final total. Division is the exact mathematical inverse of the original multiplication. Subtracting the percentage from the total gives a slightly wrong answer because you would be calculating a percentage of the wrong base."
         }
       },
       {
@@ -56,47 +120,15 @@ export const metadata: Metadata = {
         "name": "Which US states have no sales tax?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Five US states have no state-level general sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon."
+          "text": "Five US states have no state-level general sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon. Note that some Alaska localities do charge local sales taxes, giving Alaska a small combined average rate of about 1.76%."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I calculate the original price before tax?",
+        "name": "Does this calculator work for Canada and Europe?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Step 1: Convert your tax rate to a decimal by dividing by 100 (e.g., 8.5% → 0.085). Step 2: Add 1 to that decimal (1 + 0.085 = 1.085). Step 3: Divide your total price by that number ($115.13 ÷ 1.085 = $106.11 pre-tax price)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why do you divide instead of just subtracting the tax percentage?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Because sales tax is applied to the pre-tax price, not the final total. If you incorrectly subtract 7.5% from $107.50, you get $99.44 (wrong). The correct method divides: $107.50 ÷ 1.075 = $100.00."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which state has the highest combined sales tax rate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Louisiana and Tennessee have among the highest combined average sales tax rates, followed closely by Arkansas, Alabama, and Oklahoma. These high rates are driven by significant local district taxes added on top of the state base rate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use this calculator for UK VAT?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The UK standard VAT rate is 20%. Divide your VAT-inclusive price by 1.20 to find the ex-VAT (net) price."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I remove GST from a price in Alberta, Canada?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Alberta only charges the federal 5% GST with no provincial tax. Divide your total by 1.05. Example: $105.00 ÷ 1.05 = $100.00 pre-tax price."
+          "text": "Yes. The calculator supports Canadian taxes including federal GST (5%), HST for applicable provinces (13-15%), provincial PST, and Quebec's QST (9.975%). It also supports EU and UK VAT at all standard rates. The reverse calculation formula is identical regardless of what the tax is called."
         }
       },
       {
@@ -104,63 +136,21 @@ export const metadata: Metadata = {
         "name": "Is this calculator free to use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, completely free, forever. There is no account registration required, no trial period, and no premium tier. All calculations run entirely in your browser."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the average US combined sales tax rate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The average combined US sales tax rate (state base + average local) is approximately 7.53% as of 2026, according to the Tax Foundation. This varies from 0% in tax-free states to over 9.5% in high-tax states."
+          "text": "Yes, completely free with no account required. All calculations run entirely in your browser — no data is sent to any server."
         }
       }
     ]
   };
 
-  const howToSchema = {
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to Calculate Reverse Sales Tax",
-    "description": "Step-by-step guide to finding the original pre-tax price from a total price inclusive of sales tax.",
-    "step": [
+    "@type": "BreadcrumbList",
+    "itemListElement": [
       {
-        "@type": "HowToStep",
-        "name": "Identify the total price and tax rate",
-        "text": "Look at your receipt or price tag to find the total amount paid and the applicable sales tax rate (e.g., 8.5%).",
-        "url": "https://salestaxreversecalculator.com/#calculator"
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Convert tax rate to decimal",
-        "text": "Divide the tax rate by 100. For example, 8.5 / 100 = 0.085."
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Add 1 to the decimal",
-        "text": "Add 1 to the result from the previous step. For example, 1 + 0.085 = 1.085."
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Divide total price by the divisor",
-        "text": "Divide the final total price by the divisor you calculated. For example, $108.50 / 1.085 = $100.00."
-      }
-    ],
-    "totalTime": "PT1M",
-    "supply": [
-      {
-        "@type": "HowToSupply",
-        "name": "Total price paid"
-      },
-      {
-        "@type": "HowToSupply",
-        "name": "Sales tax rate"
-      }
-    ],
-    "tool": [
-      {
-        "@type": "HowToTool",
-        "name": "Reverse Sales Tax Calculator"
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Reverse Sales Tax Calculator",
+        "item": SITE_URL
       }
     ]
   };
@@ -170,11 +160,19 @@ export const metadata: Metadata = {
     <main>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section id="calculator" style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>

@@ -1,8 +1,54 @@
+# robots.txt — salestaxreversecalculator.com
+# Strategy: Index all SEO-value pages; block all admin, utility, and duplicate-generation paths
+# Last updated: May 2026
+
 User-agent: *
-Allow: /
 
-Sitemap: https://salestaxreversecalculator.com/sitemap.xml
-
-# Disallow admin / dev paths
-Disallow: /_next/
+# --- BLOCK: Admin & System Paths ---
 Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /dashboard/
+
+
+# --- BLOCK: Internal Search & Filtered URLs ---
+Disallow: /search
+Disallow: /*?q=
+Disallow: /*?s=
+Disallow: /*?query=
+Disallow: /*?search=
+
+# --- BLOCK: Tracking & UTM Parameters ---
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?utm_content=
+Disallow: /*?utm_term=
+Disallow: /*?ref=
+Disallow: /*?source=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# --- BLOCK: Duplicate URL Variations (trailing slash handled by canonical) ---
+# Note: Canonical tags handle www/non-www and HTTPS — no need to double-block here
+
+# --- BLOCK: Print / Utility Views ---
+Disallow: /*?print=
+Disallow: /*?format=print
+Disallow: /*?mode=print
+
+# --- ALLOW: All SEO-value pages explicitly ---
+# These are here for documentation clarity — * allow is the default
+Allow: /
+Allow: /us/
+Allow: /vat-calculator
+Allow: /canada
+Allow: /tax-rates
+Allow: /faq
+Allow: /how-it-works
+Allow: /about
+Allow: /privacy-policy
+Allow: /terms-of-service
+
+# Sitemap location
+Sitemap: https://salestaxreversecalculator.com/sitemap.xml

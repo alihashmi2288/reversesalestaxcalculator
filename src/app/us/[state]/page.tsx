@@ -28,9 +28,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ogUrl.searchParams.set('location', stateData.state);
   ogUrl.searchParams.set('rate', stateData.rate.toString());
 
+  const premiumDescriptions: Record<string, string> = {
+    'new-jersey': "Free New Jersey reverse sales tax calculator. Pre-filled with NJ's 6.625% state rate and 6.65% combined average. Find the original pre-tax price from any New Jersey receipt instantly.",
+    'texas': "Free Texas reverse sales tax calculator. Pre-filled with Texas's 6.25% state rate and 8.25% maximum combined rate. Find the original pre-tax price from any Texas receipt instantly.",
+    'new-york': "Free New York reverse sales tax calculator. Covers New York City (8.875%), NY state average (8.52%), and all county rates. Find the original pre-tax price from any New York receipt instantly.",
+  };
+
   return {
     title: `${stateData.state} Reverse Sales Tax Calculator — ${stateData.rate}% Combined Rate`,
-    description: `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`,
+    description: premiumDescriptions[stateSlug] || `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`,
     alternates: { canonical: `https://salestaxreversecalculator.com/us/${stateSlug}` },
     openGraph: {
       images: [{ url: ogUrl.toString() }],
@@ -58,6 +64,34 @@ export default async function StatePage({ params }: Props) {
     ],
   };
 
+  const webApplicationSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": `${stateData.state} Reverse Sales Tax Calculator`,
+    "url": `https://salestaxreversecalculator.com/us/${stateSlug}`,
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "description": `Free ${stateData.state} reverse sales tax calculator. Find the original pre-tax price from any ${stateData.state} receipt instantly.`,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": stateData.state,
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PreTaxPrice",
+      "url": "https://salestaxreversecalculator.com"
+    }
+  };
+
   const faqSchema = stateContent?.faqs.length ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -74,6 +108,7 @@ export default async function StatePage({ params }: Props) {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
 
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>

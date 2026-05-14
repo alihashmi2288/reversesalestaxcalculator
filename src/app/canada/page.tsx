@@ -13,18 +13,117 @@ export const metadata: Metadata = {
   },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
-    { '@type': 'ListItem', position: 2, name: 'Canada Reverse Tax Calculator', item: 'https://salestaxreversecalculator.com/canada' },
+const SITE_URL = 'https://salestaxreversecalculator.com';
+
+const webApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Canada Reverse Sales Tax Calculator — GST, HST, PST, QST",
+  "url": `${SITE_URL}/canada`,
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "description": "Free Canadian reverse sales tax calculator. Remove GST, HST, PST, or Quebec QST from any price to find the original pre-tax amount. Covers all provinces including Ontario, Quebec, British Columbia, and Alberta.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "CAD"
+  },
+  "featureList": [
+    "Federal GST reverse calculation (5%)",
+    "Ontario HST reverse calculation (13%)",
+    "Nova Scotia, New Brunswick, Newfoundland, PEI HST (15%)",
+    "Quebec GST + QST reverse calculation (14.975% combined)",
+    "British Columbia GST + PST reverse calculation (12%)",
+    "Alberta GST-only reverse calculation (5%)",
+    "Saskatchewan GST + PST (11%)",
+    "Manitoba GST + PST (12%)"
   ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "PreTaxPrice",
+    "url": SITE_URL
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate the price before HST in Ontario?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ontario's HST rate is 13%. Divide the HST-inclusive total by 1.13 to find the pre-tax price. Example: $226.00 / 1.13 = $200.00. The HST paid was $26.00."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I remove GST from a price in Alberta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alberta charges only the federal 5% GST with no provincial sales tax. Divide your total by 1.05. Example: $105.00 / 1.05 = $100.00 pre-tax price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the combined tax rate in Quebec?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quebec charges the 5% federal GST plus the 9.975% QST (Quebec Sales Tax). The effective combined rate is approximately 14.975%. In Quebec, QST is calculated on the GST-inclusive price, making the precise combined multiplier 1.05 x 1.09975 = 1.14975."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between GST, HST, and PST in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GST (Goods and Services Tax) is the federal Canadian tax at 5%, applicable in all provinces. HST (Harmonized Sales Tax) combines the federal GST with a provincial component into a single rate, used in Ontario (13%), New Brunswick (15%), Nova Scotia (15%), Newfoundland (15%), and PEI (15%). PST (Provincial Sales Tax) is a separate provincial tax charged alongside GST in British Columbia (7%), Saskatchewan (6%), and Manitoba (7%)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I reverse calculate GST/HST for an input tax credit claim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To claim an input tax credit (ITC) from the Canada Revenue Agency, you need the GST/HST component of a purchase. Use the reverse formula to find the pre-tax price, then subtract it from the total to get the exact tax paid. Example for Ontario HST: Total $565.00 / 1.13 = $500.00 pre-tax. HST component = $65.00. This $65.00 is your claimable ITC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Canadian provinces have the highest combined sales tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Atlantic provinces have the highest combined rates. Nova Scotia, New Brunswick, Newfoundland and Labrador, and Prince Edward Island all have a 15% HST. Ontario's 13% HST is mid-range. Alberta remains the lowest with only the 5% federal GST and no provincial sales tax."
+      }
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Reverse Sales Tax Calculator",
+      "item": SITE_URL
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Canada GST/HST/PST Calculator",
+      "item": `${SITE_URL}/canada`
+    }
+  ]
 };
 
 export default function CanadaPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #7c3aed)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">

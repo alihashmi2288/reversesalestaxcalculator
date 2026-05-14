@@ -9,18 +9,114 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://salestaxreversecalculator.com/vat-calculator' },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
-    { '@type': 'ListItem', position: 2, name: 'Reverse VAT Calculator', item: 'https://salestaxreversecalculator.com/vat-calculator' },
+const SITE_URL = 'https://salestaxreversecalculator.com';
+
+const webApplicationSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Reverse VAT Calculator",
+  "url": `${SITE_URL}/vat-calculator`,
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "description": "Free reverse VAT calculator for UK, EU, and Australia. Enter any VAT-inclusive price and find the ex-VAT net amount instantly. Supports UK 20%, EU standard rates, and Australian GST 10%.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "UK VAT reverse calculation (20% standard rate)",
+    "EU VAT removal for Germany, France, Italy, Spain, and all EU member states",
+    "Australia GST reverse calculation (10%)",
+    "Custom VAT rate input",
+    "No signup required"
   ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "PreTaxPrice",
+    "url": SITE_URL
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I remove VAT from a price in the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The UK standard VAT rate is 20%. To remove VAT: divide the VAT-inclusive price by 1.20. Example: £120.00 / 1.20 = £100.00 ex-VAT price. The VAT amount is £20.00."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the reverse VAT formula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The reverse VAT formula is identical to reverse sales tax: Net Price = Gross Price divided by (1 + VAT Rate / 100). For UK 20% VAT: Net = Gross / 1.20. For Germany 19%: Net = Gross / 1.19."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the standard VAT rates in the EU?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard EU VAT rates vary by country: Germany 19%, France 20%, Italy 22%, Spain 21%, Netherlands 21%, Sweden 25%, Poland 23%, and Belgium 21%. Most EU countries also have reduced rates of 5-10% for essentials like food and books."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the ex-VAT price from a gross amount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the gross VAT-inclusive amount by 1 plus the decimal VAT rate. For 20% VAT: divide by 1.20. For 19% VAT: divide by 1.19. For 10% VAT (Australia GST): divide by 1.10. The result is the net ex-VAT price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between VAT and US sales tax for reverse calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For reverse calculation purposes the formula is identical: Net Price = Gross Price divided by (1 + rate/100). The difference is structural — VAT is collected at each stage of the supply chain, while US sales tax is only collected at the final point of sale. The reverse math does not change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I remove Australian GST from a price?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Australia's GST rate is 10%. Divide the GST-inclusive total by 1.10 to find the pre-GST price. Example: $110.00 / 1.10 = $100.00. The GST component is $10.00."
+      }
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Reverse Sales Tax Calculator",
+      "item": SITE_URL
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "VAT Calculator",
+      "item": `${SITE_URL}/vat-calculator`
+    }
+  ]
 };
 
 export default function VATPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #065f46)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">

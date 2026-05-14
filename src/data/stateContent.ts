@@ -1861,24 +1861,28 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "faqs": [
       {
-        "question": "What is the actual sales tax rate in New Jersey?",
-        "answer": "While the New Jersey base state sales tax rate is 6.63%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 6.65%, though it varies slightly by zip code."
+        "question": "What is the sales tax rate in New Jersey?",
+        "answer": "New Jersey's state sales tax rate is 6.625%. With local district taxes added, the average combined rate is approximately 6.65%. In New Jersey's Urban Enterprise Zones (UEZ), a reduced rate of 3.3125% — exactly half the state rate — applies to most retail purchases."
       },
       {
-        "question": "How do I calculate the pre-tax price from a total in New Jersey?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For New Jersey's average rate of 6.65%, you would divide your total by 1.0665. Our reverse calculator automates this exact math for you instantly."
+        "question": "How do I calculate the pre-tax price from a New Jersey receipt?",
+        "answer": "Divide your New Jersey receipt total by 1.06625 for the state rate, or by 1.0665 for the combined average. Example: $106.65 / 1.0665 = $100.00 pre-tax price. The NJ sales tax paid was $6.65."
       },
       {
-        "question": "Are groceries and food taxed in New Jersey?",
-        "answer": "In New Jersey, the taxability of food depends heavily on the specific type. Cold groceries and fresh produce are often treated differently than hot prepared foods, meals eaten at a restaurant, or carbonated beverages. Always check local guidelines for specifics."
+        "question": "Is clothing taxable in New Jersey?",
+        "answer": "No. New Jersey fully exempts clothing and footwear from sales tax with no dollar cap. This is broader than most states — New York, for example, only exempts clothing under $110 per item. Accessories such as handbags and jewelry remain taxable in New Jersey."
       },
       {
-        "question": "Does New Jersey charge sales tax on shipping and delivery?",
-        "answer": "In most cases, if the physical items you are purchasing are taxable in New Jersey, the associated shipping, handling, and delivery charges are also considered taxable. This means the 6.65% average rate will be applied to the entire order total."
+        "question": "Are groceries taxed in New Jersey?",
+        "answer": "Unprepared food and grocery items are exempt from New Jersey sales tax. Candy, carbonated beverages, and prepared hot foods such as restaurant meals or hot deli items are taxable at the full 6.625% state rate."
       },
       {
-        "question": "Can I use this calculator for New Jersey vehicle purchases?",
-        "answer": "Yes, you can use our reverse calculator to estimate the pre-tax cost of a vehicle in New Jersey. However, be heavily aware that purchasing a car involves additional mandatory fees beyond standard sales tax, such as vehicle registration and title fees."
+        "question": "What is New Jersey's Urban Enterprise Zone sales tax rate?",
+        "answer": "In designated Urban Enterprise Zones across New Jersey — including parts of Newark, Camden, Trenton, and about 30 other municipalities — the sales tax rate for eligible purchases is 3.3125%, exactly half the standard state rate of 6.625%. Use 1.033125 as your divisor for reverse calculations in UEZ areas."
+      },
+      {
+        "question": "Is shipping taxable in New Jersey?",
+        "answer": "In New Jersey, shipping and delivery charges are generally taxable when the item being shipped is itself taxable. If the goods are tax-exempt, separately stated delivery charges are also exempt."
       }
     ]
   },
@@ -1985,24 +1989,28 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "faqs": [
       {
-        "question": "What is the actual sales tax rate in New York?",
-        "answer": "While the New York base state sales tax rate is 4.00%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 8.66%, though it varies slightly by zip code."
+        "question": "What is the sales tax rate in New York City?",
+        "answer": "New York City has a combined sales tax rate of 8.875%, made up of: New York State 4%, NYC local 4.5%, and Metropolitan Commuter Transportation District (MCTD) surcharge 0.375%. For reverse calculations in NYC, divide your total by 1.08875."
       },
       {
-        "question": "How do I calculate the pre-tax price from a total in New York?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For New York's average rate of 8.66%, you would divide your total by 1.0854. Our reverse calculator automates this exact math for you instantly."
+        "question": "How do I calculate the pre-tax price from a New York City receipt?",
+        "answer": "For New York City purchases, divide your receipt total by 1.08875. Example: $108.875 / 1.08875 = $100.00 pre-tax price. The NYC combined tax paid was $8.875 on a $100 purchase. For New York State outside NYC, use the applicable county rate or the state average of 8.52% (divisor: 1.0852)."
       },
       {
-        "question": "Are groceries and food taxed in New York?",
-        "answer": "In New York, the taxability of food depends heavily on the specific type. Cold groceries and fresh produce are often treated differently than hot prepared foods, meals eaten at a restaurant, or carbonated beverages. Always check local guidelines for specifics."
+        "question": "Is clothing exempt from sales tax in New York?",
+        "answer": "New York State exempts clothing and footwear items under $110 per item from state sales tax. However, New York City does not follow this exemption — NYC charges its 4.5% local tax on all clothing regardless of price. Items $110 or more are fully taxable at the combined rate statewide."
       },
       {
-        "question": "Does New York charge sales tax on shipping and delivery?",
-        "answer": "In most cases, if the physical items you are purchasing are taxable in New York, the associated shipping, handling, and delivery charges are also considered taxable. This means the 8.66% average rate will be applied to the entire order total."
+        "question": "Are groceries taxed in New York?",
+        "answer": "Unprepared food and most beverages sold for home consumption are exempt from New York State and New York City sales tax. Prepared foods such as restaurant meals, deli hot foods, and heated items, as well as candy and soft drinks, are taxable at the full combined rate."
       },
       {
-        "question": "Can I use this calculator for New York vehicle purchases?",
-        "answer": "Yes, you can use our reverse calculator to estimate the pre-tax cost of a vehicle in New York. However, be heavily aware that purchasing a car involves additional mandatory fees beyond standard sales tax, such as vehicle registration and title fees."
+        "question": "What is the sales tax rate outside New York City?",
+        "answer": "Outside New York City, the combined rate varies by county. The NY State base rate is 4%. Counties add their own rates: Nassau County is 8.625%, Suffolk County is 8.625%, and upstate counties like Albany are 8%. The statewide combined average is approximately 8.52%."
+      },
+      {
+        "question": "Is there a separate NYC reverse sales tax calculator?",
+        "answer": "Our New York state page covers both NYC (8.875%) and upstate rates. For NYC specifically, use 8.875% as your rate input, which accounts for the state 4% + city 4.5% + MCTD 0.375% surcharge. Always use the NYC-specific rate for purchases made in Manhattan, Brooklyn, Queens, The Bronx, or Staten Island — not the state average of 8.52%."
       }
     ]
   },
@@ -2667,24 +2675,28 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     ],
     "faqs": [
       {
-        "question": "What is the actual sales tax rate in Texas?",
-        "answer": "While the Texas base state sales tax rate is 6.25%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 8.24%, though it varies slightly by zip code."
+        "question": "What is the sales tax rate in Texas?",
+        "answer": "Texas has a state sales tax rate of 6.25%. Cities, counties, and special districts may add up to 2% in local taxes, bringing the maximum combined rate to 8.25%. Major cities including Dallas, Houston, Austin, and San Antonio all charge the 8.25% maximum combined rate."
       },
       {
-        "question": "How do I calculate the pre-tax price from a total in Texas?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Texas's average rate of 8.24%, you would divide your total by 1.0819. Our reverse calculator automates this exact math for you instantly."
+        "question": "How do I calculate the pre-tax price from a Texas receipt?",
+        "answer": "For most Texas cities with the 8.25% combined rate, divide your receipt total by 1.0825. Example: $108.25 / 1.0825 = $100.00 pre-tax price. The Texas sales tax paid was $8.25. For the state-only rate of 6.25%, divide by 1.0625."
       },
       {
-        "question": "Are groceries and food taxed in Texas?",
-        "answer": "In Texas, the taxability of food depends heavily on the specific type. Cold groceries and fresh produce are often treated differently than hot prepared foods, meals eaten at a restaurant, or carbonated beverages. Always check local guidelines for specifics."
+        "question": "Are groceries taxed in Texas?",
+        "answer": "Most unprepared food items sold in grocery stores are exempt from Texas sales tax. Prepared foods, restaurant meals, soft drinks, and candy are taxable at the full combined rate."
       },
       {
-        "question": "Does Texas charge sales tax on shipping and delivery?",
-        "answer": "In most cases, if the physical items you are purchasing are taxable in Texas, the associated shipping, handling, and delivery charges are also considered taxable. This means the 8.24% average rate will be applied to the entire order total."
+        "question": "Is clothing taxable in Texas?",
+        "answer": "Yes, clothing is generally taxable in Texas at the full combined rate. However, Texas holds a Sales Tax Holiday weekend in August each year during which clothing and footwear items under $100 per item are exempt — one of the most popular tax holidays in the country."
       },
       {
-        "question": "Can I use this calculator for Texas vehicle purchases?",
-        "answer": "Yes, you can use our reverse calculator to estimate the pre-tax cost of a vehicle in Texas. However, be heavily aware that purchasing a car involves additional mandatory fees beyond standard sales tax, such as vehicle registration and title fees."
+        "question": "Is shipping taxable in Texas?",
+        "answer": "In Texas, shipping and delivery charges are taxable when they are part of a taxable sale. If shipping is separately stated and the customer has the option to pick up the item, the charge may be exempt. When in doubt, assume shipping is taxable on taxable goods in Texas."
+      },
+      {
+        "question": "What Texas cities have the highest sales tax rate?",
+        "answer": "The maximum combined sales tax rate in Texas is 8.25%. Dallas, Houston, San Antonio, Austin, and Fort Worth all charge this maximum rate. Smaller municipalities or unincorporated areas may charge less than the 2% maximum local add-on."
       }
     ]
   },
