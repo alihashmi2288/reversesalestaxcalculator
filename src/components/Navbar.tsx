@@ -46,13 +46,15 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div style={{ display: 'flex', gap: 32, alignItems: 'center' }} className="hidden-mobile">
+        <div style={{ display: 'flex', gap: 28, alignItems: 'center' }} className="hidden-mobile">
           <Link href="/#calculator" className="nav-link">Calculator</Link>
           <Link href="/how-it-works" className="nav-link">How It Works</Link>
           <Link href="/tax-rates" className="nav-link">Tax Rates</Link>
           <Link href="/faq" className="nav-link">FAQ</Link>
           <Link href="/vat-calculator" className="nav-link">VAT</Link>
           <Link href="/canada" className="nav-link">Canada</Link>
+          <Link href="/about" className="nav-link">About</Link>
+          <Link href="/contact" className="nav-link">Contact</Link>
         </div>
 
         {/* CTA */}
@@ -121,6 +123,7 @@ export default function Navbar() {
             { href: '/vat-calculator', label: 'VAT Calculator' },
             { href: '/canada', label: 'Canada Calculator' },
             { href: '/about', label: 'About' },
+            { href: '/contact', label: 'Contact' },
           ].map(({ href, label }) => (
             <Link
               key={href}

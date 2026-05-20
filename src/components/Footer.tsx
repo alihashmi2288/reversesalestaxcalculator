@@ -56,6 +56,7 @@ export default function Footer() {
                 { href: '/how-it-works', label: 'How It Works' },
                 { href: '/faq', label: 'FAQ' },
                 { href: '/about', label: 'About Us' },
+                { href: '/contact', label: 'Contact' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="footer-link">{label}</Link>
@@ -63,6 +64,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
 
           {/* Legal */}
           <div>

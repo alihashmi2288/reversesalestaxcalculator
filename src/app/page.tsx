@@ -188,13 +188,18 @@ export const metadata: Metadata = {
             </span>
           </h1>
 
+          {/* CALCULATOR RIGHT BELOW H1 */}
+          <div style={{ maxWidth: 800, margin: '0 auto 40px' }}>
+            <CalculatorCard />
+          </div>
+
           <p className="hero-tagline" style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', color: 'var(--text-secondary)', maxWidth: 680, margin: '0 auto 40px', lineHeight: 1.6, fontFamily: 'var(--font-mono)' }}>
             Enter any total price. Get the original pre-tax amount instantly.<br />
             Works for all 50 US states, Canada, UK, EU, and worldwide.
           </p>
 
           {/* Trust Badges */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap', marginBottom: 40 }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
             {[
               { text: 'all 50 US states' },
               { text: 'Canada GST/HST' },
@@ -207,13 +212,9 @@ export const metadata: Metadata = {
               </div>
             ))}
           </div>
-
-          {/* CALCULATOR MOVED HERE */}
-          <div style={{ maxWidth: 800, margin: '0 auto' }}>
-            <CalculatorCard />
-          </div>
         </div>
       </section>
+
 
       {/* ── Additional Info ───────── */}
       <div className="container-main" style={{ marginTop: 64, marginBottom: 64 }}>
