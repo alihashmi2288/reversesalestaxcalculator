@@ -11,29 +11,31 @@ export default function Navbar() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        background: 'rgba(9, 9, 11, 0.95)',
-        backdropFilter: 'blur(10px)',
+        background: 'rgba(9, 9, 11, 0.75)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
         borderBottom: '1px solid var(--border)',
-        boxShadow: '0 1px 16px rgba(0,0,0,0.05)',
+        boxShadow: '0 4px 30px rgba(0,0,0,0.2)',
       }}
     >
-      <div className="container-main" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
+      <div className="container-main" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
           <div
             style={{
-              width: 36,
-              height: 36,
-              borderRadius: 'var(--radius)',
+              width: 38,
+              height: 38,
+              borderRadius: 'var(--radius-sm)',
               background: 'var(--primary)',
-              border: '2px solid #000',
-              boxShadow: '2px 2px 0px 0px #000',
+              boxShadow: '0 0 15px rgba(204, 255, 0, 0.3)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              transition: 'all 0.3s ease',
             }}
+            className="logo-icon-box"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
               <title>PreTaxPrice Logo</title>
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M2 17l10 5 10-5" />
@@ -41,7 +43,9 @@ export default function Navbar() {
             </svg>
           </div>
           <div>
-            <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)' }}>PreTaxPrice</div>
+            <div style={{ fontWeight: 900, fontSize: 20, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+              PreTax<span style={{ color: 'var(--primary)' }}>Price</span>
+            </div>
           </div>
         </Link>
 
@@ -61,18 +65,21 @@ export default function Navbar() {
         <div className="hidden-mobile">
           <Link
             href="/#calculator"
+            className="cta-button"
             style={{
-              background: 'var(--primary)',
+              background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)',
               color: '#000',
-              padding: '10px 20px',
+              padding: '12px 24px',
               borderRadius: 'var(--radius)',
               fontWeight: 800,
               fontSize: 14,
               textDecoration: 'none',
-              boxShadow: 'var(--shadow-solid-dark)',
-              border: '2px solid transparent',
-              transition: 'all 0.2s',
+              boxShadow: '0 4px 15px rgba(204, 255, 0, 0.2)',
+              border: 'none',
+              transition: 'all 0.25s ease',
               fontFamily: 'var(--font-sans)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em',
             }}
           >
             Try the calculator
@@ -83,10 +90,10 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="show-mobile"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}
+          style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', cursor: 'pointer', padding: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           aria-label="Toggle menu"
         >
-          <svg width="24" height="24" fill="none" stroke="var(--text-primary)" strokeWidth="2">
+          <svg width="20" height="20" fill="none" stroke="var(--text-primary)" strokeWidth="2.5" strokeLinecap="round">
             {open ? (
               <>
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -94,8 +101,9 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <line x1="4" y1="8" x2="20" y2="8" />
-                <line x1="4" y1="16" x2="20" y2="16" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
               </>
             )}
           </svg>
@@ -106,14 +114,16 @@ export default function Navbar() {
       {open && (
         <div
           style={{
-            background: 'var(--bg)',
+            background: 'rgba(9, 9, 11, 0.95)',
+            backdropFilter: 'blur(20px)',
             borderTop: '1px solid var(--border)',
-            padding: '16px 24px',
+            padding: '20px 24px',
             display: 'flex',
             flexDirection: 'column',
-            gap: 16,
+            gap: 4,
+            animation: 'fadeIn 0.2s ease',
           }}
-          className="show-mobile"
+          className="show-mobile-menu"
         >
           {[
             { href: '/#calculator', label: 'Calculator' },
@@ -130,7 +140,7 @@ export default function Navbar() {
               href={href}
               className="nav-link"
               onClick={() => setOpen(false)}
-              style={{ fontSize: 16, padding: '8px 0', borderBottom: '1px solid var(--border)' }}
+              style={{ fontSize: 15, padding: '12px 0', borderBottom: '1px solid var(--border)', display: 'block' }}
             >
               {label}
             </Link>
@@ -139,8 +149,21 @@ export default function Navbar() {
       )}
 
       <style>{`
-        @media (min-width: 768px) { .hidden-mobile { display: flex !important; } .show-mobile { display: none !important; } }
-        @media (max-width: 767px) { .hidden-mobile { display: none !important; } .show-mobile { display: flex !important; } }
+        @media (min-width: 960px) { .hidden-mobile { display: flex !important; } .show-mobile { display: none !important; } .show-mobile-menu { display: none !important; } }
+        @media (max-width: 959px) { .hidden-mobile { display: none !important; } .show-mobile { display: flex !important; } }
+        
+        .cta-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(204, 255, 0, 0.4) !important;
+          filter: brightness(1.05);
+        }
+        .cta-button:active {
+          transform: translateY(1px);
+        }
+        .logo-icon-box:hover {
+          transform: rotate(5deg) scale(1.05);
+          box-shadow: 0 0 20px rgba(204, 255, 0, 0.5) !important;
+        }
       `}</style>
     </nav>
   );

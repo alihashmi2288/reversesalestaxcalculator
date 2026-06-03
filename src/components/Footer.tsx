@@ -3,35 +3,35 @@ import Link from 'next/link';
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer style={{ background: 'var(--bg)', borderTop: '2px solid var(--border)', color: 'var(--text-secondary)', marginTop: 80 }}>
+    <footer style={{ background: '#070709', borderTop: '1px solid var(--border)', color: 'var(--text-secondary)', marginTop: 80 }}>
       <style>{`
-        .footer-link { color: #9CA3AF; text-decoration: none; font-size: 14px; transition: color 0.2s; }
-        .footer-link:hover { color: #fff; }
+        .footer-link { color: #a1a1aa; text-decoration: none; font-size: 14px; transition: all 0.2s; }
+        .footer-link:hover { color: var(--primary); transform: translateX(2px); display: inline-block; }
       `}</style>
       <div className="container-main" style={{ paddingTop: 64, paddingBottom: 40 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 48, marginBottom: 48 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 48, marginBottom: 48 }}>
           {/* Brand */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: 'var(--radius)', background: 'var(--primary)', border: '2px solid #000', boxShadow: '2px 2px 0px 0px #000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+              <div style={{ width: 38, height: 38, borderRadius: 'var(--radius-sm)', background: 'var(--primary)', boxShadow: '0 0 15px rgba(204, 255, 0, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
                 </svg>
               </div>
               <div>
-                <div style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)' }}>PreTaxPrice</div>
-                <div style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)', marginTop: 2 }}>Free · No signup · Works globally.</div>
+                <div style={{ fontWeight: 900, fontSize: 18, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>PreTax<span style={{ color: 'var(--primary)' }}>Price</span></div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', marginTop: 1 }}>Free · Secure · Global</div>
               </div>
             </div>
-            <p style={{ fontSize: 14, lineHeight: 1.7 }}>
+            <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--text-secondary)' }}>
               Calculate the original pre-tax price from any total amount. Trusted by consumers, accountants, and business owners worldwide.
             </p>
           </div>
 
           {/* Calculators */}
           <div>
-            <h3 style={{ color: '#fff', fontWeight: 700, fontSize: 14, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Calculators</h3>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <h3 style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Calculators</h3>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { href: '/', label: 'Reverse Sales Tax' },
                 { href: '/vat-calculator', label: 'VAT Calculator (EU)' },
@@ -49,8 +49,8 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 style={{ color: '#fff', fontWeight: 700, fontSize: 14, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Resources</h3>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <h3 style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Resources</h3>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { href: '/tax-rates', label: 'US State Tax Rates' },
                 { href: '/how-it-works', label: 'How It Works' },
@@ -65,11 +65,10 @@ export default function Footer() {
             </ul>
           </div>
 
-
           {/* Legal */}
           <div>
-            <h3 style={{ color: '#fff', fontWeight: 700, fontSize: 14, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Legal</h3>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <h3 style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Legal</h3>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { href: '/privacy-policy', label: 'Privacy Policy' },
                 { href: '/terms-of-service', label: 'Terms of Service' },
@@ -79,8 +78,8 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div style={{ marginTop: 24, padding: 16, background: '#000', border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
-              <p style={{ fontSize: 12, lineHeight: 1.6 }}>
+            <div style={{ marginTop: 24, padding: 16, background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border)', borderRadius: 'var(--radius)' }}>
+              <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--text-muted)', margin: 0 }}>
                 ⚠️ This calculator is for estimation only. Always verify tax rates with official government sources for legal/financial decisions.
               </p>
             </div>
@@ -88,9 +87,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div style={{ borderTop: '1px solid #374151', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ fontSize: 13 }}>© {year} PreTaxPrice. All rights reserved.</p>
-          <p style={{ fontSize: 13 }}>Made with ❤️ for taxpayers everywhere</p>
+        <div style={{ borderTop: '1px solid var(--border)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+          <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>© {year} PreTaxPrice. All rights reserved.</p>
+          <p style={{ fontSize: 13, color: 'var(--text-muted)' }}>Made with ❤️ for taxpayers everywhere</p>
         </div>
       </div>
     </footer>

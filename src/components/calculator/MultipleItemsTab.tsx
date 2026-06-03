@@ -75,7 +75,7 @@ export default function MultipleItemsTab() {
       </p>
 
       {/* Table */}
-      <div style={{ overflowX: 'auto', borderRadius: 'var(--radius)', border: '2px solid var(--border)' }}>
+      <div style={{ overflowX: 'auto', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
         <table className="data-table" style={{ minWidth: 600 }}>
           <thead>
             <tr>
@@ -97,21 +97,35 @@ export default function MultipleItemsTab() {
                       type="text"
                       value={row.name}
                       onChange={(e) => updateRow(row.id, 'name', e.target.value)}
-                      style={{ width: '100%', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 12px', fontSize: 14, fontFamily: 'var(--font-mono)' }}
+                      style={{
+                        width: '100%', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                        padding: '8px 12px', fontSize: 14, fontFamily: 'var(--font-mono)',
+                        outline: 'none', background: 'rgba(0,0,0,0.3)', color: 'var(--text-primary)',
+                        transition: 'all 0.2s'
+                      }}
                       placeholder="Item name"
+                      onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = 'var(--shadow-glow)'; }}
+                      onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none'; }}
                     />
                   </td>
                   <td>
                     <div style={{ position: 'relative' }}>
-                      <span style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14 }}>$</span>
+                      <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14, fontFamily: 'var(--font-mono)' }}>$</span>
                       <input
                         type="number"
                         min="0"
                         step="0.01"
                         value={row.totalPrice}
                         onChange={(e) => updateRow(row.id, 'totalPrice', e.target.value)}
-                        style={{ width: '100%', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 12px 8px 24px', fontSize: 14, fontFamily: 'var(--font-mono)' }}
+                        style={{
+                          width: '100%', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                          padding: '8px 12px 8px 24px', fontSize: 14, fontFamily: 'var(--font-mono)',
+                          outline: 'none', background: 'rgba(0,0,0,0.3)', color: 'var(--primary)',
+                          transition: 'all 0.2s'
+                        }}
                         placeholder="0.00"
+                        onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = 'var(--shadow-glow)'; }}
+                        onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none'; }}
                       />
                     </div>
                   </td>
@@ -123,23 +137,32 @@ export default function MultipleItemsTab() {
                         step="0.001"
                         value={row.taxRate}
                         onChange={(e) => updateRow(row.id, 'taxRate', e.target.value)}
-                        style={{ width: '100%', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 32px 8px 12px', fontSize: 14, fontFamily: 'var(--font-mono)' }}
+                        style={{
+                          width: '100%', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)',
+                          padding: '8px 32px 8px 12px', fontSize: 14, fontFamily: 'var(--font-mono)',
+                          outline: 'none', background: 'rgba(0,0,0,0.3)', color: 'var(--text-primary)',
+                          transition: 'all 0.2s'
+                        }}
                         placeholder="8.25"
+                        onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = 'var(--shadow-glow)'; }}
+                        onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none'; }}
                       />
-                      <span style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14 }}>%</span>
+                      <span style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14, fontFamily: 'var(--font-mono)' }}>%</span>
                     </div>
                   </td>
                   <td style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 15 }}>
                     {calculated && calc ? `$${fmt(calc.preTaxPrice)}` : '—'}
                   </td>
-                  <td style={{ fontWeight: 600, color: '#dc2626', fontSize: 14 }}>
+                  <td style={{ fontWeight: 600, color: '#f87171', fontSize: 14 }}>
                     {calculated && calc ? `$${fmt(calc.taxAmount)}` : '—'}
                   </td>
                   <td>
                     <button
                       onClick={() => removeRow(row.id)}
-                      style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ef4444', padding: 4 }}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ef4444', padding: 4, display: 'flex', alignItems: 'center', transition: 'transform 0.2s' }}
                       title="Remove row"
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.15)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
@@ -154,17 +177,17 @@ export default function MultipleItemsTab() {
           {/* Totals row — only after Calculate */}
           {calculated && hasAnyData && (
             <tfoot>
-              <tr style={{ background: '#f9fafb', fontWeight: 700 }}>
-                <td colSpan={2} style={{ padding: '14px 16px', fontSize: 14, color: 'var(--text-primary)' }}>
+              <tr style={{ background: 'rgba(204, 255, 0, 0.04)', fontWeight: 700, borderTop: '1px solid var(--border)' }}>
+                <td colSpan={2} style={{ padding: '16px 24px', fontSize: 14, color: 'var(--text-primary)' }}>
                   Totals ({rows.filter((r) => getCalc(r)).length} items)
                 </td>
-                <td style={{ padding: '14px 16px', color: 'var(--text-secondary)', fontSize: 13 }}>
+                <td style={{ padding: '16px 24px', color: 'var(--text-secondary)', fontSize: 13 }}>
                   Total Paid: ${fmt(totals.totalPaid)}
                 </td>
-                <td style={{ padding: '14px 16px', color: 'var(--accent)', fontSize: 15 }}>
+                <td style={{ padding: '16px 24px', color: 'var(--primary)', fontSize: 15 }}>
                   ${fmt(totals.preTax)}
                 </td>
-                <td style={{ padding: '14px 16px', color: '#dc2626', fontSize: 14 }}>
+                <td style={{ padding: '16px 24px', color: '#f87171', fontSize: 14 }}>
                   ${fmt(totals.taxAmount)}
                 </td>
                 <td />

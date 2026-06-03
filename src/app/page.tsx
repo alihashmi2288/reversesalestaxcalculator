@@ -19,16 +19,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Reverse%20Sales%20Tax%20Calculator&rate=7.53', alt: 'Reverse Sales Tax Calculator Tool Home' }],
   },
-};const USE_CASES = [
-  'Verifying itemized receipts match advertised prices',
-  'Reconciling business expense reports',
-  'Calculating pre-tax amounts for insurance claims',
-  'Accounting for sales tax on corporate purchases',
-  'Comparing prices across states with different tax rates',
-  'Converting VAT-inclusive prices to net amounts',
-  'Preparing tax returns that require pre-tax amounts',
-  'Auditing vendor invoices for correct tax charges',
-];export default function HomePage() {
+};
+
+export default function HomePage() {
   const SITE_URL = 'https://salestaxreversecalculator.com';
 
   const websiteSchema = {
@@ -155,7 +148,6 @@ export const metadata: Metadata = {
     ]
   };
 
-
   return (
     <main>
       <script
@@ -174,184 +166,940 @@ export const metadata: Metadata = {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section id="calculator" style={{ padding: '80px 0 100px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '6px 16px', marginBottom: 24, boxShadow: '4px 4px 0px 0px rgba(255,255,255,0.1)' }}>
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>Free · No signup · Instant results</span>
-          </div>
 
-          <h1 style={{ fontSize: 'clamp(32px, 8vw, 84px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
-            Reverse Sales Tax<br />
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator
-            </span>
-          </h1>
+      {/* ── Hero Section ──────────────────────────────────────────── */}
+      <section id="calculator" style={{ padding: 'clamp(40px, 6vw, 80px) 0', position: 'relative', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
+        <div className="glow-blob" style={{ top: '-10%', left: '-10%', width: 600, height: 600 }}></div>
+        <div className="glow-blob" style={{ bottom: '-10%', right: '-10%', width: 500, height: 500 }}></div>
+        <div className="container-main">
+          <div className="homepage-hero-grid">
 
-          {/* CALCULATOR RIGHT BELOW H1 */}
-          <div style={{ maxWidth: 800, margin: '0 auto 40px' }}>
-            <CalculatorCard />
-          </div>
-
-          <p className="hero-tagline" style={{ fontSize: 'clamp(17px, 2.5vw, 22px)', color: 'var(--text-secondary)', maxWidth: 680, margin: '0 auto 40px', lineHeight: 1.6, fontFamily: 'var(--font-mono)' }}>
-            Enter any total price. Get the original pre-tax amount instantly.<br />
-            Works for all 50 US states, Canada, UK, EU, and worldwide.
-          </p>
-
-          {/* Trust Badges */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
-            {[
-              { text: 'all 50 US states' },
-              { text: 'Canada GST/HST' },
-              { text: 'EU VAT' },
-              { text: 'Client-side secure' },
-            ].map(({ text }) => (
-              <div key={text} className="trust-badge">
-                <span>✓</span>
-                <span>{text}</span>
+            {/* ── Hero Left: Headline + Intro ── */}
+            <div className="hero-left">
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(204, 255, 0, 0.08)', border: '1px solid rgba(204, 255, 0, 0.3)', borderRadius: 'var(--radius-sm)', padding: '6px 16px', marginBottom: 24 }}>
+                <span style={{ color: 'var(--primary)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}>Free · No signup · Instant calculations</span>
               </div>
-            ))}
+
+              <h1 style={{ fontSize: 'clamp(28px, 5vw, 68px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.05, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>
+                Reverse Sales Tax<br />
+                <span style={{ color: 'var(--primary)', textShadow: '0 0 30px rgba(204, 255, 0, 0.25)' }}>
+                  Calculator
+                </span>
+              </h1>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14, fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 32 }}>
+                <p style={{ margin: 0 }}>
+                  You paid <strong style={{ color: 'var(--text-primary)' }}>$113.85</strong> at checkout. The receipt shows <strong style={{ color: 'var(--text-primary)' }}>8.25%</strong> tax. But what did the item actually cost before tax? Find out in one step.
+                </p>
+                <p style={{ margin: 0 }}>
+                  Works for all <strong style={{ color: 'var(--text-primary)' }}>50 US states</strong>, Canada GST/HST, UK VAT, EU VAT, and every other tax rate worldwide. Runs entirely in your browser — nothing leaves your device.
+                </p>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="trust-badges-row" style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                {[
+                  { text: 'All 50 US states' },
+                  { text: 'Canada GST/HST/QST' },
+                  { text: 'EU & UK VAT' },
+                  { text: '100% Client-side secure' },
+                ].map(({ text }) => (
+                  <div key={text} className="trust-badge" style={{ borderRadius: 'var(--radius-sm)' }}>
+                    <span>✓</span>
+                    <span>{text}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Formula Teaser */}
+              <div style={{ marginTop: 32, padding: '18px 24px', background: 'rgba(204,255,0,0.02)', border: '1px solid rgba(204,255,0,0.15)', borderRadius: 'var(--radius)', fontFamily: 'var(--font-mono)', fontSize: 14, boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.05)' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 6 }}>The Formula</span>
+                <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: 15 }}>Original Price = Total ÷ (1 + Rate / 100)</span>
+              </div>
+            </div>
+
+            {/* ── Hero Right: Calculator ── */}
+            <div className="hero-right">
+              <CalculatorCard />
+            </div>
+
           </div>
         </div>
       </section>
 
+      {/* ── Main Layout: Content + Sidebar ───────────────────── */}
+      <div className="container-main">
+        <div className="homepage-content-grid">
 
-      {/* ── Additional Info ───────── */}
-      <div className="container-main" style={{ marginTop: 64, marginBottom: 64 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 32, alignItems: 'start' }} className="calc-layout">
-          <div>
-            <div style={{ marginBottom: 24 }}>
-              <AdSlot slot="results-rectangle" size="rectangle" />
-            </div>
+          {/* ── Left Sidebar (State & International Links) ── */}
+          <aside className="sidebar-left">
+            <div className="sidebar-sticky">
+              {/* Popular State Links */}
+              <div className="sidebar-state-links">
+                <h3>🇺🇸 Popular States</h3>
+                {[
+                  { href: '/us/california', name: 'California', rate: '9.06%' },
+                  { href: '/us/texas', name: 'Texas', rate: '8.19%' },
+                  { href: '/us/new-york', name: 'New York', rate: '8.54%' },
+                  { href: '/us/florida', name: 'Florida', rate: '7.01%' },
+                  { href: '/us/washington', name: 'Washington', rate: '9.23%' },
+                  { href: '/us/illinois', name: 'Illinois', rate: '8.86%' },
+                  { href: '/us/tennessee', name: 'Tennessee', rate: '9.55%' },
+                  { href: '/us/ohio', name: 'Ohio', rate: '7.23%' },
+                ].map(({ href, name, rate }) => (
+                  <Link key={href} href={href} className="sidebar-state-link">
+                    <span className="sidebar-state-name">{name}</span>
+                    <span className="sidebar-state-rate">{rate}</span>
+                  </Link>
+                ))}
+                <div style={{ marginTop: 14 }}>
+                  <Link href="/tax-rates" style={{ fontSize: 12, color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 700, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    View All 50 States →
+                  </Link>
+                </div>
+              </div>
 
-            <div style={{ maxWidth: 860 }}>
-              <span className="section-label">About</span>
-              <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
-                What Is a Reverse Sales Tax Calculator?
-              </h2>
-              <div style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <p>
-                  A <strong>reverse sales tax calculator</strong> is a financial tool that works backwards from a tax-inclusive
-                  price to reveal the original pre-tax amount. Unlike a standard sales tax calculator that adds tax to a price,
-                  our tool removes the tax — answering the question: <em>"How much did this item actually cost before tax?"</em>
-                </p>
-                <p>
-                  This is particularly useful when you receive a receipt, invoice, or price tag that already includes tax, and you
-                  need to know the base price. The math isn't as simple as just subtracting the tax percentage — because the tax
-                  was calculated on the pre-tax price, not the total. That's why the correct formula divides by <code>(1 + rate/100)</code>.
-                </p>
-                <p>
-                  Our calculator supports all 50 US states plus DC with their current combined average tax rates (state + local),
-                  Canadian provincial taxes (GST, HST, PST/QST), and European VAT rates. All calculations happen instantly in
-                  your browser — no data is sent to any server, and no account is required.
-                </p>
+              {/* Canada & VAT Links */}
+              <div className="sidebar-state-links">
+                <h3>🌍 International</h3>
+                <Link href="/canada" className="sidebar-state-link">
+                  <span className="sidebar-state-name">🇨🇦 Canada GST/HST</span>
+                  <span className="sidebar-state-rate">5–15%</span>
+                </Link>
+                <Link href="/vat-calculator" className="sidebar-state-link">
+                  <span className="sidebar-state-name">🇪🇺 EU VAT</span>
+                  <span className="sidebar-state-rate">20–27%</span>
+                </Link>
+                <Link href="/vat-calculator" className="sidebar-state-link">
+                  <span className="sidebar-state-name">🇬🇧 UK VAT</span>
+                  <span className="sidebar-state-rate">20%</span>
+                </Link>
               </div>
             </div>
-          </div>
+          </aside>
 
-          {/* Sidebar */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 24, position: 'sticky', top: 80 }} className="sidebar">
+          {/* ── Main Content Column ── */}
+          <div className="main-content-column">
 
-            {/* Quick Tips Card */}
-            <div className="card">
-              <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--text-primary)', marginBottom: 16 }}>💡 Quick Tips</h3>
-              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {[
-                  'Formula: Price ÷ (1 + rate/100)',
-                  'Use the state dropdown for local rates',
-                  'Quick-rate buttons for common rates',
-                  'Batch mode for multiple receipts',
-                ].map((tip) => (
-                  <li key={tip} style={{ fontSize: 13, color: 'var(--text-secondary)', display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                    <span style={{ color: 'var(--primary)', fontWeight: 700, flexShrink: 0 }}>→</span>
-                    {tip}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Related Links */}
-            <div className="card">
-              <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--text-primary)', marginBottom: 16 }}>🔗 Related Tools</h3>
-              <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                {[
-                  { href: '/vat-calculator', label: 'VAT Calculator (EU)' },
-                  { href: '/canada', label: 'Canada GST/HST' },
-                  { href: '/us/california', label: 'California Tax Calc' },
-                  { href: '/us/texas', label: 'Texas Tax Calc' },
-                  { href: '/us/new-york', label: 'New York Tax Calc' },
-                  { href: '/tax-rates', label: 'All State Rates' },
-                ].map(({ href, label }) => (
-                  <li key={href}>
-                    <Link href={href} style={{ color: 'var(--primary)', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
-                      {label} →
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          .calc-layout { grid-template-columns: 1fr !important; }
-          .sidebar { position: static !important; }
-        }
-      `}</style>
-
-      {/* ── How It Works ─────────────────────────────────────── */}
-      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '80px 0' }}>
-        <div className="container-main">
-          <HowItWorks />
-        </div>
-      </div>
-
-      {/* ── Formula Box ──────────────────────────────────────── */}
-      <div className="container-main" style={{ marginTop: 80 }}>
-        <div className="formula-box">
-          <div style={{ fontSize: 14, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', opacity: 0.7, marginBottom: 16 }}>
-            The Reverse Tax Formula
-          </div>
-          <div className="formula-text">Original Price = Final Price ÷ (1 + Tax Rate / 100)</div>
-          <div style={{ marginTop: 20, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, opacity: 0.85 }}>
-            <div style={{ background: 'var(--bg)', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: 14 }}>
-              <div style={{ fontSize: 12, marginBottom: 4, opacity: 0.7 }}>EXAMPLE</div>
-              <div style={{ fontSize: 14 }}>$107.50 ÷ (1 + 7.5/100)</div>
-              <div style={{ fontSize: 14 }}>= $107.50 ÷ 1.075</div>
-              <div style={{ fontWeight: 700, marginTop: 4 }}>= $100.00 ✓</div>
-            </div>
-            <div style={{ background: 'var(--bg)', border: '2px solid var(--border)', borderRadius: 'var(--radius)', padding: 14 }}>
-              <div style={{ fontSize: 12, marginBottom: 4, opacity: 0.7 }}>TAX AMOUNT</div>
-              <div style={{ fontSize: 14 }}>$107.50 − $100.00</div>
-              <div style={{ fontWeight: 700, marginTop: 4 }}>= $7.50 tax paid</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div className="container-main" style={{ marginTop: 48 }}>
-        <AdSlot slot="in-article-1" size="in-article" />
-      </div>
-
-      {/* ── Why You Might Need This ──────────────────────────── */}
-      <div style={{ background: 'var(--bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', marginTop: 64, padding: '64px 0' }}>
-        <div className="container-main">
-          <div style={{ maxWidth: 860, margin: '0 auto' }}>
-            <span className="section-label">Use Cases</span>
-            <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 32px' }}>
-              Why Use a Reverse Sales Tax Calculator?
-            </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 16 }}>
-              {USE_CASES.map((uc, i) => (
-                <div key={i} className="card" style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
-                  <span style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{uc}</span>
+          {/* Quick Tips Horizontal Grid */}
+          <div className="card" style={{ marginBottom: 48, background: 'rgba(255,255,255,0.01)' }}>
+            <h3 style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', marginBottom: 20, textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 10 }}>
+              💡 Quick Reference Tips
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }}>
+              {[
+                { title: 'The Formula', text: 'Price ÷ (1 + rate/100) backs out tax correctly.' },
+                { title: 'Local Rates', text: 'Use the US state dropdown to auto-load combined local rates.' },
+                { title: 'Quick Buttons', text: 'Use preset percentage buttons for fast standard calculations.' },
+                { title: 'Batch Processing', text: 'Paste lists of numbers in Batch Mode to calculate in bulk.' },
+                { title: 'Find Tax Rate', text: 'Switch tabs to compute the implied rate from a receipt total.' },
+              ].map((tip, idx) => (
+                <div key={idx} style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                  <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: 6, fontFamily: 'var(--font-mono)', fontSize: 13, textTransform: 'uppercase' }}>{tip.title}</strong>
+                  {tip.text}
                 </div>
               ))}
             </div>
           </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
+              
+              {/* SECTION: What is Reverse Sales Tax */}
+              <section>
+                <span className="section-label">About</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  What Is a Reverse Sales Tax Calculator?
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    A <strong>reverse sales tax calculator</strong> works backwards from a tax-included total to find the original price before tax was added. Most calculators start with a base price and add tax on top. This one does the opposite.
+                  </p>
+                  <p>
+                    Here is why that matters. When you see a price on a receipt, invoice, or expense report, that number already includes tax. To find what the item actually cost, you cannot just subtract the tax percentage from the total. That gives you the wrong number every time.
+                  </p>
+                  <div style={{ background: 'rgba(239, 68, 68, 0.01)', borderLeft: '4px solid #ef4444', borderRight: '1px solid var(--border)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '20px', borderRadius: 'var(--radius)', margin: '20px 0' }}>
+                    <p style={{ color: 'var(--text-primary)', margin: 0, fontWeight: 700, textTransform: 'uppercase', fontSize: 13, letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: 6 }}>
+                      ⚠️ Example of the Subtracting Error:
+                    </p>
+                    <p style={{ margin: '10px 0 0', fontSize: 15, color: 'var(--text-secondary)' }}>
+                      You paid $107.50 with a 7.5% tax rate. If you subtract 7.5% from $107.50, you get $99.44. <strong>That is wrong.</strong> The correct original price is <strong>$100.00</strong>. The reverse sales tax formula divides instead of subtracts, and the difference adds up fast across hundreds of transactions.
+                    </p>
+                  </div>
+                  <p>
+                    This tool fixes that problem instantly. The term <strong>reverse tax</strong> refers to working backwards from a final amount to isolate the base price and the tax component separately. Accountants, business owners, freelancers, and everyday shoppers use this process daily for expense tracking, invoice verification, and financial reporting.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: The Reverse Sales Tax Formula */}
+              <section>
+                <span className="section-label">Math</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  The Reverse Sales Tax Formula
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    The formula is straightforward once you see it:
+                  </p>
+                  
+                  <div className="formula-box" style={{ margin: '16px 0' }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', opacity: 0.7, marginBottom: 12 }}>
+                      The Standard Equation
+                    </div>
+                    <div className="formula-text" style={{ fontSize: 'clamp(18px, 4vw, 26px)' }}>Original Price = Final Price ÷ (1 + Tax Rate / 100)</div>
+                  </div>
+
+                  <p>
+                    That is the sales tax reverse formula used by accountants, IRS-compliant bookkeeping systems, and financial reporting tools worldwide.
+                  </p>
+
+                  <h3 style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-primary)', marginTop: 12 }}>
+                    How the math breaks down step-by-step:
+                  </h3>
+
+                  <ol style={{ listStyle: 'decimal', paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 15 }}>
+                    <li>Take the tax rate and divide it by 100. So 8.5% becomes <code>0.085</code>.</li>
+                    <li>Add 1 to that number. You get <code>1.085</code>.</li>
+                    <li>Divide the total price you paid by <code>1.085</code>.</li>
+                    <li>The result is the original pre-tax price.</li>
+                    <li>Subtract the original price from the total to find the exact tax amount paid.</li>
+                  </ol>
+
+                  {/* Worked Example Card */}
+                  <div className="card" style={{ background: 'rgba(255,255,255,0.01)', marginTop: 24 }}>
+                    <h4 style={{ fontSize: 14, fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', marginBottom: 16, fontFamily: 'var(--font-mono)' }}>
+                      Worked Example:
+                    </h4>
+                    <p style={{ fontSize: 15, margin: '0 0 16px', color: 'var(--text-secondary)' }}>
+                      You paid <strong style={{ color: 'var(--text-primary)' }}>$215.70</strong>. The tax rate is <strong style={{ color: 'var(--text-primary)' }}>8.25%</strong>.
+                    </p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+                      <div style={{ background: 'rgba(0,0,0,0.4)', padding: 16, borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                        <div style={{ color: 'var(--text-muted)', fontSize: 11, marginBottom: 6, textTransform: 'uppercase' }}>1. RATE DECIMAL</div>
+                        <div style={{ color: 'var(--text-primary)' }}>8.25 ÷ 100 = 0.0825</div>
+                        <div style={{ color: 'var(--text-primary)' }}>1 + 0.0825 = 1.0825</div>
+                      </div>
+                      <div style={{ background: 'rgba(0,0,0,0.4)', padding: 16, borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                        <div style={{ color: 'var(--text-muted)', fontSize: 11, marginBottom: 6, textTransform: 'uppercase' }}>2. ORIGINAL PRICE</div>
+                        <div style={{ color: 'var(--text-primary)' }}>$215.70 ÷ 1.0825</div>
+                        <div style={{ color: 'var(--primary)', fontWeight: 700 }}>= $199.26</div>
+                      </div>
+                      <div style={{ background: 'rgba(0,0,0,0.4)', padding: 16, borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                        <div style={{ color: 'var(--text-muted)', fontSize: 11, marginBottom: 6, textTransform: 'uppercase' }}>3. TAX AMOUNT</div>
+                        <div style={{ color: 'var(--text-primary)' }}>$215.70 − $199.26</div>
+                        <div style={{ color: 'var(--primary)', fontWeight: 700 }}>= $16.44 paid</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p>
+                    Many people try to figure sales tax from total amounts by multiplying the total by the tax rate. That produces the wrong answer because the tax rate applies to the base price, not the total. Division is the only correct method. Our calculator applies this formula automatically every time.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: How to Use This Calculator */}
+              <section>
+                <span className="section-label">Guide</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  How to Use This Calculator
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    Using our calculator is exceptionally simple and covers multiple advanced use cases.
+                  </p>
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, margin: '20px 0' }}>
+                    <div style={{ border: '1px solid var(--border)', padding: 24, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                      <div style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 18, marginBottom: 12 }}>01</div>
+                      <h4 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Enter Total Price</h4>
+                      <p style={{ fontSize: 14, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>Type in the full amount you paid including tax, exactly as it appears on your receipt or invoice.</p>
+                    </div>
+                    <div style={{ border: '1px solid var(--border)', padding: 24, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                      <div style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 18, marginBottom: 12 }}>02</div>
+                      <h4 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Set Tax Rate</h4>
+                      <p style={{ fontSize: 14, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>Select your US state from the dropdown for automatic combined rates, or enter any custom rate.</p>
+                    </div>
+                    <div style={{ border: '1px solid var(--border)', padding: 24, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                      <div style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 18, marginBottom: 12 }}>03</div>
+                      <h4 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Get Results</h4>
+                      <p style={{ fontSize: 14, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>Click Calculate. Instantly see the original pre-tax price, the exact tax amount, and a breakdown.</p>
+                    </div>
+                  </div>
+
+                  <p>
+                    <strong>Batch Mode:</strong> If you have multiple receipts to process, click the <em>Batch / CSV Mode</em> tab at the top of the calculator. Paste a list of totals with their respective tax rates, and the calculator handles all of them simultaneously. This saves hours when reconciling a month of business expenses.
+                  </p>
+                  <p>
+                    <strong>Find Tax Rate Mode:</strong> If you know the total you paid and the original pre-tax price, but don't know what tax rate was applied, switch to the <em>Find Tax Rate</em> mode. It reverse-calculates the implied tax rate, which is incredibly useful when a receipt shows a tax amount but not the percentage.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: US Sales Tax Rates by State (2026) */}
+              <section>
+                <span className="section-label">State Rates</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  US Sales Tax Rates by State (2026)
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    Every state page on this site uses the current combined rate, which includes the state base rate plus the average local rate. Click any state in the table below to open a calculator pre-loaded with that state's rate.
+                  </p>
+                  <p>
+                    Sales tax in the United States operates at multiple levels. The state sets a base rate. Counties and cities can add their own rates on top. The combined total is what you actually pay at the register.
+                  </p>
+                  <p>
+                    Five states have no state-level sales tax at all: <strong>Alaska, Delaware, Montana, New Hampshire, and Oregon</strong>. Alaska is worth noting separately because local municipalities there do charge sales tax, giving it a small combined average of around 1.76%.
+                  </p>
+                  <p>
+                    The states with the highest combined average rates as of 2026 are Tennessee at 9.6%, Louisiana at 9.5%, Arkansas at 9.49%, and Alabama at 9.33%. These high totals come mostly from significant local district taxes stacked on top of the state rate.
+                  </p>
+                  <p>
+                    The national average combined rate sits at approximately <strong>7.53%</strong> according to the Tax Foundation. But that average covers a range from 0% in tax-free states to over 9.5% in the highest-tax states.
+                  </p>
+
+                  {/* Pro Tip Callout */}
+                  <div className="card" style={{ borderRadius: 'var(--radius)', border: '1px dashed var(--primary)', background: 'rgba(204, 255, 0, 0.02)', padding: '24px', margin: '24px 0' }}>
+                    <h3 style={{ fontWeight: 800, fontSize: 16, color: 'var(--primary)', marginBottom: 10, textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 8 }}>
+                      ⭐ Pro Tip: Combined vs. State Rates
+                    </h3>
+                    <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.7, margin: 0 }}>
+                      Always enter the <strong>combined tax rate</strong> (state + local taxes) printed on your physical receipt rather than the generic state base rate. Otherwise, your pre-tax calculations will be slightly wrong since local city and county surcharges won't be accounted for.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* SECTION: City-Level Tax Rates */}
+              <section>
+                <span className="section-label">Local Rates</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  City-Level Tax Rates: Where the Real Differences Are
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    State averages hide a lot of variation. Your specific city or county rate can be meaningfully higher than the statewide average, and that gap adds up on every purchase.
+                  </p>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, margin: '20px 0' }}>
+                    <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)', transition: 'border-color 0.2s' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                        <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>Chicago, IL</span>
+                        <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>10.25%</span>
+                      </div>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Breaks down as 6.25% state, 1.75% county, 1.25% city, plus additional district taxes.</p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)', transition: 'border-color 0.2s' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                        <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>New York City, NY</span>
+                        <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>8.875%</span>
+                      </div>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Includes 4% state, 4.5% city, plus a 0.375% MTA surcharge. Upstate counties typically range between 7% and 8%.</p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)', transition: 'border-color 0.2s' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                        <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>Los Angeles, CA</span>
+                        <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>10.25%</span>
+                      </div>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>California's base rate is 7.25%, but LA County adds local district taxes that push the rate to 10.25% in many ZIP codes.</p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)', transition: 'border-color 0.2s' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                        <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>Seattle, WA</span>
+                        <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>10.25%</span>
+                      </div>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Washington state charges 6.5%, but Seattle's combined rate including city and transit district taxes reaches 10.25%.</p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)', transition: 'border-color 0.2s' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                        <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>New Orleans, LA</span>
+                        <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>9.45%</span>
+                      </div>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Louisiana's state rate is 4.45%, but Orleans Parish pushes the combined total above 9.45% depending on the transaction type.</p>
+                    </div>
+                  </div>
+
+                  <p>
+                    When you use the calculator for a city-specific purchase, always check whether your receipt shows the combined rate or just the state rate. The combined rate is the one you need to enter.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: How Businesses Use Reverse Tax Calculations Every Day */}
+              <section>
+                <span className="section-label">Business</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  How Businesses Use Reverse Tax Calculations Every Day
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 24 }}>
+                  <p style={{ margin: 0 }}>
+                    For businesses, reverse sales tax calculation is a daily necessity. Accounting departments regularly receive invoices and receipts with tax-inclusive totals and must extract the pre-tax base for proper bookkeeping, expense categorization, and financial reporting.
+                  </p>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: 20 }}>
+                      <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8, textTransform: 'uppercase' }}>Expense Reporting</h3>
+                      <p style={{ fontSize: 15, margin: 0, color: 'var(--text-secondary)' }}>
+                        Every time an employee submits a receipt for reimbursement, the finance team needs the pre-tax amount. Most companies reimburse the base cost of a business expense and handle the tax separately. If a team member spent $86.40 on office supplies at an 8% tax rate, the reimbursable amount is $80.00. The tax amount is $6.40. The reverse sales tax calculator finds both numbers in one step.
+                      </p>
+                    </div>
+
+                    <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: 20 }}>
+                      <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8, textTransform: 'uppercase' }}>Vendor Invoice Verification</h3>
+                      <p style={{ fontSize: 15, margin: 0, color: 'var(--text-secondary)' }}>
+                        Vendors make tax errors. Sometimes the wrong rate gets applied, tax appears on a line item that should be exempt, or the arithmetic is simply off. Take the pre-tax subtotal on the invoice and multiply by <code>(1 + tax rate / 100)</code>. If the result matches the total on the invoice, the tax is correct. If it does not match, you have found a billing error before payment.
+                      </p>
+                    </div>
+
+                    <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: 20 }}>
+                      <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8, textTransform: 'uppercase' }}>Financial Statement Preparation</h3>
+                      <p style={{ fontSize: 15, margin: 0, color: 'var(--text-secondary)' }}>
+                        GAAP and IFRS both require businesses to report revenue net of sales tax. Sales tax is a liability that passes through the business to the government. It does not belong in your revenue line. If your point-of-sale system shows $45,000 in total receipts for the month and your average tax rate is 8.5%, your actual revenue is $41,475.11. The remaining $3,524.89 goes to the tax payable account. The reverse sales tax calculator gives you these numbers instantly.
+                      </p>
+                    </div>
+
+                    <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: 20 }}>
+                      <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8, textTransform: 'uppercase' }}>Sales Tax Remittance Reconciliation</h3>
+                      <p style={{ fontSize: 15, margin: 0, color: 'var(--text-secondary)' }}>
+                        Before filing a sales tax return, businesses need to verify that the amount in their tax payable account matches what was actually collected. Running a reverse calculation on total deposits confirms the split between revenue and tax. If the numbers do not reconcile, there is a recording error somewhere that needs to be found before the return is filed.
+                      </p>
+                    </div>
+
+                    <div style={{ borderLeft: '3px solid var(--primary)', paddingLeft: 20 }}>
+                      <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8, textTransform: 'uppercase' }}>Multi-State Operations</h3>
+                      <p style={{ fontSize: 15, margin: 0, color: 'var(--text-secondary)' }}>
+                        A business with nexus in multiple states deals with a different tax rate for every customer location. Reverse calculations let you verify that the correct rate was applied to each transaction by state. This matters especially for e-commerce sellers who collect tax across dozens of jurisdictions simultaneously.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* SECTION: E-Commerce Sellers */}
+              <section>
+                <span className="section-label">E-Commerce</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  E-Commerce Sellers: What You Need to Know
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    The 2018 Supreme Court ruling in <em>South Dakota v. Wayfair</em> changed everything for online sellers. Before Wayfair, you only collected sales tax in states where you had a physical presence. After Wayfair, you collect in every state where you meet the economic nexus threshold, which is typically $100,000 in annual sales or 200 transactions.
+                  </p>
+                  <p>
+                    That means an e-commerce seller with customers in 30 states potentially deals with 30 different tax rates. Reverse calculations become essential for several reasons:
+                  </p>
+                  <ul style={{ listStyle: 'square', paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 10, fontSize: 15 }}>
+                    <li>
+                      <strong>Processing refunds correctly:</strong> When a customer returns an item, you refund both the product price and the exact tax they paid. If the original sale was $54.00 including 8% tax, the reverse calculation shows $50.00 product plus $4.00 tax. You refund $54.00 total. Getting this wrong means either shortchanging the customer or overpaying the refund.
+                    </li>
+                    <li>
+                      <strong>Reconciling marketplace payouts:</strong> Amazon, eBay, and Etsy collect and remit sales tax in marketplace facilitator states on your behalf. Their payout reports show net amounts after tax. To verify your actual gross revenue, you work backwards from the totals using the applicable state rates.
+                    </li>
+                    <li>
+                      <strong>Auditing tax collection accuracy:</strong> If your platform collected $1,092.90 on a product and you charged 9.29% tax, the reverse calculation confirms the base price was exactly $1,000.00. If the numbers do not line up, your tax settings have an error that will surface in a state audit.
+                    </li>
+                    <li>
+                      <strong>Tracking nexus thresholds:</strong> Nexus thresholds are measured in gross revenue excluding tax. If you are approaching the threshold in a new state, you need to calculate your pre-tax revenue accurately. Using totals that include tax causes you to overestimate your revenue and potentially register for tax collection earlier than required.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              {/* SECTION: Freelancers */}
+              <section>
+                <span className="section-label">Freelancers</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Freelancers and Independent Contractors
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    Freelancers often miss a straightforward tax deduction: the pre-tax cost of business purchases. The deductible amount is the base price, not the total you paid.
+                  </p>
+                  <p>
+                    You spent <strong>$534.00</strong> on a new laptop. The tax rate in your state is <strong>7.5%</strong>. The reverse calculation shows your deductible business expense is <strong>$496.74</strong>. The remaining $37.26 is sales tax paid, which may also be deductible as a separate line item depending on your state and filing situation.
+                  </p>
+                  <p style={{ margin: '8px 0 0', fontWeight: 700, color: 'var(--text-primary)' }}>
+                    Common freelance purchases where this matters:
+                  </p>
+                  <ul style={{ listStyle: 'disc', paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 6, fontSize: 15 }}>
+                    <li>Software subscriptions billed annually with tax included</li>
+                    <li>Professional equipment and hardware</li>
+                    <li>Office supplies from business purchases</li>
+                    <li>Professional development courses sold at tax-inclusive prices</li>
+                    <li>Coworking space memberships where tax is bundled into the monthly fee</li>
+                  </ul>
+                  <p>
+                    If you use accounting software and enter the full tax-inclusive total instead of the pre-tax amount, your expense records are overstated. That produces inaccurate profit and loss reports and potentially incorrect tax deductions at year-end.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: Industry Segments */}
+              <section>
+                <span className="section-label">Industries</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Special Industry Considerations
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 24 }}>
+                  
+                  <div>
+                    <h3 style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>Restaurant and Hospitality</h3>
+                    <p style={{ fontSize: 15, margin: 0, color: 'var(--text-secondary)' }}>
+                      Food service operations deal with some of the most complex sales tax situations. Different items on the same check may carry different tax rates (e.g. prepared hot food, alcohol, soft drinks). 
+                      <br />
+                      <strong>Tip allocation:</strong> In many states, tips are calculated on the pre-tax amount of the bill, not the total. If a server presents a $108.00 check to a table expecting a 20% tip, the correct tip base is $100.00 (with 8% tax), making the tip $20.00, not $21.60. Customers and servers both benefit from clarity on this.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>Real Estate and Property Management</h3>
+                    <p style={{ fontSize: 15, margin: 0, color: 'var(--text-secondary)' }}>
+                      Real estate transactions are not typically subject to sales tax, but many related services are. Property management fees are subject to sales tax in several states. A $1,620.00 monthly fee at 8% tax has a pre-tax base of $1,500.00. 
+                      <br />
+                      Short-term rental operators face a similar situation. Platforms like Airbnb collect occupancy taxes on behalf of hosts in many jurisdictions. The payout the host receives is the revenue after platform fees and taxes. Reverse calculations help hosts reconcile their gross rental income from the net amounts deposited.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* SECTION: Accounting Software Integration */}
+              <section>
+                <span className="section-label">Spreadsheets</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Accounting Software & Spreadsheet Integration
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 20 }}>
+                  <p style={{ margin: 0 }}>
+                    The reverse sales tax formula translates directly into spreadsheet formulas and custom code snippets.
+                  </p>
+
+                  <div className="card" style={{ border: '2px solid var(--border)', background: '#121214' }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 12, fontFamily: 'var(--font-mono)' }}>
+                      Excel & Google Sheets Formulas
+                    </h3>
+                    <p style={{ fontSize: 14, marginBottom: 12 }}>
+                      If cell <strong>A1</strong> holds the final price and cell <strong>B1</strong> holds the tax rate as a percentage:
+                    </p>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, background: '#09090b', padding: 14, borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      <div>
+                        <span style={{ color: 'var(--primary)' }}>Original Price:</span> <code>=A1/(1+(B1/100))</code>
+                      </div>
+                      <div>
+                        <span style={{ color: 'var(--primary)' }}>Tax Amount Paid:</span> <code>=A1-C1</code> <span style={{ opacity: 0.5 }}>(assuming C1 holds the original price formula)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p>
+                    <strong>QuickBooks Workflow:</strong> When you enter a vendor bill or expense in QuickBooks, the system expects a pre-tax amount on the expense line. If you enter the tax-inclusive total instead, QuickBooks either double-counts the tax or records an inflated expense amount. Use the reverse calculator to find the pre-tax amount first, enter it on the expense line, and let QuickBooks apply the tax separately.
+                  </p>
+
+                  <p>
+                    <strong>CSV Imports:</strong> Most accounting platforms accept CSV imports for bulk transaction entry. Add columns for tax rate and calculated pre-tax amounts using the spreadsheet formulas above. Run the calculations for every row at once, then import the clean file.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: Tax Compliance */}
+              <section style={{ maxWidth: 860 }}>
+                <span className="section-label">Compliance</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Tax Compliance & Record Keeping
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    The IRS and state tax authorities expect complete records of all transactions involving sales tax. The required retention period varies by state, but three to seven years covers most jurisdictions.
+                  </p>
+                  
+                  <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginTop: 8, marginBottom: 8 }}>Records You Need to Keep:</h3>
+                  <ul style={{ listStyle: 'disc', paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 6, fontSize: 15 }}>
+                    <li>Original receipts and invoices showing the total amounts paid</li>
+                    <li>Documentation of the tax rates applied to each transaction</li>
+                    <li>Bank and credit card statements confirming payments</li>
+                    <li>General ledger entries showing how amounts were allocated between expense accounts and tax payable</li>
+                  </ul>
+
+                  <p>
+                    <strong>Audit Preparation:</strong> During a sales tax audit, the auditor will ask how you calculated the tax on your transactions. Systematic use of the reverse sales tax calculator with documented rates gives you a clear answer, creating an audit trail that demonstrates accuracy and consistency.
+                  </p>
+                  <p>
+                    <strong>Use Tax:</strong> Use tax applies when you purchase goods or services without paying sales tax and would have owed tax had you bought them in your home state. When calculating use tax, you need the pre-tax purchase price as the taxable base. If you only have the total paid, use the reverse calculator with the seller's rate to find the base price, then apply your home state's rate.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: Industry Edge Cases */}
+              <section style={{ maxWidth: 860 }}>
+                <span className="section-label">Edge Cases</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Industry-Specific Edge Cases
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    Understanding complex scenarios helps you maintain accurate books.
+                  </p>
+                  <ul style={{ listStyle: 'square', paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 10, fontSize: 15 }}>
+                    <li>
+                      <strong>Coupons and Discounts:</strong> Sales tax applies to the price after discounts. If you used a $20 coupon on a $100 item with 8% tax, you paid <code>($100 - $20) x 1.08 = $86.40</code> total. The reverse calculation on $86.40 gives you the $80.00 discounted base price, which is correct.
+                    </li>
+                    <li>
+                      <strong>Partial Refunds:</strong> When a customer returns one item from a multi-item purchase, you reverse calculate only the portion being refunded to ensure the refund reflects the accurate tax component.
+                    </li>
+                    <li>
+                      <strong>Mixed Taxable and Non-Taxable Items:</strong> Some receipts include both taxable and exempt items (like unprepared groceries in many states). You must apply the reverse formula only to the taxable portion.
+                    </li>
+                    <li>
+                      <strong>Digital Products and SaaS Subscriptions:</strong> Software subscriptions, streaming services, and digital downloads have different tax treatments depending on the state. Use the reverse calculator to find the pre-tax subscription cost for business expense deduction records.
+                    </li>
+                    <li>
+                      <strong>Drop Shipping:</strong> You charge your customer the destination tax rate, while your supplier charges you tax at their location's rate. Reversing the tax on both sides is required to correctly compute your gross margin.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              {/* SECTION: International Tax Rates */}
+              <section style={{ maxWidth: 860 }}>
+                <span className="section-label">Global</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  International Tax Rates & Reverse Calculations
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 20 }}>
+                  <p style={{ margin: 0 }}>
+                    The reverse sales tax formula works identically for every consumption tax regardless of what it is called or where it applies.
+                  </p>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
+                    <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇬🇧 United Kingdom VAT</h4>
+                      <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
+                        The standard VAT rate is <strong>20%</strong>. Prices typically display inclusive of VAT. To find the pre-VAT price, divide the total by <code>1.20</code>.
+                      </p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇪🇺 European Union VAT</h4>
+                      <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
+                        EU standard VAT rates range from 17% to 27%. Germany is 19% standard (7% reduced), France is 20% standard (5.5% reduced), Italy is 22%, Spain is 21%, and Sweden is 25%.
+                      </p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇨🇦 Canada GST, HST, PST & QST</h4>
+                      <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
+                        Federal GST is 5%. HST provinces are Ontario (13%), New Brunswick, Nova Scotia, Newfoundland, and PEI (all 15%). British Columbia, Manitoba, and Saskatchewan charge GST and PST separately.
+                      </p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇦🇺 Australia GST</h4>
+                      <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
+                        Australia applies a <strong>10%</strong> GST. Prices typically display GST-inclusive in retail settings. Divide the total by <code>1.10</code> to find the pre-GST price.
+                      </p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇯🇵 Japan Consumption Tax</h4>
+                      <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
+                        Standard rate is 10%, with 8% reduced rate for food and non-alcoholic beverages. Prices are displayed tax-inclusive. Divide by <code>1.10</code> or <code>1.08</code>.
+                      </p>
+                    </div>
+
+                    <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🌎 Other Major Markets</h4>
+                      <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
+                        India has GST slabs of 5%, 12%, 18%, and 28%. Mexico IVA is 16%. Singapore GST is 9%. New Zealand GST is 15%.
+                      </p>
+                    </div>
+                  </div>
+
+                  <p>
+                    <strong>Quebec sequential QST:</strong> Quebec charges 5% GST plus 9.975% QST. The effective combined rate is 14.975%, but the precise sequential calculation is handled correctly by our dedicated Canadian page.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: Who Uses This Calculator */}
+              <section>
+                <span className="section-label">Users</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Who Uses a Reverse Sales Tax Calculator?
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    This tool serves diverse financial and professional roles:
+                  </p>
+                  <ul style={{ listStyle: 'disc', paddingLeft: 24, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 15 }}>
+                    <li><strong>Accountants and Bookkeepers:</strong> Splitting tax-inclusive receipts, vendor bills, and employee expense reports before entry into ledger books.</li>
+                    <li><strong>Small Business Owners:</strong> Reconciling sales reports, ensuring expenses are recorded at the correct pre-tax amounts, and tracking profit accurately.</li>
+                    <li><strong>E-Commerce Sellers:</strong> Verifying sales tax collection system accuracy, processing refunds, and reconciling facilitator deposits (like Amazon or eBay).</li>
+                    <li><strong>Freelancers:</strong> Backing out tax amounts from software subscriptions, coworking, and hardware purchases for deductible expense reporting.</li>
+                    <li><strong>Everyday Shoppers:</strong> Verifying how much of their purchase total went toward retail sales taxes versus the product base cost.</li>
+                  </ul>
+                </div>
+              </section>
+
+              {/* SECTION: Automation */}
+              <section>
+                <span className="section-label">Automation</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  How to Automate Reverse Tax Calculations
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 20 }}>
+                  <p style={{ margin: 0 }}>
+                    Manual calculations work fine for occasional use, but high-volume operations benefit from developer-friendly automation:
+                  </p>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: 20 }}>
+                    
+                    {/* JS Code Snippet */}
+                    <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(0,0,0,0.3)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 13, fontFamily: 'var(--font-mono)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.05em' }}>JavaScript Implementation</h4>
+                      <pre style={{ margin: 0, padding: 14, background: '#070709', borderRadius: 'var(--radius-sm)', fontSize: 12, overflowX: 'auto', border: '1px solid var(--border)', lineHeight: 1.5 }}>
+<code style={{ color: 'var(--text-primary)' }}>{`function reverseTax(total, rate) {
+  const original = total / (1 + rate / 100);
+  const tax = total - original;
+  return { 
+    original: original.toFixed(2), 
+    tax: tax.toFixed(2) 
+  };
+}`}</code>
+                      </pre>
+                    </div>
+
+                    {/* Python Code Snippet */}
+                    <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(0,0,0,0.3)' }}>
+                      <h4 style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 13, fontFamily: 'var(--font-mono)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Python Implementation</h4>
+                      <pre style={{ margin: 0, padding: 14, background: '#070709', borderRadius: 'var(--radius-sm)', fontSize: 12, overflowX: 'auto', border: '1px solid var(--border)', lineHeight: 1.5 }}>
+<code style={{ color: 'var(--text-primary)' }}>{`def reverse_tax(total, rate):
+    original = total / (1 + rate / 100)
+    tax = total - original
+    return (
+        round(original, 2), 
+        round(tax, 2)
+    )`}</code>
+                      </pre>
+                    </div>
+
+                  </div>
+
+                  <p>
+                    <strong>Power Automate and Zapier:</strong> Cloud-based platforms can trigger reverse tax actions whenever a receipt upload occurs, extracting the data, executing the formula, and recording pre-tax amounts into QuickBooks automatically.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION: Common Mistakes */}
+              <section>
+                <span className="section-label" style={{ background: '#ef4444', color: '#fff', borderColor: '#ef4444' }}>Mistakes</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Common Mistakes When Backing Out Sales Tax
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    Avoid these calculation pitfalls in your accounting books:
+                  </p>
+                  <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    <li style={{ borderLeft: '2px solid #ef4444', paddingLeft: 12 }}>
+                      <strong style={{ color: 'var(--text-primary)' }}>Subtracting Instead of Dividing:</strong> Subtracting 8% from $108.00 lands on $99.36, whereas the correct answer is $100.00. This error compounding over time creates misallocated balances. Always divide.
+                    </li>
+                    <li style={{ borderLeft: '2px solid #ef4444', paddingLeft: 12 }}>
+                      <strong style={{ color: 'var(--text-primary)' }}>Using State Rate Instead of Combined Rate:</strong> Recording transactions at California's 7.25% state rate when the combined local rate paid was 9.5% results in underreporting your tax payable liabilities.
+                    </li>
+                    <li style={{ borderLeft: '2px solid #ef4444', paddingLeft: 12 }}>
+                      <strong style={{ color: 'var(--text-primary)' }}>Applying Tax to Non-Taxable Items:</strong> Mixing taxable goods with tax-exempt items (e.g. services, groceries) on the same invoice and applying the tax percentage to the full total.
+                    </li>
+                    <li style={{ borderLeft: '2px solid #ef4444', paddingLeft: 12 }}>
+                      <strong style={{ color: 'var(--text-primary)' }}>Not Accounting for Rate Changes:</strong> Tax rates change occasionally throughout the year. Run historical transactions against the rate active on the exact invoice date.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              {/* SECTION: Comparison Table */}
+              <section>
+                <span className="section-label">Comparison</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Manual Calculation vs. This Calculator
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    Here is how backing out tax manually compares to using our pre-tax price finder tool:
+                  </p>
+                  
+                  <div style={{ overflowX: 'auto' }}>
+                    <table className="data-table" style={{ minWidth: 500 }}>
+                      <thead>
+                        <tr>
+                          <th>Feature</th>
+                          <th>Manual Calculation</th>
+                          <th>This Calculator</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Speed</strong></td>
+                          <td>20–30 seconds per receipt</td>
+                          <td>Under 2 seconds (Instant)</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Accuracy</strong></td>
+                          <td>High human-error risk</td>
+                          <td>Perfect decimal precision</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Rate Lookup</strong></td>
+                          <td>Requires separate state lookup</td>
+                          <td>Auto-loaded 50 state dropdown</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Documentation</strong></td>
+                          <td>No automatic record created</td>
+                          <td>Full, copyable result breakdown</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Formula Errors</strong></td>
+                          <td>High risk of subtracting mistake</td>
+                          <td>Guaranteed division formula</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+
+              {/* SECTION: Glossary */}
+              <section>
+                <span className="section-label">Glossary</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Glossary of Reverse Tax Terms
+                </h2>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 16, fontSize: 14 }}>
+                  <div style={{ border: '1px solid var(--border)', padding: 18, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                    <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 15 }}>Pre-tax price:</strong>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.5, marginTop: 4 }}>The original price of a good or service before tax is added. Also called subtotal or net price.</p>
+                  </div>
+                  <div style={{ border: '1px solid var(--border)', padding: 18, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                    <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 15 }}>Post-tax price:</strong>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.5, marginTop: 4 }}>The final price paid including sales tax. Also called total or gross price.</p>
+                  </div>
+                  <div style={{ border: '1px solid var(--border)', padding: 18, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                    <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 15 }}>Reverse sales tax:</strong>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.5, marginTop: 4 }}>Working backwards from a total to find the pre-tax base. Also called backing out tax.</p>
+                  </div>
+                  <div style={{ border: '1px solid var(--border)', padding: 18, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                    <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 15 }}>Tax-inclusive price:</strong>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.5, marginTop: 4 }}>A price that already displays with tax built in (common in Europe, UK, Canada HST).</p>
+                  </div>
+                  <div style={{ border: '1px solid var(--border)', padding: 18, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                    <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 15 }}>Combined tax rate:</strong>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.5, marginTop: 4 }}>The total rate applied to a transaction, combining state, county, city, and district rates.</p>
+                  </div>
+                  <div style={{ border: '1px solid var(--border)', padding: 18, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
+                    <strong style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 15 }}>Economic nexus:</strong>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.5, marginTop: 4 }}>Tax liability threshold for out-of-state e-commerce sellers based on gross revenue or sales quantity.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* SECTION: Quick Reference US Locations */}
+              <section>
+                <span className="section-label">Locations</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Sales Tax Rates for the Most-Searched US Locations
+                </h2>
+                <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <p>
+                    These are the combined rates for the cities and counties that generate the most reverse tax searches. Each rate reflects the current combined total of state, county, city, and applicable district taxes as of 2026:
+                  </p>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20 }}>
+                    <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)' }}>
+                      <strong style={{ color: 'var(--primary)', textTransform: 'uppercase', fontSize: 14, letterSpacing: '0.05em' }}>California</strong>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: '8px 0 0', fontSize: 13, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <li>Los Angeles: 10.25%</li>
+                        <li>San Francisco: 8.625%</li>
+                        <li>San Diego: 7.75%</li>
+                        <li>Sacramento: 8.75%</li>
+                        <li>Oakland: 10.25%</li>
+                      </ul>
+                    </div>
+                    <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)' }}>
+                      <strong style={{ color: 'var(--primary)', textTransform: 'uppercase', fontSize: 14, letterSpacing: '0.05em' }}>Texas</strong>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: '8px 0 0', fontSize: 13, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <li>Houston: 8.25%</li>
+                        <li>Dallas: 8.25%</li>
+                        <li>San Antonio: 8.25%</li>
+                        <li>Austin: 8.25%</li>
+                        <li>Fort Worth: 8.25%</li>
+                      </ul>
+                    </div>
+                    <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)' }}>
+                      <strong style={{ color: 'var(--primary)', textTransform: 'uppercase', fontSize: 14, letterSpacing: '0.05em' }}>New York & Florida</strong>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: '8px 0 0', fontSize: 13, display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <li>New York City: 8.875%</li>
+                        <li>Buffalo: 8%</li>
+                        <li>Miami: 7%</li>
+                        <li>Orlando: 6.5%</li>
+                        <li>Tampa: 7.5%</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p>
+                    For any location not listed here, look up the exact combined rate on your state's Department of Revenue website and enter it into the custom rate field of our calculator.
+                  </p>
+                </div>
+              </section>
+
+            </div>
+          </div>
+
+          {/* ── Right Sidebar (Ads & Quick Reference) ── */}
+          <aside className="sidebar-right">
+            <div className="sidebar-sticky">
+              {/* Ad Unit */}
+              <div>
+                <AdSlot slot="results-rectangle" size="rectangle" />
+              </div>
+
+              {/* Quick Reference Card */}
+              <div className="sidebar-quick-ref">
+                <h3>💡 Quick Reference</h3>
+                <div className="sidebar-quick-ref-item">
+                  <strong>The Formula</strong>
+                  Price ÷ (1 + rate/100) backs out tax correctly every time.
+                </div>
+                <div className="sidebar-quick-ref-item">
+                  <strong>Local Rates</strong>
+                  Always use the combined rate (state + local) from your receipt.
+                </div>
+                <div className="sidebar-quick-ref-item">
+                  <strong>Batch Mode</strong>
+                  Paste multiple totals to process receipts in bulk.
+                </div>
+                <div className="sidebar-quick-ref-item">
+                  <strong>Find Tax Rate</strong>
+                  Know the pre-tax & total? Reverse-calculate the implied rate.
+                </div>
+                <div className="sidebar-quick-ref-item">
+                  <strong>No-Tax States</strong>
+                  AK, DE, MT, NH, OR have no state sales tax.
+                </div>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+
+      {/* ── How It Works (Step Cards) ─────────────────────────── */}
+      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '80px 0' }}>
+        <div className="container-main">
+          <HowItWorks />
         </div>
       </div>
 
@@ -360,56 +1108,17 @@ export const metadata: Metadata = {
         <StateTable />
       </div>
 
-
       <div className="container-main" style={{ marginTop: 48 }}>
         <AdSlot slot="in-article-2" size="in-article" />
       </div>
 
-      {/* ── Business Use Section ──────────────────────────────── */}
-      <div className="container-main" style={{ marginTop: 48 }}>
-        <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <span className="section-label">Business Use</span>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
-            How Businesses Use Reverse Tax Calculations
-          </h2>
-          <div style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <p>
-              For businesses, reverse sales tax calculation is a daily necessity. Accounting departments regularly receive
-              invoices and receipts with tax-inclusive totals and must extract the pre-tax base for proper bookkeeping,
-              expense categorization, and financial reporting.
-            </p>
-            <p>
-              <strong>Expense Reporting:</strong> When employees submit expense reports with tax-inclusive receipts, accountants
-              need the pre-tax amount to correctly categorize expenses and claim input tax credits where applicable. Our batch
-              mode lets you process an entire month&apos;s receipts in seconds.
-            </p>
-            <p>
-              <strong>Vendor Invoice Verification:</strong> Businesses frequently need to verify that a vendor charged the
-              correct tax amount on an invoice. By calculating the expected pre-tax price from the total, you can quickly
-              spot discrepancies and potential billing errors.
-            </p>
-            <p>
-              <strong>Cross-State Operations:</strong> Companies operating across multiple US states must account for different
-              tax rates in each jurisdiction. Our state-specific calculators and filterable rate table make it easy to handle
-              transactions from any state without manual lookup.
-            </p>
-            <p>
-              <strong>Retail & E-Commerce:</strong> Online retailers selling to customers in multiple states need to verify
-              sales tax collection accuracy. Reverse calculations help audit whether the correct amounts were charged during
-              checkout and collected for remittance to state authorities.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ── FAQ ───────────────────────────────────────────────── */}
+      {/* ── FAQAccordion Section ─────────────────────────────── */}
       <div className="container-main" style={{ marginTop: 80 }}>
         <FAQSection />
       </div>
 
       {/* ── References & Sources ──────────────────────────────── */}
-      <div className="container-main" style={{ marginTop: 80 }}>
-        <div style={{ maxWidth: 860, margin: '0 auto' }}>
+      <div className="container-main" style={{ marginTop: 80, marginBottom: 80 }}>
           <span className="section-label">Sources</span>
           <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 8px' }}>
             References &amp; Official Sources
@@ -473,11 +1182,11 @@ export const metadata: Metadata = {
               </a>
             ))}
           </div>
-        </div>
       </div>
 
+
       {/* ── Related Tools ─────────────────────────────────────── */}
-      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', marginTop: 64, padding: '64px 0' }}>
+      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '64px 0' }}>
         <div className="container-main">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="section-label">Related Tools</span>
@@ -486,7 +1195,6 @@ export const metadata: Metadata = {
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-            {/* Related Tools List */}
             { [
                 { href: '/vat-calculator', icon: '🇪🇺', title: 'VAT Calculator', desc: 'Remove VAT from prices for UK, EU, and Australia', alt: 'European Union flag icon' },
                 { href: '/canada', icon: '🇨🇦', title: 'Canada Tax Calculator', desc: 'GST, HST, PST and Quebec QST reverse calculations', alt: 'Canada flag icon' },
@@ -501,7 +1209,6 @@ export const metadata: Metadata = {
                   <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.5 }}>{desc}</p>
                 </Link>
               ))}
-
           </div>
         </div>
       </div>

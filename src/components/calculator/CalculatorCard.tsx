@@ -20,7 +20,7 @@ export default function CalculatorCard() {
   return (
     <div id="calculator" className="calc-card">
       {/* Tab Bar */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 32, paddingBottom: 4 }}>
+      <div className="calc-tab-bar">
         {TABS.map((tab) => (
           <button
             key={tab.id}
@@ -28,7 +28,7 @@ export default function CalculatorCard() {
             className={`calc-tab-btn ${activeTab === tab.id ? 'active' : ''}`}
             title={tab.desc}
           >
-            <span style={{ marginRight: 6 }}>{tab.icon}</span>
+            <span>{tab.icon}</span>
             {tab.label}
           </button>
         ))}

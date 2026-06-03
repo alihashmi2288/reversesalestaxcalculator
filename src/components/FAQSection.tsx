@@ -22,6 +22,10 @@ const FAQ_CATEGORIES = [
         a: "Step 1: Convert your tax rate to a decimal by dividing by 100 (e.g., 8.5% → 0.085). Step 2: Add 1 to that decimal (1 + 0.085 = 1.085). Step 3: Divide your total price by that number ($115.13 ÷ 1.085 = $106.11 pre-tax price). Or just use our calculator — it does all three steps instantly.",
       },
       {
+        q: 'What is the backwards tax calculator and is it the same thing?',
+        a: 'Yes. A backwards tax calculator, backwards sales tax calculator, and back out tax calculator are all the same tool described with different search terms. They all reverse calculate from a tax-inclusive total to find the original price.',
+      },
+      {
         q: 'What is the difference between sales tax and VAT?',
         a: "Sales tax in the US is collected only at the final point of sale and paid only by the end consumer. VAT (Value Added Tax), used in Europe and many other countries, is collected at each stage of the supply chain — from manufacturer to wholesaler to retailer. Despite this structural difference, the reverse calculation formula is identical: Price ÷ (1 + rate/100).",
       },
@@ -75,6 +79,10 @@ const FAQ_CATEGORIES = [
         a: 'This varies by state. Some states (like California) generally exempt separately stated shipping charges. Others (like Texas) tax shipping when it is part of a taxable sale. The safest rule: if the underlying goods are taxable and shipping is bundled with the sale price, assume it is taxable in most states.',
       },
       {
+        q: 'What if I do not know whether shipping was taxed?',
+        a: 'Check the invoice. If shipping appears as a separate line item and the tax was calculated only on the merchandise subtotal, enter only the merchandise total and the tax rate. If shipping was included in the taxable base, enter the full total including shipping. Different states have different rules on whether shipping is taxable.',
+      },
+      {
         q: 'Are services subject to sales tax?',
         a: "Generally, US sales taxes apply to the sale of tangible personal property, not services. However, this varies significantly. Hawaii and New Mexico tax almost all services. Washington taxes many B2B services. Most other states have a narrow list of specifically enumerated taxable services. Always verify with the specific state's revenue department.",
       },
@@ -96,16 +104,20 @@ const FAQ_CATEGORIES = [
         a: "The pre-tax price (also called the 'net price' or 'base price') is what an item costs before any sales tax is added. The post-tax price (or 'gross price') is the final amount you actually pay, including all applicable taxes. Our reverse calculator converts post-tax amounts back to their pre-tax equivalents.",
       },
       {
-        q: 'How accurate is this calculator for official tax filings?',
-        a: 'Our calculator is mathematically precise — it uses the exact formula required for reverse sales tax calculation. However, for official tax returns, audits, or financial statements, always verify the applicable rate with your state Department of Revenue at the time of filing, as rates can and do change. This tool is for estimation and daily accounting use.',
-      },
-      {
         q: 'How do e-commerce businesses use reverse tax calculations?',
         a: "E-commerce sellers use reverse tax calculations to audit their sales tax collection systems, verify that customers were charged the correct rate for their location, reconcile marketplace tax withholdings (e.g., Amazon's Marketplace Tax Collection), and prepare state tax remittance reports. If your platform collected $1,092.90 for a product, was that 9.29% on a $1,000 item? Our calculator confirms it instantly.",
       },
       {
         q: 'How do I verify a vendor invoice for correct tax?',
         a: 'Take the total on the invoice, divide it by (1 + expected tax rate/100), and compare the result to the pre-tax line item on the invoice. If they match, the tax was calculated correctly. If not, the vendor may have applied the wrong rate — a common error for out-of-state purchases.',
+      },
+      {
+        q: 'Does this work for calculating reverse taxes on car purchases?',
+        a: 'Yes, with one important consideration. Many states allow dealers to reduce the taxable base by the trade-in value before calculating tax. If you paid $35,000.00 total including tax but had a $5,000.00 trade-in that reduced your taxable base, the reverse calculation should be run on the taxable portion of the transaction, not the total. Your purchase contract will specify the taxable amount.',
+      },
+      {
+        q: 'How do I use reverse tax calculations for insurance claims?',
+        a: 'Insurance companies sometimes require the pre-tax value of a damaged or stolen item when processing a claim. The reverse calculation gives you the pre-tax price from your original receipt total. Keep the original receipt with the claim documentation.',
       },
       {
         q: 'Can I process multiple receipts at once?',
@@ -129,6 +141,10 @@ const FAQ_CATEGORIES = [
         a: "Alberta only charges the federal 5% GST with no provincial tax. Divide your total by 1.05. Example: $105.00 ÷ 1.05 = $100.00 pre-tax price.",
       },
       {
+        q: 'Can I use this calculator for Canadian QST calculations?',
+        a: "For Quebec, the standard reverse formula slightly understates the result because QST is applied sequentially on top of GST rather than as a flat combined rate. Use our dedicated Canada calculator for Quebec transactions. It applies the sequential calculation correctly.",
+      },
+      {
         q: 'What is the combined tax rate in Quebec?',
         a: 'Quebec charges the 5% federal GST plus the 9.975% QST. These are not simply added — they are calculated separately and in sequence in Quebec. The effective combined rate is approximately 14.975%, but the precise calculation is: pre-tax price × 1.05 × 1.09975. Our Canada calculator handles this correctly.',
       },
@@ -150,6 +166,10 @@ const FAQ_CATEGORIES = [
         a: 'The reverse calculation formula is identical regardless of whether it is called sales tax or VAT: Pre-tax price = Total ÷ (1 + rate/100). The math does not change. The only difference is in how the tax is collected and remitted, not in how you reverse it from a final price.',
       },
       {
+        q: "How do I figure out tax from total amounts on foreign receipts?",
+        a: "Enter the total in whatever currency appears on the receipt. The currency does not matter for the calculation. The formula produces a pre-tax amount in the same currency. What you need is the correct tax rate for the country or region where the purchase occurred, then enter the total and that rate.",
+      },
+      {
         q: "What is Australia's GST rate?",
         a: "Australia's Goods and Services Tax (GST) rate is 10%. To find the pre-GST price, divide the total by 1.10. Example: $110.00 ÷ 1.10 = $100.00 pre-tax price.",
       },
@@ -161,6 +181,14 @@ const FAQ_CATEGORIES = [
       {
         q: 'What is the mathematical proof that division is correct for reverse tax?',
         a: "Forward tax: Post-tax = Pre-tax × (1 + rate/100). To reverse this algebraically: Pre-tax = Post-tax ÷ (1 + rate/100). This is basic algebra — dividing both sides by (1 + rate/100). There is no rounding or approximation involved; division is the exact mathematical inverse of the forward multiplication.",
+      },
+      {
+        q: 'What happens when I have a 0% tax rate?',
+        a: 'Entering 0% as the tax rate returns the original price equal to the total paid. No tax was collected, so there is nothing to extract. This is the correct result for transactions in tax-exempt states or on tax-exempt purchases.',
+      },
+      {
+        q: 'How do I handle a transaction where the tax amount on the receipt does not match what the reverse formula calculates?',
+        a: 'Small differences of one or two cents are normal. They result from how the merchant rounds individual item taxes before summing them. For accounting purposes, use the amounts printed on the receipt as your definitive record. Larger discrepancies suggest either a rate error or a mathematical error in the original transaction.',
       },
       {
         q: 'Does the order of rounding matter in tax calculations?',

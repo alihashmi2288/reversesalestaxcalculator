@@ -65,7 +65,7 @@ export default function BasicTab() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }} className="grid-responsive">
         {/* Final Price */}
         <div>
-          <label style={{ display: 'block', fontWeight: 600, fontSize: 14, marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             Total Price Paid (with tax)
           </label>
           <div className="input-wrapper">
@@ -86,7 +86,7 @@ export default function BasicTab() {
 
         {/* Tax Rate */}
         <div>
-          <label style={{ display: 'block', fontWeight: 600, fontSize: 14, marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             Tax Rate
           </label>
           <div className="input-wrapper">
@@ -109,7 +109,7 @@ export default function BasicTab() {
 
       {/* Quick Rates */}
       <div>
-        <label style={{ display: 'block', fontWeight: 600, fontSize: 13, marginBottom: 10, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <label style={{ display: 'block', fontWeight: 800, fontSize: 11, marginBottom: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Quick Select Rate
         </label>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -123,7 +123,7 @@ export default function BasicTab() {
 
       {/* State Dropdown */}
       <div>
-        <label style={{ display: 'block', fontWeight: 600, fontSize: 13, marginBottom: 8, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+        <label style={{ display: 'block', fontWeight: 800, fontSize: 11, marginBottom: 8, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Or Select US State (auto-fills combined rate)
         </label>
         <select id="basic-state-select" className="state-select" value={selectedState} onChange={handleStateChange}>
@@ -138,7 +138,7 @@ export default function BasicTab() {
 
       {/* Error */}
       {error && (
-        <div style={{ background: '#000', border: '2px solid #ef4444', borderRadius: 'var(--radius)', padding: '12px 16px', color: '#ef4444', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+        <div style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 'var(--radius)', padding: '14px 18px', color: '#f87171', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
           [ERROR] {error}
         </div>
       )}
@@ -154,39 +154,39 @@ export default function BasicTab() {
 
       {/* Results */}
       {result && (
-        <div style={{ animation: 'slideIn 0.3s ease' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 16 }} className="grid-results">
+        <div style={{ animation: 'slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1)', marginTop: 8 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 20 }} className="grid-results">
             {/* Pre-Tax */}
             <div className="result-card success">
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#065f46', marginBottom: 8 }}>
-                ✓ Original Price (Pre-Tax)
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)', marginBottom: 8 }}>
+                ✓ Original Price
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#047857', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}>
                 ${fmt(result.preTaxPrice)}
               </div>
-              <div style={{ fontSize: 13, color: '#059669', marginTop: 6 }}>Before tax was applied</div>
+              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 8 }}>Pre-tax item value</div>
             </div>
 
             {/* Tax Amount */}
             <div className="result-card danger">
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#991b1b', marginBottom: 8 }}>
-                Tax Amount Paid
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#f87171', marginBottom: 8 }}>
+                Tax Amount
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#dc2626', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: '#ef4444', lineHeight: 1 }}>
                 ${fmt(result.taxAmount)}
               </div>
-              <div style={{ fontSize: 13, color: '#ef4444', marginTop: 6 }}>{result.taxRate}% of pre-tax price</div>
+              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 8 }}>{result.taxRate}% sales tax</div>
             </div>
 
             {/* Total */}
             <div className="result-card neutral">
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#374151', marginBottom: 8 }}>
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#e4e4e7', marginBottom: 8 }}>
                 Total Paid
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#374151', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: '#ffffff', lineHeight: 1 }}>
                 ${fmt(result.totalPaid)}
               </div>
-              <div style={{ fontSize: 13, color: '#6B7280', marginTop: 6 }}>Amount you entered</div>
+              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 8 }}>Receipt total</div>
             </div>
           </div>
 
@@ -194,7 +194,7 @@ export default function BasicTab() {
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <button onClick={copyToClipboard} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>
               {copied ? (
-                <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg> Copied!</>
+                <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg> <span style={{ color: 'var(--primary)' }}>Copied!</span></>
               ) : (
                 <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Results</>
               )}
@@ -206,8 +206,8 @@ export default function BasicTab() {
           </div>
 
           {/* Formula reminder */}
-          <div style={{ background: 'var(--bg)', border: '2px dashed var(--border)', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: 13, color: 'var(--primary)', marginTop: 12, fontFamily: 'var(--font-mono)', wordBreak: 'break-word' }}>
-            <strong>Calculation formula:</strong> ${fmt(result.preTaxPrice)} = ${fmt(result.totalPaid)} ÷ (1 + {result.taxRate}/100)
+          <div style={{ background: 'rgba(0,0,0,0.3)', border: '1px dashed var(--border)', borderRadius: 'var(--radius)', padding: '14px 18px', fontSize: 13, color: 'var(--primary)', marginTop: 16, fontFamily: 'var(--font-mono)', wordBreak: 'break-word', textAlign: 'center' }}>
+            <strong>Calculation:</strong> ${fmt(result.preTaxPrice)} = ${fmt(result.totalPaid)} ÷ (1 + {result.taxRate}/100)
           </div>
         </div>
       )}
