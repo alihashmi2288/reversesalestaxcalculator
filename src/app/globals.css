@@ -486,7 +486,42 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 
 /* ─── Utility Classes ───────────────────────────────────────── */
-.container-main { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+.container-main {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .container-main {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-main {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-main {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container-main {
+    max-width: 1380px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-main {
+    max-width: 1560px;
+  }
+}
 .text-gradient {
   background: linear-gradient(135deg, var(--primary), #fff);
   -webkit-background-clip: text;
@@ -625,67 +660,51 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* Prevent grid children from overflowing their tracks */
 .homepage-hero-grid > *,
-.homepage-content-grid > * {
+.dashboard-grid > * {
   min-width: 0;
 }
 
-/* Main content + sticky sidebars */
-.homepage-content-grid {
+/* ─── Dashboard 12-Column Grid ───────────────────────────────── */
+.dashboard-grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas:
-    "area-main"
-    "area-right"
-    "area-left";
-  gap: 32px;
-  align-items: start;
+  gap: 24px;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
-.sidebar-left {
-  grid-area: area-left;
-}
-
-.sidebar-right {
-  grid-area: area-right;
-}
-
-.main-content-column {
-  grid-area: area-main;
-}
-
-/* Sidebar wrapper — sticky so elements/ads stay visible while scrolling */
-.sidebar-sticky {
-  position: static;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+.dashboard-col-3,
+.dashboard-col-4,
+.dashboard-col-5 {
   width: 100%;
 }
 
-@media (min-width: 960px) {
-  .homepage-content-grid {
-    grid-template-columns: 1fr 280px;
-    grid-template-areas:
-      "area-main area-right"
-      "area-left area-right";
-    gap: 40px;
+@media (min-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
   }
-  .sidebar-sticky {
-    position: sticky;
-    top: 100px;
+  .dashboard-col-3 {
+    grid-column: span 3;
+  }
+  .dashboard-col-5 {
+    grid-column: span 5;
+  }
+  .dashboard-col-4 {
+    grid-column: span 4;
   }
 }
 
-@media (min-width: 1280px) {
-  .homepage-content-grid {
-    grid-template-columns: 260px 1fr 280px;
-    grid-template-areas: "area-left area-main area-right";
-    gap: 48px;
-    margin-top: 64px;
-    margin-bottom: 64px;
-  }
+/* Educational Content Layout */
+.educational-content-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin-top: 64px;
+  margin-bottom: 64px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Quick reference card inside sidebar */

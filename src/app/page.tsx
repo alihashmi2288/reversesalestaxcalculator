@@ -227,66 +227,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Main Layout: Content + Sidebar ───────────────────── */}
-      <div className="container-main">
-        <div className="homepage-content-grid">
-
-          {/* ── Left Sidebar (State & International Links) ── */}
-          <aside className="sidebar-left">
-            <div className="sidebar-sticky">
-              {/* Popular State Links */}
-              <div className="sidebar-state-links">
-                <h3>🇺🇸 Popular States</h3>
-                {[
-                  { href: '/us/california', name: 'California', rate: '9.06%' },
-                  { href: '/us/texas', name: 'Texas', rate: '8.19%' },
-                  { href: '/us/new-york', name: 'New York', rate: '8.54%' },
-                  { href: '/us/florida', name: 'Florida', rate: '7.01%' },
-                  { href: '/us/washington', name: 'Washington', rate: '9.23%' },
-                  { href: '/us/illinois', name: 'Illinois', rate: '8.86%' },
-                  { href: '/us/tennessee', name: 'Tennessee', rate: '9.55%' },
-                  { href: '/us/ohio', name: 'Ohio', rate: '7.23%' },
-                ].map(({ href, name, rate }) => (
-                  <Link key={href} href={href} className="sidebar-state-link">
-                    <span className="sidebar-state-name">{name}</span>
-                    <span className="sidebar-state-rate">{rate}</span>
-                  </Link>
-                ))}
-                <div style={{ marginTop: 14 }}>
-                  <Link href="/tax-rates" style={{ fontSize: 12, color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 700, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    View All 50 States →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Canada & VAT Links */}
-              <div className="sidebar-state-links">
-                <h3>🌍 International</h3>
-                <Link href="/canada" className="sidebar-state-link">
-                  <span className="sidebar-state-name">🇨🇦 Canada GST/HST</span>
-                  <span className="sidebar-state-rate">5–15%</span>
+      {/* ── Main Layout: Content + Sidebars ── */}
+      <div className="container-main" style={{ marginTop: 40, marginBottom: 40 }}>
+        {/* 12-Column Dashboard Grid */}
+        <div className="dashboard-grid">
+          
+          {/* Column 1: Popular States (3 cols) */}
+          <div className="dashboard-col-3">
+            <div className="sidebar-state-links" style={{ height: '100%' }}>
+              <h3>🇺🇸 Popular States</h3>
+              {[
+                { href: '/us/california', name: 'California', rate: '9.06%' },
+                { href: '/us/texas', name: 'Texas', rate: '8.19%' },
+                { href: '/us/new-york', name: 'New York', rate: '8.54%' },
+                { href: '/us/florida', name: 'Florida', rate: '7.01%' },
+                { href: '/us/washington', name: 'Washington', rate: '9.23%' },
+                { href: '/us/illinois', name: 'Illinois', rate: '8.86%' },
+                { href: '/us/tennessee', name: 'Tennessee', rate: '9.55%' },
+                { href: '/us/ohio', name: 'Ohio', rate: '7.23%' },
+              ].map(({ href, name, rate }) => (
+                <Link key={href} href={href} className="sidebar-state-link">
+                  <span className="sidebar-state-name">{name}</span>
+                  <span className="sidebar-state-rate">{rate}</span>
                 </Link>
-                <Link href="/vat-calculator" className="sidebar-state-link">
-                  <span className="sidebar-state-name">🇪🇺 EU VAT</span>
-                  <span className="sidebar-state-rate">20–27%</span>
-                </Link>
-                <Link href="/vat-calculator" className="sidebar-state-link">
-                  <span className="sidebar-state-name">🇬🇧 UK VAT</span>
-                  <span className="sidebar-state-rate">20%</span>
+              ))}
+              <div style={{ marginTop: 14 }}>
+                <Link href="/tax-rates" style={{ fontSize: 12, color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 700, textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  View All 50 States →
                 </Link>
               </div>
+              
+              <div className="divider" style={{ margin: '16px 0', height: 1 }} />
+              
+              <h3 style={{ marginTop: 8 }}>🌍 International</h3>
+              <Link href="/canada" className="sidebar-state-link">
+                <span className="sidebar-state-name">🇨🇦 Canada GST/HST</span>
+                <span className="sidebar-state-rate">5–15%</span>
+              </Link>
+              <Link href="/vat-calculator" className="sidebar-state-link">
+                <span className="sidebar-state-name">🇪🇺 EU VAT</span>
+                <span className="sidebar-state-rate">20–27%</span>
+              </Link>
+              <Link href="/vat-calculator" className="sidebar-state-link">
+                <span className="sidebar-state-name">🇬🇧 UK VAT</span>
+                <span className="sidebar-state-rate">20%</span>
+              </Link>
             </div>
-          </aside>
+          </div>
 
-          {/* ── Main Content Column ── */}
-          <div className="main-content-column">
-
-          {/* Quick Tips Horizontal Grid */}
-          <div className="card" style={{ marginBottom: 48, background: 'rgba(255,255,255,0.01)' }}>
-            <h3 style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)', marginBottom: 20, textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: 10 }}>
-              💡 Quick Reference Tips
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }}>
+          {/* Column 2: Quick Reference Tips (5 cols) */}
+          <div className="dashboard-col-5">
+            <div className="sidebar-quick-ref" style={{ height: '100%' }}>
+              <h3>💡 Quick Reference Tips</h3>
               {[
                 { title: 'The Formula', text: 'Price ÷ (1 + rate/100) backs out tax correctly.' },
                 { title: 'Local Rates', text: 'Use the US state dropdown to auto-load combined local rates.' },
@@ -294,15 +286,46 @@ export default function HomePage() {
                 { title: 'Batch Processing', text: 'Paste lists of numbers in Batch Mode to calculate in bulk.' },
                 { title: 'Find Tax Rate', text: 'Switch tabs to compute the implied rate from a receipt total.' },
               ].map((tip, idx) => (
-                <div key={idx} style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                  <strong style={{ color: 'var(--primary)', display: 'block', marginBottom: 6, fontFamily: 'var(--font-mono)', fontSize: 13, textTransform: 'uppercase' }}>{tip.title}</strong>
+                <div key={idx} className="sidebar-quick-ref-item" style={{ fontSize: 13, padding: '10px 0' }}>
+                  <strong style={{ color: 'var(--primary)' }}>{tip.title}</strong>
                   {tip.text}
                 </div>
               ))}
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
+          {/* Column 3: Why Use PreTaxPrice? (4 cols) */}
+          <div className="dashboard-col-4">
+            <div className="sidebar-quick-ref" style={{ height: '100%', borderColor: 'rgba(204, 255, 0, 0.25)' }}>
+              <h3 style={{ color: 'var(--primary)' }}>🚀 Why Use PreTaxPrice?</h3>
+              <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
+                <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>100% Client-Side Safe</strong>
+                Calculations run directly inside your browser. No receipt data or transaction totals ever leave your device.
+              </div>
+              <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
+                <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>Perfect Decimal Precision</strong>
+                Eliminates the common "subtracting error" in bookkeeping, guaranteeing GAAP-compliant, rounded breakdowns.
+              </div>
+              <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
+                <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>Batch Mode Processing</strong>
+                Paste multiple receipts or totals to calculate dozens of pre-tax prices simultaneously, saving accounting hours.
+              </div>
+              <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
+                <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>Combined Local Rates</strong>
+                Preloaded with the latest 2026 combined state + local rates to account for local city and county surcharges.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Ad Space below the dashboard grid */}
+        <div style={{ marginTop: 24, marginBottom: 24 }}>
+          <AdSlot slot="results-rectangle" size="rectangle" />
+        </div>
+
+        {/* Centered Educational Content Layout */}
+        <div className="educational-content-layout">
               
               {/* SECTION: What is Reverse Sales Tax */}
               <section>
@@ -1054,44 +1077,6 @@ export default function HomePage() {
                   </p>
                 </div>
               </section>
-
-            </div>
-          </div>
-
-          {/* ── Right Sidebar (Ads & Quick Reference) ── */}
-          <aside className="sidebar-right">
-            <div className="sidebar-sticky">
-              {/* Ad Unit */}
-              <div>
-                <AdSlot slot="results-rectangle" size="rectangle" />
-              </div>
-
-              {/* Quick Reference Card */}
-              <div className="sidebar-quick-ref">
-                <h3>💡 Quick Reference</h3>
-                <div className="sidebar-quick-ref-item">
-                  <strong>The Formula</strong>
-                  Price ÷ (1 + rate/100) backs out tax correctly every time.
-                </div>
-                <div className="sidebar-quick-ref-item">
-                  <strong>Local Rates</strong>
-                  Always use the combined rate (state + local) from your receipt.
-                </div>
-                <div className="sidebar-quick-ref-item">
-                  <strong>Batch Mode</strong>
-                  Paste multiple totals to process receipts in bulk.
-                </div>
-                <div className="sidebar-quick-ref-item">
-                  <strong>Find Tax Rate</strong>
-                  Know the pre-tax & total? Reverse-calculate the implied rate.
-                </div>
-                <div className="sidebar-quick-ref-item">
-                  <strong>No-Tax States</strong>
-                  AK, DE, MT, NH, OR have no state sales tax.
-                </div>
-              </div>
-            </div>
-          </aside>
 
         </div>
       </div>
