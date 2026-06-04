@@ -172,21 +172,35 @@ export default function HomePage() {
         <div className="glow-blob" style={{ top: '-10%', left: '-10%', width: 600, height: 600 }}></div>
         <div className="glow-blob" style={{ bottom: '-10%', right: '-10%', width: 500, height: 500 }}></div>
         <div className="container-main">
-          <div className="homepage-hero-grid">
+          
+          {/* Centered Above-the-Fold Header */}
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(204, 255, 0, 0.08)', border: '1px solid rgba(204, 255, 0, 0.3)', borderRadius: 'var(--radius-sm)', padding: '6px 16px', marginBottom: 24 }}>
+              <span style={{ color: 'var(--primary)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}>Free · No signup · Instant calculations</span>
+            </div>
 
-            {/* ── Hero Left: Headline + Intro ── */}
-            <div className="hero-left">
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(204, 255, 0, 0.08)', border: '1px solid rgba(204, 255, 0, 0.3)', borderRadius: 'var(--radius-sm)', padding: '6px 16px', marginBottom: 24 }}>
-                <span style={{ color: 'var(--primary)', fontSize: 12, fontWeight: 700, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)', textTransform: 'uppercase' }}>Free · No signup · Instant calculations</span>
-              </div>
+            <h1 style={{ fontSize: 'clamp(32px, 5vw, 68px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.05, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>
+              Reverse Sales Tax<br />
+              <span style={{ color: 'var(--primary)', textShadow: '0 0 30px rgba(204, 255, 0, 0.25)' }}>
+                Calculator
+              </span>
+            </h1>
+            
+            <p style={{ fontSize: 'clamp(15px, 2.2vw, 18px)', color: 'var(--text-secondary)', maxWidth: 800, margin: '0 auto', lineHeight: 1.6 }}>
+              Instantly find the original price before tax was added. Enter your total amount and tax rate — get a full breakdown in seconds. Free, accurate, and works for any tax rate worldwide.
+            </p>
+          </div>
 
-              <h1 style={{ fontSize: 'clamp(28px, 5vw, 68px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.05, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>
-                Reverse Sales Tax<br />
-                <span style={{ color: 'var(--primary)', textShadow: '0 0 30px rgba(204, 255, 0, 0.25)' }}>
-                  Calculator
-                </span>
-              </h1>
+          {/* Centered Calculator Container */}
+          <div style={{ maxWidth: 800, margin: '0 auto 48px' }}>
+            <CalculatorCard />
+          </div>
 
+          {/* Intro Text and Formula Columns below Calculator */}
+          <div className="homepage-hero-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 48, alignItems: 'stretch' }}>
+
+            {/* ── Hero Left: Intro + Trust badges ── */}
+            <div className="hero-left" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 32 }}>
                 <p style={{ margin: 0 }}>
                   You paid <strong style={{ color: 'var(--text-primary)' }}>$113.85</strong> at checkout. The receipt shows <strong style={{ color: 'var(--text-primary)' }}>8.25%</strong> tax. But what did the item actually cost before tax? Find out in one step.
@@ -210,17 +224,17 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-
-              {/* Formula Teaser */}
-              <div style={{ marginTop: 32, padding: '18px 24px', background: 'rgba(204,255,0,0.02)', border: '1px solid rgba(204,255,0,0.15)', borderRadius: 'var(--radius)', fontFamily: 'var(--font-mono)', fontSize: 14, boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.05)' }}>
-                <span style={{ color: 'var(--text-muted)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 6 }}>The Formula</span>
-                <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: 15 }}>Original Price = Total ÷ (1 + Rate / 100)</span>
-              </div>
             </div>
 
-            {/* ── Hero Right: Calculator ── */}
-            <div className="hero-right">
-              <CalculatorCard />
+            {/* ── Hero Right: Formula Card ── */}
+            <div className="hero-right" style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ width: '100%', padding: '24px 32px', background: 'rgba(204,255,0,0.02)', border: '1px solid rgba(204,255,0,0.15)', borderRadius: 'var(--radius)', fontFamily: 'var(--font-mono)', fontSize: 14, boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.05)' }}>
+                <span style={{ color: 'var(--text-muted)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 8 }}>The Formula</span>
+                <span style={{ color: 'var(--primary)', fontWeight: 800, fontSize: 16 }}>Original Price = Total ÷ (1 + Rate / 100)</span>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 12, lineHeight: 1.5, fontFamily: 'var(--font-sans)', textTransform: 'none' }}>
+                  This is the standard reverse tax calculation formula used by accountants and bookkeeping software globally to isolate pre-tax subtotals.
+                </p>
+              </div>
             </div>
 
           </div>

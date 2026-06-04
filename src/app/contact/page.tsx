@@ -202,9 +202,9 @@ export default function ContactPage() {
                     type="submit"
                     disabled={loading}
                     style={{
-                      background: loading ? 'var(--border)' : 'var(--primary)',
-                      color: '#000',
-                      border: '2px solid #000',
+                      background: loading ? '#27272a' : 'var(--primary)',
+                      color: loading ? '#71717a' : '#000',
+                      border: loading ? '2px solid #3f3f46' : '2px solid #000',
                       boxShadow: loading ? 'none' : '3px 3px 0px 0px #000',
                       borderRadius: 'var(--radius)',
                       fontWeight: 800,

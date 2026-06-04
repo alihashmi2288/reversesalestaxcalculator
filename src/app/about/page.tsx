@@ -2,11 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: { absolute: 'About Sales Tax Reverse Calculator — Who We Are & How We Help' },
-  description: 'Learn about Sales Tax Reverse Calculator — a free, privacy-first tool helping shoppers, freelancers, accountants, and businesses calculate the original price before sales tax.',
+  title: { absolute: 'About Sales Tax Reverse Calculator — Who We Are & Editorial Standards' },
+  description: 'Learn about Sales Tax Reverse Calculator — a free, privacy-first tool helping shoppers, freelancers, accountants, and businesses calculate the original price before sales tax. Learn about our strict data verification standards.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/about' },
   openGraph: {
-    title: 'About Sales Tax Reverse Calculator — Who We Are & How We Help',
+    title: 'About Sales Tax Reverse Calculator — Who We Are & Editorial Standards',
     description: 'Learn about Sales Tax Reverse Calculator — a free, privacy-first tool helping shoppers, freelancers, accountants, and businesses calculate the original price before sales tax.',
     url: 'https://salestaxreversecalculator.com/about',
     images: [{ url: 'https://salestaxreversecalculator.com/og-image.png', width: 1200, height: 630, alt: 'About Sales Tax Reverse Calculator' }],
@@ -28,206 +28,205 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '72px 0', textAlign: 'center' }}>
         <div className="container-main">
-          <h1 style={{ fontSize: 'clamp(28px,5vw,48px)', fontWeight: 900, color: '#fff', marginBottom: 16 }}>
+          <h1 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 900, color: '#fff', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
             About Sales Tax Reverse Calculator
           </h1>
-          <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 600, margin: '0 auto' }}>
-            Our mission: make tax calculations free, instant, and accessible to everyone — no math degree required.
+          <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 700, margin: '0 auto', lineHeight: 1.6 }}>
+            Our mission: make tax calculations free, instant, and accessible to everyone — backed by rigorous mathematical accuracy and verified government tax data.
           </p>
         </div>
       </section>
 
-      <div style={{ maxWidth: 860, margin: '64px auto 80px', padding: '0 24px' }}>
+      <div style={{ maxWidth: 960, margin: '48px auto 80px', padding: '0 24px' }}>
         {/* Breadcrumb */}
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 48 }}>
+        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 40, fontFamily: 'var(--font-mono)' }}>
           <a href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</a>
           <span style={{ margin: '0 8px' }}>›</span>
-          <span>About</span>
+          <span style={{ color: 'var(--text-primary)' }}>About</span>
         </nav>
 
         {/* Why We Built This */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
-          <div style={{ fontSize: 32, marginBottom: 12 }}>🎯</div>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: 'var(--text-primary)', marginBottom: 12 }}>Why We Built This</h2>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🎯</div>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>Why We Built This Tool</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
-            We built <strong>salestaxreversecalculator.com</strong> because figuring out the original price before tax
-            shouldn&apos;t require a math degree or a spreadsheet. Every day, millions of people stare at a receipt or invoice
-            and think, &quot;Wait — how much did this actually cost before tax?&quot; That question has a simple answer, but the
-            math is tricky. You can&apos;t just subtract the tax percentage from the total — that gives you the wrong number
-            because the tax was calculated on the pre-tax price, not the final amount.
+            We built <strong>salestaxreversecalculator.com</strong> (PreTaxPrice) because figuring out the original price before tax
+            shouldn&apos;t require a math degree, complex spreadsheets, or expensive accounting subscriptions. Every day, millions of accountants, business owners, freelancers, and shoppers stare at a receipt, credit card statement, or invoice and ask themselves: <em>&quot;What did this item actually cost before tax was added?&quot;</em>
           </p>
           <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
-            Our tool handles that math instantly. Whether you&apos;re a shopper checking a receipt, a freelancer separating
-            income from taxes, or an accountant reconciling invoices — you get an accurate answer in under a second,
-            for free, with no account needed.
+            This question has a straightforward answer, but the mathematical steps are often misunderstood. The most common error in business bookkeeping is the &quot;subtracting error&quot; — where a user attempts to find the pre-tax price by calculating the tax rate percentage of the final amount and subtracting it. This is mathematically incorrect. Because sales tax is applied to the original subtotal, not the final total, you must use the mathematical inverse: division. 
+          </p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
+            For instance, if you paid $107.50 for an item with a 7.5% tax rate, subtracting 7.5% from $107.50 yields $99.44. In reality, the true original price was exactly $100.00, and the sales tax paid was $7.50. While a difference of $0.56 might seem minor on a single transaction, across hundreds of monthly business expense lines, these errors compound into thousands of dollars in mismatched records, leading to filing errors and audit flags.
+          </p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
+            Our calculator eliminates this error entirely. We provide a clean, free, and instant utility that performs the precise division formula automatically so your books remain compliant, accurate, and reliable.
           </p>
         </div>
 
-        {/* How to Use */}
+        {/* Dynamic 4-in-1 Tabs Guide */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
-          <div style={{ fontSize: 32, marginBottom: 12 }}>📖</div>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: 'var(--text-primary)', marginBottom: 16 }}>How to Use the Calculator</h2>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🧮</div>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>How to Use the Calculator</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginBottom: 16 }}>
-            Using the reverse sales tax calculator is simple and takes about five seconds. Here&apos;s how it works:
+            Our tool goes beyond basic calculators by offering four specialized tabs to solve different financial scenarios:
           </p>
-          <ol style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 14, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
-            <li>
-              <strong style={{ color: 'var(--text-primary)' }}>Enter the total price you paid.</strong> This is the final number on your receipt or invoice — the amount that already includes tax.
+          <ul style={{ paddingLeft: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <li style={{ borderBottom: '1px solid var(--border)', paddingBottom: 16 }}>
+              <strong style={{ color: 'var(--primary)', display: 'block', fontSize: 16, fontFamily: 'var(--font-mono)', marginBottom: 4 }}>1. BASIC CALCULATOR (Default)</strong>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 15, margin: 0 }}>
+                Input the final price you paid (including tax) and the sales tax rate. You can type a custom percentage, select a standard preset, or pick any US State from the dropdown to load the average local combined tax rate. Click calculate to get a complete breakdown showing the original pre-tax price and the tax component.
+              </p>
             </li>
-            <li>
-              <strong style={{ color: 'var(--text-primary)' }}>Select your location or enter a tax rate.</strong> You can pick a US state from the dropdown and it will auto-fill the combined average rate (state + local taxes). Or type in any custom rate — this works for Canada, Europe, Australia, or anywhere in the world.
+            <li style={{ borderBottom: '1px solid var(--border)', paddingBottom: 16 }}>
+              <strong style={{ color: 'var(--primary)', display: 'block', fontSize: 16, fontFamily: 'var(--font-mono)', marginBottom: 4 }}>2. MULTIPLE ITEMS CALCULATOR</strong>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 15, margin: 0 }}>
+                Ideal for reconciling receipts containing multiple distinct purchases. Add as many rows as you need, input the total and tax rate for each item, and view both individual pre-tax costs and a running grand total at the bottom of the card.
+              </p>
             </li>
-            <li>
-              <strong style={{ color: 'var(--text-primary)' }}>Hit Calculate (or it updates automatically).</strong> The tool instantly shows you the original pre-tax price and the exact tax amount that was added.
+            <li style={{ borderBottom: '1px solid var(--border)', paddingBottom: 16 }}>
+              <strong style={{ color: 'var(--primary)', display: 'block', fontSize: 16, fontFamily: 'var(--font-mono)', marginBottom: 4 }}>3. FIND TAX RATE MODE</strong>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 15, margin: 0 }}>
+                If your receipt displays a subtotal and a final total but doesn&apos;t mention the applied tax rate percentage, switch to this tab. Enter the original price and the final price paid, and the tool will calculate the exact implied tax percentage that was charged.
+              </p>
             </li>
-            <li>
-              <strong style={{ color: 'var(--text-primary)' }}>Use Batch Mode for multiple items.</strong> Processing a whole week of receipts? Switch to Batch Mode and paste in multiple amounts at once — the calculator handles them all at the same time.
+            <li style={{ paddingBottom: 8 }}>
+              <strong style={{ color: 'var(--primary)', display: 'block', fontSize: 16, fontFamily: 'var(--font-mono)', marginBottom: 4 }}>4. BATCH / CSV MODE</strong>
+              <p style={{ color: 'var(--text-secondary)', fontSize: 15, margin: 0 }}>
+                Reconciling a month&apos;s worth of expenses? Paste comma-separated lists of totals and rates (e.g. <code>108, 8</code>) directly into the batch container. The tool processes all rows simultaneously and generates a detailed table that you can export as a CSV for immediate upload into your bookkeeping software.
+              </p>
             </li>
-          </ol>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 16 }}>
-            The formula the calculator uses is: <strong>Original Price = Total Price ÷ (1 + Tax Rate / 100)</strong>.
-            For example, if you paid $107.50 and the tax rate is 7.5%, the calculator divides $107.50 by 1.075 to give you
-            exactly $100.00 — the pre-tax price. The $7.50 difference is the sales tax.
-          </p>
+          </ul>
         </div>
 
-        {/* Industries */}
+        {/* Who Benefits Most */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
-          <div style={{ fontSize: 32, marginBottom: 12 }}>🏢</div>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: 'var(--text-primary)', marginBottom: 16 }}>Who Benefits Most from This Tool?</h2>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🏢</div>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>Who Benefits Most from Reverse Tax Calculations?</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginBottom: 20 }}>
-            While anyone can use a reverse sales tax calculator, some industries rely on it almost every single day:
+            While anyone can use a reverse sales tax calculator, several industries and roles rely on these calculations for their daily operations:
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
             {[
               {
                 icon: '🧾',
-                title: 'Accounting & Bookkeeping',
-                desc: 'Accountants regularly receive invoices and expense reports where the total already includes tax. They need the pre-tax amount to correctly categorize expenses, claim input tax credits, and produce accurate financial statements.',
-              },
-              {
-                icon: '🛒',
-                title: 'Retail & E-Commerce',
-                desc: 'Online retailers selling across multiple US states need to verify that the right tax amounts were collected at checkout. Reverse calculations make it easy to audit transactions and confirm remittance accuracy.',
+                title: 'Bookkeepers & Accountants',
+                desc: 'Reconciling card statements where transactions show as a single lumped charge. They must isolate the base expense from the tax to claim tax credits and keep corporate ledgers GAAP-compliant.',
               },
               {
                 icon: '💼',
-                title: 'Small Business Owners',
-                desc: 'Small business owners who purchase supplies, equipment, or services need to separate the tax portion from the total to keep clean records for their own tax filings and expense tracking.',
+                title: 'Freelancers & Contractors',
+                desc: 'Tracking business expenses to lower net tax burdens. The IRS only allows the base, pre-tax cost of equipment, software, and tools to be deducted on tax returns.',
+              },
+              {
+                icon: '🛒',
+                title: 'E-Commerce Sellers',
+                desc: 'Refunding orders and managing marketplace payouts. Platforms like Shopify or Amazon payout net payouts; sellers use reverse calculations to reconcile customer refunds and sales reports.',
+              },
+              {
+                icon: '🍳',
+                title: 'Hospitality & Catering',
+                desc: 'Preparing all-inclusive pricing contracts for corporate client events. Managers must split the final quoted price into food costs, service fees, and applicable local taxes.',
               },
               {
                 icon: '🏠',
-                title: 'Real Estate',
-                desc: 'Real estate transactions often involve tax-inclusive fees, agent commissions, and service charges. Agents and buyers use reverse calculations to understand the true cost of every line item.',
+                title: 'Real Estate & Property Management',
+                desc: 'Auditing service invoices for properties (maintenance, cleaning, landscaping) which carry tax-inclusive rates, ensuring expenses are billed back to owners correctly.',
               },
               {
                 icon: '🚗',
-                title: 'Automotive',
-                desc: 'Car buyers and dealerships frequently deal with tax-inclusive sticker prices. Knowing the pre-tax price helps buyers compare deals accurately and negotiate from the right baseline.',
-              },
-              {
-                icon: '🏥',
-                title: 'Healthcare & Insurance',
-                desc: 'Medical billing departments and insurance adjusters often need to extract the pre-tax portion of a bill to apply coverage correctly and calculate reimbursements from the right amount.',
+                title: 'Dealerships & Traders',
+                desc: 'Analyzing vehicle purchases and trade-ins that quote full price with registration fees and local taxes pre-bundled. Finding the pre-tax value is key for margin calculations.',
               },
             ].map(({ icon, title, desc }) => (
-              <div key={title} style={{ background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: 20 }}>
+              <div key={title} style={{ background: 'rgba(0, 0, 0, 0.2)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: 20 }}>
                 <div style={{ fontSize: 28, marginBottom: 8 }}>{icon}</div>
                 <h3 style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)', marginBottom: 8 }}>{title}</h3>
-                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7 }}>{desc}</p>
+                <p style={{ fontSize: 13.5, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>{desc}</p>
               </div>
             ))}
           </div>
         </div>
 
+        {/* Data Integrity Section */}
+        <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🛡️</div>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>Our Data Integrity & Rate Sourcing Standards</h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+            Tax rates are dynamic — states adjust thresholds, local municipalities add surcharges, and tax laws change frequently. To maintain the high levels of precision required by businesses, we enforce a strict data integrity policy:
+          </p>
+          <ul style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 12, color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginTop: 14 }}>
+            <li>
+              <strong>Authoritative Sourcing</strong>: We pull state, federal, and local tax rates directly from official state revenue department circulars, the Canadian Revenue Agency (CRA), the UK HM Revenue and Customs (HMRC), and verified tax research foundations.
+            </li>
+            <li>
+              <strong>Blended Averages</strong>: For US State dropdowns, we provide the combined state rate plus the weighted average local (city/county) sales tax rate, offering the most realistic checkout rates.
+            </li>
+            <li>
+              <strong>Scheduled Audits</strong>: Our tax rate databases are audited semi-annually by finance professionals to ensure compliance with current tax year regulations (last reviewed for 2026).
+            </li>
+          </ul>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginTop: 14, fontStyle: 'italic' }}>
+            Disclaimer: While we make every effort to maintain the accuracy of our databases, tax rates are subject to local jurisdictions. We always recommend consulting a certified CPA or verifying with local tax portals for official legal filings.
+          </p>
+        </div>
+
         {/* Privacy */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
-          <div style={{ fontSize: 32, marginBottom: 12 }}>🔒</div>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: 'var(--text-primary)', marginBottom: 12 }}>No Signup. No Fees. No Data Collected.</h2>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🔒</div>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>100% Client-Side Privacy</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
-            Every calculation you do happens <strong>directly in your browser</strong> using JavaScript. Your numbers never
-            leave your device — we don&apos;t send anything to any server, and we don&apos;t store your calculations anywhere.
-            There are no accounts to create, no cookies that track what you calculate, and absolutely no charge — ever.
-            This tool is and will always be 100% free.
+            We understand that financial data is confidential. That is why our calculator runs <strong>entirely in your web browser</strong>. Every number you enter is processed locally on your device via JavaScript.
           </p>
           <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
-            We believe financial tools should be fast, trustworthy, and open to everyone. That&apos;s not just a tagline —
-            it&apos;s the reason this site exists.
-          </p>
-        </div>
-
-        {/* Built for Everyone */}
-        <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
-          <div style={{ fontSize: 32, marginBottom: 12 }}>🌍</div>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: 'var(--text-primary)', marginBottom: 12 }}>Built for Everyone, Everywhere</h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
-            Tax systems are different all over the world, and we support them all. For the <strong>United States</strong>,
-            we cover all 50 states plus Washington D.C. with their current combined average rates — that&apos;s the state rate
-            plus typical local county and city rates blended together.
-          </p>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
-            For <strong>Canada</strong>, the calculator handles federal GST (5%), HST for provinces like Ontario and Nova
-            Scotia (13–15%), and provincial sales taxes like BC&apos;s PST and Quebec&apos;s QST (9.975%). For <strong>Europe</strong>,
-            it works with standard VAT rates for every EU country plus the UK. And if your country isn&apos;t listed, just type
-            in your custom rate — the formula works the same everywhere.
-          </p>
-        </div>
-
-        {/* Constantly Updated */}
-        <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
-          <div style={{ fontSize: 32, marginBottom: 12 }}>🔄</div>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: 'var(--text-primary)', marginBottom: 12 }}>We Keep Our Rates Up to Date</h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
-            Tax rates change — states raise or lower rates, counties adjust local surcharges, and new legislation passes
-            every year. We monitor official state revenue department announcements and cross-reference data from authoritative
-            sources like the Tax Foundation and the Sales Tax Institute to keep our rate database accurate and current.
-            Our last comprehensive rate review was completed in 2026.
-          </p>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
-            That said, for any legal or financial filing, we always recommend verifying the exact rate directly with your
-            state or local tax authority. Our rates are accurate averages — individual city or county rates can vary.
+            No calculations are transmitted to our servers, and we never collect, log, or share your financial data. You can perform unlimited calculations with complete confidentiality, free of cost.
           </p>
         </div>
 
         {/* Contact */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 48 }}>
-          <div style={{ fontSize: 32, marginBottom: 12 }}>✉️</div>
-          <h2 style={{ fontWeight: 700, fontSize: 22, color: 'var(--text-primary)', marginBottom: 12 }}>Get in Touch</h2>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>✉️</div>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>Get in Touch</h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
-            Have a question, a feature request, or spotted a rate that needs updating? We&apos;d genuinely love to hear from
-            you. Reach out at{' '}
+            Have a question about a calculation, feedback on features, or spotted a local tax rate that has recently changed? We would love to hear from you. 
+          </p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
+            Reach out to our editor team directly at{' '}
             <a href="mailto:salestaxreversecalculator@gmail.com" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>
               salestaxreversecalculator@gmail.com
             </a>{' '}
-            or use our{' '}
-            <a href="/contact" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>
+            or submit a form on our dedicated{' '}
+            <Link href="/contact" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>
               Contact page
-            </a>
-            . We respond to every message.
+            </Link>
+            . We review all submissions within 1–2 business days.
           </p>
         </div>
 
         {/* CTA */}
         <div style={{ textAlign: 'center', marginTop: 48 }}>
-          <a
+          <Link
             href="/"
             style={{
-              background: 'var(--primary)',
+              background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)',
               color: '#000',
-              padding: '16px 40px',
-              borderRadius: 12,
+              padding: '16px 48px',
+              borderRadius: 'var(--radius)',
               fontWeight: 800,
               fontSize: 16,
               textDecoration: 'none',
               display: 'inline-block',
-              border: '2px solid #000',
-              boxShadow: '4px 4px 0px 0px #000',
+              boxShadow: '0 4px 15px rgba(204, 255, 0, 0.2)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.02em',
+              transition: 'transform 0.2s',
             }}
+            className="cta-button"
           >
-            Use the Calculator →
-          </a>
+            Use the Calculator
+          </Link>
         </div>
       </div>
     </main>

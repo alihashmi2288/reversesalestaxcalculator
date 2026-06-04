@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface AdSlotProps {
   slot: string;
   size: 'leaderboard' | 'rectangle' | 'halfpage' | 'in-article';
@@ -5,23 +7,8 @@ interface AdSlotProps {
   className?: string;
 }
 
-const heights = {
-  leaderboard: 90,
-  rectangle: 250,
-  halfpage: 600,
-  'in-article': 90,
-};
-
 export default function AdSlot({ slot, size, label, className = '' }: AdSlotProps) {
-  const minH = heights[size];
-  return (
-    <div
-      className={`adslot adslot-${size} ${className}`}
-      data-slot={slot}
-      style={{ minHeight: minH }}
-      aria-label={`Advertisement - ${label || slot}`}
-    >
-      {/* Ad content will be injected here */}
-    </div>
-  );
+  // Return null to hide all ad containers for now.
+  // When you get approved for Google AdSense, implement the ins tag and adsbygoogle push here!
+  return null;
 }

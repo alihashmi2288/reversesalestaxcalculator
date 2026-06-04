@@ -804,8 +804,6 @@ h1, h2, h3, h4, h5, h6, .font-display {
     gap: 40px;
     text-align: center;
   }
-  .homepage-hero-grid .hero-left { order: 1; }
-  .homepage-hero-grid .hero-right { order: 2; }
   .homepage-hero-grid .trust-badges-row { justify-content: center; }
   .container-main { padding: 0 24px; }
 }
