@@ -2,14 +2,19 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: { absolute: 'About Sales Tax Reverse Calculator — Who We Are & Editorial Standards' },
-  description: 'Learn about Sales Tax Reverse Calculator — a free, privacy-first tool helping shoppers, freelancers, accountants, and businesses calculate the original price before sales tax. Learn about our strict data verification standards.',
+  title: { absolute: 'About PreTaxPrice: Free Reverse Sales Tax Calculator' },
+  description: 'Free reverse sales tax calculator for shoppers, freelancers, and accountants. Covers all US states, Canada GST/HST, and EU VAT. No signup required.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/about' },
   openGraph: {
-    title: 'About Sales Tax Reverse Calculator — Who We Are & Editorial Standards',
-    description: 'Learn about Sales Tax Reverse Calculator — a free, privacy-first tool helping shoppers, freelancers, accountants, and businesses calculate the original price before sales tax.',
+    title: 'About PreTaxPrice: Free Reverse Sales Tax Calculator',
+    description: 'Free reverse sales tax calculator for shoppers, freelancers, and accountants. Covers all US states, Canada GST/HST, and EU VAT. No signup required.',
     url: 'https://salestaxreversecalculator.com/about',
-    images: [{ url: 'https://salestaxreversecalculator.com/og-image.png', width: 1200, height: 630, alt: 'About Sales Tax Reverse Calculator' }],
+    images: [{ url: 'https://salestaxreversecalculator.com/og-image.png', width: 1200, height: 630, alt: 'About PreTaxPrice' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About PreTaxPrice: Free Reverse Sales Tax Calculator',
+    description: 'Free reverse sales tax calculator for shoppers, freelancers, and accountants. Covers all US states, Canada GST/HST, and EU VAT. No signup required.',
   },
 };
 

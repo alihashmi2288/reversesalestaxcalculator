@@ -5,11 +5,19 @@ import LinkifiedText from '@/components/LinkifiedText';
 import CanadaCalculator from './CanadaCalculator';
 
 export const metadata: Metadata = {
-  title: 'Canada Reverse Tax Calculator — GST, HST, PST by Province',
-  description: 'Free Canada reverse sales tax calculator. Remove GST, HST, or PST from any price. Supports all 13 provinces and territories with current 2026 rates.',
+  title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
+  description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/canada' },
   openGraph: {
+    title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
+    description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
+    url: 'https://salestaxreversecalculator.com/canada',
     images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Canada%20Reverse%20Tax%20Calculator&location=Canada' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
+    description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
   },
 };
 

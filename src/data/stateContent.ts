@@ -291,8 +291,8 @@ export const STATE_CONTENT: Record<string, StateContent> = {
         "rate": 7.75
       },
       {
-        "name": "San Jose",
-        "rate": 9.375
+        "name": "Sacramento",
+        "rate": 8.75
       }
     ],
     "useCases": [
@@ -397,9 +397,9 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "connecticut": {
     "state": "Connecticut",
     "aboutText": [
-      "The base state sales tax rate in Connecticut currently stands at 6.35%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Connecticut reaches approximately 6.35%, making it essential to know exactly how much you are paying in taxes for every transaction.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Connecticut, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1063.50 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Connecticut shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
-      "It's also highly important to note that Connecticut has specific rules regarding exemptions. While general retail items face the full 6.35% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Connecticut's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
+      "The sales tax rate in Connecticut currently stands at a flat 6.35% statewide. Connecticut does not have any local sales taxes levied by cities, towns, or counties. Whether you shop in Hartford, New Haven, Stamford, or Bridgeport, the standard sales tax rate remains exactly 6.35% across the entire state.",
+      "When you purchase taxable goods anywhere in Connecticut, the retailer calculates a 6.35% tax on your subtotal. For instance, an item listed at $1,000 will result in a total checkout price of $1,063.50. Our dedicated reverse sales tax calculator allows Connecticut shoppers, freelancers, accountants, and businesses to work backward from a final receipt total to uncover the exact pre-tax price instantly.",
+      "Connecticut also applies specific tax rates for certain categories, such as luxury goods above certain thresholds, prepared meals, and digital goods, while exempting basic unprepared groceries and prescription medications. Using our calculator ensures fast, accurate pre-tax price calculations for your financial records."
     ],
     "cities": [
       {
@@ -422,37 +422,37 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "useCases": [
       {
         "title": "Decoding Business Receipts in Connecticut",
-        "description": "For freelancers and small business owners operating in Connecticut, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden 6.35% average tax, allowing you to accurately record your deductible business expenses."
+        "description": "For freelancers and small business owners operating in Connecticut, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. Our calculator instantly extracts the 6.35% statewide tax, allowing you to accurately record your deductible business expenses."
       },
       {
         "title": "Budgeting for Major Purchases",
-        "description": "Planning to buy a new car or major household appliance in Connecticut? You must account for both the 6.35% state tax and any local district additions. Our tool allows you to input your absolute maximum budget and work backward. For instance, we will tell you the maximum sticker price you can afford before Connecticut taxes push you over your limit."
+        "description": "Planning to buy a major appliance or equipment in Connecticut? Because Connecticut has a flat 6.35% rate statewide with zero local additions, your sales tax will always be 6.35% regardless of city. Input your maximum budget to find your pre-tax price threshold."
       },
       {
         "title": "Splitting Bills and Retail Tracking",
-        "description": "When splitting the cost of taxable goods with friends or colleagues in Connecticut, it's incredibly easy to get confused by the final post-tax amount. Our reverse calculator helps you determine the exact pre-tax cost of individual items from a consolidated receipt, ensuring everyone pays their fair share."
+        "description": "When splitting the cost of taxable goods with friends or colleagues in Connecticut, our reverse calculator helps you determine the exact pre-tax cost of individual items from a consolidated receipt."
       }
     ],
     "faqs": [
       {
         "question": "What is the actual sales tax rate in Connecticut?",
-        "answer": "While the Connecticut base state sales tax rate is 6.35%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 6.35%, though it varies slightly by zip code."
+        "answer": "Connecticut has a flat statewide sales tax rate of 6.35%. There are zero local, city, or county sales taxes in Connecticut, meaning the rate is 6.35% across all municipalities."
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Connecticut?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Connecticut's average rate of 6.35%, you would divide your total by 1.0635. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price in Connecticut, divide your final receipt total by 1.0635. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Connecticut?",
-        "answer": "In Connecticut, the taxability of food depends heavily on the specific type. Cold groceries and fresh produce are often treated differently than hot prepared foods, meals eaten at a restaurant, or carbonated beverages. Always check local guidelines for specifics."
+        "answer": "Unprepared grocery staples are generally exempt from sales tax in Connecticut, while prepared meals and restaurant food are taxed."
       },
       {
         "question": "Does Connecticut charge sales tax on shipping and delivery?",
-        "answer": "In most cases, if the physical items you are purchasing are taxable in Connecticut, the associated shipping, handling, and delivery charges are also considered taxable. This means the 6.35% average rate will be applied to the entire order total."
+        "answer": "In general, shipping and delivery charges associated with taxable physical goods are also subject to Connecticut's 6.35% sales tax."
       },
       {
         "question": "Can I use this calculator for Connecticut vehicle purchases?",
-        "answer": "Yes, you can use our reverse calculator to estimate the pre-tax cost of a vehicle in Connecticut. However, be heavily aware that purchasing a car involves additional mandatory fees beyond standard sales tax, such as vehicle registration and title fees."
+        "answer": "Yes, you can use our reverse calculator to estimate the pre-tax cost of a vehicle in Connecticut, though registration and title fees are separate."
       }
     ]
   },
@@ -1141,9 +1141,9 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "maine": {
     "state": "Maine",
     "aboutText": [
-      "The base state sales tax rate in Maine currently stands at 5.50%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Maine reaches approximately 5.50%, making it essential to know exactly how much you are paying in taxes for every transaction.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Maine, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1055.00 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Maine shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
-      "It's also highly important to note that Maine has specific rules regarding exemptions. While general retail items face the full 5.50% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Maine's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
+      "The sales tax rate in Maine currently stands at a flat 5.50% statewide. Unlike many other states, Maine does not allow local municipalities, cities, or counties to levy additional local sales taxes. Whether you are shopping in Portland, Bangor, Lewiston, or South Portland, the sales tax rate remains exactly 5.50% everywhere in the state.",
+      "When you purchase taxable goods anywhere in Maine, the retailer calculates a straight 5.50% tax on your subtotal. For instance, an item listed at $1,000 will result in a total checkout price of $1,055.00. Our dedicated reverse sales tax calculator allows Maine shoppers, accountants, and business owners to work backward from a final receipt total to determine the exact pre-tax price.",
+      "Maine also maintains specific tax policies for certain goods. While general retail merchandise is taxed at the standard 5.50% rate, prepared meals and lodging carry specific rates, and grocery staples and prescription medicines are exempt. Using our reverse calculator makes it simple to reconcile receipts and verify pre-tax costs instantly."
     ],
     "cities": [
       {
@@ -1166,37 +1166,37 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "useCases": [
       {
         "title": "Decoding Business Receipts in Maine",
-        "description": "For freelancers and small business owners operating in Maine, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden 5.50% average tax, allowing you to accurately record your deductible business expenses."
+        "description": "For freelancers and small business owners operating in Maine, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you have a bank statement showing a final charge, our calculator instantly extracts the 5.50% statewide tax, allowing you to accurately record your deductible business expenses."
       },
       {
         "title": "Budgeting for Major Purchases",
-        "description": "Planning to buy a new car or major household appliance in Maine? You must account for both the 5.50% state tax and any local district additions. Our tool allows you to input your absolute maximum budget and work backward. For instance, we will tell you the maximum sticker price you can afford before Maine taxes push you over your limit."
+        "description": "Planning to buy a major item in Maine? Because Maine has a flat 5.50% statewide rate with zero local additions, your sales tax will always be exactly 5.50% regardless of city. Input your maximum budget to find the pre-tax price threshold."
       },
       {
         "title": "Splitting Bills and Retail Tracking",
-        "description": "When splitting the cost of taxable goods with friends or colleagues in Maine, it's incredibly easy to get confused by the final post-tax amount. Our reverse calculator helps you determine the exact pre-tax cost of individual items from a consolidated receipt, ensuring everyone pays their fair share."
+        "description": "When splitting the cost of taxable goods with friends or colleagues in Maine, our reverse calculator helps you determine the exact pre-tax cost of individual items from a consolidated receipt."
       }
     ],
     "faqs": [
       {
         "question": "What is the actual sales tax rate in Maine?",
-        "answer": "While the Maine base state sales tax rate is 5.50%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 5.50%, though it varies slightly by zip code."
+        "answer": "Maine has a flat statewide sales tax rate of 5.50%. There are zero local, city, or county sales taxes in Maine, meaning the rate is 5.50% across all municipalities."
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Maine?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Maine's average rate of 5.50%, you would divide your total by 1.0550. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price in Maine, divide your final receipt total by 1.055. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Maine?",
-        "answer": "In Maine, the taxability of food depends heavily on the specific type. Cold groceries and fresh produce are often treated differently than hot prepared foods, meals eaten at a restaurant, or carbonated beverages. Always check local guidelines for specifics."
+        "answer": "Unprepared grocery staples are generally exempt from sales tax in Maine, while prepared foods and restaurant meals are taxed at a higher rate."
       },
       {
         "question": "Does Maine charge sales tax on shipping and delivery?",
-        "answer": "In most cases, if the physical items you are purchasing are taxable in Maine, the associated shipping, handling, and delivery charges are also considered taxable. This means the 5.50% average rate will be applied to the entire order total."
+        "answer": "In general, shipping and delivery charges associated with taxable physical goods are also subject to Maine's 5.50% sales tax."
       },
       {
         "question": "Can I use this calculator for Maine vehicle purchases?",
-        "answer": "Yes, you can use our reverse calculator to estimate the pre-tax cost of a vehicle in Maine. However, be heavily aware that purchasing a car involves additional mandatory fees beyond standard sales tax, such as vehicle registration and title fees."
+        "answer": "Yes, you can use our reverse calculator to estimate the pre-tax cost of a vehicle in Maine, though title and registration fees are calculated separately."
       }
     ]
   },

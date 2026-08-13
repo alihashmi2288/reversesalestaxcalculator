@@ -15,7 +15,6 @@ const EU_RATES = [
   { country: 'Norway', flag: '🇳🇴', standard: 25, reduced: 12 },
   { country: 'Australia', flag: '🇦🇺', standard: 10, reduced: 0 },
   { country: 'New Zealand', flag: '🇳🇿', standard: 15, reduced: 0 },
-  { country: 'India (GST)', flag: '🇮🇳', standard: 18, reduced: 5 },
   { country: 'Custom Rate', flag: '🌍', standard: 0, reduced: 0 },
 ];
 

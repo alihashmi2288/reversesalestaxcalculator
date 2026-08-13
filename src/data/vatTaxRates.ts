@@ -232,36 +232,6 @@ export const VAT_COUNTRY_RATES: CountryVatRate[] = [
         answer: 'Divide the total paid by 1.15. A gross total of $115.00 divided by 1.15 is $100.00 base price. The GST component is $15.00.'
       }
     ]
-  },
-  {
-    name: 'India',
-    slug: 'india',
-    code: 'IN',
-    currency: 'INR',
-    symbol: '₹',
-    rate: 18,
-    type: 'GST',
-    aboutText: [
-      'India uses a Goods and Services Tax (GST) system with multiple slabs. The standard tax rate for services and most consumer goods is 18%. Other slabs are 5%, 12%, and 28%.',
-      'Our India reverse tax page is pre-loaded with the 18% standard rate. Reversing 18% GST requires dividing the final price by 1.18.'
-    ],
-    cities: [
-      { name: 'Mumbai', rate: 18 },
-      { name: 'Delhi', rate: 18 },
-      { name: 'Bangalore', rate: 18 }
-    ],
-    useCases: [
-      {
-        title: 'GST Input Tax Credit',
-        description: 'Indian businesses calculate net purchase prices to claim Input Tax Credit (ITC) on GSTR returns.'
-      }
-    ],
-    faqs: [
-      {
-        question: 'How do I remove 18% GST in India?',
-        answer: 'Divide the final invoice price by 1.18. A gross total of ₹118.00 / 1.18 is ₹100.00 pre-tax. The GST paid is ₹18.00.'
-      }
-    ]
   }
 ];
 

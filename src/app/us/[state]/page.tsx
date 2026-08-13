@@ -23,26 +23,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stateData = getStateBySlug(stateSlug);
   if (!stateData) return { title: 'State Not Found' };
 
+  const customTitles: Record<string, string> = {
+    'new-york': 'New York Reverse Sales Tax Calculator: NYC 8.875% and NY 8.66%',
+    'florida': 'Florida Reverse Sales Tax Calculator: 7.13% Combined Rate',
+    'south-carolina': 'South Carolina Reverse Sales Tax Calculator: 7.51% Rate',
+    'north-carolina': 'North Carolina Reverse Sales Tax Calculator: 7% Combined Rate',
+    'california': 'California Reverse Sales Tax Calculator: 9.21% Combined Rate',
+    'maine': 'Maine Reverse Sales Tax Calculator: 5.5% Flat Statewide Rate',
+    'connecticut': 'Connecticut Reverse Sales Tax Calculator: 6.35% Flat Rate',
+  };
+
+  const customDescriptions: Record<string, string> = {
+    'new-york': 'Free New York reverse sales tax calculator. Covers NYC at 8.875% and the NY state average of 8.66%. Find the original pre-tax price from any receipt instantly. No signup.',
+    'florida': "Free Florida reverse sales tax calculator. Pre-filled with Florida's 7.13% combined rate. Find the original pre-tax price from any Florida receipt instantly. No signup needed.",
+    'south-carolina': 'Free South Carolina reverse sales tax calculator. Pre-filled with the 7.51% combined rate for SC. Find the original pre-tax price from any receipt instantly. No signup.',
+    'north-carolina': "Free North Carolina reverse sales tax calculator. Pre-filled with NC's 7% combined rate. Find the original pre-tax price from any North Carolina receipt instantly. No signup.",
+    'california': "Free California reverse sales tax calculator. Pre-filled with CA's 9.21% combined rate. Find the original pre-tax price from any California receipt instantly. No signup.",
+    'maine': "Free Maine reverse sales tax calculator. Pre-filled with Maine's flat 5.5% statewide rate. No local taxes in Maine. Find your pre-tax price from any receipt instantly.",
+    'connecticut': "Free Connecticut reverse sales tax calculator. Pre-filled with CT's flat 6.35% statewide rate. No local taxes in Connecticut. Find your pre-tax price from any receipt instantly.",
+    'new-jersey': "Free New Jersey reverse sales tax calculator. Pre-filled with NJ's 6.625% state rate and 6.65% combined average. Find the original pre-tax price from any New Jersey receipt instantly.",
+    'texas': "Free Texas reverse sales tax calculator. Pre-filled with Texas's 6.25% state rate and 8.25% maximum combined rate. Find the original pre-tax price from any Texas receipt instantly.",
+  };
+
+  const title = customTitles[stateSlug] || `${stateData.state} Reverse Sales Tax Calculator — ${stateData.rate}% Combined Rate`;
+  const description = customDescriptions[stateSlug] || `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`;
+
   const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
-  ogUrl.searchParams.set('title', `${stateData.state} Reverse Tax Calculator`);
+  ogUrl.searchParams.set('title', title);
   ogUrl.searchParams.set('location', stateData.state);
   ogUrl.searchParams.set('rate', stateData.rate.toString());
 
-  const premiumDescriptions: Record<string, string> = {
-    'new-jersey': "Free New Jersey reverse sales tax calculator. Pre-filled with NJ's 6.625% state rate and 6.65% combined average. Find the original pre-tax price from any New Jersey receipt instantly.",
-    'texas': "Free Texas reverse sales tax calculator. Pre-filled with Texas's 6.25% state rate and 8.25% maximum combined rate. Find the original pre-tax price from any Texas receipt instantly.",
-    'new-york': "Free New York reverse sales tax calculator. Covers New York City (8.875%), NY state average (8.52%), and all county rates. Find the original pre-tax price from any New York receipt instantly.",
-  };
-
   return {
-    title: `${stateData.state} Reverse Sales Tax Calculator — ${stateData.rate}% Combined Rate`,
-    description: premiumDescriptions[stateSlug] || `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`,
+    title,
+    description,
     alternates: { canonical: `https://salestaxreversecalculator.com/us/${stateSlug}` },
     openGraph: {
+      title,
+      description,
+      url: `https://salestaxreversecalculator.com/us/${stateSlug}`,
       images: [{ url: ogUrl.toString() }],
     },
     twitter: {
-      title: `${stateData.state} Reverse Sales Tax Calculator`,
+      card: 'summary_large_image',
+      title,
+      description,
     },
   };
 }
