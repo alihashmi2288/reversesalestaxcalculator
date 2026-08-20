@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const FAQ_CATEGORIES = [
   {
@@ -279,6 +280,23 @@ export default function FAQSection() {
                 );
               })}
             </div>
+            {ci === 0 && (
+              <p style={{ marginTop: 16, fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.65 }}>
+                For any of these calculations, the{' '}
+                <Link
+                  href="/"
+                  style={{
+                    color: 'var(--primary)',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    borderBottom: '1px solid rgba(165,180,252,0.3)',
+                  }}
+                >
+                  reverse tax calculator
+                </Link>{' '}
+                handles the math automatically — just enter your total and tax rate.
+              </p>
+            )}
           </div>
         ))}
       </div>

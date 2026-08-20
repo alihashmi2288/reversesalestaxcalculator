@@ -15,34 +15,73 @@ const sortedStates = [...STATES].sort((a, b) => b.length - a.length);
 
 export default function LinkifiedText({ text, currentState }: { text: string; currentState: string }) {
   if (!text) return null;
-  
-  // A regex that matches any state name exactly as a whole word
-  const regex = new RegExp(`\\b(${sortedStates.join('|')})\\b`, 'gi');
-  const parts = text.split(regex);
-  
+
+  // Split by markdown link pattern [anchor](url)
+  const mdLinkRegex = /(\[[^\]]+\]\([^)]+\))/g;
+  const mdParts = text.split(mdLinkRegex);
+
   return (
     <>
-      {parts.map((part, i) => {
-        const matchedState = sortedStates.find(s => s.toLowerCase() === part.toLowerCase());
-        
-        if (matchedState && matchedState.toLowerCase() !== currentState.toLowerCase()) {
-          let slug = '';
-          if (matchedState.toLowerCase() === 'canada') {
-            slug = '/canada';
-          } else if (matchedState.toLowerCase() === 'dc' || matchedState.toLowerCase() === 'district of columbia') {
-            slug = '/us/district-of-columbia';
-          } else {
-            slug = `/us/${matchedState.toLowerCase().replace(/\s+/g, '-')}`;
-          }
-          
+      {mdParts.map((mdPart, mdIdx) => {
+        const linkMatch = mdPart.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (linkMatch) {
+          const [, anchor, href] = linkMatch;
           return (
-            <Link key={i} href={slug} style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid rgba(165,180,252,0.3)' }}>
-              {part}
+            <Link
+              key={`link-${mdIdx}`}
+              href={href}
+              style={{
+                color: 'var(--primary)',
+                fontWeight: 600,
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(165,180,252,0.3)',
+              }}
+            >
+              {anchor}
             </Link>
           );
         }
-        return <React.Fragment key={i}>{part}</React.Fragment>;
+
+        // A regex that matches any state name exactly as a whole word
+        const stateRegex = new RegExp(`\\b(${sortedStates.join('|')})\\b`, 'gi');
+        const parts = mdPart.split(stateRegex);
+
+        return (
+          <React.Fragment key={`text-${mdIdx}`}>
+            {parts.map((part, i) => {
+              const matchedState = sortedStates.find((s) => s.toLowerCase() === part.toLowerCase());
+
+              if (matchedState && matchedState.toLowerCase() !== currentState.toLowerCase()) {
+                let slug = '';
+                if (matchedState.toLowerCase() === 'canada') {
+                  slug = '/canada';
+                } else if (matchedState.toLowerCase() === 'dc' || matchedState.toLowerCase() === 'district of columbia') {
+                  slug = '/us/district-of-columbia';
+                } else {
+                  slug = `/us/${matchedState.toLowerCase().replace(/\s+/g, '-')}`;
+                }
+
+                return (
+                  <Link
+                    key={i}
+                    href={slug}
+                    style={{
+                      color: 'var(--primary)',
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                      borderBottom: '1px solid rgba(165,180,252,0.3)',
+                    }}
+                  >
+                    {part}
+                  </Link>
+                );
+              }
+              return <React.Fragment key={i}>{part}</React.Fragment>;
+            })}
+          </React.Fragment>
+        );
       })}
     </>
   );
 }
+

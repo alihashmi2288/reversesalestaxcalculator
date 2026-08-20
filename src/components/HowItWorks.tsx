@@ -1,5 +1,6 @@
-export default function HowItWorks() {
+import Link from 'next/link';
 
+export default function HowItWorks() {
   return (
     <section>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
@@ -15,17 +16,34 @@ export default function HowItWorks() {
         {[
           { num: '1', icon: '💰', title: 'Enter the Total Price', desc: 'Type in the full amount you paid — the price including tax that appears on your receipt or invoice.', alt: 'Money bag icon' },
           { num: '2', icon: '📊', title: 'Select or Enter the Tax Rate', desc: 'Choose your US state for the combined rate, or enter any custom rate. You can also use our quick-select buttons for common rates.', alt: 'Bar chart icon' },
-          { num: '3', icon: '✅', title: 'Get Your Results Instantly', desc: 'Click calculate and instantly see the original pre-tax price, the exact tax amount paid, and a complete breakdown.', alt: 'Checkmark icon' },
+          { 
+            num: '3', 
+            icon: '✅', 
+            title: 'Get Your Results Instantly', 
+            desc: 'Click calculate and instantly see the original pre-tax price, the exact tax amount paid, and a complete breakdown.', 
+            alt: 'Checkmark icon',
+            extra: (
+              <span style={{ display: 'block', marginTop: 10 }}>
+                Once you understand the formula, return to the{' '}
+                <Link href="/" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid rgba(165,180,252,0.3)' }}>
+                  reverse tax calculator
+                </Link>{' '}
+                to apply it instantly to any receipt total without manual calculation.
+              </span>
+            )
+          },
         ].map((step) => (
           <div key={step.num} className="step-card">
             <div role="img" aria-label={step.alt} style={{ fontSize: 36, marginBottom: 12 }}>{step.icon}</div>
             <div className="step-number">{step.num}</div>
             <h3 style={{ fontWeight: 700, fontSize: 18, color: 'var(--text-primary)', marginBottom: 10 }}>{step.title}</h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.65 }}>{step.desc}</p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.65 }}>
+              {step.desc}
+              {step.extra}
+            </p>
           </div>
         ))}
       </div>
     </section>
   );
-
 }

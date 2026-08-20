@@ -279,6 +279,20 @@ export default function HomePage() {
                   View All 50 States →
                 </Link>
               </div>
+
+              <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: 14 }}>
+                For state-specific pre-tax calculations, see our dedicated{' '}
+                <Link href="/us/new-york" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>New York reverse sales tax calculator</Link>{' '}
+                covering NYC&apos;s 8.875% rate, the{' '}
+                <Link href="/us/florida" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Florida reverse sales tax calculator</Link>{' '}
+                with county-by-county breakdowns, the{' '}
+                <Link href="/us/north-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>North Carolina sales tax calculator</Link>, the{' '}
+                <Link href="/us/south-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>South Carolina sales tax calculator</Link>, and the{' '}
+                <Link href="/us/massachusetts" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Massachusetts reverse sales tax calculator</Link>.{' '}
+                For Canadian purchases, the{' '}
+                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Canadian GST and HST reverse calculator</Link>{' '}
+                covers all 13 provinces and territories.
+              </p>
               
               <div className="divider" style={{ margin: '16px 0', height: 1 }} />
               
@@ -287,6 +301,11 @@ export default function HomePage() {
                 <span className="sidebar-state-name">🇨🇦 Canada GST/HST</span>
                 <span className="sidebar-state-rate">5–15%</span>
               </Link>
+              <p style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5, margin: '8px 0 12px' }}>
+                The{' '}
+                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Canadian GST and HST reverse calculator</Link>{' '}
+                handles all provincial tax types including Ontario HST at 13%, Quebec GST plus QST at 14.975%, and Alberta GST-only at 5%.
+              </p>
               <Link href="/vat-calculator" className="sidebar-state-link">
                 <span className="sidebar-state-name">🇪🇺 EU VAT</span>
                 <span className="sidebar-state-rate">20–27%</span>

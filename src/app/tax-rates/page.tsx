@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import StateTable from '@/components/StateTable';
 import AdSlot from '@/components/AdSlot';
 
@@ -64,6 +65,21 @@ export default function TaxRatesPage() {
             </div>
           ))}
         </div>
+        <p style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 24, maxWidth: 860 }}>
+          All rates in the table below are pre-loaded into each state&apos;s dedicated calculator. Click any state to open a{' '}
+          <Link
+            href="/"
+            style={{
+              color: 'var(--primary)',
+              fontWeight: 600,
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(165,180,252,0.3)',
+            }}
+          >
+            reverse tax calculator
+          </Link>{' '}
+          pre-filled with that state&apos;s current combined rate.
+        </p>
         <StateTable />
       </div>
 

@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     'california': 'California Reverse Sales Tax Calculator: 9.21% Combined Rate',
     'maine': 'Maine Reverse Sales Tax Calculator: 5.5% Flat Statewide Rate',
     'connecticut': 'Connecticut Reverse Sales Tax Calculator: 6.35% Flat Rate',
+    'massachusetts': 'Massachusetts Reverse Sales Tax Calculator: 6.25% Flat Rate',
   };
 
   const customDescriptions: Record<string, string> = {
@@ -41,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     'california': "Free California reverse sales tax calculator. Pre-filled with CA's 9.21% combined rate. Find the original pre-tax price from any California receipt instantly. No signup.",
     'maine': "Free Maine reverse sales tax calculator. Pre-filled with Maine's flat 5.5% statewide rate. No local taxes in Maine. Find your pre-tax price from any receipt instantly.",
     'connecticut': "Free Connecticut reverse sales tax calculator. Pre-filled with CT's flat 6.35% statewide rate. No local taxes in Connecticut. Find your pre-tax price from any receipt instantly.",
+    'massachusetts': "Free Massachusetts reverse sales tax calculator. Pre-filled with MA's flat 6.25% statewide rate. No local taxes in Massachusetts. Find the original pre-tax price from any Massachusetts receipt instantly.",
     'new-jersey': "Free New Jersey reverse sales tax calculator. Pre-filled with NJ's 6.625% state rate and 6.65% combined average. Find the original pre-tax price from any New Jersey receipt instantly.",
     'texas': "Free Texas reverse sales tax calculator. Pre-filled with Texas's 6.25% state rate and 8.25% maximum combined rate. Find the original pre-tax price from any Texas receipt instantly.",
   };

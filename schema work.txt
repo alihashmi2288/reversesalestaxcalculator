@@ -1,0 +1,412 @@
+================================================================
+SCHEMA MARKUP — NEW PAGES
+salestaxreversecalculator.com
+Paste each block into the <head> of its page.
+Validate at: https://schema.org (or search.google.com/test/rich-results)
+================================================================
+
+================================================================
+PAGE: MASSACHUSETTS — /us/massachusetts
+Priority: HIGHEST — best converting state page per GSC data
+5 clicks, 1,341 impressions, position 18.6
+Schemas: WebApplication | FAQPage | BreadcrumbList
+================================================================
+
+<!-- WebApplication Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Massachusetts Reverse Sales Tax Calculator",
+  "url": "https://salestaxreversecalculator.com/us/massachusetts",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "description": "Free Massachusetts reverse sales tax calculator. Pre-filled with MA's flat 6.25% statewide rate. No local taxes in Massachusetts. Find the original pre-tax price from any Massachusetts receipt instantly.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Massachusetts",
+    "containedInPlace": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PreTaxPrice",
+    "url": "https://salestaxreversecalculator.com"
+  }
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the sales tax rate in Massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Massachusetts charges a flat 6.25% statewide sales tax with no local additions. Every city and county in Massachusetts pays the same rate. There are no municipal or district surcharges on top of the state rate, making Massachusetts one of the simpler states for reverse tax calculations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the pre-tax price from a Massachusetts receipt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide your Massachusetts receipt total by 1.0625. Example: $106.25 / 1.0625 = $100.00 pre-tax price. The Massachusetts sales tax paid was $6.25. Because MA has a flat statewide rate with no local additions, this divisor works for every city and town in the state."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are groceries taxed in Massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most unprepared grocery items are exempt from Massachusetts sales tax. However, candy, soda, and alcoholic beverages are taxable at the full 6.25% rate. Prepared hot foods and meals at restaurants are also taxable. When in doubt, unprepared food from a grocery store is generally exempt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is clothing exempt from sales tax in Massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Massachusetts exempts clothing and footwear items costing $175 or less per item from sales tax. Items priced above $175 are taxable only on the amount exceeding $175. For example, a $200 coat would only be taxed on $25 at the 6.25% rate, resulting in $1.5625 in tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Massachusetts have a sales tax holiday?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Massachusetts holds an annual Sales Tax Holiday weekend, typically in August, during which most retail items priced at $2,500 or less are exempt from the 6.25% sales tax. The specific dates are announced by the state legislature each year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is shipping taxable in Massachusetts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Massachusetts, separately stated shipping and delivery charges are generally not taxable if the underlying goods being shipped are themselves exempt. If the goods are taxable, delivery charges are typically taxable as well. Combined handling and shipping charges follow the taxability of the goods."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Reverse Sales Tax Calculator",
+      "item": "https://salestaxreversecalculator.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "US State Tax Rates",
+      "item": "https://salestaxreversecalculator.com/tax-rates"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Massachusetts",
+      "item": "https://salestaxreversecalculator.com/us/massachusetts"
+    }
+  ]
+}
+</script>
+
+
+================================================================
+PAGE: NORTH CAROLINA — /us/north-carolina
+Priority: HIGH — 1,986 impressions, position 22.49, 2 clicks
+Schemas: WebApplication | FAQPage | BreadcrumbList
+================================================================
+
+<!-- WebApplication Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "North Carolina Reverse Sales Tax Calculator",
+  "url": "https://salestaxreversecalculator.com/us/north-carolina",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "description": "Free North Carolina reverse sales tax calculator. Pre-filled with NC's 7% combined rate. Find the original pre-tax price from any North Carolina receipt instantly. No signup required.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "North Carolina",
+    "containedInPlace": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PreTaxPrice",
+    "url": "https://salestaxreversecalculator.com"
+  }
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the sales tax rate in North Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "North Carolina has a state sales tax rate of 4.75%. Counties add 2% to 2.5% in local taxes, bringing the combined rate to approximately 7% across most of the state. The most common combined rate in North Carolina counties is exactly 7%, made up of the 4.75% state rate plus a 2.25% average local rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the pre-tax price from a North Carolina receipt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most North Carolina counties with a 7% combined rate, divide your receipt total by 1.07. Example: $107.00 / 1.07 = $100.00 pre-tax price. The NC sales tax paid was $7.00. If your county charges a different combined rate, divide by 1 plus that rate expressed as a decimal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are groceries taxed in North Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unprepared food and grocery items are taxed at a reduced rate of 2% in North Carolina, not the full 7% combined rate. This reduced rate applies to food items that qualify for the federal Supplemental Nutrition Assistance Program (SNAP). Prepared foods, restaurant meals, and certain snack items are taxed at the full combined rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is clothing taxable in North Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Clothing and footwear are fully taxable in North Carolina at the full combined rate of approximately 7%. There is no clothing exemption in North Carolina, unlike states such as New York or Massachusetts which exempt clothing below a certain price threshold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which North Carolina counties have the highest sales tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most North Carolina counties charge a 7% combined rate. A small number of counties charge 7.5%, including Durham County and Orange County. Wake County (Raleigh) and Mecklenburg County (Charlotte) both charge the standard 7% combined rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is shipping taxable in North Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In North Carolina, shipping and handling charges are generally taxable when the underlying goods are taxable. If the goods being shipped are exempt, separately stated shipping charges are also exempt. Handling charges are always treated the same as the goods they are associated with."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Reverse Sales Tax Calculator",
+      "item": "https://salestaxreversecalculator.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "US State Tax Rates",
+      "item": "https://salestaxreversecalculator.com/tax-rates"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "North Carolina",
+      "item": "https://salestaxreversecalculator.com/us/north-carolina"
+    }
+  ]
+}
+</script>
+
+
+================================================================
+PAGE: SOUTH CAROLINA — /us/south-carolina
+Priority: HIGH — 1,557 impressions, position 19.11, 0 clicks
+Schemas: WebApplication | FAQPage | BreadcrumbList
+================================================================
+
+<!-- WebApplication Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "South Carolina Reverse Sales Tax Calculator",
+  "url": "https://salestaxreversecalculator.com/us/south-carolina",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "description": "Free South Carolina reverse sales tax calculator. Pre-filled with SC's 7.51% combined rate. Find the original pre-tax price from any South Carolina receipt instantly. No signup required.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "South Carolina",
+    "containedInPlace": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PreTaxPrice",
+    "url": "https://salestaxreversecalculator.com"
+  }
+}
+</script>
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the sales tax rate in South Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "South Carolina has a state sales tax rate of 6%. Counties can add up to 3% in local option taxes, bringing the combined average to approximately 7.51%. The most common combined rate in South Carolina is between 7% and 9% depending on the county. Charleston County charges 9%, while many rural counties stay at 7% or 8%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the pre-tax price from a South Carolina receipt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For the South Carolina combined average rate of 7.51%, divide your receipt total by 1.0751. Example: $107.51 / 1.0751 = $100.00 pre-tax price. The SC sales tax paid was $7.51. For Charleston County at 9%, divide by 1.09. Always use the rate shown on your specific receipt for the most accurate result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are groceries taxed in South Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unprepared food and grocery items are exempt from the South Carolina state sales tax. However, some counties still apply their local option taxes to groceries, meaning the effective rate on groceries varies by county. In counties without a local grocery tax, the rate is 0%. Prepared foods and restaurant meals are taxable at the full combined rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is clothing taxable in South Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Clothing and footwear are fully taxable in South Carolina at the full combined rate. There is no clothing exemption in South Carolina. However, South Carolina holds an annual Tax Free Weekend in late July or early August during which clothing, footwear, and school supplies are exempt from sales tax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the sales tax rate in Charleston, SC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Charleston County, South Carolina charges a combined sales tax rate of 9%, made up of the 6% state rate plus a 3% county local option tax. This is one of the highest combined rates in the state. For reverse calculations in Charleston, divide your receipt total by 1.09."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a cap on the sales tax for vehicle purchases in South Carolina?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. South Carolina caps the sales tax on vehicle purchases at $500 regardless of the purchase price. This makes SC one of the most tax-friendly states for car buyers. A $50,000 vehicle purchase is taxed a maximum of $500 total, which works out to an effective rate of 1% or less on high-value vehicles."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Reverse Sales Tax Calculator",
+      "item": "https://salestaxreversecalculator.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "US State Tax Rates",
+      "item": "https://salestaxreversecalculator.com/tax-rates"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "South Carolina",
+      "item": "https://salestaxreversecalculator.com/us/south-carolina"
+    }
+  ]
+}
+</script>
+
+
+================================================================
+REMINDER: PREVIOUSLY DELIVERED SCHEMAS (schemas-markup.txt)
+These still need to be deployed if not already done:
+- Homepage /  — 4 schemas (WebSite, WebApplication, FAQPage, BreadcrumbList)
+- VAT /vat-calculator — 3 schemas
+- Canada /canada — 3 schemas
+- New Jersey /us/new-jersey — 3 schemas
+- Texas /us/texas — 3 schemas
+- New York /us/new-york — 3 schemas
+
+All of the above are in the schemas-markup.txt file
+already delivered earlier in this project.
+================================================================
+
+IMPLEMENTATION NOTE FOR DEVELOPER (Next.js):
+Each <script> block goes inside the <head> of its page.
+Use a unique id for each block:
+
+<Script
+  id="schema-webapp"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify({...}) }}
+/>
+
+Use these ids:
+- id="schema-webapp"
+- id="schema-faq"
+- id="schema-breadcrumb"
+
+Validate each page at search.google.com/test/rich-results
+after deploying. FAQ and Breadcrumb should both show as eligible.
+================================================================
