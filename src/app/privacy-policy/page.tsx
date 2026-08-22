@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — PreTaxPrice',
+  title: 'Privacy Policy: PreTaxPrice',
   description: 'Privacy policy for PreTaxPrice. We collect no personal data — all calculations are performed locally in your browser.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/privacy-policy' },
 };

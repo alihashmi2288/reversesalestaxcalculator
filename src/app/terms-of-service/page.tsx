@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — PreTaxPrice',
+  title: 'Terms of Service: PreTaxPrice',
   description: 'Terms of service for PreTaxPrice. For informational purposes only — not professional tax advice.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/terms-of-service' },
 };

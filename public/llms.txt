@@ -1,0 +1,34 @@
+# Reverse Sales Tax Calculator (PreTaxPrice)
+> https://salestaxreversecalculator.com
+
+Free, client-side reverse sales tax calculator to extract original pre-tax prices and sales tax amounts from tax-inclusive receipt totals. Supports all 50 US states, 13 Canadian provinces and territories, and 20+ international VAT jurisdictions.
+
+## Core Formula
+- **Pre-Tax Price** = Final Price / (1 + (Tax Rate / 100))
+- **Tax Amount** = Final Price - Pre-Tax Price
+- **Effective Implied Rate** = ((Final Price - Pre-Tax Price) / Pre-Tax Price) * 100
+
+## Key Features & Calculators
+- [Reverse Sales Tax Calculator](https://salestaxreversecalculator.com): Single item, multiple items, find tax rate, and batch CSV mode.
+- [US State Sales Tax Rates (2026)](https://salestaxreversecalculator.com/tax-rates): 50 states + Washington DC combined average rates.
+- [Canada Reverse Tax Calculator](https://salestaxreversecalculator.com/canada): GST (5%), HST (13%-15%), PST (6%-7%), and Quebec QST (9.975%).
+- [Reverse VAT Calculator](https://salestaxreversecalculator.com/vat-calculator): UK 20%, EU member states (17%-27%), Australia GST (10%).
+- [How Reverse Sales Tax Works](https://salestaxreversecalculator.com/how-it-works): Mathematical guide and step-by-step examples.
+- [Sales Tax FAQ](https://salestaxreversecalculator.com/faq): Answers to common sales tax, VAT, and accounting questions.
+
+## US State Combined Average Rates (2026 Sample)
+- California (CA): 9.21% (State 7.25% + Local)
+- Texas (TX): 8.24% (State 6.25% + Local max 2%)
+- New York (NY): 8.66% (NYC combined 8.875%)
+- Florida (FL): 7.13% (State 6.00% + Local)
+- Illinois (IL): 8.95% (Chicago combined 10.25%)
+- Washington (WA): 9.40% (State 6.50% + Local)
+- North Carolina (NC): 7.00% (State 4.75% + Local)
+- South Carolina (SC): 7.51% (State 6.00% + Local)
+- Massachusetts (MA): 6.25% (Flat statewide, 0% local)
+- Connecticut (CT): 6.35% (Flat statewide, 0% local)
+- Maine (ME): 5.50% (Flat statewide, 0% local)
+- Tax-Free States: Alaska (0% state, local allowed), Delaware (0%), Montana (0%), New Hampshire (0%), Oregon (0%).
+
+## Data Sourcing & Authority
+Data sourced directly from state Departments of Revenue, Canada Revenue Agency (CRA), HM Revenue & Customs (HMRC), and the Tax Foundation. Calculations run 100% client-side with zero server transmission.

@@ -36,7 +36,7 @@ export default function HomePage() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "PreTaxPrice — Reverse Sales Tax Calculator",
+    "name": "PreTaxPrice: Reverse Sales Tax Calculator",
     "url": SITE_URL,
     "description": "Free reverse sales tax calculator. Find the original pre-tax price from any receipt total. Works for all 50 US states, Canada GST/HST, and EU VAT.",
     "publisher": {

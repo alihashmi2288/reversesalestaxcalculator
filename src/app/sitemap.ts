@@ -4,7 +4,7 @@ import { CANADA_PROV_TAX_RATES } from '@/data/canadaTaxRates';
 import { VAT_COUNTRY_RATES } from '@/data/vatTaxRates';
 
 const SITE_URL = 'https://salestaxreversecalculator.com';
-const LAST_MODIFIED = new Date('2026-06-04'); // Rebranding and UI cleanup update
+const LAST_MODIFIED = new Date('2026-08-20');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/vat-calculator',
     '/canada',
     '/about',
+    '/contact',
     '/privacy-policy',
     '/terms-of-service',
   ].map((route) => {
@@ -23,8 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return {
       url: `${SITE_URL}${route}`,
       lastModified: LAST_MODIFIED,
-      changeFrequency: isFrequent ? ('monthly' as const) : ('yearly' as const),
-      priority: route === '' ? 1.0 : isFrequent ? 0.9 : 0.5,
+      changeFrequency: isFrequent ? ('weekly' as const) : ('monthly' as const),
+      priority: route === '' ? 1.0 : isFrequent ? 0.9 : 0.6,
     };
   });
 
@@ -58,4 +59,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticRoutes, ...stateRoutes, ...canadaRoutes, ...vatRoutes];
 }
-

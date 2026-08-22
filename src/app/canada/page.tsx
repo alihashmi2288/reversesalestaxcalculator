@@ -7,7 +7,14 @@ import CanadaCalculator from './CanadaCalculator';
 export const metadata: Metadata = {
   title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
   description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
-  alternates: { canonical: 'https://salestaxreversecalculator.com/canada' },
+  alternates: { 
+    canonical: 'https://salestaxreversecalculator.com/canada',
+    languages: {
+      'en-US': 'https://salestaxreversecalculator.com',
+      'en-CA': 'https://salestaxreversecalculator.com/canada',
+      'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
+    },
+  },
   openGraph: {
     title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
     description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
@@ -26,7 +33,7 @@ const SITE_URL = 'https://salestaxreversecalculator.com';
 const webApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Canada Reverse Sales Tax Calculator — GST, HST, PST, QST",
+  "name": "Canada Reverse Sales Tax Calculator: GST, HST, PST, QST",
   "url": `${SITE_URL}/canada`,
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "All",

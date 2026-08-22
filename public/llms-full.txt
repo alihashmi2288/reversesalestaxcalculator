@@ -1,0 +1,99 @@
+# Full Documentation & Rate Matrix — Reverse Sales Tax Calculator
+URL: https://salestaxreversecalculator.com
+Last Updated: August 2026
+
+## 1. Overview
+salestaxreversecalculator.com (PreTaxPrice) provides free, browser-based financial utilities for consumers, small business owners, freelancers, and accountants to calculate original prices before tax (reverse tax calculation).
+
+## 2. Mathematical Principles
+When tax is applied:
+  Final Price = Subtotal * (1 + Rate / 100)
+
+To calculate in reverse:
+  Subtotal = Final Price / (1 + Rate / 100)
+  Tax Amount = Final Price - Subtotal
+
+Common subtraction fallacy:
+  Subtracting the percentage from the final price (e.g., $107.50 - 7.5% = $99.44) is mathematically incorrect because the tax was assessed on the $100 base, not the $107.50 total. Correct: $107.50 / 1.075 = $100.00.
+
+## 3. US State Sales Tax Rates (2026 Averages)
+- Alabama (AL): Combined 9.33% (State 4.00%, Local avg 5.33%)
+- Alaska (AK): Combined 1.76% (State 0.00%, Local avg 1.76%)
+- Arizona (AZ): Combined 8.51% (State 5.60%, Local avg 2.91%)
+- Arkansas (AR): Combined 9.49% (State 6.50%, Local avg 2.99%)
+- California (CA): Combined 9.21% (State 7.25%, Local avg 1.96%) [LA 10.25%, SF 8.625%, SD 7.75%]
+- Colorado (CO): Combined 8.07% (State 2.90%, Local avg 5.17%)
+- Connecticut (CT): Combined 6.35% (State 6.35%, Local 0.00% - Flat statewide)
+- Delaware (DE): Combined 0.00% (No state or local sales tax)
+- Florida (FL): Combined 7.13% (State 6.00%, Local avg 1.13%)
+- Georgia (GA): Combined 7.50% (State 4.00%, Local avg 3.50%)
+- Hawaii (HI): Combined 4.50% (GET 4.00%, Local surcharge 0.50%)
+- Idaho (ID): Combined 6.03% (State 6.00%, Local avg 0.03%)
+- Illinois (IL): Combined 8.95% (State 6.25%, Local avg 2.70%) [Chicago 10.25%]
+- Indiana (IN): Combined 7.00% (State 7.00%, Local 0.00%)
+- Iowa (IA): Combined 6.95% (State 6.00%, Local avg 0.95%)
+- Kansas (KS): Combined 8.79% (State 6.50%, Local avg 2.29%)
+- Kentucky (KY): Combined 6.00% (State 6.00%, Local 0.00%)
+- Louisiana (LA): Combined 9.50% (State 4.45%, Local avg 5.05%)
+- Maine (ME): Combined 5.50% (State 5.50%, Local 0.00% - Flat statewide)
+- Maryland (MD): Combined 6.00% (State 6.00%, Local 0.00%)
+- Massachusetts (MA): Combined 6.25% (State 6.25%, Local 0.00% - Clothing exempt under $175)
+- Michigan (MI): Combined 6.00% (State 6.00%, Local 0.00%)
+- Minnesota (MN): Combined 7.58% (State 6.875%, Local avg 0.71%)
+- Mississippi (MS): Combined 7.08% (State 7.00%, Local avg 0.08%)
+- Missouri (MO): Combined 8.35% (State 4.225%, Local avg 4.13%)
+- Montana (MT): Combined 0.00% (No state or local sales tax)
+- Nebraska (NE): Combined 7.05% (State 5.50%, Local avg 1.55%)
+- Nevada (NV): Combined 8.49% (State 6.85%, Local avg 1.64%) [Las Vegas 8.375%]
+- New Hampshire (NH): Combined 0.00% (No general sales tax; meals/rooms taxed at 8.5%)
+- New Jersey (NJ): Combined 6.65% (State 6.625%, UEZ zones 3.3125%, Clothing fully exempt)
+- New Mexico (NM): Combined 7.95% (Gross Receipts Tax State 5.00%, Local avg 2.95%)
+- New York (NY): Combined 8.66% (State 4.00%, Local avg 4.66%) [NYC 8.875%, Clothing exempt under $110 statewide]
+- North Carolina (NC): Combined 7.00% (State 4.75%, Local avg 2.25%)
+- North Dakota (ND): Combined 7.23% (State 5.00%, Local avg 2.23%)
+- Ohio (OH): Combined 7.37% (State 5.75%, Local avg 1.62%)
+- Oklahoma (OK): Combined 9.02% (State 4.50%, Local avg 4.52%)
+- Oregon (OR): Combined 0.00% (No state or local sales tax)
+- Pennsylvania (PA): Combined 6.34% (State 6.00%, Local avg 0.34%) [Philadelphia 8.00%, Clothing exempt]
+- Rhode Island (RI): Combined 7.00% (State 7.00%, Local 0.00%)
+- South Carolina (SC): Combined 7.51% (State 6.00%, Local avg 1.51%, Vehicle tax capped at $500)
+- South Dakota (SD): Combined 6.19% (State 4.20%, Local avg 1.99%)
+- Tennessee (TN): Combined 9.60% (State 7.00%, Local avg 2.60%)
+- Texas (TX): Combined 8.24% (State 6.25%, Local avg 1.99%) [Dallas/Austin/Houston 8.25%]
+- Utah (UT): Combined 7.29% (State 6.10%, Local avg 1.19%)
+- Vermont (VT): Combined 6.37% (State 6.00%, Local avg 0.37%)
+- Virginia (VA): Combined 5.82% (State 5.30%, Local avg 0.52%)
+- Washington (WA): Combined 9.40% (State 6.50%, Local avg 2.90%) [Seattle 10.35%]
+- West Virginia (WV): Combined 6.59% (State 6.00%, Local avg 0.59%)
+- Wisconsin (WI): Combined 5.64% (State 5.00%, Local avg 0.64%)
+- Wyoming (WY): Combined 5.44% (State 4.00%, Local avg 1.44%)
+- District of Columbia (DC): Combined 6.00% (Flat 6.00%)
+
+## 4. Canada Rates (2026)
+- Alberta: 5% GST
+- British Columbia: 12% (5% GST + 7% PST)
+- Manitoba: 12% (5% GST + 7% PST)
+- New Brunswick: 15% HST
+- Newfoundland & Labrador: 15% HST
+- Northwest Territories: 5% GST
+- Nova Scotia: 15% HST
+- Nunavut: 5% GST
+- Ontario: 13% HST
+- Prince Edward Island: 15% HST
+- Quebec: 14.975% (5% GST + 9.975% QST calculated on pre-GST subtotal)
+- Saskatchewan: 11% (5% GST + 6% PST)
+- Yukon: 5% GST
+
+## 5. International VAT Rates
+- United Kingdom (UK): 20% Standard, 5% Reduced
+- Germany: 19% Standard, 7% Reduced
+- France: 20% Standard, 10% / 5.5% / 2.1% Reduced
+- Italy: 22% Standard, 10% / 5% / 4% Reduced
+- Spain: 21% Standard, 10% / 4% Reduced
+- Australia: 10% GST
+- Netherlands: 21% Standard, 9% Reduced
+- Ireland: 23% Standard, 13.5% / 9% Reduced
+- Sweden / Norway / Denmark: 25% Standard
+
+## 6. Privacy & Architecture
+All calculation algorithms execute purely client-side within the browser via JavaScript/TypeScript. No financial figures, receipts, or data entries are logged or transmitted to any server.

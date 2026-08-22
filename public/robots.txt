@@ -1,22 +1,30 @@
-# robots.txt — salestaxreversecalculator.com
-# Strategy: Index all SEO-value pages; block all admin, utility, and duplicate-generation paths
-# Last updated: May 2026
+# robots.txt: salestaxreversecalculator.com
+# Strategy: Index all SEO-value pages; allow dynamic OG images & AI search discovery
+# Last updated: August 2026
 
 User-agent: *
+
+# --- ALLOW: Public & Asset Endpoints ---
+Allow: /
+Allow: /api/og
+Allow: /us/
+Allow: /vat-calculator
+Allow: /canada
+Allow: /tax-rates
+Allow: /faq
+Allow: /how-it-works
+Allow: /about
+Allow: /contact
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /llms.txt
+Allow: /llms-full.txt
 
 # --- BLOCK: Admin & System Paths ---
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 Disallow: /dashboard/
-
-
-# --- BLOCK: Internal Search & Filtered URLs ---
-Disallow: /search
-Disallow: /*?q=
-Disallow: /*?s=
-Disallow: /*?query=
-Disallow: /*?search=
 
 # --- BLOCK: Tracking & UTM Parameters ---
 Disallow: /*?utm_source=
@@ -29,26 +37,32 @@ Disallow: /*?source=
 Disallow: /*?fbclid=
 Disallow: /*?gclid=
 
-# --- BLOCK: Duplicate URL Variations (trailing slash handled by canonical) ---
-# Note: Canonical tags handle www/non-www and HTTPS — no need to double-block here
-
 # --- BLOCK: Print / Utility Views ---
 Disallow: /*?print=
 Disallow: /*?format=print
 Disallow: /*?mode=print
 
-# --- ALLOW: All SEO-value pages explicitly ---
-# These are here for documentation clarity — * allow is the default
+# --- AI & Search Engine Directives ---
+User-agent: GPTBot
 Allow: /
-Allow: /us/
-Allow: /vat-calculator
-Allow: /canada
-Allow: /tax-rates
-Allow: /faq
-Allow: /how-it-works
-Allow: /about
-Allow: /privacy-policy
-Allow: /terms-of-service
 
-# Sitemap location
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Sitemap & LLMs location
 Sitemap: https://salestaxreversecalculator.com/sitemap.xml

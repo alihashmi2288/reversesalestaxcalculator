@@ -27,15 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ogUrl.searchParams.set('location', countryData.name);
   ogUrl.searchParams.set('rate', countryData.rate.toString());
 
+  const title = `${countryData.name} Reverse ${countryData.type} Calculator: ${countryData.rate}% Standard Rate`;
+  const description = `Free ${countryData.name} reverse ${countryData.type.toLowerCase()} calculator. Pre-filled with the ${countryData.rate}% standard rate. Calculate the original ex-${countryData.type.toLowerCase()} net price instantly.`;
+
   return {
-    title: `${countryData.name} Reverse ${countryData.type} Calculator — ${countryData.rate}% Standard Rate`,
-    description: `Free ${countryData.name} reverse ${countryData.type.toLowerCase()} calculator. Pre-filled with the ${countryData.rate}% standard rate. Calculate the original ex-${countryData.type.toLowerCase()} net price instantly.`,
+    title,
+    description,
     alternates: { canonical: `https://salestaxreversecalculator.com/vat-calculator/${countrySlug}` },
     openGraph: {
+      title,
+      description,
+      url: `https://salestaxreversecalculator.com/vat-calculator/${countrySlug}`,
       images: [{ url: ogUrl.toString() }],
     },
     twitter: {
-      title: `${countryData.name} Reverse ${countryData.type} Calculator`,
+      card: 'summary_large_image',
+      title,
+      description,
     },
   };
 }
@@ -106,8 +114,12 @@ export default async function CountryVatPage({ params }: Props) {
             <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>🗺️ {countryData.code} · PRE-FILLED {countryData.type} RATE: {countryData.rate}%</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
-            {countryData.name} Reverse VAT<br />
+          <h1
+            aria-label={`${countryData.name} Reverse VAT Calculator`}
+            style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
+          >
+            {countryData.name} Reverse VAT{' '}
+            <br />
             <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
               Calculator
             </span>

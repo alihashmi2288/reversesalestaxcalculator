@@ -4,9 +4,20 @@ import StateTable from '@/components/StateTable';
 import AdSlot from '@/components/AdSlot';
 
 export const metadata: Metadata = {
-  title: 'US State Sales Tax Rates 2026 — All 50 States',
+  title: 'US State Sales Tax Rates 2026: All 50 States & DC',
   description: 'Complete list of US state sales tax rates for all 50 states plus DC. Combined average rates (state + local) with filterable table.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/tax-rates' },
+  openGraph: {
+    title: 'US State Sales Tax Rates 2026: All 50 States & DC',
+    description: 'Complete list of US state sales tax rates for all 50 states plus DC. Combined average rates (state + local) with filterable table.',
+    url: 'https://salestaxreversecalculator.com/tax-rates',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'US State Sales Tax Rates' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'US State Sales Tax Rates 2026: All 50 States & DC',
+    description: 'Complete list of US state sales tax rates for all 50 states plus DC. Combined average rates (state + local) with filterable table.',
+  },
 };
 
 const breadcrumbSchema = {
@@ -43,7 +54,7 @@ export default function TaxRatesPage() {
       {/* Breadcrumb */}
       <div className="container-main" style={{ marginTop: 24, marginBottom: 8 }}>
         <nav style={{ fontSize: 14, color: 'var(--text-secondary)' }}>
-          <a href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</a>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
           <span style={{ margin: '0 8px' }}>›</span>
           <span>Tax Rates</span>
         </nav>
@@ -53,13 +64,13 @@ export default function TaxRatesPage() {
       <div className="container-main" style={{ marginTop: 24 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 48 }}>
           {[
-            { label: 'Highest Rate', value: '9.55%', note: 'Louisiana & Tennessee', color: '#dc2626' },
-            { label: 'Average Rate', value: '7.12%', note: 'National average', color: 'var(--primary)' },
+            { label: 'Highest Rate', value: '9.60%', note: 'Tennessee & Louisiana', color: '#dc2626' },
+            { label: 'Average Rate', value: '7.53%', note: 'National average', color: 'var(--primary)' },
             { label: 'Lowest Rate', value: '0%', note: '5 tax-free states', color: '#047857' },
             { label: 'States Covered', value: '51', note: '50 states + DC', color: '#7c3aed' },
           ].map(({ label, value, note, color }) => (
             <div key={label} className="card" style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color }}>{value}</div>
+              <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)' }}>{value}</div>
               <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--text-primary)', margin: '4px 0 2px' }}>{label}</div>
               <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>{note}</div>
             </div>
@@ -85,14 +96,14 @@ export default function TaxRatesPage() {
 
       {/* Notes */}
       <div className="container-main" style={{ marginTop: 48, marginBottom: 64 }}>
-        <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 16, padding: 24, maxWidth: 860, margin: '0 auto' }}>
-          <h3 style={{ fontWeight: 700, fontSize: 16, color: '#92400e', marginBottom: 12 }}>📌 Important Notes</h3>
-          <ul style={{ paddingLeft: 20, color: '#78350f', fontSize: 15, lineHeight: 2 }}>
+        <div style={{ background: 'rgba(255, 251, 235, 0.04)', border: '1px solid rgba(253, 230, 138, 0.2)', borderRadius: 16, padding: 24, maxWidth: 860, margin: '0 auto' }}>
+          <h3 style={{ fontWeight: 700, fontSize: 16, color: '#fef08a', marginBottom: 12 }}>📌 Important Notes</h3>
+          <ul style={{ paddingLeft: 20, color: 'var(--text-secondary)', fontSize: 15, lineHeight: 2 }}>
             <li>Rates shown are <strong>combined averages</strong> (state rate + average local rate).</li>
-            <li>Your actual rate may differ based on your specific city and county.</li>
-            <li>Some products (groceries, medicine) may be taxed at reduced or zero rates.</li>
-            <li>Rates are updated periodically — verify with your state&#39;s Department of Revenue for legal accuracy.</li>
-            <li>Alaska, Delaware, Montana, New Hampshire, and Oregon have no state sales tax.</li>
+            <li>Your actual rate may differ based on your specific city and county jurisdiction.</li>
+            <li>Certain necessities (unprepared groceries, prescription drugs) are exempt in many states.</li>
+            <li>Rates are sourced from official state Revenue Departments and updated periodically for 2026.</li>
+            <li>Alaska, Delaware, Montana, New Hampshire, and Oregon have no general state sales tax.</li>
           </ul>
         </div>
       </div>

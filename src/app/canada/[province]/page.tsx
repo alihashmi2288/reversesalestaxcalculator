@@ -27,15 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ogUrl.searchParams.set('location', provinceData.name);
   ogUrl.searchParams.set('rate', provinceData.rate.toString());
 
+  const title = `${provinceData.name} Reverse Sales Tax Calculator: ${provinceData.rate}% ${provinceData.type} Rate`;
+  const description = `Free ${provinceData.name} reverse sales tax calculator. Pre-filled with the ${provinceData.rate}% ${provinceData.type} rate. Find original prices before Canadian sales tax in ${provinceData.name} instantly.`;
+
   return {
-    title: `${provinceData.name} Reverse Sales Tax Calculator — ${provinceData.rate}% ${provinceData.type}`,
-    description: `Free ${provinceData.name} reverse sales tax calculator. Pre-filled with the ${provinceData.rate}% ${provinceData.type} rate. Find original prices before Canadian sales tax in ${provinceData.name} instantly.`,
+    title,
+    description,
     alternates: { canonical: `https://salestaxreversecalculator.com/canada/${provinceSlug}` },
     openGraph: {
+      title,
+      description,
+      url: `https://salestaxreversecalculator.com/canada/${provinceSlug}`,
       images: [{ url: ogUrl.toString() }],
     },
     twitter: {
-      title: `${provinceData.name} Reverse Sales Tax Calculator`,
+      card: 'summary_large_image',
+      title,
+      description,
     },
   };
 }
@@ -110,8 +118,12 @@ export default async function ProvincePage({ params }: Props) {
             <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>🇨🇦 {provinceData.abbr} · PRE-FILLED {provinceData.type} RATE: {provinceData.rate}%</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
-            {provinceData.name} Reverse Sales<br />
+          <h1
+            aria-label={`${provinceData.name} Reverse Sales Tax Calculator`}
+            style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
+          >
+            {provinceData.name} Reverse Sales{' '}
+            <br />
             <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
               Tax Calculator
             </span>
