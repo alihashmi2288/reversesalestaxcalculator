@@ -153,10 +153,6 @@ export default function CanadaPage() {
         </div>
       </section>
 
-      <div className="container-main" style={{ marginTop: 16 }}>
-        <AdSlot slot="canada-leaderboard" size="leaderboard" />
-      </div>
-
       <div className="container-main" style={{ marginTop: 32, marginBottom: 80 }}>
         <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 32 }}>
           <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
@@ -167,6 +163,11 @@ export default function CanadaPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: 32, alignItems: 'start' }} className="calc-layout">
           <div>
             <CanadaCalculator />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+              }}
+            />
             <div style={{ marginTop: 24 }}>
               <AdSlot slot="canada-rectangle" size="rectangle" />
             </div>

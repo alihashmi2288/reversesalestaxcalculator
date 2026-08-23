@@ -175,10 +175,6 @@ export default async function StatePage({ params }: Props) {
             <span style={{ color: 'var(--text-primary)' }}>{stateData.state}</span>
           </nav>
 
-          <div style={{ marginBottom: 32 }}>
-            <AdSlot slot={`${stateSlug}-leaderboard`} size="leaderboard" />
-          </div>
-
           {/* Rate Info Cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
             {[
@@ -197,6 +193,13 @@ export default async function StatePage({ params }: Props) {
           <div style={{ marginBottom: 64 }}>
             <StateCalculatorClient stateData={stateData} />
           </div>
+
+          {/* Ezoic Ad Position 1 — Directly below calculator result */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+            }}
+          />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
             {/* State Info */}
@@ -252,6 +255,13 @@ export default async function StatePage({ params }: Props) {
                     </tbody>
                   </table>
                 </div>
+
+                {/* Ezoic Ad Position 2 — Below city rate table */}
+                <script
+                  dangerouslySetInnerHTML={{
+                    __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+                  }}
+                />
               </section>
             )}
 

@@ -150,10 +150,6 @@ export default function VATPage() {
         </div>
       </section>
 
-      <div className="container-main" style={{ marginTop: 16 }}>
-        <AdSlot slot="vat-leaderboard" size="leaderboard" />
-      </div>
-
       <div className="container-main" style={{ marginTop: 32, marginBottom: 80 }}>
         <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 32 }}>
           <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
@@ -162,6 +158,13 @@ export default function VATPage() {
         </nav>
 
         <VATCalculator />
+
+        {/* Ezoic Ad Position 1 — Directly below VAT calculator */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+          }}
+        />
 
         {/* In-depth content for SEO authority and E-E-A-T */}
         <div style={{ marginTop: 64, maxWidth: 860, margin: '64px auto 0', display: 'flex', flexDirection: 'column', gap: 40 }}>

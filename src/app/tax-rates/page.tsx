@@ -47,10 +47,6 @@ export default function TaxRatesPage() {
         </div>
       </section>
 
-      <div className="container-main" style={{ marginTop: 16, marginBottom: 12 }}>
-        <AdSlot slot="tax-rates-leaderboard" size="leaderboard" />
-      </div>
-
       {/* Breadcrumb */}
       <div className="container-main" style={{ marginTop: 24, marginBottom: 8 }}>
         <nav style={{ fontSize: 14, color: 'var(--text-secondary)' }}>
@@ -92,6 +88,12 @@ export default function TaxRatesPage() {
           pre-filled with that state&apos;s current combined rate.
         </p>
         <StateTable />
+        {/* Ezoic Ad Position — Below State Rate Table */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+          }}
+        />
       </div>
 
       {/* Notes */}

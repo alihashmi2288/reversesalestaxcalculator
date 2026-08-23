@@ -205,6 +205,13 @@ export default function HomePage() {
             <CalculatorCard />
           </div>
 
+          {/* Ezoic Ad Position 1 — Directly below calculator result card */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+            }}
+          />
+
           {/* Intro Text and Formula Columns below Calculator */}
           <div className="homepage-hero-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 48, alignItems: 'stretch' }}>
 
@@ -249,6 +256,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Ezoic Ad Position 3 — Visual gap between calculator section and content/table */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+        }}
+      />
 
       {/* ── Main Layout: Content + Sidebars ── */}
       <div className="container-main" style={{ marginTop: 40, marginBottom: 40 }}>
@@ -1134,6 +1148,13 @@ export default function HomePage() {
       <div className="container-main" style={{ marginTop: 80 }}>
         <StateTable />
       </div>
+
+      {/* Ezoic Ad Position 2 — Below State Rate Table */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
+        }}
+      />
 
       <div className="container-main" style={{ marginTop: 48 }}>
         <AdSlot slot="in-article-2" size="in-article" />
