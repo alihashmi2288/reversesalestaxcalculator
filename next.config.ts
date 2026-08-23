@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/ads.txt',
+        destination: 'https://srv.adstxtmanager.com/19390/salestaxreversecalculator.com',
+        permanent: true,
+      },
+      {
         source: '/vat-calculator/india',
         destination: '/vat-calculator',
         permanent: true,
