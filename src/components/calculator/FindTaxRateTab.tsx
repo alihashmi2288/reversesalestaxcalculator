@@ -27,18 +27,18 @@ export default function FindTaxRateTab() {
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }} className="grid-responsive">
         <div>
-          <label style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Original Price (before tax)</label>
+          <label htmlFor="find-rate-original" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Original Price (before tax)</label>
           <div className="input-wrapper">
-            <span className="input-prefix">$</span>
-            <input id="find-rate-original" type="number" min="0" step="0.01" placeholder="100.00" value={originalPrice}
+            <span className="input-prefix" aria-hidden="true">$</span>
+            <input id="find-rate-original" type="number" min="0" step="0.01" placeholder="100.00" aria-label="Original Price before tax in dollars" value={originalPrice}
               onChange={(e) => { setOriginalPrice(e.target.value); setResult(null); }} className="calc-input with-prefix" />
           </div>
         </div>
         <div>
-          <label style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Final Price (with tax)</label>
+          <label htmlFor="find-rate-final" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Final Price (with tax)</label>
           <div className="input-wrapper">
-            <span className="input-prefix">$</span>
-            <input id="find-rate-final" type="number" min="0" step="0.01" placeholder="108.25" value={finalPrice}
+            <span className="input-prefix" aria-hidden="true">$</span>
+            <input id="find-rate-final" type="number" min="0" step="0.01" placeholder="108.25" aria-label="Final Price with tax in dollars" value={finalPrice}
               onChange={(e) => { setFinalPrice(e.target.value); setResult(null); }} className="calc-input with-prefix" />
           </div>
         </div>

@@ -11,11 +11,11 @@ export default function StateTable() {
     .sort((a, b) => a.state.localeCompare(b.state));
 
   const rateColor = (rate: number) => {
-    if (rate === 0) return '#047857';
-    if (rate < 5) return '#059669';
-    if (rate < 7) return '#d97706';
-    if (rate < 8.5) return '#ea580c';
-    return '#dc2626';
+    if (rate === 0) return '#34d399';
+    if (rate < 5) return '#10b981';
+    if (rate < 7) return '#fbbf24';
+    if (rate < 8.5) return '#fb923c';
+    return '#f87171';
   };
 
   return (
@@ -38,6 +38,7 @@ export default function StateTable() {
             suppressHydrationWarning
             type="text"
             placeholder="Search state..."
+            aria-label="Search US state sales tax rates"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{ width: '100%', padding: '12px 16px 12px 42px', borderRadius: 'var(--radius)', border: '2px solid var(--border)', background: 'var(--bg)', color: 'var(--text-primary)', fontSize: 15, fontFamily: 'var(--font-mono)', outline: 'none' }}
@@ -69,14 +70,14 @@ export default function StateTable() {
                       {s.abbreviation}
                     </span>
                   </td>
-                  <td>{s.stateRate === 0 ? <span style={{ color: '#047857', fontWeight: 600 }}>None</span> : `${s.stateRate}%`}</td>
+                  <td>{s.stateRate === 0 ? <span style={{ color: '#34d399', fontWeight: 700 }}>None</span> : `${s.stateRate}%`}</td>
                   <td>{s.avgLocalRate > 0 ? `${s.avgLocalRate.toFixed(2)}%` : '—'}</td>
                   <td>
                     <span style={{ fontWeight: 800, fontSize: 16, color: rateColor(s.rate) }}>
                       {s.rate === 0 ? '0%' : `${s.rate}%`}
                     </span>
                     {s.notes && (
-                      <span style={{ marginLeft: 8, background: '#d1fae5', color: '#047857', fontSize: 11, padding: '1px 6px', borderRadius: 'var(--radius)', fontWeight: 600, fontFamily: 'var(--font-mono)', border: '1px solid #047857' }}>
+                      <span style={{ marginLeft: 8, background: 'rgba(16, 185, 129, 0.15)', color: '#6ee7b7', border: '1px solid rgba(16, 185, 129, 0.3)', fontSize: 11, padding: '2px 8px', borderRadius: 'var(--radius)', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
                         {s.notes}
                       </span>
                     )}
@@ -100,7 +101,7 @@ export default function StateTable() {
       </div>
       <p className="table-note" style={{ marginTop: 16, fontSize: 13, color: 'var(--text-secondary)', textAlign: 'center' }}>
         Combined average rates (state + local). Last verified: May 2026. 
-        Source: <a href="https://taxfoundation.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>Tax Foundation</a>.
+        Source: <a href="https://taxfoundation.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Tax Foundation</a>.
       </p>
     </section>
   );

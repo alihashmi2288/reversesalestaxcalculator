@@ -58,43 +58,28 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>6. Ezoic Services and Advertising</h2>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 16 }}>
-              This website uses the services of Ezoic Inc. (&ldquo;Ezoic&rdquo;) to manage third-party interest-based advertising and features. Ezoic and its advertising partners may use cookies, web beacons, and tracking technologies to collect anonymous usage data for ad personalization, optimization, and analytics. For more information regarding Ezoic&apos;s data collection and privacy practices, please review the{' '}
-              <a
-                href="https://www.ezoic.com/privacy-policy/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: 'var(--primary)', textDecoration: 'underline' }}
-              >
-                Ezoic Privacy Policy
-              </a>.
-            </p>
-          </section>
-
-          <section>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>7. Third-Party Links</h2>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>6. Third-Party Links</h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 16 }}>
               Our website may contain links to third-party websites (state tax authority sites, related tools, etc.). We are not responsible for the privacy practices of those sites. We encourage you to review their privacy policies before providing any personal information.
             </p>
           </section>
 
           <section>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>8. Children&apos;s Privacy</h2>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>7. Children&apos;s Privacy</h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 16 }}>
               Our services are not directed to children under 13 years of age. We do not knowingly collect personal information from children under 13.
             </p>
           </section>
 
           <section>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>9. Changes to This Policy</h2>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>8. Changes to This Policy</h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 16 }}>
               We may update this Privacy Policy from time to time. We will indicate the date of the last update at the top of this page. Your continued use of the site after any changes constitutes your acceptance of the updated policy.
             </p>
           </section>
 
           <section>
-            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>10. Contact</h2>
+            <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>9. Contact</h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: 16 }}>
               If you have questions about this Privacy Policy, please contact us at salestaxreversecalculator@gmail.com — we typically respond within 1–2 business days.
             </p>

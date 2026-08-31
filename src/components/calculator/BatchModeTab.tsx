@@ -36,11 +36,12 @@ export default function BatchModeTab() {
       </div>
 
       <div>
-        <label style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
+        <label htmlFor="batch-input" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
           Enter prices (one per line):
         </label>
         <textarea
           id="batch-input"
+          aria-label="Enter receipt prices and tax rates one per line in price,rate format"
           value={input}
           onChange={(e) => { setInput(e.target.value); setProcessed(false); }}
           rows={8}

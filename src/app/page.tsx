@@ -205,13 +205,6 @@ export default function HomePage() {
             <CalculatorCard />
           </div>
 
-          {/* Ezoic Ad Position 1 — Directly below calculator result card */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-            }}
-          />
-
           {/* Intro Text and Formula Columns below Calculator */}
           <div className="homepage-hero-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 48, alignItems: 'stretch' }}>
 
@@ -257,13 +250,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Ezoic Ad Position 3 — Visual gap between calculator section and content/table */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-        }}
-      />
-
       {/* ── Main Layout: Content + Sidebars ── */}
       <div className="container-main" style={{ marginTop: 40, marginBottom: 40 }}>
         {/* 12-Column Dashboard Grid */}
@@ -272,7 +258,7 @@ export default function HomePage() {
           {/* Column 1: Popular States (3 cols) */}
           <div className="dashboard-col-3">
             <div className="sidebar-state-links" style={{ height: '100%' }}>
-              <h3>🇺🇸 Popular States</h3>
+              <h2>🇺🇸 Popular States</h2>
               {[
                 { href: '/us/california', name: 'California', rate: '9.06%' },
                 { href: '/us/texas', name: 'Texas', rate: '8.19%' },
@@ -296,15 +282,15 @@ export default function HomePage() {
 
               <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: 14 }}>
                 For state-specific pre-tax calculations, see our dedicated{' '}
-                <Link href="/us/new-york" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>New York reverse sales tax calculator</Link>{' '}
+                <Link href="/us/new-york" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>New York reverse sales tax calculator</Link>{' '}
                 covering NYC&apos;s 8.875% rate, the{' '}
-                <Link href="/us/florida" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Florida reverse sales tax calculator</Link>{' '}
+                <Link href="/us/florida" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Florida reverse sales tax calculator</Link>{' '}
                 with county-by-county breakdowns, the{' '}
-                <Link href="/us/north-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>North Carolina sales tax calculator</Link>, the{' '}
-                <Link href="/us/south-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>South Carolina sales tax calculator</Link>, and the{' '}
-                <Link href="/us/massachusetts" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Massachusetts reverse sales tax calculator</Link>.{' '}
+                <Link href="/us/north-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>North Carolina sales tax calculator</Link>, the{' '}
+                <Link href="/us/south-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>South Carolina sales tax calculator</Link>, and the{' '}
+                <Link href="/us/massachusetts" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Massachusetts reverse sales tax calculator</Link>.{' '}
                 For Canadian purchases, the{' '}
-                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Canadian GST and HST reverse calculator</Link>{' '}
+                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Canadian GST and HST reverse calculator</Link>{' '}
                 covers all 13 provinces and territories.
               </p>
               
@@ -317,7 +303,7 @@ export default function HomePage() {
               </Link>
               <p style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5, margin: '8px 0 12px' }}>
                 The{' '}
-                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>Canadian GST and HST reverse calculator</Link>{' '}
+                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Canadian GST and HST reverse calculator</Link>{' '}
                 handles all provincial tax types including Ontario HST at 13%, Quebec GST plus QST at 14.975%, and Alberta GST-only at 5%.
               </p>
               <Link href="/vat-calculator" className="sidebar-state-link">
@@ -334,7 +320,7 @@ export default function HomePage() {
           {/* Column 2: Quick Reference Tips (5 cols) */}
           <div className="dashboard-col-5">
             <div className="sidebar-quick-ref" style={{ height: '100%' }}>
-              <h3>💡 Quick Reference Tips</h3>
+              <h2>💡 Quick Reference Tips</h2>
               {[
                 { title: 'The Formula', text: 'Price ÷ (1 + rate/100) backs out tax correctly.' },
                 { title: 'Local Rates', text: 'Use the US state dropdown to auto-load combined local rates.' },
@@ -353,7 +339,7 @@ export default function HomePage() {
           {/* Column 3: Why Use PreTaxPrice? (4 cols) */}
           <div className="dashboard-col-4">
             <div className="sidebar-quick-ref" style={{ height: '100%', borderColor: 'rgba(204, 255, 0, 0.25)' }}>
-              <h3 style={{ color: 'var(--primary)' }}>🚀 Why Use PreTaxPrice?</h3>
+              <h2 style={{ color: 'var(--primary)' }}>🚀 Why Use PreTaxPrice?</h2>
               <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
                 <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>100% Client-Side Safe</strong>
                 Calculations run directly inside your browser. No receipt data or transaction totals ever leave your device.
@@ -446,9 +432,9 @@ export default function HomePage() {
 
                   {/* Worked Example Card */}
                   <div className="card" style={{ background: 'rgba(255,255,255,0.01)', marginTop: 24 }}>
-                    <h4 style={{ fontSize: 14, fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', marginBottom: 16, fontFamily: 'var(--font-mono)' }}>
+                    <h3 style={{ fontSize: 14, fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', marginBottom: 16, fontFamily: 'var(--font-mono)' }}>
                       Worked Example:
-                    </h4>
+                    </h3>
                     <p style={{ fontSize: 15, margin: '0 0 16px', color: 'var(--text-secondary)' }}>
                       You paid <strong style={{ color: 'var(--text-primary)' }}>$215.70</strong>. The tax rate is <strong style={{ color: 'var(--text-primary)' }}>8.25%</strong>.
                     </p>
@@ -491,17 +477,17 @@ export default function HomePage() {
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, margin: '20px 0' }}>
                     <div style={{ border: '1px solid var(--border)', padding: 24, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
                       <div style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 18, marginBottom: 12 }}>01</div>
-                      <h4 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Enter Total Price</h4>
+                      <h3 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Enter Total Price</h3>
                       <p style={{ fontSize: 14, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>Type in the full amount you paid including tax, exactly as it appears on your receipt or invoice.</p>
                     </div>
                     <div style={{ border: '1px solid var(--border)', padding: 24, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
                       <div style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 18, marginBottom: 12 }}>02</div>
-                      <h4 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Set Tax Rate</h4>
+                      <h3 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Set Tax Rate</h3>
                       <p style={{ fontSize: 14, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>Select your US state from the dropdown for automatic combined rates, or enter any custom rate.</p>
                     </div>
                     <div style={{ border: '1px solid var(--border)', padding: 24, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)' }}>
                       <div style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 18, marginBottom: 12 }}>03</div>
-                      <h4 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Get Results</h4>
+                      <h3 style={{ color: 'var(--text-primary)', fontWeight: 800, textTransform: 'uppercase', fontSize: 14, marginBottom: 10 }}>Get Results</h3>
                       <p style={{ fontSize: 14, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.6 }}>Click Calculate. Instantly see the original pre-tax price, the exact tax amount, and a breakdown.</p>
                     </div>
                   </div>
@@ -855,42 +841,42 @@ export default function HomePage() {
 
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
                     <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇬🇧 United Kingdom VAT</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇬🇧 United Kingdom VAT</h3>
                       <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
                         The standard VAT rate is <strong>20%</strong>. Prices typically display inclusive of VAT. To find the pre-VAT price, divide the total by <code>1.20</code>.
                       </p>
                     </div>
 
                     <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇪🇺 European Union VAT</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇪🇺 European Union VAT</h3>
                       <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
                         EU standard VAT rates range from 17% to 27%. Germany is 19% standard (7% reduced), France is 20% standard (5.5% reduced), Italy is 22%, Spain is 21%, and Sweden is 25%.
                       </p>
                     </div>
 
                     <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇨🇦 Canada GST, HST, PST & QST</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇨🇦 Canada GST, HST, PST & QST</h3>
                       <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
                         Federal GST is 5%. HST provinces are Ontario (13%), New Brunswick, Nova Scotia, Newfoundland, and PEI (all 15%). British Columbia, Manitoba, and Saskatchewan charge GST and PST separately.
                       </p>
                     </div>
 
                     <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇦🇺 Australia GST</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇦🇺 Australia GST</h3>
                       <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
                         Australia applies a <strong>10%</strong> GST. Prices typically display GST-inclusive in retail settings. Divide the total by <code>1.10</code> to find the pre-GST price.
                       </p>
                     </div>
 
                     <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇯🇵 Japan Consumption Tax</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🇯🇵 Japan Consumption Tax</h3>
                       <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
                         Standard rate is 10%, with 8% reduced rate for food and non-alcoholic beverages. Prices are displayed tax-inclusive. Divide by <code>1.10</code> or <code>1.08</code>.
                       </p>
                     </div>
 
                     <div style={{ border: '1px solid var(--border)', padding: 16, borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🌎 Other Major Markets</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 16, marginBottom: 8 }}>🌎 Other Major Markets</h3>
                       <p style={{ fontSize: 14, margin: 0, opacity: 0.85 }}>
                         India has GST slabs of 5%, 12%, 18%, and 28%. Mexico IVA is 16%. Singapore GST is 9%. New Zealand GST is 15%.
                       </p>
@@ -938,7 +924,7 @@ export default function HomePage() {
                     
                     {/* JS Code Snippet */}
                     <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(0,0,0,0.3)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 13, fontFamily: 'var(--font-mono)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.05em' }}>JavaScript Implementation</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 13, fontFamily: 'var(--font-mono)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.05em' }}>JavaScript Implementation</h3>
                       <pre style={{ margin: 0, padding: 14, background: '#070709', borderRadius: 'var(--radius-sm)', fontSize: 12, overflowX: 'auto', border: '1px solid var(--border)', lineHeight: 1.5 }}>
 <code style={{ color: 'var(--text-primary)' }}>{`function reverseTax(total, rate) {
   const original = total / (1 + rate / 100);
@@ -953,7 +939,7 @@ export default function HomePage() {
 
                     {/* Python Code Snippet */}
                     <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(0,0,0,0.3)' }}>
-                      <h4 style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 13, fontFamily: 'var(--font-mono)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Python Implementation</h4>
+                      <h3 style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 13, fontFamily: 'var(--font-mono)', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Python Implementation</h3>
                       <pre style={{ margin: 0, padding: 14, background: '#070709', borderRadius: 'var(--radius-sm)', fontSize: 12, overflowX: 'auto', border: '1px solid var(--border)', lineHeight: 1.5 }}>
 <code style={{ color: 'var(--text-primary)' }}>{`def reverse_tax(total, rate):
     original = total / (1 + rate / 100)
@@ -1148,13 +1134,6 @@ export default function HomePage() {
       <div className="container-main" style={{ marginTop: 80 }}>
         <StateTable />
       </div>
-
-      {/* Ezoic Ad Position 2 — Below State Rate Table */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-        }}
-      />
 
       <div className="container-main" style={{ marginTop: 48 }}>
         <AdSlot slot="in-article-2" size="in-article" />

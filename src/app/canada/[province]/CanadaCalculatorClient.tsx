@@ -33,18 +33,20 @@ export default function CanadaCalculatorClient({ provinceData }: Props) {
     <div className="calc-card" style={{ border: '2px solid var(--primary)' }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }} className="grid-responsive">
         <div>
-          <label style={{ display: 'block', fontWeight: 600, fontSize: 14, marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="ca-prov-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             Total Price Paid (CAD, with tax)
           </label>
           <div className="input-wrapper">
-            <span className="input-prefix">$</span>
+            <span className="input-prefix" aria-hidden="true">$</span>
             <input
+              id="ca-prov-final-price"
               suppressHydrationWarning
               type="number"
               inputMode="decimal"
               min="0"
               step="0.01"
               placeholder="113.00"
+              aria-label={`Total Price Paid in ${provinceData.name} in CAD with tax`}
               value={finalPrice}
               onChange={(e) => { setFinalPrice(e.target.value); setResult(null); }}
               className="calc-input with-prefix"
@@ -52,21 +54,23 @@ export default function CanadaCalculatorClient({ provinceData }: Props) {
           </div>
         </div>
         <div>
-          <label style={{ display: 'block', fontWeight: 600, fontSize: 14, marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="ca-prov-tax-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             {provinceData.name} Tax Rate
           </label>
           <div className="input-wrapper">
             <input
+              id="ca-prov-tax-rate"
               suppressHydrationWarning
               type="number"
               inputMode="decimal"
               min="0"
               step="0.001"
+              aria-label={`${provinceData.name} tax rate percentage`}
               value={taxRate}
               onChange={(e) => { setTaxRate(e.target.value); setResult(null); }}
               className="calc-input with-suffix"
             />
-            <span className="input-suffix">%</span>
+            <span className="input-suffix" aria-hidden="true">%</span>
           </div>
           <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>
             Pre-filled with {provinceData.name}&apos;s {provinceData.type} rate

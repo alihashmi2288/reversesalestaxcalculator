@@ -62,7 +62,7 @@ export default function TaxRatesPage() {
           {[
             { label: 'Highest Rate', value: '9.60%', note: 'Tennessee & Louisiana', color: '#dc2626' },
             { label: 'Average Rate', value: '7.53%', note: 'National average', color: 'var(--primary)' },
-            { label: 'Lowest Rate', value: '0%', note: '5 tax-free states', color: '#047857' },
+            { label: 'Lowest Rate', value: '0%', note: '5 tax-free states', color: '#34d399' },
             { label: 'States Covered', value: '51', note: '50 states + DC', color: '#7c3aed' },
           ].map(({ label, value, note, color }) => (
             <div key={label} className="card" style={{ textAlign: 'center' }}>
@@ -79,8 +79,8 @@ export default function TaxRatesPage() {
             style={{
               color: 'var(--primary)',
               fontWeight: 600,
-              textDecoration: 'none',
-              borderBottom: '1px solid rgba(165,180,252,0.3)',
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
             }}
           >
             reverse tax calculator
@@ -88,18 +88,12 @@ export default function TaxRatesPage() {
           pre-filled with that state&apos;s current combined rate.
         </p>
         <StateTable />
-        {/* Ezoic Ad Position — Below State Rate Table */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-          }}
-        />
       </div>
 
       {/* Notes */}
       <div className="container-main" style={{ marginTop: 48, marginBottom: 64 }}>
         <div style={{ background: 'rgba(255, 251, 235, 0.04)', border: '1px solid rgba(253, 230, 138, 0.2)', borderRadius: 16, padding: 24, maxWidth: 860, margin: '0 auto' }}>
-          <h3 style={{ fontWeight: 700, fontSize: 16, color: '#fef08a', marginBottom: 12 }}>📌 Important Notes</h3>
+          <h2 style={{ fontWeight: 700, fontSize: 18, color: '#fef08a', marginBottom: 12 }}>📌 Important Notes</h2>
           <ul style={{ paddingLeft: 20, color: 'var(--text-secondary)', fontSize: 15, lineHeight: 2 }}>
             <li>Rates shown are <strong>combined averages</strong> (state rate + average local rate).</li>
             <li>Your actual rate may differ based on your specific city and county jurisdiction.</li>

@@ -95,6 +95,7 @@ export default function MultipleItemsTab() {
                   <td>
                     <input
                       type="text"
+                      aria-label={`Item ${row.id} name`}
                       value={row.name}
                       onChange={(e) => updateRow(row.id, 'name', e.target.value)}
                       style={{
@@ -110,11 +111,12 @@ export default function MultipleItemsTab() {
                   </td>
                   <td>
                     <div style={{ position: 'relative' }}>
-                      <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14, fontFamily: 'var(--font-mono)' }}>$</span>
+                      <span style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14, fontFamily: 'var(--font-mono)' }} aria-hidden="true">$</span>
                       <input
                         type="number"
                         min="0"
                         step="0.01"
+                        aria-label={`Item ${row.id} total price in dollars`}
                         value={row.totalPrice}
                         onChange={(e) => updateRow(row.id, 'totalPrice', e.target.value)}
                         style={{
@@ -135,6 +137,7 @@ export default function MultipleItemsTab() {
                         type="number"
                         min="0"
                         step="0.001"
+                        aria-label={`Item ${row.id} tax rate percentage`}
                         value={row.taxRate}
                         onChange={(e) => updateRow(row.id, 'taxRate', e.target.value)}
                         style={{
@@ -147,7 +150,7 @@ export default function MultipleItemsTab() {
                         onFocus={(e) => { e.target.style.borderColor = 'var(--primary)'; e.target.style.boxShadow = 'var(--shadow-glow)'; }}
                         onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none'; }}
                       />
-                      <span style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14, fontFamily: 'var(--font-mono)' }}>%</span>
+                      <span style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)', fontSize: 14, fontFamily: 'var(--font-mono)' }} aria-hidden="true">%</span>
                     </div>
                   </td>
                   <td style={{ fontWeight: 700, color: 'var(--accent)', fontSize: 15 }}>
@@ -159,8 +162,9 @@ export default function MultipleItemsTab() {
                   <td>
                     <button
                       onClick={() => removeRow(row.id)}
+                      aria-label={`Remove Item ${row.id}`}
                       style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ef4444', padding: 4, display: 'flex', alignItems: 'center', transition: 'transform 0.2s' }}
-                      title="Remove row"
+                      title={`Remove Item ${row.id}`}
                       onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.15)')}
                       onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                     >

@@ -5,9 +5,9 @@ export default function HowItWorks() {
     <section>
       <div style={{ textAlign: 'center', marginBottom: 48 }}>
         <span className="section-label">How It Works</span>
-        <h3 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
+        <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
           3 Simple Steps
-        </h3>
+        </h2>
         <p style={{ fontSize: 18, color: 'var(--text-secondary)', maxWidth: 560, margin: '0 auto' }}>
           Calculate your pre-tax price in seconds — no account required.
         </p>

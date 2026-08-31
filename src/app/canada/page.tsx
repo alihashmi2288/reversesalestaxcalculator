@@ -163,11 +163,6 @@ export default function CanadaPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: 32, alignItems: 'start' }} className="calc-layout">
           <div>
             <CanadaCalculator />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-              }}
-            />
             <div style={{ marginTop: 24 }}>
               <AdSlot slot="canada-rectangle" size="rectangle" />
             </div>

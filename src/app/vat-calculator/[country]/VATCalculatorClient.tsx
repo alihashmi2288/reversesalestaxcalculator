@@ -33,18 +33,20 @@ export default function VATCalculatorClient({ countryData }: Props) {
     <div className="calc-card" style={{ border: '2px solid var(--primary)' }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }} className="grid-responsive">
         <div>
-          <label style={{ display: 'block', fontWeight: 600, fontSize: 14, marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="vat-calc-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             Total Price Paid ({countryData.currency}, with tax)
           </label>
           <div className="input-wrapper">
-            <span className="input-prefix">{countryData.symbol}</span>
+            <span className="input-prefix" aria-hidden="true">{countryData.symbol}</span>
             <input
+              id="vat-calc-final-price"
               suppressHydrationWarning
               type="number"
               inputMode="decimal"
               min="0"
               step="0.01"
               placeholder="120.00"
+              aria-label={`Total Price Paid in ${countryData.name} in ${countryData.currency} with tax`}
               value={finalPrice}
               onChange={(e) => { setFinalPrice(e.target.value); setResult(null); }}
               className="calc-input with-prefix"
@@ -52,21 +54,23 @@ export default function VATCalculatorClient({ countryData }: Props) {
           </div>
         </div>
         <div>
-          <label style={{ display: 'block', fontWeight: 600, fontSize: 14, marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="vat-calc-tax-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             {countryData.name} {countryData.type} Rate
           </label>
           <div className="input-wrapper">
             <input
+              id="vat-calc-tax-rate"
               suppressHydrationWarning
               type="number"
               inputMode="decimal"
               min="0"
               step="0.001"
+              aria-label={`${countryData.name} ${countryData.type} rate percentage`}
               value={taxRate}
               onChange={(e) => { setTaxRate(e.target.value); setResult(null); }}
               className="calc-input with-suffix"
             />
-            <span className="input-suffix">%</span>
+            <span className="input-suffix" aria-hidden="true">%</span>
           </div>
           <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>
             Pre-filled with {countryData.name}&apos;s standard {countryData.type} rate

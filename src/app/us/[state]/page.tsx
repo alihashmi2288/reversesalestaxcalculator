@@ -194,13 +194,6 @@ export default async function StatePage({ params }: Props) {
             <StateCalculatorClient stateData={stateData} />
           </div>
 
-          {/* Ezoic Ad Position 1 — Directly below calculator result */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-            }}
-          />
-
           <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
             {/* State Info */}
             <section style={{ maxWidth: 860 }}>
@@ -255,13 +248,6 @@ export default async function StatePage({ params }: Props) {
                     </tbody>
                   </table>
                 </div>
-
-                {/* Ezoic Ad Position 2 — Below city rate table */}
-                <script
-                  dangerouslySetInnerHTML={{
-                    __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-                  }}
-                />
               </section>
             )}
 

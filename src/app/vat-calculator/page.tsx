@@ -159,13 +159,6 @@ export default function VATPage() {
 
         <VATCalculator />
 
-        {/* Ezoic Ad Position 1 — Directly below VAT calculator */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `ezstandalone.cmd.push(function () { ezstandalone.showAds({}); });`,
-          }}
-        />
-
         {/* In-depth content for SEO authority and E-E-A-T */}
         <div style={{ marginTop: 64, maxWidth: 860, margin: '64px auto 0', display: 'flex', flexDirection: 'column', gap: 40 }}>
           

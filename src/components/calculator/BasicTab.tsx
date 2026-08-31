@@ -65,11 +65,11 @@ export default function BasicTab() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }} className="grid-responsive">
         {/* Final Price */}
         <div>
-          <label style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="basic-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             Total Price Paid (with tax)
           </label>
           <div className="input-wrapper">
-            <span className="input-prefix">$</span>
+            <span className="input-prefix" aria-hidden="true">$</span>
             <input
               id="basic-final-price"
               type="number"
@@ -77,6 +77,7 @@ export default function BasicTab() {
               min="0"
               step="0.01"
               placeholder="107.50"
+              aria-label="Total Price Paid with tax in dollars"
               value={finalPrice}
               onChange={(e) => { setFinalPrice(e.target.value); setResult(null); }}
               className="calc-input with-prefix"
@@ -86,7 +87,7 @@ export default function BasicTab() {
 
         {/* Tax Rate */}
         <div>
-          <label style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="basic-tax-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
             Tax Rate
           </label>
           <div className="input-wrapper">
@@ -98,23 +99,24 @@ export default function BasicTab() {
               max="99"
               step="0.001"
               placeholder="8.25"
+              aria-label="Sales Tax Rate percentage"
               value={taxRate}
               onChange={(e) => { setTaxRate(e.target.value); setResult(null); setSelectedQuick(null); setSelectedState(''); }}
               className="calc-input with-suffix"
             />
-            <span className="input-suffix">%</span>
+            <span className="input-suffix" aria-hidden="true">%</span>
           </div>
         </div>
       </div>
 
       {/* Quick Rates */}
-      <div>
-        <label style={{ display: 'block', fontWeight: 800, fontSize: 11, marginBottom: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+      <div role="group" aria-label="Quick Select Rate">
+        <div style={{ display: 'block', fontWeight: 800, fontSize: 11, marginBottom: 10, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Quick Select Rate
-        </label>
+        </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           {QUICK_RATES.map((r) => (
-            <button key={r} onClick={() => handleQuickRate(r)} className={`quick-btn ${selectedQuick === r ? 'active' : ''}`}>
+            <button key={r} onClick={() => handleQuickRate(r)} className={`quick-btn ${selectedQuick === r ? 'active' : ''}`} aria-label={`Set tax rate to ${r}%`}>
               {r}%
             </button>
           ))}
@@ -123,10 +125,16 @@ export default function BasicTab() {
 
       {/* State Dropdown */}
       <div>
-        <label style={{ display: 'block', fontWeight: 800, fontSize: 11, marginBottom: 8, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <label htmlFor="basic-state-select" style={{ display: 'block', fontWeight: 800, fontSize: 11, marginBottom: 8, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Or Select US State (auto-fills combined rate)
         </label>
-        <select id="basic-state-select" className="state-select" value={selectedState} onChange={handleStateChange}>
+        <select
+          id="basic-state-select"
+          aria-label="Select US State for combined sales tax rate"
+          className="state-select"
+          value={selectedState}
+          onChange={handleStateChange}
+        >
           <option value="">— Select a State —</option>
           {STATE_TAX_RATES.sort((a, b) => a.state.localeCompare(b.state)).map((s) => (
             <option key={s.abbreviation} value={s.abbreviation}>

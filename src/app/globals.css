@@ -10,8 +10,8 @@
   --card-bg: rgba(20, 20, 23, 0.7); /* Translucent dark */
   --card-bg-solid: #141417;
   --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  --text-secondary: #d4d4d8; /* High-contrast secondary text (>= 11:1) */
+  --text-muted: #a1a1aa; /* High-contrast muted text (>= 7.5:1, fixes WCAG AA failure) */
   --border: rgba(63, 63, 70, 0.4);
   --border-focus: #ccff00;
   
@@ -384,7 +384,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border-bottom: 1px solid var(--border);
@@ -469,6 +469,17 @@ h1, h2, h3, h4, h5, h6, .font-display {
 }
 .nav-link:hover::after { width: 100%; }
 
+/* ─── Text Block Links (WCAG AA Compliant) ──────────────────── */
+.text-link, p a:not(.nav-link):not(.btn-primary):not(.btn-secondary):not(.tool-card):not(.sidebar-state-link):not(.footer-link) {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+.text-link:hover, p a:not(.nav-link):not(.btn-primary):not(.btn-secondary):not(.tool-card):not(.sidebar-state-link):not(.footer-link):hover {
+  opacity: 0.85;
+}
+
 /* ─── Section Headings ──────────────────────────────────────── */
 .section-label {
   display: inline-block;
@@ -483,6 +494,11 @@ h1, h2, h3, h4, h5, h6, .font-display {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 20px;
+}
+.section-label.danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
 /* ─── Utility Classes ───────────────────────────────────────── */
@@ -717,6 +733,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   padding: 24px;
   box-shadow: var(--shadow);
 }
+.sidebar-quick-ref h2,
 .sidebar-quick-ref h3 {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -752,6 +769,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   padding: 24px;
   box-shadow: var(--shadow);
 }
+.sidebar-state-links h2,
 .sidebar-state-links h3 {
   font-family: var(--font-mono);
   font-size: 12px;
