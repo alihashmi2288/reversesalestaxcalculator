@@ -855,3 +855,22 @@ pre code {
   white-space: pre;
   word-break: normal;
 }
+
+/* ─── Content Visibility Optimization for PageSpeed ─────────── */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+/* ─── Accessible In-Text Links (Lighthouse Compliance) ──────── */
+p a, .table-note a, .article-content a, .educational-content-layout a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.2s ease;
+}
+
+p a:hover, .table-note a:hover, .article-content a:hover, .educational-content-layout a:hover {
+  opacity: 0.85;
+}
+
