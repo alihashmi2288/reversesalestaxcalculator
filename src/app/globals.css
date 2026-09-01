@@ -857,9 +857,12 @@ pre code {
 }
 
 /* ─── Content Visibility Optimization for PageSpeed ─────────── */
-.content-auto {
+.content-auto,
+.educational-content-layout section,
+.state-table-section,
+.faq-accordion-section {
   content-visibility: auto;
-  contain-intrinsic-size: 1px 700px;
+  contain-intrinsic-size: 1px 500px;
 }
 
 /* ─── Accessible In-Text Links (Lighthouse Compliance) ──────── */
@@ -873,4 +876,21 @@ p a, .table-note a, .article-content a, .educational-content-layout a {
 p a:hover, .table-note a:hover, .article-content a:hover, .educational-content-layout a:hover {
   opacity: 0.85;
 }
+
+/* ─── Touch Target Optimization (Lighthouse target-size Compliance) ─── */
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.footer-link:hover {
+  color: var(--primary);
+  transform: translateX(2px);
+}
+
 

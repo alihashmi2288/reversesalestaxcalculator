@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 
 declare global {
   interface Window {
-    dataLayer: any[];
-    clarity?: (...args: any[]) => void;
+    dataLayer: unknown[];
+    clarity?: (...args: unknown[]) => void;
   }
 }
 
@@ -29,29 +29,23 @@ export default function Analytics() {
       document.head.appendChild(gaScript);
 
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args: any[]) {
+      function gtag(...args: unknown[]) {
         window.dataLayer.push(args);
       }
       gtag('js', new Date());
       gtag('config', 'G-MVWDKTE5V4');
 
       // Load Microsoft Clarity
-      (function (c: any, l: any, a: any, r: any, i: any, t?: any, y?: any) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = 'https://www.clarity.ms/tag/' + i;
-        y = l.getElementsByTagName(r)[0];
-        if (y && y.parentNode) {
-          y.parentNode.insertBefore(t, y);
-        } else {
-          document.head.appendChild(t);
-        }
-      })(window, document, 'clarity', 'script', 'y4hti2qol5');
+      const clarityScript = document.createElement('script');
+      clarityScript.async = true;
+      clarityScript.src = 'https://www.clarity.ms/tag/y4hti2qol5';
+      document.head.appendChild(clarityScript);
+      window.clarity =
+        window.clarity ||
+        function (...args: unknown[]) {
+          ((window.clarity as unknown as { q: unknown[] }).q =
+            (window.clarity as unknown as { q: unknown[] }).q || []).push(args);
+        };
     };
 
     const onInteraction = () => {
@@ -67,7 +61,7 @@ export default function Analytics() {
     // Idle fallback after 3.5 seconds
     const timer = setTimeout(() => {
       if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(() => loadAnalytics());
+        window.requestIdleCallback(() => loadAnalytics());
       } else {
         loadAnalytics();
       }

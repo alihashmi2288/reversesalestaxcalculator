@@ -47,7 +47,7 @@ export default function AboutPage() {
       <div style={{ maxWidth: 960, margin: '48px auto 80px', padding: '0 24px' }}>
         {/* Breadcrumb */}
         <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 40, fontFamily: 'var(--font-mono)' }}>
-          <a href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</a>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
           <span style={{ margin: '0 8px' }}>›</span>
           <span style={{ color: 'var(--text-primary)' }}>About</span>
         </nav>

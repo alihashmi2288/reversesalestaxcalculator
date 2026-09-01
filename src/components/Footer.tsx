@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer style={{ background: '#070709', borderTop: '1px solid var(--border)', color: 'var(--text-secondary)', marginTop: 80 }}>
       <style>{`
-        .footer-link { color: #a1a1aa; text-decoration: none; font-size: 14px; transition: all 0.2s; }
-        .footer-link:hover { color: var(--primary); transform: translateX(2px); display: inline-block; }
+        .footer-link { color: #a1a1aa; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; min-height: 32px; padding: 4px 0; transition: all 0.2s; }
+        .footer-link:hover { color: var(--primary); transform: translateX(2px); }
       `}</style>
       <div className="container-main" style={{ paddingTop: 64, paddingBottom: 40 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 48, marginBottom: 48 }}>

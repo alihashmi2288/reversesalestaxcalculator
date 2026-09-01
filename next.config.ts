@@ -4,9 +4,6 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  experimental: {
-    cpus: 1,
-  },
   async redirects() {
     return [
       {

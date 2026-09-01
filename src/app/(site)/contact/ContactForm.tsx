@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -73,7 +74,7 @@ export default function ContactForm() {
         <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
           Thanks for reaching out. We&apos;ll get back to you at <strong>{form.email}</strong> as soon as possible — usually within 1–2 business days.
         </p>
-        <a
+        <Link
           href="/"
           style={{
             background: 'var(--primary)',
@@ -89,7 +90,7 @@ export default function ContactForm() {
           }}
         >
           Back to Calculator →
-        </a>
+        </Link>
       </div>
     );
   }

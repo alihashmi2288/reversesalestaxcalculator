@@ -342,7 +342,7 @@ export default function HomePage() {
               </div>
               <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
                 <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>Perfect Decimal Precision</strong>
-                Eliminates the common "subtracting error" in bookkeeping, guaranteeing GAAP-compliant, rounded breakdowns.
+                Eliminates the common &quot;subtracting error&quot; in bookkeeping, guaranteeing GAAP-compliant, rounded breakdowns.
               </div>
               <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
                 <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>Batch Mode Processing</strong>
@@ -492,7 +492,7 @@ export default function HomePage() {
                     <strong>Batch Mode:</strong> If you have multiple receipts to process, click the <em>Batch / CSV Mode</em> tab at the top of the calculator. Paste a list of totals with their respective tax rates, and the calculator handles all of them simultaneously. This saves hours when reconciling a month of business expenses.
                   </p>
                   <p>
-                    <strong>Find Tax Rate Mode:</strong> If you know the total you paid and the original pre-tax price, but don't know what tax rate was applied, switch to the <em>Find Tax Rate</em> mode. It reverse-calculates the implied tax rate, which is incredibly useful when a receipt shows a tax amount but not the percentage.
+                    <strong>Find Tax Rate Mode:</strong> If you know the total you paid and the original pre-tax price, but don&apos;t know what tax rate was applied, switch to the <em>Find Tax Rate</em> mode. It reverse-calculates the implied tax rate, which is incredibly useful when a receipt shows a tax amount but not the percentage.
                   </p>
                 </div>
               </section>
@@ -505,7 +505,7 @@ export default function HomePage() {
                 </h2>
                 <div style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
                   <p>
-                    Every state page on this site uses the current combined rate, which includes the state base rate plus the average local rate. Click any state in the table below to open a calculator pre-loaded with that state's rate.
+                    Every state page on this site uses the current combined rate, which includes the state base rate plus the average local rate. Click any state in the table below to open a calculator pre-loaded with that state&apos;s rate.
                   </p>
                   <p>
                     Sales tax in the United States operates at multiple levels. The state sets a base rate. Counties and cities can add their own rates on top. The combined total is what you actually pay at the register.
@@ -526,7 +526,7 @@ export default function HomePage() {
                       ⭐ Pro Tip: Combined vs. State Rates
                     </h3>
                     <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.7, margin: 0 }}>
-                      Always enter the <strong>combined tax rate</strong> (state + local taxes) printed on your physical receipt rather than the generic state base rate. Otherwise, your pre-tax calculations will be slightly wrong since local city and county surcharges won't be accounted for.
+                      Always enter the <strong>combined tax rate</strong> (state + local taxes) printed on your physical receipt rather than the generic state base rate. Otherwise, your pre-tax calculations will be slightly wrong since local city and county surcharges won&apos;t be accounted for.
                     </p>
                   </div>
                 </div>
@@ -565,7 +565,7 @@ export default function HomePage() {
                         <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>Los Angeles, CA</span>
                         <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>10.25%</span>
                       </div>
-                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>California's base rate is 7.25%, but LA County adds local district taxes that push the rate to 10.25% in many ZIP codes.</p>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>California&apos;s base rate is 7.25%, but LA County adds local district taxes that push the rate to 10.25% in many ZIP codes.</p>
                     </div>
 
                     <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)', transition: 'border-color 0.2s' }}>
@@ -573,7 +573,7 @@ export default function HomePage() {
                         <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>Seattle, WA</span>
                         <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>10.25%</span>
                       </div>
-                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Washington state charges 6.5%, but Seattle's combined rate including city and transit district taxes reaches 10.25%.</p>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Washington state charges 6.5%, but Seattle&apos;s combined rate including city and transit district taxes reaches 10.25%.</p>
                     </div>
 
                     <div style={{ border: '1px solid var(--border)', padding: 20, borderRadius: 'var(--radius)', background: 'rgba(255,255,255,0.01)', transition: 'border-color 0.2s' }}>
@@ -581,7 +581,7 @@ export default function HomePage() {
                         <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: 15, textTransform: 'uppercase' }}>New Orleans, LA</span>
                         <span style={{ background: 'var(--primary)', color: '#000', padding: '2px 8px', borderRadius: 4, fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: 12 }}>9.45%</span>
                       </div>
-                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Louisiana's state rate is 4.45%, but Orleans Parish pushes the combined total above 9.45% depending on the transaction type.</p>
+                      <p style={{ fontSize: 13, margin: 0, color: 'var(--text-secondary)', lineHeight: 1.5 }}>Louisiana&apos;s state rate is 4.45%, but Orleans Parish pushes the combined total above 9.45% depending on the transaction type.</p>
                     </div>
                   </div>
 
@@ -751,7 +751,7 @@ export default function HomePage() {
                         <span style={{ color: 'var(--primary)' }}>Original Price:</span> <code>=A1/(1+(B1/100))</code>
                       </div>
                       <div>
-                        <span style={{ color: 'var(--primary)' }}>Tax Amount Paid:</span> <code>=A1-C1</code> <span style={{ opacity: 0.5 }}>(assuming C1 holds the original price formula)</span>
+                        <span style={{ color: 'var(--primary)' }}>Tax Amount Paid:</span> <code>=A1-C1</code> <span style={{ color: 'var(--text-secondary)' }}>(assuming C1 holds the original price formula)</span>
                       </div>
                     </div>
                   </div>
@@ -789,7 +789,7 @@ export default function HomePage() {
                     <strong>Audit Preparation:</strong> During a sales tax audit, the auditor will ask how you calculated the tax on your transactions. Systematic use of the reverse sales tax calculator with documented rates gives you a clear answer, creating an audit trail that demonstrates accuracy and consistency.
                   </p>
                   <p>
-                    <strong>Use Tax:</strong> Use tax applies when you purchase goods or services without paying sales tax and would have owed tax had you bought them in your home state. When calculating use tax, you need the pre-tax purchase price as the taxable base. If you only have the total paid, use the reverse calculator with the seller's rate to find the base price, then apply your home state's rate.
+                    <strong>Use Tax:</strong> Use tax applies when you purchase goods or services without paying sales tax and would have owed tax had you bought them in your home state. When calculating use tax, you need the pre-tax purchase price as the taxable base. If you only have the total paid, use the reverse calculator with the seller&apos;s rate to find the base price, then apply your home state&apos;s rate.
                   </p>
                 </div>
               </section>
@@ -818,7 +818,7 @@ export default function HomePage() {
                       <strong>Digital Products and SaaS Subscriptions:</strong> Software subscriptions, streaming services, and digital downloads have different tax treatments depending on the state. Use the reverse calculator to find the pre-tax subscription cost for business expense deduction records.
                     </li>
                     <li>
-                      <strong>Drop Shipping:</strong> You charge your customer the destination tax rate, while your supplier charges you tax at their location's rate. Reversing the tax on both sides is required to correctly compute your gross margin.
+                      <strong>Drop Shipping:</strong> You charge your customer the destination tax rate, while your supplier charges you tax at their location&apos;s rate. Reversing the tax on both sides is required to correctly compute your gross margin.
                     </li>
                   </ul>
                 </div>
@@ -957,7 +957,7 @@ export default function HomePage() {
 
               {/* SECTION: Common Mistakes */}
               <section>
-                <span className="section-label" style={{ background: '#ef4444', color: '#fff', borderColor: '#ef4444' }}>Mistakes</span>
+                <span className="section-label" style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#fca5a5', borderColor: 'rgba(239, 68, 68, 0.4)' }}>Mistakes</span>
                 <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
                   Common Mistakes When Backing Out Sales Tax
                 </h2>
@@ -970,7 +970,7 @@ export default function HomePage() {
                       <strong style={{ color: 'var(--text-primary)' }}>Subtracting Instead of Dividing:</strong> Subtracting 8% from $108.00 lands on $99.36, whereas the correct answer is $100.00. This error compounding over time creates misallocated balances. Always divide.
                     </li>
                     <li style={{ borderLeft: '2px solid #ef4444', paddingLeft: 12 }}>
-                      <strong style={{ color: 'var(--text-primary)' }}>Using State Rate Instead of Combined Rate:</strong> Recording transactions at California's 7.25% state rate when the combined local rate paid was 9.5% results in underreporting your tax payable liabilities.
+                      <strong style={{ color: 'var(--text-primary)' }}>Using State Rate Instead of Combined Rate:</strong> Recording transactions at California&apos;s 7.25% state rate when the combined local rate paid was 9.5% results in underreporting your tax payable liabilities.
                     </li>
                     <li style={{ borderLeft: '2px solid #ef4444', paddingLeft: 12 }}>
                       <strong style={{ color: 'var(--text-primary)' }}>Applying Tax to Non-Taxable Items:</strong> Mixing taxable goods with tax-exempt items (e.g. services, groceries) on the same invoice and applying the tax percentage to the full total.
@@ -1111,7 +1111,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <p>
-                    For any location not listed here, look up the exact combined rate on your state's Department of Revenue website and enter it into the custom rate field of our calculator.
+                    For any location not listed here, look up the exact combined rate on your state&apos;s Department of Revenue website and enter it into the custom rate field of our calculator.
                   </p>
                 </div>
               </section>

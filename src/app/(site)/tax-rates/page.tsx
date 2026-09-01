@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import StateTable from '@/components/StateTable';
-import AdSlot from '@/components/AdSlot';
 import { getHighestRateStates, NATIONAL_AVERAGE_COMBINED_RATE, STATE_TAX_RATES } from '@/data/stateTaxRates';
 
 export const metadata: Metadata = {

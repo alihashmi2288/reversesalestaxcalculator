@@ -138,9 +138,9 @@ export default async function CountryVatPage({ params }: Props) {
           
           <nav style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 32, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', transition: 'color 0.2s' }}>Home</Link>
-            <span style={{ margin: '0 8px', opacity: 0.5 }}>/</span>
+            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
             <Link href="/vat-calculator" style={{ color: 'var(--primary)', textDecoration: 'none', transition: 'color 0.2s' }}>VAT Calculator</Link>
-            <span style={{ margin: '0 8px', opacity: 0.5 }}>/</span>
+            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
             <span style={{ color: 'var(--text-primary)' }}>{countryData.name}</span>
           </nav>
 

@@ -123,7 +123,7 @@ export default function EmbedWidgetSection() {
           <button
             id="embed-section-copy-btn"
             onClick={copyEmbedCode}
-            aria-label="Copy embed widget HTML snippet"
+            aria-label="Copy Embed Code - Embed widget HTML snippet"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

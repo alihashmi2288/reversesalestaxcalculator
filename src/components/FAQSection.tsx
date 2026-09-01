@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { getHighestRateStates, getStateBySlug } from '@/data/stateTaxRates';
+import { getHighestRateStates } from '@/data/stateTaxRates';
 
 const FAQ_CATEGORIES = [
   {

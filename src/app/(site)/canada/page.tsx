@@ -210,7 +210,7 @@ export default function CanadaPage() {
                   <LinkifiedText text="If you're a business owner or consumer trying to extract the exact pre-tax cost from a receipt, you cannot simply subtract the tax percentage from the final total. You must use the reverse tax formula. Our calculator does this instantly for every province." currentState="Canada" />
                 </p>
                 <p>
-                  When you purchase items in Canada, these taxes are automatically added at the register. If you are looking at a final receipt and need to know the original price before tax was applied, our Canada Reverse Sales Tax Calculator allows you to work backwards instantly, no matter which province's tax rules apply to your purchase.
+                  When you purchase items in Canada, these taxes are automatically added at the register. If you are looking at a final receipt and need to know the original price before tax was applied, our Canada Reverse Sales Tax Calculator allows you to work backwards instantly, no matter which province&apos;s tax rules apply to your purchase.
                 </p>
               </div>
             </section>
@@ -235,7 +235,7 @@ export default function CanadaPage() {
                 <div className="card" style={{ padding: 24 }}>
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 12 }}>Verifying Handwritten Receipts</h3>
                   <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    Sometimes receipts from smaller vendors, contractors, or handwritten invoices only show a final total. Our tool helps you instantly verify that the correct tax rate was applied according to your specific province's HST, PST, or QST regulations.
+                    Sometimes receipts from smaller vendors, contractors, or handwritten invoices only show a final total. Our tool helps you instantly verify that the correct tax rate was applied according to your specific province&apos;s HST, PST, or QST regulations.
                   </p>
                 </div>
               </div>
