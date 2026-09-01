@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import StateTable from '@/components/StateTable';
 import AdSlot from '@/components/AdSlot';
+import { getHighestRateStates, NATIONAL_AVERAGE_COMBINED_RATE, STATE_TAX_RATES } from '@/data/stateTaxRates';
 
 export const metadata: Metadata = {
   title: 'US State Sales Tax Rates 2026: All 50 States & DC',
@@ -30,6 +31,9 @@ const breadcrumbSchema = {
 };
 
 export default function TaxRatesPage() {
+  const highestState = getHighestRateStates(1)[0];
+  const zeroTaxCount = STATE_TAX_RATES.filter((s) => s.rate === 0).length;
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -60,10 +64,10 @@ export default function TaxRatesPage() {
       <div className="container-main" style={{ marginTop: 24 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 48 }}>
           {[
-            { label: 'Highest Rate', value: '9.60%', note: 'Tennessee & Louisiana', color: '#dc2626' },
-            { label: 'Average Rate', value: '7.53%', note: 'National average', color: 'var(--primary)' },
-            { label: 'Lowest Rate', value: '0%', note: '5 tax-free states', color: '#34d399' },
-            { label: 'States Covered', value: '51', note: '50 states + DC', color: '#7c3aed' },
+            { label: 'Highest Rate', value: `${highestState.rate.toFixed(2)}%`, note: `${highestState.state}`, color: '#dc2626' },
+            { label: 'Average Rate', value: `${NATIONAL_AVERAGE_COMBINED_RATE}%`, note: 'National average', color: 'var(--primary)' },
+            { label: 'Lowest Rate', value: '0%', note: `${zeroTaxCount} tax-free states`, color: '#34d399' },
+            { label: 'States Covered', value: `${STATE_TAX_RATES.length}`, note: '50 states + DC', color: '#7c3aed' },
           ].map(({ label, value, note, color }) => (
             <div key={label} className="card" style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)' }}>{value}</div>

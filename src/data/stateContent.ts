@@ -25,8 +25,8 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "alabama": {
     "state": "Alabama",
     "aboutText": [
-      "The base state sales tax rate in Alabama currently stands at 4.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Alabama reaches approximately 9.33%, making it essential to know exactly how much you are paying in taxes for every transaction. Alabama has one of the highest combined rates in the country at 9.29%, with local county and city taxes adding substantially to the 4% state base — use the [reverse tax calculator](/) with the rate on your receipt to find the exact pre-tax amount.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Alabama, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1092.90 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Alabama shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "The base state sales tax rate in Alabama currently stands at 4.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Alabama reaches approximately 9.33%, making it essential to know exactly how much you are paying in taxes for every transaction. Alabama has one of the highest combined rates in the country at 9.33%, with local county and city taxes adding substantially to the 4% state base — use the [reverse tax calculator](/) with the rate on your receipt to find the exact pre-tax amount.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Alabama, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1093.30 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Alabama shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Alabama has specific rules regarding exemptions. While general retail items face the full 9.33% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Alabama's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -150,7 +150,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Arizona",
     "aboutText": [
       "The base state sales tax rate in Arizona currently stands at 5.60%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Arizona reaches approximately 8.51%, making it essential to know exactly how much you are paying in taxes for every transaction. Arizona's combined rate averages 8.37% but varies significantly by city — use the [reverse tax calculator](/) with the rate shown on your specific receipt for the most accurate pre-tax breakdown.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Arizona, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1084.20 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Arizona shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Arizona, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1085.10 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Arizona shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Arizona has specific rules regarding exemptions. While general retail items face the full 8.51% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Arizona's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -192,7 +192,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Arizona?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Arizona's average rate of 8.51%, you would divide your total by 1.0842. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Arizona's average rate of 8.51%, you would divide your total by 1.0851. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Arizona?",
@@ -274,7 +274,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "California",
     "aboutText": [
       "The base state sales tax rate in California currently stands at 7.25%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across California reaches approximately 9.21%, making it essential to know exactly how much you are paying in taxes for every transaction. California's combined rate varies significantly by city — from 7.25% in some areas to 10.25% in Los Angeles — so always enter your specific local rate into the [reverse tax calculator](/) rather than using the state average alone.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in California, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1090.60 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows California shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in California, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1092.10 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows California shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that California has specific rules regarding exemptions. While general retail items face the full 9.21% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering California's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -320,7 +320,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in California?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For California's average rate of 9.21%, you would divide your total by 1.0906. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For California's average rate of 9.21%, you would divide your total by 1.0921. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in California?",
@@ -340,7 +340,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Colorado",
     "aboutText": [
       "The base state sales tax rate in Colorado currently stands at 2.90%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Colorado reaches approximately 8.07%, making it essential to know exactly how much you are paying in taxes for every transaction. Colorado has one of the most complex rate structures in the US, with over 700 local jurisdictions setting their own rates on top of the 2.9% state base — always enter the combined rate from your receipt into the [reverse tax calculator](/) for accuracy.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Colorado, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1078.60 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Colorado shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Colorado, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1080.70 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Colorado shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Colorado has specific rules regarding exemptions. While general retail items face the full 8.07% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Colorado's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -382,7 +382,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Colorado?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Colorado's average rate of 8.07%, you would divide your total by 1.0786. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Colorado's average rate of 8.07%, you would divide your total by 1.0807. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Colorado?",
@@ -526,8 +526,8 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Florida",
     "aboutText": [
       "The base state sales tax rate in Florida currently stands at 6.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Florida reaches approximately 7.13%, making it essential to know exactly how much you are paying in taxes for every transaction. Because Florida's combined rate varies by county, from 6% in some areas to 7.5% in others, use the [reverse tax calculator](/) to enter your specific local rate for a precise pre-tax result.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Florida, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1070.50 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Florida shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
-      "It's also highly important to note that Florida has specific rules regarding exemptions. While general retail items face the full 7.13% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Florida's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Florida, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1071.30 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Florida shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "It's also highly important to note that Florida has specific rules regarding exemptions. While general retail items face the full 7.05% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Florida's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
       {
@@ -550,7 +550,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "useCases": [
       {
         "title": "Decoding Business Receipts in Florida",
-        "description": "For freelancers and small business owners operating in Florida, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden 7.13% average tax, allowing you to accurately record your deductible business expenses."
+        "description": "For freelancers and small business owners operating in Florida, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden 7.05% average tax, allowing you to accurately record your deductible business expenses."
       },
       {
         "title": "Budgeting for Major Purchases",
@@ -564,11 +564,11 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "faqs": [
       {
         "question": "What is the actual sales tax rate in Florida?",
-        "answer": "While the Florida base state sales tax rate is 6.00%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 7.13%, though it varies slightly by zip code."
+        "answer": "While the Florida base state sales tax rate is 6.00%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 7.05%, though it varies slightly by zip code."
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Florida?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Florida's average rate of 7.13%, you would divide your total by 1.0705. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Florida's average rate of 7.13%, you would divide your total by 1.0713. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Florida?",
@@ -576,7 +576,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "Does Florida charge sales tax on shipping and delivery?",
-        "answer": "In most cases, if the physical items you are purchasing are taxable in Florida, the associated shipping, handling, and delivery charges are also considered taxable. This means the 7.13% average rate will be applied to the entire order total."
+        "answer": "In most cases, if the physical items you are purchasing are taxable in Florida, the associated shipping, handling, and delivery charges are also considered taxable. This means the 7.05% average rate will be applied to the entire order total."
       },
       {
         "question": "Can I use this calculator for Florida vehicle purchases?",
@@ -588,7 +588,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Georgia",
     "aboutText": [
       "The base state sales tax rate in Georgia currently stands at 4.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Georgia reaches approximately 7.50%, making it essential to know exactly how much you are paying in taxes for every transaction. Georgia has a 7.5% combined average rate, but individual counties can vary — enter the rate from your receipt into the [reverse tax calculator](/) to extract the exact pre-tax price from any Georgia purchase.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Georgia, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1073.60 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Georgia shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Georgia, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1075.00 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Georgia shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Georgia has specific rules regarding exemptions. While general retail items face the full 7.50% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Georgia's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -630,7 +630,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Georgia?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Georgia's average rate of 7.50%, you would divide your total by 1.0736. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Georgia's average rate of 7.50%, you would divide your total by 1.075. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Georgia?",
@@ -774,7 +774,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Illinois",
     "aboutText": [
       "The base state sales tax rate in Illinois currently stands at 6.25%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Illinois reaches approximately 8.95%, making it essential to know exactly how much you are paying in taxes for every transaction. Illinois rates vary widely by city, with Chicago at 10.25% and many downstate areas closer to 7% — enter your specific combined rate into the [reverse tax calculator](/) for an accurate pre-tax result.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Illinois, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1088.40 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Illinois shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Illinois, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1089.50 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Illinois shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Illinois has specific rules regarding exemptions. While general retail items face the full 8.95% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Illinois's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -816,7 +816,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Illinois?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Illinois's average rate of 8.95%, you would divide your total by 1.0884. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Illinois's average rate of 8.95%, you would divide your total by 1.0895. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Illinois?",
@@ -1083,9 +1083,9 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "louisiana": {
     "state": "Louisiana",
     "aboutText": [
-      "The base state sales tax rate in Louisiana currently stands at 4.45%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Louisiana reaches approximately 9.60%, making it essential to know exactly how much you are paying in taxes for every transaction. Louisiana has the highest combined average rate in the country at 9.55%, driven by significant parish and city taxes — use the [reverse tax calculator](/) with the rate on your receipt to find exactly how much you paid in tax versus the item cost.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Louisiana, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1095.50 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Louisiana shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
-      "It's also highly important to note that Louisiana has specific rules regarding exemptions. While general retail items face the full 9.60% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Louisiana's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
+      "The base state sales tax rate in Louisiana currently stands at 4.45%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Louisiana reaches approximately 9.50%, making it essential to know exactly how much you are paying in taxes for every transaction. Louisiana has one of the highest combined average rates in the country at 9.50%, driven by significant parish and city taxes — use the [reverse tax calculator](/) with the rate on your receipt to find exactly how much you paid in tax versus the item cost.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Louisiana, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1095.00 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Louisiana shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "It's also highly important to note that Louisiana has specific rules regarding exemptions. While general retail items face the full 9.50% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Louisiana's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
       {
@@ -1108,7 +1108,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "useCases": [
       {
         "title": "Decoding Business Receipts in Louisiana",
-        "description": "For freelancers and small business owners operating in Louisiana, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden 9.60% average tax, allowing you to accurately record your deductible business expenses."
+        "description": "For freelancers and small business owners operating in Louisiana, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden 9.50% average tax, allowing you to accurately record your deductible business expenses."
       },
       {
         "title": "Budgeting for Major Purchases",
@@ -1122,11 +1122,11 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "faqs": [
       {
         "question": "What is the actual sales tax rate in Louisiana?",
-        "answer": "While the Louisiana base state sales tax rate is 4.45%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 9.60%, though it varies slightly by zip code."
+        "answer": "While the Louisiana base state sales tax rate is 4.45%, the actual rate you pay is almost always higher due to local district and city taxes. On average, the combined rate is 9.50%, though it varies slightly by zip code."
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Louisiana?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Louisiana's average rate of 9.60%, you would divide your total by 1.0955. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Louisiana's average rate of 9.50%, you would divide your total by 1.095. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Louisiana?",
@@ -1134,7 +1134,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "Does Louisiana charge sales tax on shipping and delivery?",
-        "answer": "In most cases, if the physical items you are purchasing are taxable in Louisiana, the associated shipping, handling, and delivery charges are also considered taxable. This means the 9.60% average rate will be applied to the entire order total."
+        "answer": "In most cases, if the physical items you are purchasing are taxable in Louisiana, the associated shipping, handling, and delivery charges are also considered taxable. This means the 9.50% average rate will be applied to the entire order total."
       },
       {
         "question": "Can I use this calculator for Louisiana vehicle purchases?",
@@ -1645,7 +1645,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "nebraska": {
     "state": "Nebraska",
     "aboutText": [
-      "The base state sales tax rate in Nebraska currently stands at 5.50%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Nebraska reaches approximately 7.13%, making it essential to know exactly how much you are paying in taxes for every transaction. Nebraska's 7.05% combined rate is fairly uniform across the state — use the [reverse tax calculator](/) to find the pre-tax amount from any Nebraska receipt quickly and accurately.",
+      "The base state sales tax rate in Nebraska currently stands at 5.50%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Nebraska reaches approximately 7.05%, making it essential to know exactly how much you are paying in taxes for every transaction. Nebraska's 7.05% combined rate is fairly uniform across the state — use the [reverse tax calculator](/) to find the pre-tax amount from any Nebraska receipt quickly and accurately.",
       "When you purchase goods like clothing, electronics, or furniture anywhere in Nebraska, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1070.50 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Nebraska shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Nebraska has specific rules regarding exemptions. While general retail items face the full 7.13% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Nebraska's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
@@ -1688,7 +1688,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Nebraska?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Nebraska's average rate of 7.13%, you would divide your total by 1.0705. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Nebraska's average rate of 7.05%, you would divide your total by 1.0705. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Nebraska?",
@@ -1708,7 +1708,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Nevada",
     "aboutText": [
       "The base state sales tax rate in Nevada currently stands at 6.85%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Nevada reaches approximately 8.49%, making it essential to know exactly how much you are paying in taxes for every transaction. Nevada's combined rate averages 8.36%, with Las Vegas at 8.375% — run any Nevada receipt through the [reverse tax calculator](/) to instantly extract the pre-tax price and the exact tax paid.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Nevada, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1083.80 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Nevada shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Nevada, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1084.90 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Nevada shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Nevada has specific rules regarding exemptions. While general retail items face the full 8.49% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Nevada's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -1750,7 +1750,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Nevada?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Nevada's average rate of 8.49%, you would divide your total by 1.0838. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Nevada's average rate of 8.49%, you would divide your total by 1.0849. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Nevada?",
@@ -1960,7 +1960,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "New York",
     "aboutText": [
       "The base state sales tax rate in New York currently stands at 4.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across New York reaches approximately 8.66%, making it essential to know exactly how much you are paying in taxes for every transaction. New York has one of the most complex rate structures in the US, especially between NYC at 8.875% and upstate counties — use the [reverse tax calculator](/) to enter your exact local rate and get an accurate pre-tax breakdown.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in New York, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1085.40 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows New York shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in New York, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1086.60 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows New York shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that New York has specific rules regarding exemptions. While general retail items face the full 8.66% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering New York's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -2091,7 +2091,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "north-dakota": {
     "state": "North Dakota",
     "aboutText": [
-      "The base state sales tax rate in North Dakota currently stands at 5.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across North Dakota reaches approximately 7.23%, making it essential to know exactly how much you are paying in taxes for every transaction. North Dakota's 7.12% combined rate includes a mix of state and local taxes — use the [reverse tax calculator](/) with the rate on your receipt to find the exact pre-tax price from any North Dakota purchase.",
+      "The base state sales tax rate in North Dakota currently stands at 5.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across North Dakota reaches approximately 7.23%, making it essential to know exactly how much you are paying in taxes for every transaction. North Dakota's 7.23% combined rate includes a mix of state and local taxes — use the [reverse tax calculator](/) with the rate on your receipt to find the exact pre-tax price from any North Dakota purchase.",
       "When you purchase goods like clothing, electronics, or furniture anywhere in North Dakota, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1072.30 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows North Dakota shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that North Dakota has specific rules regarding exemptions. While general retail items face the full 7.23% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering North Dakota's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
@@ -2154,7 +2154,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Ohio",
     "aboutText": [
       "The base state sales tax rate in Ohio currently stands at 5.75%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Ohio reaches approximately 7.37%, making it essential to know exactly how much you are paying in taxes for every transaction. Ohio's combined rate varies by county, with most areas falling between 6.5% and 8% — enter your local rate directly into the [reverse tax calculator](/) to get an accurate pre-tax amount from any Ohio receipt.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Ohio, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1073.10 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Ohio shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Ohio, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1073.70 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Ohio shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Ohio has specific rules regarding exemptions. While general retail items face the full 7.37% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Ohio's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -2196,7 +2196,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Ohio?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Ohio's average rate of 7.37%, you would divide your total by 1.0731. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Ohio's average rate of 7.37%, you would divide your total by 1.0737. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Ohio?",
@@ -2215,8 +2215,8 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "oklahoma": {
     "state": "Oklahoma",
     "aboutText": [
-      "The base state sales tax rate in Oklahoma currently stands at 4.50%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Oklahoma reaches approximately 9.02%, making it essential to know exactly how much you are paying in taxes for every transaction. Oklahoma's combined rate averages 8.99% and varies by city — use the [reverse tax calculator](/) with the rate from your receipt to find the exact pre-tax price on any Oklahoma purchase.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Oklahoma, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1089.90 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Oklahoma shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "The base state sales tax rate in Oklahoma currently stands at 4.50%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Oklahoma reaches approximately 9.02%, making it essential to know exactly how much you are paying in taxes for every transaction. Oklahoma's combined rate averages 9.02% and varies by city — use the [reverse tax calculator](/) with the rate from your receipt to find the exact pre-tax price on any Oklahoma purchase.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Oklahoma, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1090.20 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Oklahoma shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Oklahoma has specific rules regarding exemptions. While general retail items face the full 9.02% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Oklahoma's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -2591,8 +2591,8 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "tennessee": {
     "state": "Tennessee",
     "aboutText": [
-      "The base state sales tax rate in Tennessee currently stands at 7.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Tennessee reaches approximately 9.60%, making it essential to know exactly how much you are paying in taxes for every transaction. Tennessee has one of the highest combined rates in the US at 9.55% on average — run any receipt total through the [reverse tax calculator](/) to quickly find how much of what you paid was tax versus the actual item cost.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Tennessee, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1095.50 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Tennessee shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "The base state sales tax rate in Tennessee currently stands at 7.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Tennessee reaches approximately 9.60%, making it essential to know exactly how much you are paying in taxes for every transaction. Tennessee has the highest combined average rate in the US at 9.60% — run any receipt total through the [reverse tax calculator](/) to quickly find how much of what you paid was tax versus the actual item cost.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Tennessee, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1096.00 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Tennessee shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Tennessee has specific rules regarding exemptions. While general retail items face the full 9.60% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Tennessee's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -2634,7 +2634,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Tennessee?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Tennessee's average rate of 9.60%, you would divide your total by 1.0955. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Tennessee's average rate of 9.60%, you would divide your total by 1.096. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Tennessee?",
@@ -2654,7 +2654,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Texas",
     "aboutText": [
       "The base state sales tax rate in Texas currently stands at 6.25%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Texas reaches approximately 8.24%, making it essential to know exactly how much you are paying in taxes for every transaction. Texas allows cities to add up to 2% on top of the 6.25% state rate, pushing Dallas, Houston, and Austin to a combined 8.25% — use the [reverse tax calculator](/) with your city's combined rate for the most accurate pre-tax result.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Texas, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1081.90 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Texas shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Texas, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1082.40 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Texas shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Texas has specific rules regarding exemptions. While general retail items face the full 8.24% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Texas's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -2906,7 +2906,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
     "state": "Washington",
     "aboutText": [
       "The base state sales tax rate in Washington currently stands at 6.50%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across Washington reaches approximately 9.40%, making it essential to know exactly how much you are paying in taxes for every transaction. Washington State's combined rate ranges from 7.5% to 10.4% depending on the city — always use the [reverse tax calculator](/) with the exact rate on your receipt rather than the state average.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in Washington, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1092.20 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Washington shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "When you purchase goods like clothing, electronics, or furniture anywhere in Washington, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1094.00 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows Washington shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
       "It's also highly important to note that Washington has specific rules regarding exemptions. While general retail items face the full 9.40% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering Washington's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
     ],
     "cities": [
@@ -2948,7 +2948,7 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a total in Washington?",
-        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Washington's average rate of 9.40%, you would divide your total by 1.0922. Our reverse calculator automates this exact math for you instantly."
+        "answer": "To manually find the original pre-tax price, you need to divide your final receipt total by 1 plus the tax rate. For Washington's average rate of 9.40%, you would divide your total by 1.094. Our reverse calculator automates this exact math for you instantly."
       },
       {
         "question": "Are groceries and food taxed in Washington?",

@@ -170,7 +170,7 @@ export default function AboutPage() {
               <strong>Blended Averages</strong>: For US State dropdowns, we provide the combined state rate plus the weighted average local (city/county) sales tax rate, offering the most realistic checkout rates.
             </li>
             <li>
-              <strong>Scheduled Audits</strong>: Our tax rate databases are audited semi-annually by finance professionals to ensure compliance with current tax year regulations (last reviewed for 2026).
+              <strong>Scheduled Audits</strong>: Our tax rate databases are audited semi-annually by finance professionals to ensure compliance with current tax year regulations (last reviewed and verified: May 2026, sourced from Tax Foundation).
             </li>
           </ul>
           <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginTop: 14, fontStyle: 'italic' }}>

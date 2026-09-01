@@ -5,6 +5,7 @@ import CalculatorCard from '@/components/calculator/CalculatorCard';
 import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import StateTable from '@/components/StateTable';
+import { getPopularStates, getStateBySlug, NATIONAL_AVERAGE_COMBINED_RATE } from '@/data/stateTaxRates';
 
 export const metadata: Metadata = {
   title: 'Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free',
@@ -259,19 +260,10 @@ export default function HomePage() {
           <div className="dashboard-col-3">
             <div className="sidebar-state-links" style={{ height: '100%' }}>
               <h2>🇺🇸 Popular States</h2>
-              {[
-                { href: '/us/california', name: 'California', rate: '9.06%' },
-                { href: '/us/texas', name: 'Texas', rate: '8.19%' },
-                { href: '/us/new-york', name: 'New York', rate: '8.54%' },
-                { href: '/us/florida', name: 'Florida', rate: '7.01%' },
-                { href: '/us/washington', name: 'Washington', rate: '9.23%' },
-                { href: '/us/illinois', name: 'Illinois', rate: '8.86%' },
-                { href: '/us/tennessee', name: 'Tennessee', rate: '9.55%' },
-                { href: '/us/ohio', name: 'Ohio', rate: '7.23%' },
-              ].map(({ href, name, rate }) => (
-                <Link key={href} href={href} className="sidebar-state-link">
-                  <span className="sidebar-state-name">{name}</span>
-                  <span className="sidebar-state-rate">{rate}</span>
+              {getPopularStates().map((state) => (
+                <Link key={state.abbr} href={`/us/${state.state.toLowerCase().replace(/\s+/g, '-')}`} className="sidebar-state-link">
+                  <span className="sidebar-state-name">{state.state}</span>
+                  <span className="sidebar-state-rate">{state.rate}%</span>
                 </Link>
               ))}
               <div style={{ marginTop: 14 }}>
@@ -518,10 +510,10 @@ export default function HomePage() {
                     Five states have no state-level sales tax at all: <strong>Alaska, Delaware, Montana, New Hampshire, and Oregon</strong>. Alaska is worth noting separately because local municipalities there do charge sales tax, giving it a small combined average of around 1.76%.
                   </p>
                   <p>
-                    The states with the highest combined average rates as of 2026 are Tennessee at 9.6%, Louisiana at 9.5%, Arkansas at 9.49%, and Alabama at 9.33%. These high totals come mostly from significant local district taxes stacked on top of the state rate.
+                    The states with the highest combined average rates as of 2026 are Tennessee at 9.60%, Louisiana at 9.50%, Arkansas at 9.49%, and Alabama at 9.33%. These high totals come mostly from significant local district taxes stacked on top of the state rate.
                   </p>
                   <p>
-                    The national average combined rate sits at approximately <strong>7.53%</strong> according to the Tax Foundation. But that average covers a range from 0% in tax-free states to over 9.5% in the highest-tax states.
+                    The national average combined rate sits at approximately <strong>{NATIONAL_AVERAGE_COMBINED_RATE}%</strong> according to the Tax Foundation. But that average covers a range from 0% in tax-free states to over 9.5% in the highest-tax states.
                   </p>
 
                   {/* Pro Tip Callout */}
@@ -666,7 +658,7 @@ export default function HomePage() {
                       <strong>Reconciling marketplace payouts:</strong> Amazon, eBay, and Etsy collect and remit sales tax in marketplace facilitator states on your behalf. Their payout reports show net amounts after tax. To verify your actual gross revenue, you work backwards from the totals using the applicable state rates.
                     </li>
                     <li>
-                      <strong>Auditing tax collection accuracy:</strong> If your platform collected $1,092.90 on a product and you charged 9.29% tax, the reverse calculation confirms the base price was exactly $1,000.00. If the numbers do not line up, your tax settings have an error that will surface in a state audit.
+                      <strong>Auditing tax collection accuracy:</strong> If your platform collected $1,093.30 on a product and you charged 9.33% tax, the reverse calculation confirms the base price was exactly $1,000.00. If the numbers do not line up, your tax settings have an error that will surface in a state audit.
                     </li>
                     <li>
                       <strong>Tracking nexus thresholds:</strong> Nexus thresholds are measured in gross revenue excluding tax. If you are approaching the threshold in a new state, you need to calculate your pre-tax revenue accurately. Using totals that include tax causes you to overestimate your revenue and potentially register for tax collection earlier than required.
@@ -1225,9 +1217,9 @@ export default function HomePage() {
             { [
                 { href: '/vat-calculator', icon: '🇪🇺', title: 'VAT Calculator', desc: 'Remove VAT from prices for UK, EU, and Australia', alt: 'European Union flag icon' },
                 { href: '/canada', icon: '🇨🇦', title: 'Canada Tax Calculator', desc: 'GST, HST, PST and Quebec QST reverse calculations', alt: 'Canada flag icon' },
-                { href: '/us/california', icon: '🌴', title: 'California Calculator', desc: "Pre-filled with California's 9.06% combined rate", alt: 'California palm tree icon' },
-                { href: '/us/texas', icon: '⭐', title: 'Texas Calculator', desc: "Pre-filled with Texas's 8.19% combined rate", alt: 'Texas star icon' },
-                { href: '/us/new-york', icon: '🗽', title: 'New York Calculator', desc: "Pre-filled with New York's 8.54% combined rate", alt: 'Statue of Liberty icon' },
+                { href: '/us/california', icon: '🌴', title: 'California Calculator', desc: `Pre-filled with California's ${getStateBySlug('california')?.rate}% combined rate`, alt: 'California palm tree icon' },
+                { href: '/us/texas', icon: '⭐', title: 'Texas Calculator', desc: `Pre-filled with Texas's ${getStateBySlug('texas')?.rate}% combined rate`, alt: 'Texas star icon' },
+                { href: '/us/new-york', icon: '🗽', title: 'New York Calculator', desc: `Pre-filled with New York's ${getStateBySlug('new-york')?.rate}% combined rate`, alt: 'Statue of Liberty icon' },
                 { href: '/tax-rates', icon: '📊', title: 'All State Tax Rates', desc: 'Complete table of all 50 state combined tax rates', alt: 'Chart icon' },
               ].map(({ href, icon, title, desc, alt }) => (
                 <Link key={href} href={href} className="tool-card">

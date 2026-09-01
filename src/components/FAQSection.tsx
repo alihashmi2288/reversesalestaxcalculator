@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { getHighestRateStates, getStateBySlug } from '@/data/stateTaxRates';
 
 const FAQ_CATEGORIES = [
   {
@@ -49,7 +50,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: 'Which state has the highest combined sales tax rate?',
-        a: 'Louisiana and Tennessee are tied for the highest combined average sales tax rate at 9.55%, followed closely by Arkansas (9.49%), Alabama (9.29%), and Oklahoma (8.99%). These high rates are primarily driven by significant local district taxes added on top of the state base rate.',
+        a: `${getHighestRateStates(5)[0].state} has the highest combined average sales tax rate in the country at ${getHighestRateStates(5)[0].rate.toFixed(2)}%, followed closely by ${getHighestRateStates(5)[1].state} (${getHighestRateStates(5)[1].rate.toFixed(2)}%), ${getHighestRateStates(5)[2].state} (${getHighestRateStates(5)[2].rate.toFixed(2)}%), ${getHighestRateStates(5)[3].state} (${getHighestRateStates(5)[3].rate.toFixed(2)}%), and ${getHighestRateStates(5)[4].state} (${getHighestRateStates(5)[4].rate.toFixed(2)}%). These high rates are primarily driven by significant local district taxes added on top of the state base rate.`,
       },
       {
         q: 'What is the average US combined sales tax rate?',
@@ -57,7 +58,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: 'What is a combined sales tax rate?',
-        a: "A combined sales tax rate adds the state-level rate and any local (city, county, district) rates together. For example, California's state rate is 7.25%, but local districts add an average of 1.81%, bringing the combined average to 9.06%. Our state calculators use these combined average rates.",
+        a: "A combined sales tax rate adds the state-level rate and any local (city, county, district) rates together. For example, California's state rate is 7.25%, but local districts add an average of 1.96%, bringing the combined average to 9.21%. Our state calculators use these combined average rates.",
       },
       {
         q: 'Why does my city have a different tax rate than my state?',
@@ -106,7 +107,7 @@ const FAQ_CATEGORIES = [
       },
       {
         q: 'How do e-commerce businesses use reverse tax calculations?',
-        a: "E-commerce sellers use reverse tax calculations to audit their sales tax collection systems, verify that customers were charged the correct rate for their location, reconcile marketplace tax withholdings (e.g., Amazon's Marketplace Tax Collection), and prepare state tax remittance reports. If your platform collected $1,092.90 for a product, was that 9.29% on a $1,000 item? Our calculator confirms it instantly.",
+        a: "E-commerce sellers use reverse tax calculations to audit their sales tax collection systems, verify that customers were charged the correct rate for their location, reconcile marketplace tax withholdings (e.g., Amazon's Marketplace Tax Collection), and prepare state tax remittance reports. If your platform collected $1,093.30 for a product, was that 9.33% on a $1,000 item? Our calculator confirms it instantly.",
       },
       {
         q: 'How do I verify a vendor invoice for correct tax?',

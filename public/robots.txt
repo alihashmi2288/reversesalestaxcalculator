@@ -1,32 +1,16 @@
-# robots.txt: salestaxreversecalculator.com
-# Strategy: Index all SEO-value pages; allow dynamic OG images & AI search discovery
-# Last updated: August 2026
+# robots.txt — salestaxreversecalculator.com
+# Last updated: September 2026
 
 User-agent: *
-
-# --- ALLOW: Public & Asset Endpoints ---
-Allow: /
-Allow: /api/og
-Allow: /us/
-Allow: /vat-calculator
-Allow: /canada
-Allow: /tax-rates
-Allow: /faq
-Allow: /how-it-works
-Allow: /about
-Allow: /contact
-Allow: /privacy-policy
-Allow: /terms-of-service
-Allow: /llms.txt
-Allow: /llms-full.txt
-
-# --- BLOCK: Admin & System Paths ---
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 Disallow: /dashboard/
-
-# --- BLOCK: Tracking & UTM Parameters ---
+Disallow: /search
+Disallow: /*?q=
+Disallow: /*?s=
+Disallow: /*?query=
+Disallow: /*?search=
 Disallow: /*?utm_source=
 Disallow: /*?utm_medium=
 Disallow: /*?utm_campaign=
@@ -36,13 +20,12 @@ Disallow: /*?ref=
 Disallow: /*?source=
 Disallow: /*?fbclid=
 Disallow: /*?gclid=
-
-# --- BLOCK: Print / Utility Views ---
 Disallow: /*?print=
 Disallow: /*?format=print
 Disallow: /*?mode=print
 
-# --- AI & Search Engine Directives ---
+Allow: /api/og
+
 User-agent: GPTBot
 Allow: /
 
@@ -64,5 +47,4 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-# Sitemap & LLMs location
 Sitemap: https://salestaxreversecalculator.com/sitemap.xml

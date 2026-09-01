@@ -159,7 +159,7 @@ export default function HowItWorksPage() {
                       { rate: '6.00%', div: '1.060', res: '$94.34' },
                       { rate: '6.25% (MA/TX base)', div: '1.0625', res: '$94.12' },
                       { rate: '7.00% (NC/MS)', div: '1.070', res: '$93.46' },
-                      { rate: '8.25% (TX combined)', div: '1.0825', res: '$92.38' },
+                      { rate: '8.25% (TX city max)', div: '1.0825', res: '$92.38' },
                       { rate: '8.875% (NYC)', div: '1.08875', res: '$91.85' },
                       { rate: '10.00%', div: '1.100', res: '$90.91' },
                       { rate: '13.00% (Ontario HST)', div: '1.130', res: '$88.50' },
