@@ -5,6 +5,7 @@ import CalculatorCard from '@/components/calculator/CalculatorCard';
 import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import StateTable from '@/components/StateTable';
+import EmbedWidgetSection from '@/components/EmbedWidgetSection';
 import { getPopularStates, getStateBySlug, NATIONAL_AVERAGE_COMBINED_RATE } from '@/data/stateTaxRates';
 
 export const metadata: Metadata = {
@@ -250,6 +251,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Embed Widget Callout Section ── */}
+      <EmbedWidgetSection />
 
       {/* ── Main Layout: Content + Sidebars ── */}
       <div className="container-main content-auto" style={{ marginTop: 40, marginBottom: 40 }}>

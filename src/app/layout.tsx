@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import Analytics from '@/components/Analytics';
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -111,12 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans antialiased">
-        <div className="noise-overlay pointer-events-none fixed inset-0 z-50 opacity-[0.04]"></div>
-        <div className="grid-bg pointer-events-none fixed inset-0 z-[-1]"></div>
-        <Navbar />
         {children}
-        <Footer />
-        <Analytics />
       </body>
     </html>
   );
