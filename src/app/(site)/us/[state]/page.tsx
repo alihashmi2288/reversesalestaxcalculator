@@ -7,6 +7,8 @@ import { getStateBySlug, STATE_TAX_RATES } from '@/data/stateTaxRates';
 import { getStateContentBySlug } from '@/data/stateContent';
 import StateCalculatorClient from './StateCalculatorClient';
 
+import ConnecticutPage from './ConnecticutPage';
+
 // Generate static paths for top 10 states + all others
 export async function generateStaticParams() {
   return STATE_TAX_RATES.map((s) => ({
@@ -26,7 +28,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   let title = `${stateData.state} Reverse Sales Tax Calculator: ${stateData.rate}% Rate`;
   let description = `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`;
 
-  if (stateData.rate === 0) {
+  const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
+
+  if (stateSlug === 'connecticut') {
+    const ctTitle = 'CT Sales Tax Calculator: Connecticut Rates 2026';
+    const ctDesc = 'Free CT sales tax calculator with all 2026 Connecticut rates. Find your pre-tax price instantly. No signup needed. Covers standard and special rates.';
+    ogUrl.searchParams.set('title', ctTitle);
+    ogUrl.searchParams.set('location', stateData.state);
+    ogUrl.searchParams.set('rate', stateData.rate.toString());
+    return {
+      title: { absolute: ctTitle },
+      description: ctDesc,
+      alternates: { canonical: `https://salestaxreversecalculator.com/us/${stateSlug}` },
+      openGraph: {
+        title: ctTitle,
+        description: ctDesc,
+        url: `https://salestaxreversecalculator.com/us/${stateSlug}`,
+        images: [{ url: ogUrl.toString() }],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: ctTitle,
+        description: ctDesc,
+      },
+    };
+  } else if (stateData.rate === 0) {
     title = `${stateData.state} Reverse Sales Tax Calculator: 0% Tax Free`;
     description = `Free ${stateData.state} reverse sales tax calculator. ${stateData.state} has no state sales tax (0%). Calculate pre-tax and checkout amounts instantly.`;
   } else if (stateData.avgLocalRate === 0) {
@@ -40,7 +66,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description = `Free Texas reverse sales tax calculator. Pre-filled with Texas's ${stateData.stateRate}% state rate and ${stateData.rate}% combined average rate. Find the original pre-tax price from any Texas receipt instantly.`;
   }
 
-  const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
   ogUrl.searchParams.set('title', title);
   ogUrl.searchParams.set('location', stateData.state);
   ogUrl.searchParams.set('rate', stateData.rate.toString());
@@ -67,6 +92,10 @@ export default async function StatePage({ params }: Props) {
   const { state: stateSlug } = await params;
   const stateData = getStateBySlug(stateSlug);
   if (!stateData) notFound();
+
+  if (stateSlug === 'connecticut') {
+    return <ConnecticutPage stateData={stateData} />;
+  }
 
   const stateContent = getStateContentBySlug(stateSlug);
 

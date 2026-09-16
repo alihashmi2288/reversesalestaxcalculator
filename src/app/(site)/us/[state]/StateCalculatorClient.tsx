@@ -3,9 +3,12 @@ import { useState } from 'react';
 import { calculateReverseTax, fmt } from '@/lib/taxCalc';
 import type { StateRate } from '@/data/stateTaxRates';
 
-interface Props { stateData: StateRate; }
+interface Props { 
+  stateData: StateRate; 
+  rateNote?: string;
+}
 
-export default function StateCalculatorClient({ stateData }: Props) {
+export default function StateCalculatorClient({ stateData, rateNote }: Props) {
   const [finalPrice, setFinalPrice] = useState('');
   const [taxRate, setTaxRate] = useState(String(stateData.rate));
   const [result, setResult] = useState<ReturnType<typeof calculateReverseTax> | null>(null);
@@ -72,7 +75,9 @@ export default function StateCalculatorClient({ stateData }: Props) {
             />
             <span className="input-suffix" aria-hidden="true">%</span>
           </div>
-          <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>Pre-filled with {stateData.state}&apos;s combined average rate</p>
+          <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>
+            {rateNote || `Pre-filled with ${stateData.state}'s combined average rate`}
+          </p>
         </div>
       </div>
 
