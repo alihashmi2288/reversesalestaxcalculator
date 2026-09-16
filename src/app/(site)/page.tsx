@@ -180,8 +180,8 @@ export default function HomePage() {
 
       {/* ── Hero Section ──────────────────────────────────────────── */}
       <section id="calculator" style={{ padding: 'clamp(40px, 6vw, 80px) 0', position: 'relative', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
-        <div className="glow-blob" style={{ top: '-10%', left: '-10%', width: 600, height: 600 }}></div>
-        <div className="glow-blob" style={{ bottom: '-10%', right: '-10%', width: 500, height: 500 }}></div>
+        <div className="glow-blob" style={{ position: 'absolute', top: '-10%', left: '-10%', width: 600, height: 600, pointerEvents: 'none' }}></div>
+        <div className="glow-blob" style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: 500, height: 500, pointerEvents: 'none' }}></div>
         <div className="container-main">
           
           {/* Centered Above-the-Fold Header */}
@@ -256,7 +256,7 @@ export default function HomePage() {
       <EmbedWidgetSection />
 
       {/* ── Main Layout: Content + Sidebars ── */}
-      <div className="container-main content-auto" style={{ marginTop: 40, marginBottom: 40 }}>
+      <div className="container-main" style={{ marginTop: 40, marginBottom: 40 }}>
         {/* 12-Column Dashboard Grid */}
         <div className="dashboard-grid">
           
@@ -1120,14 +1120,14 @@ export default function HomePage() {
       </div>
 
       {/* ── How It Works (Step Cards) ─────────────────────────── */}
-      <div className="content-auto" style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '80px 0' }}>
+      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '80px 0' }}>
         <div className="container-main">
           <HowItWorks />
         </div>
       </div>
 
       {/* ── State Rates Table ─────────────────────────────────── */}
-      <div className="container-main content-auto" style={{ marginTop: 80 }}>
+      <div className="container-main" style={{ marginTop: 80 }}>
         <StateTable />
       </div>
 
@@ -1136,12 +1136,12 @@ export default function HomePage() {
       </div>
 
       {/* ── FAQAccordion Section ─────────────────────────────── */}
-      <div className="container-main content-auto" style={{ marginTop: 80 }}>
+      <div className="container-main" style={{ marginTop: 80 }}>
         <FAQSection />
       </div>
 
       {/* ── References & Sources ──────────────────────────────── */}
-      <div className="container-main content-auto" style={{ marginTop: 80, marginBottom: 80 }}>
+      <div className="container-main" style={{ marginTop: 80, marginBottom: 80 }}>
           <span className="section-label">Sources</span>
           <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 8px' }}>
             References &amp; Official Sources
@@ -1209,7 +1209,7 @@ export default function HomePage() {
 
 
       {/* ── Related Tools ─────────────────────────────────────── */}
-      <div className="content-auto" style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '64px 0' }}>
+      <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '64px 0' }}>
         <div className="container-main">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="section-label">Related Tools</span>

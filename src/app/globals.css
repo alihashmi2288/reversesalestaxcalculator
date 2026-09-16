@@ -856,14 +856,6 @@ pre code {
   word-break: normal;
 }
 
-/* ─── Content Visibility Optimization for PageSpeed ─────────── */
-.content-auto,
-.educational-content-layout section,
-.state-table-section,
-.faq-accordion-section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 500px;
-}
 
 /* ─── Accessible In-Text Links (Lighthouse Compliance) ──────── */
 p a, .table-note a, .article-content a, .educational-content-layout a {

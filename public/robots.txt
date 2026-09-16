@@ -2,8 +2,11 @@
 # Last updated: September 2026
 
 User-agent: *
+Allow: /
+Allow: /_next/static/
+Allow: /_next/
 Disallow: /api/
-Disallow: /_next/
+Allow: /api/og
 Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /search
@@ -24,7 +27,6 @@ Disallow: /*?print=
 Disallow: /*?format=print
 Disallow: /*?mode=print
 
-Allow: /api/og
 
 User-agent: GPTBot
 Allow: /

@@ -136,7 +136,7 @@ export default function BasicTab() {
           onChange={handleStateChange}
         >
           <option value="">— Select a State —</option>
-          {STATE_TAX_RATES.sort((a, b) => a.state.localeCompare(b.state)).map((s) => (
+          {STATE_TAX_RATES.slice().sort((a, b) => a.state.localeCompare(b.state)).map((s) => (
             <option key={s.abbreviation} value={s.abbreviation}>
               {s.state} — {s.rate}%{s.notes ? ` (${s.notes})` : ''}
             </option>
