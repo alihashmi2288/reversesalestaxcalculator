@@ -1,34 +1,44 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import LinkifiedText from '@/components/LinkifiedText';
 import CanadaCalculator from './CanadaCalculator';
 
 export const metadata: Metadata = {
-  title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
-  description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
+  title: 'Canada Reverse Tax Calculator: GST, HST & PST (2026)',
+  description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST, and QST from any price across all 13 provinces and territories instantly.',
   alternates: { 
     canonical: 'https://salestaxreversecalculator.com/canada',
     languages: {
-      'en-US': 'https://salestaxreversecalculator.com',
+      'x-default': 'https://salestaxreversecalculator.com/',
+      'en-US': 'https://salestaxreversecalculator.com/',
       'en-CA': 'https://salestaxreversecalculator.com/canada',
       'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
     },
   },
   openGraph: {
-    title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
-    description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
+    title: 'Canada Reverse Tax Calculator: GST, HST & PST (2026)',
+    description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST, and QST from any price across all 13 provinces and territories instantly.',
     url: 'https://salestaxreversecalculator.com/canada',
-    images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Canada%20Reverse%20Tax%20Calculator&location=Canada' }],
+    images: [{ url: '/images/canada-sales-tax-rates-map-2026.jpg', width: 1200, height: 675, alt: 'Canada Reverse Tax Map 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Canada Reverse Tax Calculator: GST HST PST by Province 2026',
-    description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST or QST from any price. Covers all 13 provinces and territories with current 2026 rates. No signup required.',
+    title: 'Canada Reverse Tax Calculator: GST, HST & PST (2026)',
+    description: 'Free Canada reverse sales tax calculator. Remove GST, HST, PST, and QST from any price across all 13 provinces and territories instantly.',
   },
 };
 
 const SITE_URL = 'https://salestaxreversecalculator.com';
+
+const imageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  name: 'Canada Provincial Sales Tax Rates 2026 Map',
+  contentUrl: `${SITE_URL}/images/canada-sales-tax-rates-map-2026.jpg`,
+  description: 'Infographic map illustrating provincial GST, HST, PST, and QST tax rates across all Canadian provinces and territories in 2026.',
+};
 
 const webApplicationSchema = {
   "@context": "https://schema.org",
@@ -141,6 +151,7 @@ export default function CanadaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #7c3aed)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">
           <div style={{ fontSize: 48, marginBottom: 12 }}>🇨🇦</div>
@@ -202,6 +213,22 @@ export default function CanadaPage() {
               <h2 style={{ fontSize: 26, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 16 }}>
                 Understanding Canadian Sales Tax (GST, HST, PST, QST)
               </h2>
+
+              {/* Canada Provincial Tax Map Infographic */}
+              <div style={{ margin: '20px 0 28px', borderRadius: 'var(--radius)', overflow: 'hidden', border: '2px solid var(--border)', background: '#09090b', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
+                <Image
+                  src="/images/canada-sales-tax-rates-map-2026.jpg"
+                  alt="Canada provincial sales tax rates 2026 map infographic showing GST, HST, PST, and QST by province"
+                  width={1200}
+                  height={675}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  priority
+                />
+                <div style={{ padding: '12px 20px', background: '#09090b', borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--text-muted)' }}>
+                  Figure 3: 2026 Canada provincial sales tax structure map across all 10 provinces and 3 territories.
+                </div>
+              </div>
+
               <div style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <p>
                   <LinkifiedText text="Unlike the US state sales tax system (which is collected only at the final point of sale), Canada operates on a Value Added Tax (VAT) model. The base federal tax is the GST (Goods and Services Tax) at 5%. Most provinces combine this with a provincial tax to create the HST (Harmonized Sales Tax) at 13% to 15%. Other provinces charge GST and a separate PST (Provincial Sales Tax), while Quebec charges GST and QST (Quebec Sales Tax)." currentState="Canada" />

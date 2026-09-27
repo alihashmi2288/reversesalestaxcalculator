@@ -4,18 +4,18 @@ import AdSlot from '@/components/AdSlot';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Sales Tax FAQ: Answers to Reverse Tax & Rate Questions',
+  title: 'Reverse Sales Tax FAQ: Common Questions Answered',
   description: 'Answers to common questions about reverse sales tax calculations, formulas, US state tax rates, Canada GST/HST, and VAT removal.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/faq' },
   openGraph: {
-    title: 'Sales Tax FAQ: Answers to Reverse Tax & Rate Questions',
+    title: 'Reverse Sales Tax FAQ: Common Questions Answered',
     description: 'Answers to common questions about reverse sales tax calculations, formulas, US state tax rates, Canada GST/HST, and VAT removal.',
     url: 'https://salestaxreversecalculator.com/faq',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Sales Tax FAQ' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sales Tax FAQ: Answers to Reverse Tax & Rate Questions',
+    title: 'Reverse Sales Tax FAQ: Common Questions Answered',
     description: 'Answers to common questions about reverse sales tax calculations, formulas, US state tax rates, Canada GST/HST, and VAT removal.',
   },
 };
@@ -26,7 +26,7 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
     { '@type': 'ListItem', position: 2, name: 'FAQ', item: `${SITE_URL}/faq` },
   ],
 };

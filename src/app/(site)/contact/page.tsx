@@ -3,19 +3,19 @@ import Link from 'next/link';
 import ContactForm from './ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Contact Us: PreTaxPrice Reverse Sales Tax Calculator',
-  description: 'Get in touch with the PreTaxPrice team for questions, tax rate corrections, bug reports, or partnership inquiries.',
+  title: 'Contact Us: Reverse Sales Tax Calculator',
+  description: 'Get in touch with the PreTaxPrice team for reverse sales tax questions, rate updates, bug reports, or feedback.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/contact' },
   openGraph: {
-    title: 'Contact Us: PreTaxPrice Reverse Sales Tax Calculator',
-    description: 'Get in touch with the PreTaxPrice team for questions, tax rate corrections, bug reports, or partnership inquiries.',
+    title: 'Contact Us: Reverse Sales Tax Calculator',
+    description: 'Get in touch with the PreTaxPrice team for reverse sales tax questions, rate updates, bug reports, or feedback.',
     url: 'https://salestaxreversecalculator.com/contact',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Contact PreTaxPrice' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Us: PreTaxPrice Reverse Sales Tax Calculator',
-    description: 'Get in touch with the PreTaxPrice team for questions, tax rate corrections, bug reports, or partnership inquiries.',
+    title: 'Contact Us: Reverse Sales Tax Calculator',
+    description: 'Get in touch with the PreTaxPrice team for reverse sales tax questions, rate updates, bug reports, or feedback.',
   },
 };
 
@@ -23,7 +23,7 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
     { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://salestaxreversecalculator.com/contact' },
   ],
 };

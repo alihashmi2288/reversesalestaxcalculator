@@ -30,7 +30,7 @@ export default function Footer() {
 
           {/* Calculators */}
           <div>
-            <h3 style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Calculators</h3>
+            <div style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Calculators</div>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { href: '/', label: 'Reverse Sales Tax' },
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Resources</h3>
+            <div style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Resources</div>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { href: '/tax-rates', label: 'US State Tax Rates' },
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Legal</h3>
+            <div style={{ color: '#fff', fontWeight: 800, fontSize: 13, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Legal</div>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { href: '/privacy-policy', label: 'Privacy Policy' },
@@ -80,7 +80,7 @@ export default function Footer() {
             </ul>
             <div style={{ marginTop: 24, padding: 16, background: 'rgba(0,0,0,0.3)', border: '1px solid var(--border)', borderRadius: 'var(--radius)' }}>
               <p style={{ fontSize: 12, lineHeight: 1.6, color: 'var(--text-muted)', margin: 0 }}>
-                ⚠️ This calculator is for estimation only. Always verify tax rates with official government sources for legal/financial decisions.
+                ⚠️ <strong>CPA Advisory & Disclaimer:</strong> PreTaxPrice is provided for informational and estimation purposes only. For complex multi-jurisdictional tax remittance, nexus compliance, or official audit filing, consult a licensed CPA or state tax authority.
               </p>
             </div>
           </div>

@@ -1,32 +1,43 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import StateTable from '@/components/StateTable';
 import { getHighestRateStates, NATIONAL_AVERAGE_COMBINED_RATE, STATE_TAX_RATES } from '@/data/stateTaxRates';
 
 export const metadata: Metadata = {
-  title: 'US State Sales Tax Rates 2026: All 50 States & DC',
-  description: 'Complete list of US state sales tax rates for all 50 states plus DC. Combined average rates (state + local) with filterable table.',
+  title: 'US Sales Tax Rates by State (2026 Combined Rates)',
+  description: 'Complete list of 2026 sales tax rates for all 50 US states and DC. Compare state rates, local averages, and combined tax rates in a searchable table.',
   alternates: { canonical: 'https://salestaxreversecalculator.com/tax-rates' },
   openGraph: {
-    title: 'US State Sales Tax Rates 2026: All 50 States & DC',
-    description: 'Complete list of US state sales tax rates for all 50 states plus DC. Combined average rates (state + local) with filterable table.',
+    title: 'US Sales Tax Rates by State (2026 Combined Rates)',
+    description: 'Complete list of 2026 sales tax rates for all 50 US states and DC. Compare state rates, local averages, and combined tax rates in a searchable table.',
     url: 'https://salestaxreversecalculator.com/tax-rates',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'US State Sales Tax Rates' }],
+    images: [{ url: '/images/us-sales-tax-rates-map-2026.jpg', width: 1200, height: 675, alt: 'US State Sales Tax Rates Map 2026' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'US State Sales Tax Rates 2026: All 50 States & DC',
-    description: 'Complete list of US state sales tax rates for all 50 states plus DC. Combined average rates (state + local) with filterable table.',
+    title: 'US Sales Tax Rates by State (2026 Combined Rates)',
+    description: 'Complete list of 2026 sales tax rates for all 50 US states and DC. Compare state rates, local averages, and combined tax rates in a searchable table.',
   },
 };
+
+const SITE_URL = 'https://salestaxreversecalculator.com';
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
-    { '@type': 'ListItem', position: 2, name: 'Tax Rates', item: 'https://salestaxreversecalculator.com/tax-rates' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Tax Rates', item: `${SITE_URL}/tax-rates` },
   ],
+};
+
+const imageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  name: 'US Sales Tax Rates by State 2026 Map',
+  contentUrl: `${SITE_URL}/images/us-sales-tax-rates-map-2026.jpg`,
+  description: 'Infographic map illustrating combined state and local sales tax rates across all 50 US states and DC in 2026.',
 };
 
 export default function TaxRatesPage() {
@@ -36,6 +47,7 @@ export default function TaxRatesPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
 
       {/* Hero */}
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
@@ -61,7 +73,7 @@ export default function TaxRatesPage() {
 
       {/* Key Stats */}
       <div className="container-main" style={{ marginTop: 24 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 48 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 32 }}>
           {[
             { label: 'Highest Rate', value: `${highestState.rate.toFixed(2)}%`, note: `${highestState.state}`, color: '#dc2626' },
             { label: 'Average Rate', value: `${NATIONAL_AVERAGE_COMBINED_RATE}%`, note: 'National average', color: 'var(--primary)' },
@@ -75,6 +87,22 @@ export default function TaxRatesPage() {
             </div>
           ))}
         </div>
+
+        {/* US Sales Tax Map 2026 Infographic */}
+        <div style={{ margin: '24px 0 32px', borderRadius: 'var(--radius)', overflow: 'hidden', border: '2px solid var(--border)', background: '#09090b', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
+          <Image
+            src="/images/us-sales-tax-rates-map-2026.jpg"
+            alt="US sales tax rates by state 2026 map infographic showing combined state and local averages"
+            width={1200}
+            height={675}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+            priority
+          />
+          <div style={{ padding: '12px 20px', background: '#09090b', borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--text-muted)' }}>
+            Figure 2: 2026 US state and local combined average sales tax rate map visualization across all 50 states and Washington DC.
+          </div>
+        </div>
+
         <p style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 24, maxWidth: 860 }}>
           All rates in the table below are pre-loaded into each state&apos;s dedicated calculator. Click any state to open a{' '}
           <Link

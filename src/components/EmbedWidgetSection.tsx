@@ -91,7 +91,7 @@ export default function EmbedWidgetSection() {
           </span>
 
           {/* Heading */}
-          <h2
+          <div
             style={{
               color: '#ffffff',
               fontSize: 'clamp(28px, 3.8vw, 42px)',
@@ -104,7 +104,7 @@ export default function EmbedWidgetSection() {
             }}
           >
             Embed Reverse Tax Calculator on your site.
-          </h2>
+          </div>
 
           {/* Description Paragraph */}
           <p

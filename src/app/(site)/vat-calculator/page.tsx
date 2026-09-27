@@ -5,26 +5,27 @@ import VATCalculator from './VATCalculator';
 import { VAT_COUNTRY_RATES } from '@/data/vatTaxRates';
 
 export const metadata: Metadata = {
-  title: 'Reverse VAT Calculator: Remove VAT from Any Price (UK, EU, AU)',
-  description: 'Free reverse VAT calculator. Remove VAT from prices for the UK (20%), EU, Australia, and more. Calculate ex-VAT prices instantly.',
+  title: 'Reverse VAT Calculator: Remove VAT (UK, EU, AU)',
+  description: 'Free reverse VAT calculator. Remove VAT from gross prices for the UK (20%), EU member states, and Australia. Calculate net prices instantly.',
   alternates: { 
     canonical: 'https://salestaxreversecalculator.com/vat-calculator',
     languages: {
-      'en-US': 'https://salestaxreversecalculator.com',
+      'x-default': 'https://salestaxreversecalculator.com/',
+      'en-US': 'https://salestaxreversecalculator.com/',
       'en-CA': 'https://salestaxreversecalculator.com/canada',
       'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
     },
   },
   openGraph: {
-    title: 'Reverse VAT Calculator: Remove VAT from Any Price (UK, EU, AU)',
-    description: 'Free reverse VAT calculator. Remove VAT from prices for the UK (20%), EU, Australia, and more. Calculate ex-VAT prices instantly.',
+    title: 'Reverse VAT Calculator: Remove VAT (UK, EU, AU)',
+    description: 'Free reverse VAT calculator. Remove VAT from gross prices for the UK (20%), EU member states, and Australia. Calculate net prices instantly.',
     url: 'https://salestaxreversecalculator.com/vat-calculator',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Reverse VAT Calculator' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Reverse VAT Calculator: Remove VAT from Any Price (UK, EU, AU)',
-    description: 'Free reverse VAT calculator. Remove VAT from prices for the UK (20%), EU, Australia, and more. Calculate ex-VAT prices instantly.',
+    title: 'Reverse VAT Calculator: Remove VAT (UK, EU, AU)',
+    description: 'Free reverse VAT calculator. Remove VAT from gross prices for the UK (20%), EU member states, and Australia. Calculate net prices instantly.',
   },
 };
 

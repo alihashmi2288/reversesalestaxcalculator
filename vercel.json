@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.salestaxreversecalculator.com"
+        }
+      ],
+      "destination": "https://salestaxreversecalculator.com/:path*",
+      "permanent": true
+    }
+  ]
+}

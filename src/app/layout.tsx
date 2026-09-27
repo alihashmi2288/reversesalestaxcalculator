@@ -22,11 +22,11 @@ const SITE_NAME = 'Reverse Sales Tax Calculator';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free',
-    template: `%s | ${SITE_NAME}`,
+    default: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
+    template: '%s',
   },
   description:
-    'Free reverse sales tax calculator. Enter any receipt total and find the original pre-tax price instantly. Works for all 50 US states, Canada GST/HST, and EU VAT. No signup.',
+    'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
   authors: [{ name: 'PreTaxPrice' }],
   creator: 'PreTaxPrice',
   publisher: 'PreTaxPrice',
@@ -42,9 +42,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: { 
-    canonical: SITE_URL,
+    canonical: `${SITE_URL}/`,
     languages: {
-      'en-US': SITE_URL,
+      'x-default': `${SITE_URL}/`,
+      'en-US': `${SITE_URL}/`,
       'en-CA': `${SITE_URL}/canada`,
       'en-GB': `${SITE_URL}/vat-calculator`,
     },
@@ -52,15 +53,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'PreTaxPrice',
-    title: 'Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free',
-    description: 'Free reverse sales tax calculator. Enter any receipt total and find the original pre-tax price instantly. Works for all 50 US states, Canada GST/HST, and EU VAT. No signup.',
-    url: SITE_URL,
+    title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
+    description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
+    url: `${SITE_URL}/`,
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Reverse Sales Tax Calculator and Pre-tax Price Finder Tool' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free',
-    description: 'Free reverse sales tax calculator. Enter any receipt total and find the original pre-tax price instantly. Works for all 50 US states, Canada GST/HST, and EU VAT. No signup.',
+    title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
+    description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
     images: ['/og-image.png'],
   },
   icons: {
@@ -100,6 +101,24 @@ const organizationSchema = {
   }
 };
 
+const speculationRules = {
+  prefetch: [
+    {
+      source: 'list',
+      urls: [
+        '/us/california',
+        '/us/texas',
+        '/us/new-york',
+        '/us/florida',
+        '/canada',
+        '/vat-calculator',
+        '/tax-rates',
+        '/how-it-works',
+      ],
+    },
+  ],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bricolage.variable} ${jetbrains.variable}`}>
@@ -109,6 +128,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(speculationRules) }}
         />
       </head>
       <body className="font-sans antialiased">

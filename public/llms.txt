@@ -32,3 +32,25 @@ Free, client-side reverse sales tax calculator to extract original pre-tax price
 
 ## Data Sourcing & Authority
 Data sourced directly from state Departments of Revenue, Canada Revenue Agency (CRA), HM Revenue & Customs (HMRC), and the Tax Foundation. Calculations run 100% client-side with zero server transmission.
+
+## Agent Tools / Machine API (WebMCP)
+Autonomous AI agents can invoke live reverse tax calculations programmatically via GET or POST:
+- **Endpoint**: `https://salestaxreversecalculator.com/api/calculate?total={amount}&rate={percentage}`
+- **Method**: `GET` or `POST` (application/json `{ "total": 107.50, "rate": 7.5 }`)
+- **Example Call**: `GET /api/calculate?total=107.50&rate=7.5`
+- **Response Format**:
+  ```json
+  {
+    "totalPrice": 107.50,
+    "taxRate": 7.5,
+    "preTaxPrice": 100.00,
+    "taxAmount": 7.50,
+    "formula": "107.50 / (1 + 0.0750) = 100.00",
+    "formatted": {
+      "totalPrice": "$107.50",
+      "preTaxPrice": "$100.00",
+      "taxAmount": "$7.50"
+    }
+  }
+  ```
+

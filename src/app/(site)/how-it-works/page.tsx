@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import AdSlot from '@/components/AdSlot';
 import HowItWorks from '@/components/HowItWorks';
 import Link from 'next/link';
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     title: 'How to Calculate Reverse Sales Tax: Step-by-Step Guide',
     description: 'Learn how to calculate the original price before tax with the reverse sales tax formula. Step-by-step mathematical guide with real-world examples.',
     url: 'https://salestaxreversecalculator.com/how-it-works',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How Reverse Sales Tax Works' }],
+    images: [{ url: '/images/reverse-sales-tax-formula-diagram.jpg', width: 1200, height: 675, alt: 'How Reverse Sales Tax Works Diagram' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -26,9 +27,17 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
     { '@type': 'ListItem', position: 2, name: 'How It Works', item: `${SITE_URL}/how-it-works` },
   ],
+};
+
+const imageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  name: 'Reverse Sales Tax Formula Flowchart',
+  contentUrl: `${SITE_URL}/images/reverse-sales-tax-formula-diagram.jpg`,
+  description: 'Infographic flowchart illustrating the reverse sales tax algebraic formula and step-by-step receipt calculation.',
 };
 
 const howToSchema = {
@@ -75,6 +84,7 @@ export default function HowItWorksPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
 
       <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container-main">
@@ -105,6 +115,21 @@ export default function HowItWorksPage() {
           <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 24, textTransform: 'uppercase' }}>
             The Mathematics Behind Reverse Tax
           </h2>
+
+          {/* Infographic Visual Asset */}
+          <div style={{ margin: '24px 0 32px', borderRadius: 'var(--radius)', overflow: 'hidden', border: '2px solid var(--border)', background: '#09090b', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
+            <Image
+              src="/images/reverse-sales-tax-formula-diagram.jpg"
+              alt="Reverse sales tax formula diagram: Total price divided by one plus tax rate equals original pre-tax price"
+              width={1200}
+              height={675}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+              priority
+            />
+            <div style={{ padding: '12px 20px', background: '#09090b', borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--text-muted)' }}>
+              Figure 1: Reverse sales tax calculation flowchart demonstrating algebraic inverse division ($107.50 / 1.075 = $100.00).
+            </div>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
             <div className="card" style={{ borderLeft: '4px solid var(--primary)' }}>
               <h3 style={{ fontWeight: 700, fontSize: 18, color: 'var(--text-primary)', marginBottom: 12 }}>Why Not Just Subtract the Percentage?</h3>

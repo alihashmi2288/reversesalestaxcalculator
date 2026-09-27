@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ogUrl.searchParams.set('location', provinceData.name);
   ogUrl.searchParams.set('rate', provinceData.rate.toString());
 
-  const title = `${provinceData.name} Reverse Sales Tax Calculator: ${provinceData.rate}% ${provinceData.type} Rate`;
-  const description = `Free ${provinceData.name} reverse sales tax calculator. Pre-filled with the ${provinceData.rate}% ${provinceData.type} rate. Find original prices before Canadian sales tax in ${provinceData.name} instantly.`;
+  const title = `${provinceData.name} Reverse Sales Tax Calculator (${provinceData.rate}% ${provinceData.type})`;
+  const description = `Free ${provinceData.name} reverse sales tax calculator pre-filled with the ${provinceData.rate}% ${provinceData.type} rate. Find original pre-tax amounts instantly.`;
 
   return {
     title,
@@ -57,7 +57,7 @@ export default async function ProvincePage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
       { '@type': 'ListItem', position: 2, name: 'Canada', item: 'https://salestaxreversecalculator.com/canada' },
       { '@type': 'ListItem', position: 3, name: provinceData.name, item: `https://salestaxreversecalculator.com/canada/${provinceSlug}` },
     ],
@@ -122,10 +122,10 @@ export default async function ProvincePage({ params }: Props) {
             aria-label={`${provinceData.name} Reverse Sales Tax Calculator`}
             style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
           >
-            {provinceData.name} Reverse Sales{' '}
+            {provinceData.name} Reverse Sales Tax{' '}
             <br />
             <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Tax Calculator
+              Calculator
             </span>
           </h1>
 

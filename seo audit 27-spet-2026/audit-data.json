@@ -1,0 +1,258 @@
+{
+  "summary": {
+    "health_score": 80,
+    "domain": "salestaxreversecalculator.com",
+    "business_type": "Financial Web Application & Programmatic Tax Utility",
+    "total_pages_indexed_in_sitemap": 81,
+    "top_findings": [
+      "H1 spacing bug concatenates words into malformed tokens (e.g. 'Reverse Sales TaxCalculator', 'CaliforniaReverse SalesTax Calculator')",
+      "Title tag branding duplication and truncation across homepage and all 81 subpages (80-93 chars vs 60 char limit)",
+      "Redirect chain on www HTTP traffic: http://www -> https://www (308) -> https://root (301)",
+      "Zero indexable <img> tags across entire site, forfeiting all Google Image Search traffic and visual search pack rankings",
+      "Missing x-default hreflang tag and asymmetrical international tags between root and subpages",
+      "YMYL E-E-A-T gaps: free @gmail.com contact address and absence of credentialed tax expert/CPA review credentials"
+    ],
+    "quick_wins": [
+      "Fix H1 DOM text spacing in Next.js header component to separate state names and 'Reverse Sales Tax Calculator'",
+      "Shorten homepage and state title tags to 50-60 characters, removing the duplicate brand suffix",
+      "Trim meta descriptions to under 155 characters to eliminate SERP snippet truncation",
+      "Fix UTF-8 character encoding corruption in llms-full.txt",
+      "Update contact email to a custom domain address (@salestaxreversecalculator.com) and add CPA review disclaimer"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 82,
+      "weight": 0.22,
+      "what_works": [
+        "Full Server-Side Rendering (SSR/SSG) with 7,600+ words in raw HTML — zero rendering lag for Googlebot",
+        "Valid XML sitemap with 81 clean URLs and lastmod timestamps",
+        "Clean robots.txt explicitly permitting AI search bots (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot)",
+        "Enterprise-grade security headers: HSTS preload, X-Content-Type-Options, Referrer-Policy, Permissions-Policy",
+        "Vercel Edge CDN delivery with global HIT caching and clean HTTP 404 error handling"
+      ],
+      "findings": [
+        {
+          "title": "Redirect Chain on HTTP WWW Traffic",
+          "severity": "Medium",
+          "description": "Requests to http://www.salestaxreversecalculator.com experience a 2-hop redirect chain (308 to https://www.salestaxreversecalculator.com/ followed by 301 to https://salestaxreversecalculator.com/).",
+          "recommendation": "Configure edge DNS/middleware redirect rules to collapse this into a single 301 redirect directly to the canonical HTTPS root."
+        },
+        {
+          "title": "Canonical Tag Trailing Slash Inconsistency",
+          "severity": "Low",
+          "description": "The homepage HTML canonical tag specifies 'https://salestaxreversecalculator.com' (without trailing slash), while server response headers and sitemap declare 'https://salestaxreversecalculator.com/'.",
+          "recommendation": "Align the canonical href attribute with the root trailing slash standard to ensure 100% uniformity."
+        },
+        {
+          "title": "Missing Content-Security-Policy (CSP)",
+          "severity": "Low",
+          "description": "Although HSTS, nosniff, and X-Frame-Options are implemented, no Content-Security-Policy header is served.",
+          "recommendation": "Define a robust Content-Security-Policy header restricting script execution and object sources."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 72,
+      "weight": 0.20,
+      "what_works": [
+        "Logical breadcrumb hierarchies on inner pages",
+        "Clear value proposition and interactive calculator front-and-center",
+        "Extensive FAQ section addressing user intent and long-tail queries"
+      ],
+      "findings": [
+        {
+          "title": "H1 Heading Spacing & Concatenation Bug",
+          "severity": "Critical",
+          "description": "Due to missing whitespace around inline spans or line-breaks, heading text renders as 'Reverse Sales TaxCalculator' and 'CaliforniaReverse SalesTax Calculator' in the accessibility tree and DOM.",
+          "recommendation": "Add a space or proper block-level layout separation in the H1 React component so words are separated by whitespace."
+        },
+        {
+          "title": "Title Tag Brand Duplication & Length Truncation",
+          "severity": "High",
+          "description": "Homepage title is 89 characters ('Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free | Reverse Sales Tax Calculator'). State pages range from 82 to 93 characters. All exceed Google's ~600px / 55-60 character desktop and mobile display limits.",
+          "recommendation": "Truncate titles to 52-58 characters and remove duplicate brand suffixes. E.g., 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free' (52 chars)."
+        },
+        {
+          "title": "Meta Description Truncation",
+          "severity": "Medium",
+          "description": "Homepage meta description is 172 characters and Texas is 180 characters. Both exceed the 155-160 character limit, cutting off key CTAs with ellipses in SERP snippets.",
+          "recommendation": "Condense all meta descriptions to 145-155 characters with a clear action verb."
+        },
+        {
+          "title": "Semantic Header Hierarchy Dilution from Sidebar & Footer Widgets",
+          "severity": "Medium",
+          "description": "Widgets and navigation blocks use H2 and H3 tags ('Embed Reverse Tax Calculator on your site.', 'Popular States', 'Calculators', 'Legal') that disrupt semantic outline before the main content.",
+          "recommendation": "Convert secondary sidebar headers and footer navigation labels to styled paragraphs (<p class='h3'>) or landmark navigation elements."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality & E-E-A-T",
+      "score": 84,
+      "weight": 0.23,
+      "what_works": [
+        "In-depth 7,650-word homepage guide with zero detected AI filler phrases and 1.0 information density",
+        "Clear step-by-step mathematical breakdown of the division formula vs the subtracting error",
+        "Authoritative outbound citations to the IRS, Tax Foundation, CRA, and OECD on homepage"
+      ],
+      "findings": [
+        {
+          "title": "YMYL Financial Authority & Contact Verification Gaps",
+          "severity": "High",
+          "description": "Financial calculations are classified as YMYL. The site uses a generic Gmail address (salestaxreversecalculator@gmail.com) and lacks an identified author with credentials (CPA, enrolled agent, or tax attorney).",
+          "recommendation": "Upgrade contact email to @salestaxreversecalculator.com, add an 'Editorial & Tax Review Policy', and include author/reviewer bios with tax/accounting credentials."
+        },
+        {
+          "title": "Boilerplate State Pages & Missing Official Revenue Citations",
+          "severity": "Medium",
+          "description": "The 50 state pages rely on repetitive templates (500-1,000 words) and fail to link to official state Departments of Revenue (e.g. CDTFA for California, Comptroller for Texas).",
+          "recommendation": "Add official state revenue links, unique district/county threshold notes, and state exemption guides to each state page."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 88,
+      "weight": 0.10,
+      "what_works": [
+        "Multi-schema architecture implementing WebSite, WebApplication, FAQPage, HowTo, and BreadcrumbList",
+        "Clean JSON-LD with areaServed state targeting on US pages",
+        "Valid HowTo markup on /how-it-works page"
+      ],
+      "findings": [
+        {
+          "title": "Redundant Single-Item Breadcrumb on Homepage",
+          "severity": "Low",
+          "description": "Homepage outputs a BreadcrumbList containing only 1 item. Google guidelines suggest breadcrumbs should indicate depth (2+ levels).",
+          "recommendation": "Remove BreadcrumbList schema from the root homepage while preserving it on subpages."
+        },
+        {
+          "title": "Missing WebApplication Schema Enhancements",
+          "severity": "Low",
+          "description": "WebApplication schema lacks softwareVersion, applicationSubCategory ('Finance/Taxation'), and aggregateRating.",
+          "recommendation": "Enrich WebApplication schema with applicationSubCategory and softwareVersion properties."
+        }
+      ]
+    },
+    {
+      "name": "Performance (Core Web Vitals)",
+      "score": 78,
+      "weight": 0.10,
+      "what_works": [
+        "Preloaded WOFF2 modern variable fonts",
+        "Fast server response times and edge CDN distribution",
+        "Zero blocking third-party ad networks or tracking scripts"
+      ],
+      "findings": [
+        {
+          "title": "Heavy Raw HTML Payload via RSC Serialization (288 KB)",
+          "severity": "Medium",
+          "description": "Raw HTML size is 288 KB, of which 122 KB is serialized React Server Component hydration scripts, causing elevated cellular data consumption on mobile.",
+          "recommendation": "Optimize static vs dynamic component boundaries in Next.js to minimize hydration payload on static informational pages."
+        },
+        {
+          "title": "Missing Speculation Rules for Instant Client Transitions",
+          "severity": "Low",
+          "description": "No <script type='speculationrules'> is implemented for prefetching popular state calculators on hover.",
+          "recommendation": "Implement speculative prefetching for top linked states (California, Texas, New York, Florida) to achieve instant sub-100ms page transitions."
+        }
+      ]
+    },
+    {
+      "name": "Images & Visual SEO",
+      "score": 60,
+      "weight": 0.05,
+      "what_works": [
+        "Lightweight vector SVG icons for calculator controls",
+        "Dynamic Open Graph social card generator (/api/og)"
+      ],
+      "findings": [
+        {
+          "title": "Zero Indexable Content Images Across Entire Site",
+          "severity": "High",
+          "description": "Every page on the site has zero <img> tags. The website completely foregoes all Google Image Search traffic and visual search carousels.",
+          "recommendation": "Create and embed high-resolution infographics and charts (e.g. 'US Sales Tax Rates by State Map 2026', 'Reverse Tax Formula Diagram') in WebP format with descriptive alt text."
+        },
+        {
+          "title": "Open Graph Image URL Discrepancy",
+          "severity": "Low",
+          "description": "Schema.org points to /og-image.png while Open Graph meta tags point to dynamic /api/og endpoint.",
+          "recommendation": "Ensure both point to canonical pre-rendered PNG/WebP assets to ensure reliable social previews across LinkedIn, Slack, and X."
+        }
+      ]
+    },
+    {
+      "name": "AI Search & GEO Readiness",
+      "score": 86,
+      "weight": 0.10,
+      "what_works": [
+        "llms.txt and llms-full.txt implemented and returning 200 OK",
+        "Explicitly permits all major AI crawler bots in robots.txt (GPTBot, ClaudeBot, PerplexityBot)",
+        "Zero client-side JS dependency for text extraction (7,646 words fully visible in raw SSR HTML)"
+      ],
+      "findings": [
+        {
+          "title": "Character Encoding Corruption in llms-full.txt",
+          "severity": "Low",
+          "description": "llms-full.txt contains an unencoded replacement character () in its primary header line.",
+          "recommendation": "Fix the file encoding to UTF-8 and replace the corrupt dash with a standard hyphen or em-dash."
+        },
+        {
+          "title": "Missing Machine-Actionable Tool Definition (WebMCP)",
+          "severity": "Low",
+          "description": "Autonomous agents reading the site cannot programmatically trigger a calculation via standard WebMCP or OpenAPI endpoints.",
+          "recommendation": "Expose a simple JSON calculation endpoint (e.g. /api/calc?total=100&rate=8.25) and document it in llms.txt."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes & DOM Bugs",
+        "timeframe": "Week 1",
+        "items": [
+          "Fix H1 text concatenation bug across all page templates",
+          "Shorten homepage and top state title tags to under 60 characters and remove duplicate brand suffixes",
+          "Eliminate 2-hop redirect chain on HTTP WWW traffic at Vercel/DNS level",
+          "Add x-default hreflang tag to homepage"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact On-Page & E-E-A-T",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Upgrade contact email to @salestaxreversecalculator.com and add CPA review disclaimer",
+          "Trim all meta descriptions across 81 pages to 145-155 characters",
+          "Demote sidebar and footer widget headers from H2/H3 to styled divs/paragraphs",
+          "Add outbound authoritative links to state revenue departments on all 50 state pages"
+        ]
+      },
+      {
+        "name": "Phase 3: Visual SEO & Image Asset Strategy",
+        "timeframe": "Month 2",
+        "items": [
+          "Design and publish 'US Sales Tax Rates 2026 Map' and 'Reverse Tax Formula Diagram'",
+          "Implement WebP images with responsive srcset, width/height, and descriptive alt text",
+          "Add state-to-state contextual navigation grid on state subpages"
+        ]
+      },
+      {
+        "name": "Phase 4: Performance & AI Automation",
+        "timeframe": "Ongoing",
+        "items": [
+          "Implement Speculation Rules API for instant prefetching of calculators on user hover",
+          "Optimize Next.js RSC hydration payload to reduce HTML weight below 150 KB",
+          "Add OpenAPI / JSON calculation endpoint for agentic citation in llms.txt"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

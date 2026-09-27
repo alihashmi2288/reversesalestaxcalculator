@@ -1,4 +1,4 @@
-# Full Documentation & Rate Matrix — Reverse Sales Tax Calculator
+# Full Documentation & Rate Matrix - Reverse Sales Tax Calculator
 URL: https://salestaxreversecalculator.com
 Last Updated: August 2026
 
@@ -97,3 +97,25 @@ Common subtraction fallacy:
 
 ## 6. Privacy & Architecture
 All calculation algorithms execute purely client-side within the browser via JavaScript/TypeScript. No financial figures, receipts, or data entries are logged or transmitted to any server.
+
+## 7. Machine-Actionable API / Agent Tools (WebMCP)
+Autonomous AI agents can invoke live reverse tax calculations programmatically via GET or POST:
+- **Endpoint**: `https://salestaxreversecalculator.com/api/calculate?total={amount}&rate={percentage}`
+- **Method**: `GET` or `POST` (application/json `{ "total": 107.50, "rate": 7.5 }`)
+- **Example Call**: `GET /api/calculate?total=107.50&rate=7.5`
+- **Response Format**:
+  ```json
+  {
+    "totalPrice": 107.50,
+    "taxRate": 7.5,
+    "preTaxPrice": 100.00,
+    "taxAmount": 7.50,
+    "formula": "107.50 / (1 + 0.0750) = 100.00",
+    "formatted": {
+      "totalPrice": "$107.50",
+      "preTaxPrice": "$100.00",
+      "taxAmount": "$7.50"
+    }
+  }
+  ```
+

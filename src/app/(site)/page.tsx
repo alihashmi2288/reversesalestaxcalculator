@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import CalculatorCard from '@/components/calculator/CalculatorCard';
@@ -9,26 +10,27 @@ import EmbedWidgetSection from '@/components/EmbedWidgetSection';
 import { getPopularStates, getStateBySlug, NATIONAL_AVERAGE_COMBINED_RATE } from '@/data/stateTaxRates';
 
 export const metadata: Metadata = {
-  title: 'Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free',
-  description: 'Free reverse sales tax calculator. Enter any receipt total and find the original pre-tax price instantly. Works for all 50 US states, Canada GST/HST, and EU VAT. No signup.',
+  title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
+  description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
   alternates: { 
-    canonical: 'https://salestaxreversecalculator.com',
+    canonical: 'https://salestaxreversecalculator.com/',
     languages: {
-      'en-US': 'https://salestaxreversecalculator.com',
+      'x-default': 'https://salestaxreversecalculator.com/',
+      'en-US': 'https://salestaxreversecalculator.com/',
       'en-CA': 'https://salestaxreversecalculator.com/canada',
       'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
     },
   },
   openGraph: {
-    title: 'Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free',
-    description: 'Free reverse sales tax calculator. Enter any receipt total and find the original pre-tax price instantly. Works for all 50 US states, Canada GST/HST, and EU VAT. No signup.',
-    url: 'https://salestaxreversecalculator.com',
+    title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
+    description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
+    url: 'https://salestaxreversecalculator.com/',
     images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Reverse%20Sales%20Tax%20Calculator&rate=7.53', alt: 'Reverse Sales Tax Calculator Tool Home' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Reverse Sales Tax Calculator: Find Your Pre-Tax Price Free',
-    description: 'Free reverse sales tax calculator. Enter any receipt total and find the original pre-tax price instantly. Works for all 50 US states, Canada GST/HST, and EU VAT. No signup.',
+    title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
+    description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
   },
 };
 
@@ -66,7 +68,10 @@ export default function HomePage() {
     "name": "Reverse Sales Tax Calculator",
     "url": SITE_URL,
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "All",
+    "applicationSubCategory": "Sales Tax Calculation & Accounting",
+    "softwareVersion": "2.4.0",
+    "inLanguage": "en",
+    "operatingSystem": "All modern browsers (Desktop & Mobile)",
     "browserRequirements": "Requires JavaScript",
     "description": "A free reverse sales tax calculator that works backwards from a tax-inclusive total to find the original pre-tax price. Supports all 50 US states, Canada GST/HST/PST/QST, and European VAT.",
     "offers": {
@@ -146,17 +151,12 @@ export default function HomePage() {
     ]
   };
 
-  const breadcrumbSchema = {
+  const imageSchema = {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Reverse Sales Tax Calculator",
-        "item": SITE_URL
-      }
-    ]
+    "@type": "ImageObject",
+    "name": "Reverse Sales Tax Calculation Formula Diagram",
+    "contentUrl": `${SITE_URL}/images/reverse-sales-tax-formula-diagram.jpg`,
+    "description": "Visual infographic diagram illustrating the reverse sales tax calculation formula, division factor, and worked receipt example."
   };
 
   return (
@@ -175,7 +175,7 @@ export default function HomePage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}
       />
 
       {/* ── Hero Section ──────────────────────────────────────────── */}
@@ -191,7 +191,8 @@ export default function HomePage() {
             </div>
 
             <h1 style={{ fontSize: 'clamp(32px, 5vw, 68px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.05, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '-0.03em' }}>
-              Reverse Sales Tax<br />
+              Reverse Sales Tax{' '}
+              <br />
               <span style={{ color: 'var(--primary)', textShadow: '0 0 30px rgba(204, 255, 0, 0.25)' }}>
                 Calculator
               </span>
@@ -263,7 +264,7 @@ export default function HomePage() {
           {/* Column 1: Popular States (3 cols) */}
           <div className="dashboard-col-3">
             <div className="sidebar-state-links" style={{ height: '100%' }}>
-              <h2>🇺🇸 Popular States</h2>
+              <div className="sidebar-title" style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 16 }}>🇺🇸 Popular States</div>
               {getPopularStates().map((state) => (
                 <Link key={state.abbr} href={`/us/${state.state.toLowerCase().replace(/\s+/g, '-')}`} className="sidebar-state-link">
                   <span className="sidebar-state-name">{state.state}</span>
@@ -292,7 +293,7 @@ export default function HomePage() {
               
               <div className="divider" style={{ margin: '16px 0', height: 1 }} />
               
-              <h3 style={{ marginTop: 8 }}>🌍 International</h3>
+              <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: 8, marginBottom: 12 }}>🌍 International</div>
               <Link href="/canada" className="sidebar-state-link">
                 <span className="sidebar-state-name">🇨🇦 Canada GST/HST</span>
                 <span className="sidebar-state-rate">5–15%</span>
@@ -316,7 +317,7 @@ export default function HomePage() {
           {/* Column 2: Quick Reference Tips (5 cols) */}
           <div className="dashboard-col-5">
             <div className="sidebar-quick-ref" style={{ height: '100%' }}>
-              <h2>💡 Quick Reference Tips</h2>
+              <div className="sidebar-title" style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 16 }}>💡 Quick Reference Tips</div>
               {[
                 { title: 'The Formula', text: 'Price ÷ (1 + rate/100) backs out tax correctly.' },
                 { title: 'Local Rates', text: 'Use the US state dropdown to auto-load combined local rates.' },
@@ -335,7 +336,7 @@ export default function HomePage() {
           {/* Column 3: Why Use PreTaxPrice? (4 cols) */}
           <div className="dashboard-col-4">
             <div className="sidebar-quick-ref" style={{ height: '100%', borderColor: 'rgba(204, 255, 0, 0.25)' }}>
-              <h2 style={{ color: 'var(--primary)' }}>🚀 Why Use PreTaxPrice?</h2>
+              <div className="sidebar-title" style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)', marginBottom: 16 }}>🚀 Why Use PreTaxPrice?</div>
               <div className="sidebar-quick-ref-item" style={{ padding: '8px 0' }}>
                 <strong style={{ color: 'var(--text-primary)', fontSize: 12 }}>100% Client-Side Safe</strong>
                 Calculations run directly inside your browser. No receipt data or transaction totals ever leave your device.
@@ -403,6 +404,21 @@ export default function HomePage() {
                     The formula is straightforward once you see it:
                   </p>
                   
+                  {/* Infographic Visual Asset */}
+                  <div style={{ margin: '16px 0 20px', borderRadius: 'var(--radius)', overflow: 'hidden', border: '2px solid var(--border)', background: '#09090b', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
+                    <Image
+                      src="/images/reverse-sales-tax-formula-diagram.jpg"
+                      alt="Reverse sales tax formula diagram: Total price divided by one plus tax rate equals original pre-tax price"
+                      width={1200}
+                      height={675}
+                      style={{ width: '100%', height: 'auto', display: 'block' }}
+                      loading="lazy"
+                    />
+                    <div style={{ padding: '12px 20px', background: '#09090b', borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--text-muted)' }}>
+                      Figure 1: Reverse sales tax formula breakdown ($107.50 receipt total divided by 1.075 equals $100.00 base pre-tax amount).
+                    </div>
+                  </div>
+
                   <div className="formula-box" style={{ margin: '16px 0' }}>
                     <div style={{ fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', opacity: 0.7, marginBottom: 12 }}>
                       The Standard Equation

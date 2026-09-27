@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   ogUrl.searchParams.set('location', countryData.name);
   ogUrl.searchParams.set('rate', countryData.rate.toString());
 
-  const title = `${countryData.name} Reverse ${countryData.type} Calculator: ${countryData.rate}% Standard Rate`;
-  const description = `Free ${countryData.name} reverse ${countryData.type.toLowerCase()} calculator. Pre-filled with the ${countryData.rate}% standard rate. Calculate the original ex-${countryData.type.toLowerCase()} net price instantly.`;
+  const title = `${countryData.name} Reverse ${countryData.type} Calculator (${countryData.rate}% Rate)`;
+  const description = `Free ${countryData.name} reverse ${countryData.type.toLowerCase()} calculator pre-filled with the ${countryData.rate}% rate. Calculate ex-tax net prices instantly.`;
 
   return {
     title,
@@ -57,7 +57,7 @@ export default async function CountryVatPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
       { '@type': 'ListItem', position: 2, name: 'VAT Calculator', item: 'https://salestaxreversecalculator.com/vat-calculator' },
       { '@type': 'ListItem', position: 3, name: countryData.name, item: `https://salestaxreversecalculator.com/vat-calculator/${countrySlug}` },
     ],

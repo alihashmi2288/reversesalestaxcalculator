@@ -5,6 +5,7 @@ import AdSlot from '@/components/AdSlot';
 import LinkifiedText from '@/components/LinkifiedText';
 import { getStateBySlug, STATE_TAX_RATES } from '@/data/stateTaxRates';
 import { getStateContentBySlug } from '@/data/stateContent';
+import { getStateRevenueInfo } from '@/data/stateRevenueLinks';
 import StateCalculatorClient from './StateCalculatorClient';
 
 import ConnecticutPage from './ConnecticutPage';
@@ -25,45 +26,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stateData = getStateBySlug(stateSlug);
   if (!stateData) return { title: 'State Not Found' };
 
-  let title = `${stateData.state} Reverse Sales Tax Calculator: ${stateData.rate}% Rate`;
-  let description = `Free ${stateData.state} reverse sales tax calculator. Pre-filled with the ${stateData.rate}% combined average rate. Find original prices before ${stateData.state} sales tax instantly.`;
+  let title = `${stateData.state} Reverse Sales Tax Calculator (${stateData.rate}% Rate)`;
+  let description = `Free ${stateData.state} reverse sales tax calculator pre-filled with the ${stateData.rate}% rate. Find original pre-tax prices from ${stateData.state} receipts instantly.`;
 
   const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
 
   if (stateSlug === 'connecticut') {
-    const ctTitle = 'CT Sales Tax Calculator: Connecticut Rates 2026';
-    const ctDesc = 'Free CT sales tax calculator with all 2026 Connecticut rates. Find your pre-tax price instantly. No signup needed. Covers standard and special rates.';
-    ogUrl.searchParams.set('title', ctTitle);
-    ogUrl.searchParams.set('location', stateData.state);
-    ogUrl.searchParams.set('rate', stateData.rate.toString());
-    return {
-      title: { absolute: ctTitle },
-      description: ctDesc,
-      alternates: { canonical: `https://salestaxreversecalculator.com/us/${stateSlug}` },
-      openGraph: {
-        title: ctTitle,
-        description: ctDesc,
-        url: `https://salestaxreversecalculator.com/us/${stateSlug}`,
-        images: [{ url: ogUrl.toString() }],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: ctTitle,
-        description: ctDesc,
-      },
-    };
+    title = 'Connecticut Reverse Sales Tax Calculator (6.35% Rate)';
+    description = 'Free Connecticut reverse sales tax calculator with 2026 rates. Find your pre-tax price from any receipt instantly. No signup required.';
   } else if (stateData.rate === 0) {
-    title = `${stateData.state} Reverse Sales Tax Calculator: 0% Tax Free`;
+    title = `${stateData.state} Reverse Sales Tax Calculator (0% Tax Free)`;
     description = `Free ${stateData.state} reverse sales tax calculator. ${stateData.state} has no state sales tax (0%). Calculate pre-tax and checkout amounts instantly.`;
   } else if (stateData.avgLocalRate === 0) {
-    title = `${stateData.state} Reverse Sales Tax Calculator: ${stateData.rate}% Flat Rate`;
-    description = `Free ${stateData.state} reverse sales tax calculator. Pre-filled with ${stateData.state}'s flat ${stateData.rate}% statewide rate. No local sales taxes. Find original pre-tax price instantly.`;
+    title = `${stateData.state} Reverse Sales Tax Calculator (${stateData.rate}% Flat Rate)`;
+    description = `Free ${stateData.state} reverse sales tax calculator pre-filled with ${stateData.state}'s flat ${stateData.rate}% rate. Find original pre-tax prices instantly.`;
   } else if (stateSlug === 'new-york') {
-    title = `New York Reverse Sales Tax Calculator: NYC 8.875% and NY ${stateData.rate}%`;
-    description = `Free New York reverse sales tax calculator. Covers NYC at 8.875% and the NY state average of ${stateData.rate}%. Find the original pre-tax price from any receipt instantly. No signup.`;
+    title = `New York Reverse Sales Tax Calculator (8.66% Rate)`;
+    description = `Free New York reverse sales tax calculator. Covers NYC 8.875% and NY state combined 8.66%. Find original pre-tax prices from receipts instantly.`;
   } else if (stateSlug === 'texas') {
-    title = `Texas Reverse Sales Tax Calculator: ${stateData.rate}% Combined Rate`;
-    description = `Free Texas reverse sales tax calculator. Pre-filled with Texas's ${stateData.stateRate}% state rate and ${stateData.rate}% combined average rate. Find the original pre-tax price from any Texas receipt instantly.`;
+    title = `Texas Reverse Sales Tax Calculator (8.24% Rate)`;
+    description = `Free Texas reverse sales tax calculator pre-filled with the 8.24% combined rate. Find original pre-tax prices from any Texas receipt instantly.`;
   }
 
   ogUrl.searchParams.set('title', title);
@@ -98,12 +80,13 @@ export default async function StatePage({ params }: Props) {
   }
 
   const stateContent = getStateContentBySlug(stateSlug);
+  const revenueInfo = getStateRevenueInfo(stateSlug);
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
       { '@type': 'ListItem', position: 2, name: 'US States', item: 'https://salestaxreversecalculator.com/tax-rates' },
       { '@type': 'ListItem', position: 3, name: stateData.state, item: `https://salestaxreversecalculator.com/us/${stateSlug}` },
     ],
@@ -115,7 +98,10 @@ export default async function StatePage({ params }: Props) {
     "name": `${stateData.state} Reverse Sales Tax Calculator`,
     "url": `https://salestaxreversecalculator.com/us/${stateSlug}`,
     "applicationCategory": "FinanceApplication",
-    "operatingSystem": "All",
+    "applicationSubCategory": "Sales Tax Calculation & Accounting",
+    "softwareVersion": "2.4.0",
+    "inLanguage": "en",
+    "operatingSystem": "All modern browsers (Desktop & Mobile)",
     "description": `Free ${stateData.state} reverse sales tax calculator. Find the original pre-tax price from any ${stateData.state} receipt instantly.`,
     "offers": {
       "@type": "Offer",
@@ -166,14 +152,23 @@ export default async function StatePage({ params }: Props) {
 
           <h1
             aria-label={`${stateData.state} Reverse Sales Tax Calculator`}
-            style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
           >
-            {stateData.state} Reverse Sales{' '}
+            {stateData.state} Reverse Sales Tax{' '}
             <br />
             <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Tax Calculator
+              Calculator
             </span>
           </h1>
+
+          {/* E-E-A-T Trust Signals Bar */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--text-secondary)', marginBottom: 20, fontFamily: 'var(--font-mono)' }}>
+            <span>✍️ Written by <strong>Tax Research Team</strong></span>
+            <span>•</span>
+            <span>🔍 Reviewed for <strong>2026 Statutory Rates</strong></span>
+            <span>•</span>
+            <span>🏛️ Source: <strong>{stateData.source}</strong></span>
+          </div>
 
           <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
             Pre-filled with {stateData.state}&apos;s {stateData.rate}% combined average tax rate.
@@ -284,6 +279,45 @@ export default async function StatePage({ params }: Props) {
                       <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}><LinkifiedText text={useCase.description} currentState={stateData.state} /></p>
                     </div>
                   ))}
+                </div>
+              </section>
+            )}
+
+            {/* Official State Department of Revenue & Exemption Guidelines */}
+            {revenueInfo && (
+              <section style={{ maxWidth: 860 }}>
+                <span className="section-label">State Authority & Exemptions</span>
+                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                  Official {stateData.state} Tax Resources & Exemption Rules
+                </h2>
+                <div className="card" style={{ padding: 24, border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    <div>
+                      <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--primary)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        Official State Revenue Department
+                      </h3>
+                      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 12px' }}>
+                        For statutory filing questions, sales tax permits, or audit guidance in {stateData.state}, verify directly with the governing revenue agency:
+                      </p>
+                      <a
+                        href={revenueInfo.agencyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#000', background: 'var(--primary)', padding: '8px 16px', borderRadius: 'var(--radius-sm)', fontWeight: 800, fontSize: 14, textDecoration: 'none', fontFamily: 'var(--font-mono)' }}
+                      >
+                        🏛️ Visit {revenueInfo.agencyName} →
+                      </a>
+                    </div>
+
+                    <div style={{ borderTop: '1px solid var(--border)', paddingTop: 16 }}>
+                      <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                        Local Exemption Rules (Groceries, Medicine & Clothing)
+                      </h3>
+                      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                        {revenueInfo.exemptionNotes}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </section>
             )}
