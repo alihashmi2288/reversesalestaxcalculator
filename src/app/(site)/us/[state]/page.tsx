@@ -9,6 +9,7 @@ import { getStateRevenueInfo } from '@/data/stateRevenueLinks';
 import StateCalculatorClient from './StateCalculatorClient';
 
 import ConnecticutPage from './ConnecticutPage';
+import NewYorkPage from './NewYorkPage';
 
 // Generate static paths for top 10 states + all others
 export async function generateStaticParams() {
@@ -41,8 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title = `${stateData.state} Reverse Sales Tax Calculator (${stateData.rate}% Flat Rate)`;
     description = `Free ${stateData.state} reverse sales tax calculator pre-filled with ${stateData.state}'s flat ${stateData.rate}% rate. Find original pre-tax prices instantly.`;
   } else if (stateSlug === 'new-york') {
-    title = `New York Reverse Sales Tax Calculator (8.66% Rate)`;
-    description = `Free New York reverse sales tax calculator. Covers NYC 8.875% and NY state combined 8.66%. Find original pre-tax prices from receipts instantly.`;
+    title = 'Reverse Sales Tax Calculator for NYC - Easy & Accurate';
+    description = 'Unlock the true cost of your purchases in New York City with our reverse sales tax calculator. Get started now and take control of your spending!';
   } else if (stateSlug === 'texas') {
     title = `Texas Reverse Sales Tax Calculator (8.24% Rate)`;
     description = `Free Texas reverse sales tax calculator pre-filled with the 8.24% combined rate. Find original pre-tax prices from any Texas receipt instantly.`;
@@ -77,6 +78,10 @@ export default async function StatePage({ params }: Props) {
 
   if (stateSlug === 'connecticut') {
     return <ConnecticutPage stateData={stateData} />;
+  }
+
+  if (stateSlug === 'new-york') {
+    return <NewYorkPage stateData={stateData} />;
   }
 
   const stateContent = getStateContentBySlug(stateSlug);

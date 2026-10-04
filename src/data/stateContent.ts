@@ -1959,13 +1959,25 @@ export const STATE_CONTENT: Record<string, StateContent> = {
   "new-york": {
     "state": "New York",
     "aboutText": [
-      "The base state sales tax rate in New York currently stands at 4.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes. When combined, the average sales tax rate across New York reaches approximately 8.66%, making it essential to know exactly how much you are paying in taxes for every transaction. New York has one of the most complex rate structures in the US, especially between NYC at 8.875% and upstate counties — use the [reverse tax calculator](/) to enter your exact local rate and get an accurate pre-tax breakdown.",
-      "When you purchase goods like clothing, electronics, or furniture anywhere in New York, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you are looking at an item listed at $1,000, you will likely pay over $1086.60 at the register depending on your exact local city rate. Our dedicated reverse sales tax calculator allows New York shoppers and business owners to work backward from a final receipt total to uncover the exact pre-tax price. This is incredibly beneficial for detailed expense reporting, strict budgeting, and verifying receipt accuracy.",
-      "It's also highly important to note that New York has specific rules regarding exemptions. While general retail items face the full 8.66% average tax, certain necessities like unprepared groceries or prescription medications may be taxed differently or exempt entirely. By mastering New York's unique tax structure and regularly using our reverse calculator, you can effectively manage your personal finances and confidently navigate the complexities of the state's taxation system."
+      "The base state sales tax rate in New York currently stands at 4.00%. However, understanding the true cost of items requires looking beyond just the state minimum. Local municipalities, cities, and counties frequently levy their own additional district taxes, and downstate jurisdictions levy a 0.375% Metropolitan Commuter Transportation District (MCTD) surcharge. When combined, the average sales tax rate across New York reaches approximately 8.66%, with New York City at 8.875% across all five boroughs. Use our dedicated [reverse tax calculator](/) to enter your exact local rate and get an accurate pre-tax breakdown.",
+      "When you purchase taxable goods like clothing over $110, electronics, or furniture anywhere in New York, the retailer automatically calculates and adds this combined tax to your checkout total. For instance, if you purchase an item listed at $1,000 in New York City, you will pay $1,088.75 at the register. Our dedicated New York sales tax calculator allows shoppers and business owners to either add tax or work backward from a final receipt total to uncover the exact pre-tax price. This is essential for expense reporting, strict budgeting, and verifying receipt accuracy.",
+      "It's also highly important to note that New York provides specific statutory exemptions. Unprepared groceries and prescription medications are exempt statewide. Furthermore, articles of clothing and footwear under $110 per item are exempt from both state and NYC local sales taxes (0% tax in NYC). By mastering New York's destination-based tax structure and regularly using our calculator, you can effectively manage your finances and navigate the state's tax system with confidence."
     ],
     "cities": [
       {
         "name": "New York City",
+        "rate": 8.875
+      },
+      {
+        "name": "Suffolk County",
+        "rate": 8.75
+      },
+      {
+        "name": "Nassau County",
+        "rate": 8.625
+      },
+      {
+        "name": "Yonkers",
         "rate": 8.875
       },
       {
@@ -1975,24 +1987,20 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       {
         "name": "Rochester",
         "rate": 8
-      },
-      {
-        "name": "Yonkers",
-        "rate": 8.875
       }
     ],
     "useCases": [
       {
         "title": "Decoding Business Receipts in New York",
-        "description": "For freelancers and small business owners operating in New York, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden 8.66% average tax, allowing you to accurately record your deductible business expenses."
+        "description": "For freelancers and small business owners operating in New York, separating the true cost of an item from the sales tax paid is critical for accurate bookkeeping. If you lost an itemized receipt but have the bank statement showing a final charge, our calculator instantly extracts the hidden tax, allowing you to accurately record your deductible business expenses."
       },
       {
         "title": "Budgeting for Major Purchases",
-        "description": "Planning to buy a new car or major household appliance in New York? You must account for both the 4.00% state tax and any local district additions. Our tool allows you to input your absolute maximum budget and work backward. For instance, we will tell you the maximum sticker price you can afford before New York taxes push you over your limit."
+        "description": "Planning to buy a new car or major household appliance in New York? You must account for both the 4.00% state tax, local district additions, and county of vehicle registration rules. Our tool allows you to input your maximum budget and work backward to determine your target sticker price."
       },
       {
         "title": "Splitting Bills and Retail Tracking",
-        "description": "When splitting the cost of taxable goods with friends or colleagues in New York, it's incredibly easy to get confused by the final post-tax amount. Our reverse calculator helps you determine the exact pre-tax cost of individual items from a consolidated receipt, ensuring everyone pays their fair share."
+        "description": "When splitting the cost of taxable goods or restaurant meals in New York (taxed at 8.875% in NYC), it's easy to get confused by the final post-tax amount. Our calculator helps you determine the exact pre-tax cost of individual items from a consolidated receipt, ensuring everyone pays their fair share."
       }
     ],
     "faqs": [
@@ -2002,11 +2010,11 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "How do I calculate the pre-tax price from a New York City receipt?",
-        "answer": "For New York City purchases, divide your receipt total by 1.08875. Example: $108.875 / 1.08875 = $100.00 pre-tax price. The NYC combined tax paid was $8.875 on a $100 purchase. For New York State outside NYC, use the applicable county rate or the state average of 8.52% (divisor: 1.0852)."
+        "answer": "For New York City purchases, divide your receipt total by 1.08875. Example: $217.75 / 1.08875 = $200.00 pre-tax price. The NYC combined tax paid was $17.75. For New York State outside NYC, use the applicable county rate (such as Suffolk County at 8.75% or Nassau County at 8.625%) or the state average."
       },
       {
         "question": "Is clothing exempt from sales tax in New York?",
-        "answer": "New York State exempts clothing and footwear items under $110 per item from state sales tax. However, New York City does not follow this exemption — NYC charges its 4.5% local tax on all clothing regardless of price. Items $110 or more are fully taxable at the combined rate statewide."
+        "answer": "New York State exempts clothing and footwear items priced under $110 per individual item from state sales tax. New York City has also elected this exemption, making clothing under $110 completely sales tax-free (0%) in all five boroughs. Items priced at $110 or more are fully taxable at the combined rate statewide."
       },
       {
         "question": "Are groceries taxed in New York?",
@@ -2014,11 +2022,11 @@ export const STATE_CONTENT: Record<string, StateContent> = {
       },
       {
         "question": "What is the sales tax rate outside New York City?",
-        "answer": "Outside New York City, the combined rate varies by county. The NY State base rate is 4%. Counties add their own rates: Nassau County is 8.625%, Suffolk County is 8.625%, and upstate counties like Albany are 8%. The statewide combined average is approximately 8.52%."
+        "answer": "Outside New York City, the combined rate varies by county. The NY State base rate is 4%. Counties add their own rates: Nassau County is 8.625%, Suffolk County is 8.750%, and upstate counties range from 7.00% to 8.75%."
       },
       {
         "question": "Is there a separate NYC reverse sales tax calculator?",
-        "answer": "Our New York state page covers both NYC (8.875%) and upstate rates. For NYC specifically, use 8.875% as your rate input, which accounts for the state 4% + city 4.5% + MCTD 0.375% surcharge. Always use the NYC-specific rate for purchases made in Manhattan, Brooklyn, Queens, The Bronx, or Staten Island — not the state average of 8.52%."
+        "answer": "Our New York sales tax calculator covers both NYC (8.875%) and all county variations with quick one-click presets. For NYC purchases across Manhattan, Brooklyn, Queens, The Bronx, or Staten Island, simply select the NYC 8.875% preset."
       }
     ]
   },
