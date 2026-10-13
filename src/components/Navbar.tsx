@@ -43,8 +43,11 @@ export default function Navbar() {
             </svg>
           </div>
           <div>
-            <div style={{ fontWeight: 900, fontSize: 20, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+            <div style={{ fontWeight: 900, fontSize: 19, color: 'var(--text-primary)', lineHeight: 1.1, fontFamily: 'var(--font-sans)', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
               PreTax<span style={{ color: 'var(--primary)' }}>Price</span>
+            </div>
+            <div style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+              Reverse Tax Calc
             </div>
           </div>
         </Link>
@@ -52,9 +55,9 @@ export default function Navbar() {
         {/* Desktop Links */}
         <div style={{ display: 'flex', gap: 28, alignItems: 'center' }} className="hidden-mobile">
           <Link href="/#calculator" className="nav-link">Calculator</Link>
-          <Link href="/how-it-works" className="nav-link">How It Works</Link>
+          <Link href="/#how-it-works" className="nav-link">How It Works</Link>
           <Link href="/tax-rates" className="nav-link">Tax Rates</Link>
-          <Link href="/faq" className="nav-link">FAQ</Link>
+          <Link href="/#faq" className="nav-link">FAQ</Link>
           <Link href="/vat-calculator" className="nav-link">VAT</Link>
           <Link href="/canada" className="nav-link">Canada</Link>
           <Link href="/about" className="nav-link">About</Link>
@@ -127,9 +130,9 @@ export default function Navbar() {
         >
           {[
             { href: '/#calculator', label: 'Calculator' },
-            { href: '/how-it-works', label: 'How It Works' },
+            { href: '/#how-it-works', label: 'How It Works' },
             { href: '/tax-rates', label: 'Tax Rates' },
-            { href: '/faq', label: 'FAQ' },
+            { href: '/#faq', label: 'FAQ' },
             { href: '/vat-calculator', label: 'VAT Calculator' },
             { href: '/canada', label: 'Canada Calculator' },
             { href: '/about', label: 'About' },

@@ -20,11 +20,11 @@ export default function Footer() {
               </div>
               <div>
                 <div style={{ fontWeight: 900, fontSize: 18, color: 'var(--text-primary)', fontFamily: 'var(--font-sans)', letterSpacing: '-0.02em', textTransform: 'uppercase' }}>PreTax<span style={{ color: 'var(--primary)' }}>Price</span></div>
-                <div style={{ fontSize: 12, color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', marginTop: 1 }}>Free · Secure · Global</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', marginTop: 1 }}>Reverse Sales Tax Calculator</div>
               </div>
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.7, color: 'var(--text-secondary)' }}>
-              Calculate the original pre-tax price from any total amount. Trusted by consumers, accountants, and business owners worldwide.
+              Calculate the original pre-tax price from any sales tax-inclusive total amount. Trusted by consumers, accountants, and business owners worldwide.
             </p>
           </div>
 
@@ -53,8 +53,8 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { href: '/tax-rates', label: 'US State Tax Rates' },
-                { href: '/how-it-works', label: 'How It Works' },
-                { href: '/faq', label: 'FAQ' },
+                { href: '/#how-it-works', label: 'How It Works' },
+                { href: '/#faq', label: 'FAQ' },
                 { href: '/about', label: 'About Us' },
                 { href: '/contact', label: 'Contact' },
               ].map(({ href, label }) => (

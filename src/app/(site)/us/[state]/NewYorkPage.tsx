@@ -109,7 +109,8 @@ export default function NewYorkPage({ stateData }: Props) {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'PreTaxPrice',
+      name: 'Reverse Sales Tax Calculator',
+      alternateName: 'PreTaxPrice',
       url: 'https://salestaxreversecalculator.com',
     },
     screenshot: 'https://salestaxreversecalculator.com/og-image.png',
@@ -166,9 +167,9 @@ export default function NewYorkPage({ stateData }: Props) {
               letterSpacing: '-0.02em',
             }}
           >
-            New York Sales Tax{' '}
+            New York Reverse Sales Tax{' '}
             <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator
+              Calculator (NYC 8.875%)
             </span>
           </h1>
 

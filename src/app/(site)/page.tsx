@@ -40,12 +40,14 @@ export default function HomePage() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "PreTaxPrice: Reverse Sales Tax Calculator",
+    "name": "Reverse Sales Tax Calculator by PreTaxPrice",
+    "alternateName": "PreTaxPrice",
     "url": SITE_URL,
     "description": "Free reverse sales tax calculator. Find the original pre-tax price from any receipt total. Works for all 50 US states, Canada GST/HST, and EU VAT.",
     "publisher": {
       "@type": "Organization",
-      "name": "PreTaxPrice",
+      "name": "Reverse Sales Tax Calculator",
+      "alternateName": "PreTaxPrice",
       "url": SITE_URL,
       "logo": {
         "@type": "ImageObject",
@@ -66,6 +68,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Reverse Sales Tax Calculator",
+    "alternateName": "PreTaxPrice",
     "url": SITE_URL,
     "applicationCategory": "FinanceApplication",
     "applicationSubCategory": "Sales Tax Calculation & Accounting",
@@ -91,9 +94,67 @@ export default function HomePage() {
     "screenshot": `${SITE_URL}/og-image.png`,
     "publisher": {
       "@type": "Organization",
-      "name": "PreTaxPrice",
+      "name": "Reverse Sales Tax Calculator",
+      "alternateName": "PreTaxPrice",
       "url": SITE_URL
+    },
+    "reviewedBy": {
+      "@type": "Person",
+      "name": "Tax Compliance & Accounting Review Team",
+      "jobTitle": "Certified Public Accountant (CPA) / Tax Research Specialist",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Reverse Sales Tax Calculator",
+        "url": SITE_URL
+      }
     }
+  };
+
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Reverse Sales Tax (Back Out Tax from Total)",
+    "description": "Step-by-step mathematical guide to reverse-calculate the pre-tax price from any sales-tax inclusive receipt or invoice total.",
+    "image": `${SITE_URL}/images/reverse-sales-tax-formula-diagram.jpg`,
+    "totalTime": "PT1M",
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Reverse Sales Tax Calculator"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Identify Total Price and Tax Rate",
+        "text": "Locate the gross receipt total paid and find the sales tax rate applicable to your purchase (e.g., $107.50 total at a 7.5% combined rate).",
+        "url": `${SITE_URL}/#calculator`
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Convert Tax Rate to Decimal and Add 1",
+        "text": "Divide the tax rate percentage by 100 to convert it to a decimal, then add 1. For example, 7.5% becomes 0.075, and adding 1 gives a divisor of 1.075.",
+        "url": `${SITE_URL}/#formula`
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Divide Total Price by Tax Divisor",
+        "text": "Divide the total receipt amount by the divisor: $107.50 / 1.075 = $100.00 original pre-tax price. The tax paid is $107.50 - $100.00 = $7.50.",
+        "url": `${SITE_URL}/#calculator`
+      }
+    ]
+  };
+
+  const reviewerPersonSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tax Compliance & Accounting Review Team",
+    "jobTitle": "Certified Public Accountant (CPA) / Tax Research Specialist",
+    "description": "Financial compliance team verifying statutory 2026 US state, local, Canadian GST/HST, and European VAT rates.",
+    "url": `${SITE_URL}/about`
   };
 
   const faqSchema = {
@@ -168,6 +229,14 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewerPersonSchema) }}
       />
       <script
         type="application/ld+json"
@@ -363,6 +432,11 @@ export default function HomePage() {
           <AdSlot slot="results-rectangle" size="rectangle" />
         </div>
 
+        {/* ── How It Works Step-by-Step Section ── */}
+        <div id="how-it-works" style={{ scrollMarginTop: 100, marginBottom: 56 }}>
+          <HowItWorks />
+        </div>
+
         {/* Centered Educational Content Layout */}
         <div className="educational-content-layout">
               
@@ -394,7 +468,7 @@ export default function HomePage() {
               </section>
 
               {/* SECTION: The Reverse Sales Tax Formula */}
-              <section>
+              <section id="formula" style={{ scrollMarginTop: 100 }}>
                 <span className="section-label">Math</span>
                 <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
                   The Reverse Sales Tax Formula
@@ -1223,6 +1297,12 @@ export default function HomePage() {
           </div>
       </div>
 
+      {/* ── FAQ Section ── */}
+      <div id="faq" style={{ scrollMarginTop: 100, padding: '48px 0 64px' }}>
+        <div className="container-main">
+          <FAQSection />
+        </div>
+      </div>
 
       {/* ── Related Tools ─────────────────────────────────────── */}
       <div style={{ background: 'var(--card-bg)', borderTop: '2px solid var(--border)', borderBottom: '2px solid var(--border)', padding: '64px 0' }}>

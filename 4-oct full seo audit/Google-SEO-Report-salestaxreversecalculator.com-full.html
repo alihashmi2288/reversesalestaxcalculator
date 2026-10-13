@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page {
+    size: A4;
+    margin: 22mm 18mm 25mm 18mm;
+    @bottom-center {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 9pt;
+      color: #6b7280;
+      font-family: 'DejaVu Serif', 'Times New Roman', Georgia, serif;
+    }
+    @bottom-left {
+      content: "Confidential";
+      font-size: 7pt;
+      color: #d6d3cc;
+      font-family: 'DejaVu Serif', 'Times New Roman', Georgia, serif;
+    }
+    @bottom-right {
+      content: "salestaxreversecalculator.com Google SEO Report";
+      font-size: 8pt;
+      color: #cbd5e1;
+      font-family: 'DejaVu Serif', 'Times New Roman', Georgia, serif;
+    }
+  }
+
+  @page :first {
+    margin: 0;
+    @bottom-left { content: none; }
+    @bottom-center { content: none; }
+    @bottom-right { content: none; }
+  }
+
+  @page toc {
+    @bottom-center {
+      content: counter(page);
+      font-size: 9pt;
+      color: #6b7280;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Times New Roman', 'DejaVu Serif', Georgia, serif;
+    font-size: 10pt;
+    line-height: 1.55;
+    color: #1e293b;
+    background: white;
+  }
+
+  /* ─── Title Page (Clean White) ─── */
+  .title-page {
+    page: first;
+    width: 210mm;
+    height: 297mm;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #1a1a2e;
+    position: relative;
+    padding: 50mm 30mm 40mm 30mm;
+    border-top: 6mm solid #1e3a5f;
+  }
+
+  .title-page .badge {
+    background: #f7f6f3;
+    border: 1px solid #d6d3cc;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 9pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15mm;
+    color: #1e3a5f;
+  }
+
+  .title-page h1 {
+    font-size: 28pt;
+    font-weight: bold;
+    margin-bottom: 5mm;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    color: #1a1a2e;
+  }
+
+  .title-page .subtitle {
+    font-size: 13pt;
+    color: #6b7280;
+    margin-bottom: 12mm;
+    font-weight: 300;
+  }
+
+  .title-page .url {
+    font-size: 12pt;
+    color: #1e3a5f;
+    margin-bottom: 15mm;
+    padding: 4mm 8mm;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+    background: #faf9f7;
+  }
+
+  .title-page .score-box {
+    background: #faf9f7;
+    border: 2px solid #d6d3cc;
+    border-radius: 12px;
+    padding: 6mm 12mm;
+    margin-bottom: 15mm;
+  }
+
+  .title-page .score-number {
+    font-size: 42pt;
+    font-weight: bold;
+    color: #1e3a5f;
+    line-height: 1;
+  }
+
+  .title-page .score-label {
+    font-size: 10pt;
+    color: #6b7280;
+    margin-top: 2mm;
+  }
+
+  .title-page .meta {
+    font-size: 9pt;
+    color: #6b7280;
+    margin-top: 8mm;
+    padding-top: 5mm;
+    border-top: 1px solid #d6d3cc;
+  }
+
+  .title-page .meta span {
+    margin: 0 8px;
+  }
+
+  /* ─── Table of Contents ─── */
+  .toc-page {
+    page: toc;
+    page-break-before: always;
+  }
+
+  .toc-page h2 {
+    font-size: 18pt;
+    color: #1e3a5f;
+    margin-bottom: 8mm;
+    padding-bottom: 3mm;
+    border-bottom: 2px solid #1e3a5f;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toc-list li {
+    padding: 2mm 0;
+    border-bottom: 1px solid #f1f5f9;
+    overflow: hidden;
+  }
+
+  .toc-list li.toc-section {
+    font-weight: bold;
+    font-size: 11pt;
+    padding-top: 4mm;
+    color: #0f172a;
+  }
+
+  .toc-list li.toc-sub {
+    padding-left: 8mm;
+    font-size: 9.5pt;
+    color: #475569;
+  }
+
+  .toc-score {
+    display: inline-block;
+    float: right;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 9pt;
+    font-weight: bold;
+    color: white;
+  }
+
+  .score-good { background: #2d6a4f; }
+  .score-warn { background: #d4740e; }
+  .score-bad { background: #c53030; }
+
+  /* ─── Section Styles ─── */
+  div.section {
+    page-break-before: always;
+  }
+
+  .section-header {
+    background: #faf9f7;
+    border-left: 4px solid #1e3a5f;
+    padding: 5mm 6mm;
+    margin-bottom: 6mm;
+    page-break-after: avoid;
+  }
+
+  .section-header h2 {
+    font-size: 16pt;
+    color: #0f172a;
+    margin-bottom: 1mm;
+  }
+
+  .section-header .section-score {
+    font-size: 12pt;
+    font-weight: bold;
+    float: right;
+    margin-top: -6mm;
+  }
+
+  h3 {
+    font-size: 12pt;
+    color: #1e3a5f;
+    margin-top: 6mm;
+    margin-bottom: 3mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid #d6d3cc;
+    page-break-after: avoid;
+  }
+
+  h4 {
+    font-size: 10.5pt;
+    color: #334155;
+    margin-top: 4mm;
+    margin-bottom: 2mm;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin-bottom: 3mm;
+    color: #334155;
+  }
+
+  .highlight {
+    background: #fef3c7;
+    border-left: 3px solid #d4740e;
+    padding: 3mm 4mm;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .critical-box {
+    background: #fef2f2;
+    border-left: 3px solid #c53030;
+    padding: 3mm 4mm;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .success-box {
+    background: #f0fdf4;
+    border-left: 3px solid #2d6a4f;
+    padding: 3mm 4mm;
+    margin: 4mm 0;
+    font-size: 9.5pt;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  /* ─── Tables ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4mm 0 6mm 0;
+    font-size: 9pt;
+  }
+
+  thead th {
+    background: #f7f6f3;
+    color: #0f172a;
+    font-weight: bold;
+    padding: 3mm 4mm;
+    text-align: left;
+    border-bottom: 2px solid #d6d3cc;
+    font-size: 9pt;
+  }
+
+  tbody td {
+    padding: 2.5mm 3mm;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #fdfcfa;
+  }
+
+  .status-pass {
+    color: #2d6a4f;
+    font-weight: bold;
+  }
+
+  .status-fail {
+    color: #c53030;
+    font-weight: bold;
+  }
+
+  .status-warn {
+    color: #d4740e;
+    font-weight: bold;
+  }
+
+  .status-partial {
+    color: #4a5568;
+    font-weight: bold;
+  }
+
+  /* ─── Charts ─── */
+  .chart-container {
+    text-align: center;
+    margin: 4mm 0;
+  }
+
+  .chart-container img {
+    max-width: 100%;
+    max-height: 120mm;
+    height: auto;
+  }
+
+  .chart-caption {
+    font-size: 8.5pt;
+    color: #6b7280;
+    font-style: italic;
+    margin-top: 2mm;
+    text-align: center;
+  }
+
+  .chart-half {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    text-align: center;
+    margin: 2mm 0;
+  }
+
+  .chart-half img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ─── Two column layout ─── */
+  .two-col {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 3mm 0;
+  }
+
+  .two-col .col {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 2mm;
+  }
+
+  .four-col {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 3mm 0;
+  }
+
+  .four-col .col {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 1.5mm;
+  }
+
+  /* ─── Metric Cards ─── */
+  .metric-card {
+    background: #faf9f7;
+    border: 1px solid #d6d3cc;
+    border-radius: 6px;
+    padding: 2.5mm 3mm;
+    text-align: center;
+    margin: 2mm 0;
+  }
+
+  .metric-card .value {
+    font-size: 14pt;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .metric-card .label {
+    font-size: 7.5pt;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1mm;
+  }
+
+  /* ─── Action Plan ─── */
+  .action-item {
+    background: #faf9f7;
+    border-radius: 4px;
+    padding: 3mm 4mm;
+    margin: 3mm 0;
+    border-left: 3px solid #cbd5e1;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .action-item.critical {
+    border-left-color: #c53030;
+    background: #fdf2f2;
+  }
+
+  .action-item.high {
+    border-left-color: #d4740e;
+    background: #fdf8ef;
+  }
+
+  .action-item.medium {
+    border-left-color: #1e3a5f;
+    background: #f0f4f8;
+  }
+
+  .action-item.low {
+    border-left-color: #94a3b8;
+  }
+
+  .action-item h4 {
+    margin-top: 0;
+    margin-bottom: 1.5mm;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .action-item .effort {
+    font-size: 8.5pt;
+    color: #64748b;
+    float: right;
+  }
+
+  .priority-tag {
+    display: inline-block;
+    padding: 0.5mm 3mm;
+    border-radius: 3px;
+    font-size: 8pt;
+    font-weight: bold;
+    color: white;
+    margin-right: 2mm;
+    vertical-align: middle;
+  }
+
+  .priority-critical { background: #c53030; }
+  .priority-high { background: #d4740e; }
+  .priority-medium { background: #1e3a5f; }
+  .priority-low { background: #94a3b8; }
+
+  /* ─── Code blocks ─── */
+  .code-block {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 3mm 4mm;
+    border-radius: 4px;
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 8pt;
+    line-height: 1.6;
+    margin: 3mm 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  /* ─── Divider ─── */
+  .divider {
+    border: none;
+    border-top: 1px solid #d6d3cc;
+    margin: 5mm 0;
+  }
+
+  /* ─── Roadmap ─── */
+  .roadmap-phase {
+    background: #faf9f7;
+    border-radius: 6px;
+    padding: 4mm 5mm;
+    margin: 4mm 0;
+    border: 1px solid #d6d3cc;
+    /* allow page breaks to prevent white gaps */
+  }
+
+  .roadmap-phase h4 {
+    margin-top: 0;
+    border-bottom: none;
+    color: #1e3a5f;
+  }
+
+  .roadmap-phase ul {
+    margin: 2mm 0 0 5mm;
+    padding: 0;
+  }
+
+  .roadmap-phase li {
+    margin-bottom: 1.5mm;
+    font-size: 9.5pt;
+    color: #334155;
+  }
+
+  /* ─── Lists ─── */
+  ul {
+    margin-left: 5mm;
+    margin-bottom: 3mm;
+  }
+
+  li {
+    margin-bottom: 1.5mm;
+  }
+
+  /* ─── Data freshness ─── */
+  .data-freshness {
+    font-size: 8pt;
+    color: #6b7280;
+    font-style: italic;
+    margin-top: 4mm;
+    padding-top: 2mm;
+    border-top: 1px solid #d6d3cc;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ======================================================= TITLE PAGE === -->
+<div class="title-page">
+  <div class="badge">Full SEO Audit Report</div>
+  <h1>salestaxreversecalculator.com</h1>
+  <div class="subtitle">Prepared by Claude SEO</div>
+  <div class="score-box">
+    <div class="score-number">82<span style="font-size: 20pt; color: #94a3b8;">/100</span></div>
+    <div class="score-label">SEO Health Score</div>
+  </div>
+  <div class="meta">
+    <span>October 04, 2026</span>
+    <span>Full Audit</span>
+  </div>
+</div>
+
+
+<!-- ======================================================= TABLE OF CONTENTS === -->
+<div class="toc-page">
+  <h2>Table of Contents</h2>
+  <ul class="toc-list">
+    <li class="toc-section"><span>1. Executive Summary</span></li>
+    <li class="toc-sub"><span>Key Metrics, Critical Issues &amp; Quick Wins</span></li>
+    <li class="toc-section"><span>2. Audit Categories</span></li>
+    <li class="toc-sub"><span>What Works</span></li>
+    <li class="toc-sub"><span>Findings by Severity</span></li>
+    <li class="toc-section"><span>3. Action Plan</span></li>
+    <li class="toc-sub"><span>Phased Roadmap</span></li>
+    <li class="toc-section"><span>4. Data Sources &amp; Methodology</span></li>
+  </ul>
+</div>
+
+
+<!-- ======================================================= 1. EXECUTIVE SUMMARY === -->
+<div class="section">
+  <div class="section-header">
+    <h2>1. Executive Summary</h2>
+  </div>
+
+  <p>This report presents a comprehensive SEO audit of <strong>salestaxreversecalculator.com</strong> for a <strong>Financial Utility / Programmatic Web Application (US 50 States, Canada, VAT)</strong> site, generated on October 04, 2026. Findings combine technical, content, schema, performance, visual, and search-readiness evidence as available.</p>
+
+  <div class="two-col">
+    <div class="col">
+      <div class="metric-card">
+        <div class="value" style="color: #d4740e;">82/100</div>
+        <div class="label">SEO Health Score</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="critical-box">
+    <strong>Critical Issues Found:</strong>
+    <ol>
+      <li>Algorithmic Scaled Content devaluation: 49 state pages contain ~910 words of identical boilerplate (&#x27;Decoding Business Receipts in [State]...&#x27;).</li>
+      <li>Core keyword dropped from Position 4.6 to 45.8 around Sept 1-5 corresponding with Google Search Generative AI rollout and spam policy updates.</li>
+      <li>Internal cannibalization between Homepage (/), /how-it-works (391 words thin), and /faq (2,576 words) splitting ranking equity.</li>
+      <li>Brand &amp; Entity Identity mismatch: Domain is salestaxreversecalculator.com, but UI/Schema brand is &#x27;PreTaxPrice&#x27;, confusing Google Knowledge Graph.</li>
+      <li>Zero external backlink authority (DA ~ 0, not yet cataloged in Common Crawl), while competitors have 100+ referring domains.</li>
+    </ol>
+  </div>
+
+  <div class="success-box">
+    <strong>Quick Wins:</strong>
+    <ol>
+      <li>Consolidate /how-it-works and /faq into the Homepage via 301 redirects to eliminate cannibalization and funnel 100% equity to the #1 ranking target.</li>
+      <li>Add HowTo schema (Step 1: Enter total, Step 2: Input tax rate, Step 3: Compute original price) to win rich snippets.</li>
+      <li>Align brand signals: Unify &#x27;Reverse Sales Tax Calculator&#x27; and &#x27;PreTaxPrice&#x27; in meta title, OpenGraph, and Organization schema.</li>
+      <li>Fix New York H1 tag from &#x27;New York Sales Tax Calculator&#x27; to &#x27;New York Reverse Sales Tax Calculator&#x27;.</li>
+      <li>Compress homepage formula diagram from 630 KB to WebP (~60 KB) and add state rate visual graphics to top 10 states.</li>
+    </ol>
+  </div>
+
+</div>
+
+<!-- ======================================================= 2. AUDIT CATEGORIES === -->
+<div class="section">
+  <div class="section-header">
+    <h2>2. Audit Categories</h2>
+  </div>
+
+  <h3>2.1 Technical SEO</h3>
+  <p><strong>Score:</strong> <span class="status-pass">88/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>100% crawlable raw HTML (7,673 words SSR without client JS requirement)</li>
+    <li>Valid XML sitemap with 81 URLs submitting cleanly in Google Search Console</li>
+    <li>Strict HSTS (preload, max-age 63072000), nosniff, and SAMEORIGIN security headers</li>
+    <li>Edge TTFB of 46ms via Vercel globally distributed CDN</li>
+    <li>Perfect 100/100 Lighthouse Best Practices and SEO scores</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Sitemap &amp; Canonical Trailing Slash Inconsistency <span class="status-warn">Medium</span></h4>
+    <p>sitemap.xml lists URLs without trailing slashes (e.g. https://salestaxreversecalculator.com), whereas the server canonical URL matches with slash.</p>
+    <p><strong>Recommendation:</strong> Standardize all URLs in sitemap.xml to match the exact canonical URLs.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>2-Hop Redirect Chain on HTTP WWW Subdomain <span class="status-warn">Low</span></h4>
+    <p>http://www.salestaxreversecalculator.com redirects to https://www. (308) then to https://root (301).</p>
+    <p><strong>Recommendation:</strong> Add a single edge routing rule in next.config.js or Vercel config to redirect directly to https://salestaxreversecalculator.com/.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.2 Content Quality &amp; Scaled Content</h3>
+  <p><strong>Score:</strong> <span class="status-warn">65/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Homepage contains 6,687 words of thorough educational, formulaic, and practical tax guidance</li>
+    <li>New York state page has been upgraded to 2,408 words with deep NYC local tax nuances</li>
+    <li>Clear step-by-step mathematical proofs and receipt decoding instructions</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Scaled Content Boilerplate Across 49 State Pages (Primary Drop Cause) <span class="status-warn">Critical</span></h4>
+    <p>49 out of 50 state pages have ~910 words that follow a word-for-word template where only the state name is substituted. This programmatic footprint caused Google to apply a domain-level quality suppression in early September 2026.</p>
+    <p><strong>Recommendation:</strong> Follow the NYC rewrite blueprint across the top 10 highest-traffic states (CA, TX, FL, PA, IL, OH, GA, NC, MI, NJ), adding state-specific nexus rules, local county ranges, and unique receipt examples.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Keyword Cannibalization Across /, /how-it-works, and /faq <span class="status-warn">High</span></h4>
+    <p>GSC reveals Google cycling rankings between /, /how-it-works, /faq, and /tax-rates for core queries like &#x27;back out tax calculator&#x27;. /how-it-works is thin content (391 words).</p>
+    <p><strong>Recommendation:</strong> 301 redirect /how-it-works to /#how-it-works on the homepage, and canonicalize or 301 redirect /faq to /#faq.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Branding &amp; Entity Dilution (PreTaxPrice vs Reverse Sales Tax Calculator) <span class="status-warn">Medium</span></h4>
+    <p>The domain is salestaxreversecalculator.com, but the UI header and Organization schema declare &#x27;PreTaxPrice&#x27;. This fragments entity authority.</p>
+    <p><strong>Recommendation:</strong> Unify the brand identity: &#x27;Reverse Sales Tax Calculator by PreTaxPrice&#x27; in schema, OpenGraph, and footer.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.3 On-Page SEO</h3>
+  <p><strong>Score:</strong> <span class="status-pass">82/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>H1 spacing bug successfully resolved on homepage and state pages</li>
+    <li>Title tags concise and within the 60-character budget</li>
+    <li>Primary calculator tool is visible immediately in the initial viewport</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>New York H1 Intent Mismatch <span class="status-warn">Medium</span></h4>
+    <p>The New York page H1 is &#x27;New York Sales Tax Calculator&#x27; rather than &#x27;New York Reverse Sales Tax Calculator&#x27;, dropping the core reverse intent keyword.</p>
+    <p><strong>Recommendation:</strong> Update H1 to &#x27;New York Reverse Sales Tax Calculator (NYC 8.875%)&#x27;.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Broken Encoding Character in Privacy Policy Meta Description <span class="status-warn">Low</span></h4>
+    <p>The Privacy Policy meta description has an unescaped replacement character: &#x27;We collect no personal data  all calculations...&#x27;.</p>
+    <p><strong>Recommendation:</strong> Replace with a standard ASCII hyphen or clean UTF-8 em-dash.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.4 Schema &amp; Structured Data</h3>
+  <p><strong>Score:</strong> <span class="status-pass">92/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Multi-schema graph with WebApplication (FinanceApplication), WebSite, Organization, FAQPage, and ImageObject</li>
+    <li>Fully valid JSON-LD parsing with zero syntax errors</li>
+    <li>Zero-dollar Offer schema accurately signaling free financial utility</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Missing HowTo Structured Data <span class="status-warn">High</span></h4>
+    <p>Competitors like reversesalestaxcalc.org utilize HowTo schema for the reverse calculation steps to capture Google step-by-step rich snippets.</p>
+    <p><strong>Recommendation:</strong> Add a HowTo schema block detailing the 3-step calculation process.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Missing Financial Specialist / CPA Reviewer Entity (E-E-A-T) <span class="status-warn">Medium</span></h4>
+    <p>Financial calculation pages fall under Google&#x27;s YMYL (Your Money Your Life) guidelines. No Person / ReviewedBy schema exists.</p>
+    <p><strong>Recommendation:</strong> Add an author / reviewedBy schema linking to a verified financial editor or tax professional profile.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.5 Performance &amp; Core Web Vitals</h3>
+  <p><strong>Score:</strong> <span class="status-pass">96/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Lighthouse Mobile &amp; Desktop: 100/100 Accessibility, 100/100 Best Practices, 100/100 SEO</li>
+    <li>TTFB: 46ms, FCP: 928ms, Total Load: 949ms</li>
+    <li>Zero Cumulative Layout Shift (CLS = 0.00)</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Uncompressed JPEG Formula Diagram <span class="status-warn">Low</span></h4>
+    <p>reverse-sales-tax-formula-diagram.jpg is 630 KB. Serving this as WebP with srcset reduces transfer size to under 60 KB.</p>
+    <p><strong>Recommendation:</strong> Convert to WebP format and specify width/height attributes to preserve LCP.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.6 AI Search Readiness &amp; GEO</h3>
+  <p><strong>Score:</strong> <span class="status-pass">90/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>llms.txt and llms-full.txt implemented and serving valid markdown</li>
+    <li>All major AI search bots explicitly permitted in robots.txt (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot)</li>
+    <li>Zero-JS fallback text enables seamless AI agent parsing</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Missing Accept: text/markdown Content Negotiation <span class="status-warn">Low</span></h4>
+    <p>The site does not negotiate text/markdown for AI agent user-agents requesting markdown directly.</p>
+    <p><strong>Recommendation:</strong> Configure Next.js middleware to return llms-full.txt when Accept header includes text/markdown.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.7 Images &amp; Visual SEO</h3>
+  <p><strong>Score:</strong> <span class="status-warn">70/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Formula diagram infographic added to homepage with descriptive alt text and schema</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Zero Visual Assets on State Pages <span class="status-warn">Medium</span></h4>
+    <p>All 50 state pages have zero images. Google Image Search and SERP thumbnail snippets favor pages with state rate maps and visual tax breakdown tables.</p>
+    <p><strong>Recommendation:</strong> Generate lightweight SVG or WebP rate breakdown infographics for top state pages.</p>
+  </div>
+  <hr class="divider">
+</div>
+
+<!-- ======================================================= 3. ACTION PLAN === -->
+<div class="section">
+  <div class="section-header">
+    <h2>3. Action Plan</h2>
+  </div>
+
+  <div class="roadmap-phase">
+    <h4>Phase 1: Immediate Cannibalization &amp; Algorithmic De-Risking (Days 1-7) <span class="effort">Week 1</span></h4>
+    <ul>
+      <li>301 Redirect /how-it-works to https://salestaxreversecalculator.com/#how-it-works</li>
+      <li>301 Redirect or Canonicalize /faq to https://salestaxreversecalculator.com/#faq</li>
+      <li>Fix New York H1 tag to &#x27;New York Reverse Sales Tax Calculator (NYC 8.875%)&#x27;</li>
+      <li>Standardize sitemap.xml URLs to match canonical URLs with trailing slash</li>
+      <li>Implement HowTo JSON-LD schema on homepage for 3-step reverse calculation</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <h4>Phase 2: Eliminate Scaled Boilerplate on Top 10 States (Weeks 2-3) <span class="effort">Weeks 2-3</span></h4>
+    <ul>
+      <li>Rewrite California page with unique county tax ranges (7.25% - 10.75%), Prop 13 nuances, and local district taxes</li>
+      <li>Rewrite Texas page with 6.25% state + 2.0% local cap and transit authority tax rules</li>
+      <li>Rewrite Florida page with 6.0% state + discretionary sales surtax rates</li>
+      <li>Rewrite Pennsylvania, Illinois, Ohio, Georgia, North Carolina, Michigan, and New Jersey</li>
+      <li>Add state rate visual infographics (WebP) to each rewritten state page</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <h4>Phase 3: Backlink Authority &amp; E-E-A-T Foundation (Month 2) <span class="effort">Month 2</span></h4>
+    <ul>
+      <li>Build 15-20 foundational backlinks from high-DR accounting, small business, and tool directory sites</li>
+      <li>Add CPA / Tax Specialist &#x27;Reviewed by&#x27; editorial bio and Person schema to satisfy Google YMYL financial guidelines</li>
+      <li>Create a dedicated &#x27;Sales Tax Calculator Widget / Embed&#x27; for e-commerce and invoicing blogs</li>
+      <li>Compress formula diagram from 630 KB to WebP (~60 KB)</li>
+    </ul>
+  </div>
+  <div class="roadmap-phase">
+    <h4>Phase 4: Scaling &amp; Dominating #1 Rankings (Month 3+) <span class="effort">Month 3+</span></h4>
+    <ul>
+      <li>Track GSC weekly position recovery for &#x27;reverse sales tax calculator&#x27; moving from Pos 45 back into Top 5</li>
+      <li>Expand programmatic coverage into high-intent US City calculators (e.g. Los Angeles, Chicago, Houston, Phoenix)</li>
+      <li>Enable text/markdown content negotiation for AI search crawlers (Perplexity, ChatGPT Search)</li>
+      <li>Monitor striking distance queries (Pos 10-25) and inject missing LSI keywords into page sections</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================================================= DATA SOURCES & METHODOLOGY === -->
+<div class="section" style="text-align: center; padding-top: 15mm;">
+  <hr class="divider">
+  <h3 style="text-align: left;">Data Sources &amp; Methodology</h3>
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Description</th><th>Update Frequency</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>PageSpeed Insights API</td>
+          <td>Lighthouse lab audit (mobile emulation, Moto G Power, slow 4G)</td>
+          <td>Real-time</td></tr>
+      <tr><td>Chrome UX Report (CrUX)</td>
+          <td>28-day rolling field data from real Chrome users</td>
+          <td>Daily ~04:00 UTC</td></tr>
+      <tr><td>CrUX History API</td>
+          <td>25-week p75 trend data per metric</td>
+          <td>Weekly</td></tr>
+      <tr><td>Google Search Console</td>
+          <td>Search Analytics (clicks, impressions, CTR, position)</td>
+          <td>2-3 day lag</td></tr>
+      <tr><td>URL Inspection API</td>
+          <td>Per-URL index status, coverage state, crawl info</td>
+          <td>Real-time (2,000/day)</td></tr>
+    </tbody>
+  </table>
+  <p style="color: #94a3b8; font-size: 9pt; margin-top: 5mm;">
+    Report generated by Claude SEO &mdash; Google SEO Intelligence Skill &mdash; October 04, 2026<br>
+    Methodology based on Google Web Vitals thresholds, Search Console documentation, and Lighthouse scoring algorithms.
+  </p>
+</div>
+
+</body>
+</html>

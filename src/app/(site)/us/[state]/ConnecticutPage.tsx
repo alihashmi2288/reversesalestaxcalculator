@@ -80,7 +80,8 @@ export default function ConnecticutPage({ stateData }: Props) {
     },
     publisher: {
       '@type': 'Organization',
-      name: 'PreTaxPrice',
+      name: 'Reverse Sales Tax Calculator',
+      alternateName: 'PreTaxPrice',
       url: 'https://salestaxreversecalculator.com',
     },
     screenshot: 'https://salestaxreversecalculator.com/og-image.png',

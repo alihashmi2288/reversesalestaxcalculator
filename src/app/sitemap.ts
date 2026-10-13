@@ -30,17 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // Tier 3: Core Educational & Guide Hubs (Priority: 0.8, Changefreq: weekly)
-  const educationalRoutes: MetadataRoute.Sitemap = [
-    '/how-it-works',
-    '/faq',
-  ].map((path) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
-
   // Tier 4: All 51 US State Pages (Priority: 0.8, Changefreq: weekly)
   const stateRoutes: MetadataRoute.Sitemap = STATE_TAX_RATES.map((state) => {
     const slug = state.state.toLowerCase().replace(/\s+/g, '-');
@@ -84,7 +73,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...homeRoute,
     ...coreHubRoutes,
-    ...educationalRoutes,
     ...stateRoutes,
     ...canadaRoutes,
     ...vatRoutes,

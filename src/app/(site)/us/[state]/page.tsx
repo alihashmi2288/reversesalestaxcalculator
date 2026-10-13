@@ -3,13 +3,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import LinkifiedText from '@/components/LinkifiedText';
-import { getStateBySlug, STATE_TAX_RATES } from '@/data/stateTaxRates';
+import { getStateBySlug, STATE_TAX_RATES, type StateRate } from '@/data/stateTaxRates';
 import { getStateContentBySlug } from '@/data/stateContent';
 import { getStateRevenueInfo } from '@/data/stateRevenueLinks';
 import StateCalculatorClient from './StateCalculatorClient';
 
 import ConnecticutPage from './ConnecticutPage';
 import NewYorkPage from './NewYorkPage';
+import CaliforniaPage from './CaliforniaPage';
+import TexasPage from './TexasPage';
+import FloridaPage from './FloridaPage';
 
 // Generate static paths for top 10 states + all others
 export async function generateStaticParams() {
@@ -35,18 +38,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (stateSlug === 'connecticut') {
     title = 'Connecticut Reverse Sales Tax Calculator (6.35% Rate)';
     description = 'Free Connecticut reverse sales tax calculator with 2026 rates. Find your pre-tax price from any receipt instantly. No signup required.';
+  } else if (stateSlug === 'california') {
+    title = 'California Reverse Sales Tax Calculator (7.25% to 10.75%)';
+    description = 'Free California reverse sales tax calculator pre-loaded with CDTFA rates. Back out sales tax from Los Angeles (9.50%), San Francisco (8.625%), and all CA cities.';
+  } else if (stateSlug === 'texas') {
+    title = 'Texas Reverse Sales Tax Calculator (8.25% Standard Rate)';
+    description = 'Free Texas reverse sales tax calculator pre-filled with the 8.25% combined rate. Find original pre-tax prices from Houston, Dallas, Austin, and San Antonio receipts.';
+  } else if (stateSlug === 'florida') {
+    title = 'Florida Reverse Sales Tax Calculator (6.5% to 7.5% Surtax)';
+    description = 'Free Florida reverse sales tax calculator with 2026 county surtax rates. Find original pre-tax prices from Miami, Tampa, Orlando, and Jacksonville receipts.';
+  } else if (stateSlug === 'new-york') {
+    title = 'New York Reverse Sales Tax Calculator (NYC 8.875%)';
+    description = 'Unlock the true pre-tax cost of purchases in New York City with our reverse sales tax calculator. Pre-loaded with 8.875% NYC combined tax.';
   } else if (stateData.rate === 0) {
     title = `${stateData.state} Reverse Sales Tax Calculator (0% Tax Free)`;
     description = `Free ${stateData.state} reverse sales tax calculator. ${stateData.state} has no state sales tax (0%). Calculate pre-tax and checkout amounts instantly.`;
   } else if (stateData.avgLocalRate === 0) {
     title = `${stateData.state} Reverse Sales Tax Calculator (${stateData.rate}% Flat Rate)`;
     description = `Free ${stateData.state} reverse sales tax calculator pre-filled with ${stateData.state}'s flat ${stateData.rate}% rate. Find original pre-tax prices instantly.`;
-  } else if (stateSlug === 'new-york') {
-    title = 'Reverse Sales Tax Calculator for NYC - Easy & Accurate';
-    description = 'Unlock the true cost of your purchases in New York City with our reverse sales tax calculator. Get started now and take control of your spending!';
-  } else if (stateSlug === 'texas') {
-    title = `Texas Reverse Sales Tax Calculator (8.24% Rate)`;
-    description = `Free Texas reverse sales tax calculator pre-filled with the 8.24% combined rate. Find original pre-tax prices from any Texas receipt instantly.`;
   }
 
   ogUrl.searchParams.set('title', title);
@@ -80,12 +89,27 @@ export default async function StatePage({ params }: Props) {
     return <ConnecticutPage stateData={stateData} />;
   }
 
+  if (stateSlug === 'california') {
+    return <CaliforniaPage stateData={stateData} />;
+  }
+
+  if (stateSlug === 'texas') {
+    return <TexasPage stateData={stateData} />;
+  }
+
+  if (stateSlug === 'florida') {
+    return <FloridaPage stateData={stateData} />;
+  }
+
   if (stateSlug === 'new-york') {
     return <NewYorkPage stateData={stateData} />;
   }
 
   const stateContent = getStateContentBySlug(stateSlug);
   const revenueInfo = getStateRevenueInfo(stateSlug);
+
+  const localizedUseCases = getLocalizedUseCases(stateData);
+  const localizedFaqs = getLocalizedFaqs(stateData);
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -123,16 +147,17 @@ export default async function StatePage({ params }: Props) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "PreTaxPrice",
+      "name": "Reverse Sales Tax Calculator",
+      "alternateName": "PreTaxPrice",
       "url": "https://salestaxreversecalculator.com"
     },
     "screenshot": "https://salestaxreversecalculator.com/og-image.png"
   };
 
-  const faqSchema = stateContent?.faqs.length ? {
+  const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: stateContent.faqs.map((faq) => ({
+    mainEntity: localizedFaqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -140,7 +165,7 @@ export default async function StatePage({ params }: Props) {
         text: faq.answer,
       },
     })),
-  } : null;
+  };
 
   return (
     <main>
@@ -271,22 +296,20 @@ export default async function StatePage({ params }: Props) {
             )}
 
             {/* Use Cases */}
-            {stateContent && stateContent.useCases.length > 0 && (
-              <section style={{ maxWidth: 860 }}>
-                <span className="section-label">Use Cases</span>
-                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
-                  When to Use This Calculator in {stateData.state}
-                </h2>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-                  {stateContent.useCases.map((useCase, idx) => (
-                    <div key={idx} className="card" style={{ padding: 24, border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 12 }}>{useCase.title}</h3>
-                      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}><LinkifiedText text={useCase.description} currentState={stateData.state} /></p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+            <section style={{ maxWidth: 860 }}>
+              <span className="section-label">Use Cases</span>
+              <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                When to Use This Calculator in {stateData.state}
+              </h2>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
+                {localizedUseCases.map((useCase, idx) => (
+                  <div key={idx} className="card" style={{ padding: 24, border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                    <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 12 }}>{useCase.title}</h3>
+                    <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}><LinkifiedText text={useCase.description} currentState={stateData.state} /></p>
+                  </div>
+                ))}
+              </div>
+            </section>
 
             {/* Official State Department of Revenue & Exemption Guidelines */}
             {revenueInfo && (
@@ -328,27 +351,25 @@ export default async function StatePage({ params }: Props) {
             )}
 
             {/* FAQs */}
-            {stateContent && stateContent.faqs.length > 0 && (
-              <section style={{ maxWidth: 860 }}>
-                <span className="section-label">FAQ</span>
-                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 32px' }}>
-                  Frequently Asked Questions: {stateData.state} Taxes
-                </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                  {stateContent.faqs.map((faq, idx) => (
-                    <details key={idx} className="faq-item" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
-                      <summary className="faq-trigger" style={{ outline: 'none' }}>
-                        <span>{faq.question}</span>
-                        <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
-                      </summary>
-                      <p className="faq-content" style={{ margin: 0 }}>
-                        <LinkifiedText text={faq.answer} currentState={stateData.state} />
-                      </p>
-                    </details>
-                  ))}
-                </div>
-              </section>
-            )}
+            <section style={{ maxWidth: 860 }}>
+              <span className="section-label">FAQ</span>
+              <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 32px' }}>
+                Frequently Asked Questions: {stateData.state} Taxes
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                {localizedFaqs.map((faq, idx) => (
+                  <details key={idx} className="faq-item" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+                    <summary className="faq-trigger" style={{ outline: 'none' }}>
+                      <span>{faq.question}</span>
+                      <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
+                    </summary>
+                    <p className="faq-content" style={{ margin: 0 }}>
+                      <LinkifiedText text={faq.answer} currentState={stateData.state} />
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </section>
 
             <div style={{ marginTop: 16, marginBottom: 64 }}>
               <AdSlot slot={`${stateSlug}-rectangle`} size="rectangle" />
@@ -358,4 +379,108 @@ export default async function StatePage({ params }: Props) {
       </div>
     </main>
   );
+}
+
+function getLocalizedUseCases(stateData: StateRate) {
+  if (stateData.rate === 0) {
+    return [
+      {
+        title: `Verifying Cross-Border Receipt Overcharges`,
+        description: `Shoppers and businesses residing in ${stateData.state} enjoy a 0.00% state sales tax environment. If an out-of-state vendor or online marketplace incorrectly assessed sales tax on delivery, use our reverse calculator to determine the exact pre-tax basis and file for a prompt tax refund.`,
+      },
+      {
+        title: `Multi-State Business Expense Allocation`,
+        description: `For companies incorporated in ${stateData.state} procuring supplies in neighboring jurisdictions, separating vendor sales tax from your accounting cost of goods sold is critical for GAAP bookkeeping and IRS Schedule C tax deductions.`,
+      },
+      {
+        title: `Auditing Equipment Invoices & Leases`,
+        description: `Commercial agreements originating outside ${stateData.state} often bundle destination taxes into monthly charges. Reverse calculating payments confirms whether vendors correctly applied ${stateData.state}'s statutory tax exemptions.`,
+      },
+    ];
+  }
+
+  if (stateData.avgLocalRate === 0) {
+    return [
+      {
+        title: `Uniform Statewide Receipt Reconciliation`,
+        description: `${stateData.state} operates a flat ${stateData.stateRate}% statewide sales tax with 0% local municipal add-ons. Every retail purchase in the state can be cleanly divided by ${(1 + stateData.stateRate / 100).toFixed(4)}, allowing you to quickly isolate pre-tax expense figures without researching local city or county tax codes.`,
+      },
+      {
+        title: `Deductible Asset Logging for ${stateData.state} Businesses`,
+        description: `When recording asset purchases and operating expenses with the ${stateData.state} Department of Revenue or IRS, dividing bank statement totals by ${(1 + stateData.stateRate / 100).toFixed(4)} ensures you report exact GAAP-compliant net asset costs rather than inflated gross figures.`,
+      },
+      {
+        title: `Verifying Vendor Invoices & Gross Receipts`,
+        description: `Vendors in ${stateData.state} often quote all-inclusive totals. Reverse calculating the ${stateData.stateRate}% state tax reveals whether statutory exemptions (such as manufacturing or agricultural equipment) were correctly omitted from your order.`,
+      },
+    ];
+  }
+
+  return [
+    {
+      title: `Decoupling ${stateData.state} Local vs State Surcharges`,
+      description: `With local taxes in ${stateData.state} averaging ${stateData.avgLocalRate.toFixed(2)}% on top of the ${stateData.stateRate}% state baseline (for an average combined rate of ${stateData.rate}%), reverse calculating receipt charges allows ${stateData.state} bookkeepers to accurately apportion state and municipal tax distributions.`,
+    },
+    {
+      title: `Capital Expense & Budget Threshold Planning`,
+      description: `When budgeting for commercial equipment or vehicle acquisitions in ${stateData.state}, enter your total capital expenditure budget into the calculator to determine the maximum pre-tax purchase price before ${stateData.state}'s ${stateData.rate}% average sales tax pushes the purchase over your spending limit.`,
+    },
+    {
+      title: `Audit Defense for ${stateData.state} Small Businesses`,
+      description: `If your business lost itemized receipts during tax season, the IRS requires rigorous mathematical substantiation. Dividing bank statement charges by ${(1 + stateData.rate / 100).toFixed(4)} provides verifiable evidence of deductible expenses separate from sales tax paid.`,
+    },
+  ];
+}
+
+function getLocalizedFaqs(stateData: StateRate) {
+  if (stateData.rate === 0) {
+    return [
+      {
+        question: `Does ${stateData.state} have a sales tax?`,
+        answer: `${stateData.state} has no general statewide sales tax (0.00%). Most retail purchases are made completely tax-free, though specific excise taxes or selective local municipal taxes may apply to special categories.`,
+      },
+      {
+        question: `How do I reverse calculate tax for a receipt in ${stateData.state}?`,
+        answer: `Because ${stateData.state} has a 0% general sales tax, the receipt total is already the pre-tax price. If an out-of-state retailer incorrectly collected tax on delivery to ${stateData.state}, use our calculator with the charged rate to determine your refund amount.`,
+      },
+      {
+        question: `Can local cities in ${stateData.state} charge sales tax?`,
+        answer: stateData.avgLocalRate > 0
+          ? `While ${stateData.state} levies no state sales tax, certain local boroughs or municipalities do charge local option taxes averaging approximately ${stateData.avgLocalRate.toFixed(2)}%.`
+          : `No. Local municipalities in ${stateData.state} do not levy general local sales taxes.`,
+      },
+    ];
+  }
+
+  if (stateData.avgLocalRate === 0) {
+    return [
+      {
+        question: `What is the sales tax rate in ${stateData.state}?`,
+        answer: `${stateData.state} has a uniform statewide sales tax rate of ${stateData.stateRate}%. The state does not permit local city or county sales taxes, meaning ${stateData.stateRate}% applies uniformly across all jurisdictions.`,
+      },
+      {
+        question: `How do I back out sales tax from a ${stateData.state} receipt?`,
+        answer: `Divide the final receipt total by ${(1 + stateData.stateRate / 100).toFixed(4)}. For example, with a ${stateData.stateRate}% rate, a receipt total of $${(100 + stateData.stateRate).toFixed(2)} divided by ${(1 + stateData.stateRate / 100).toFixed(4)} yields the original pre-tax price of $100.00.`,
+      },
+      {
+        question: `Do local cities in ${stateData.state} have additional sales taxes?`,
+        answer: `No. Unlike states with county or municipal sales taxes, ${stateData.state} has 0% local sales taxes. The ${stateData.stateRate}% state rate is the only sales tax rate charged statewide.`,
+      },
+    ];
+  }
+
+  return [
+    {
+      question: `What is the combined sales tax rate in ${stateData.state}?`,
+      answer: `${stateData.state} imposes a state base rate of ${stateData.stateRate}%. Local municipalities and counties add surtaxes averaging ${stateData.avgLocalRate.toFixed(2)}%, bringing the statewide combined average to ${stateData.rate}%. Exact rates depend on the city or county where the item is purchased or delivered.`,
+    },
+    {
+      question: `How do I reverse calculate ${stateData.state} sales tax from a total?`,
+      answer: `To calculate the pre-tax price, convert the combined tax rate on your receipt to a decimal divisor (1 + rate/100) and divide your receipt total. For the statewide average of ${stateData.rate}%, divide by ${(1 + stateData.rate / 100).toFixed(4)}.`,
+    },
+    {
+      question: `Why can't I just subtract ${stateData.rate}% from my receipt total?`,
+      answer: `Because sales tax in ${stateData.state} is calculated on the pre-tax price, not the post-tax total. Subtracting the percentage from the total calculates tax on the wrong base amount and produces an inaccurate figure. Division is the exact mathematical inverse.`,
+    },
+  ];
 }

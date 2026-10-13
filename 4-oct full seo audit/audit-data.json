@@ -1,0 +1,223 @@
+{
+  "summary": {
+    "health_score": 82,
+    "business_type": "Financial Utility / Programmatic Web Application (US 50 States, Canada, VAT)",
+    "current_status": "Traffic dropped 75% between Aug 31 and Sep 5 (1,800 impr/day -> 450 impr/day) due to Google algorithmic Helpful Content / Scaled Content filter on 49 templated state pages.",
+    "rank_position_reality": "Core keyword 'reverse sales tax calculator' dropped from Position 4.6 (top 5) to Position 45.8. Site is currently on Page 5 for primary head term, but technically sound and poised for #1 recovery.",
+    "top_findings": [
+      "Algorithmic Scaled Content devaluation: 49 state pages contain ~910 words of identical boilerplate ('Decoding Business Receipts in [State]...').",
+      "Core keyword dropped from Position 4.6 to 45.8 around Sept 1-5 corresponding with Google Search Generative AI rollout and spam policy updates.",
+      "Internal cannibalization between Homepage (/), /how-it-works (391 words thin), and /faq (2,576 words) splitting ranking equity.",
+      "Brand & Entity Identity mismatch: Domain is salestaxreversecalculator.com, but UI/Schema brand is 'PreTaxPrice', confusing Google Knowledge Graph.",
+      "Zero external backlink authority (DA ~ 0, not yet cataloged in Common Crawl), while competitors have 100+ referring domains."
+    ],
+    "quick_wins": [
+      "Consolidate /how-it-works and /faq into the Homepage via 301 redirects to eliminate cannibalization and funnel 100% equity to the #1 ranking target.",
+      "Add HowTo schema (Step 1: Enter total, Step 2: Input tax rate, Step 3: Compute original price) to win rich snippets.",
+      "Align brand signals: Unify 'Reverse Sales Tax Calculator' and 'PreTaxPrice' in meta title, OpenGraph, and Organization schema.",
+      "Fix New York H1 tag from 'New York Sales Tax Calculator' to 'New York Reverse Sales Tax Calculator'.",
+      "Compress homepage formula diagram from 630 KB to WebP (~60 KB) and add state rate visual graphics to top 10 states."
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 88,
+      "what_works": [
+        "100% crawlable raw HTML (7,673 words SSR without client JS requirement)",
+        "Valid XML sitemap with 81 URLs submitting cleanly in Google Search Console",
+        "Strict HSTS (preload, max-age 63072000), nosniff, and SAMEORIGIN security headers",
+        "Edge TTFB of 46ms via Vercel globally distributed CDN",
+        "Perfect 100/100 Lighthouse Best Practices and SEO scores"
+      ],
+      "findings": [
+        {
+          "title": "Sitemap & Canonical Trailing Slash Inconsistency",
+          "severity": "Medium",
+          "description": "sitemap.xml lists URLs without trailing slashes (e.g. https://salestaxreversecalculator.com), whereas the server canonical URL matches with slash.",
+          "recommendation": "Standardize all URLs in sitemap.xml to match the exact canonical URLs."
+        },
+        {
+          "title": "2-Hop Redirect Chain on HTTP WWW Subdomain",
+          "severity": "Low",
+          "description": "http://www.salestaxreversecalculator.com redirects to https://www. (308) then to https://root (301).",
+          "recommendation": "Add a single edge routing rule in next.config.js or Vercel config to redirect directly to https://salestaxreversecalculator.com/."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality & Scaled Content",
+      "score": 65,
+      "what_works": [
+        "Homepage contains 6,687 words of thorough educational, formulaic, and practical tax guidance",
+        "New York state page has been upgraded to 2,408 words with deep NYC local tax nuances",
+        "Clear step-by-step mathematical proofs and receipt decoding instructions"
+      ],
+      "findings": [
+        {
+          "title": "Scaled Content Boilerplate Across 49 State Pages (Primary Drop Cause)",
+          "severity": "Critical",
+          "description": "49 out of 50 state pages have ~910 words that follow a word-for-word template where only the state name is substituted. This programmatic footprint caused Google to apply a domain-level quality suppression in early September 2026.",
+          "recommendation": "Follow the NYC rewrite blueprint across the top 10 highest-traffic states (CA, TX, FL, PA, IL, OH, GA, NC, MI, NJ), adding state-specific nexus rules, local county ranges, and unique receipt examples."
+        },
+        {
+          "title": "Keyword Cannibalization Across /, /how-it-works, and /faq",
+          "severity": "High",
+          "description": "GSC reveals Google cycling rankings between /, /how-it-works, /faq, and /tax-rates for core queries like 'back out tax calculator'. /how-it-works is thin content (391 words).",
+          "recommendation": "301 redirect /how-it-works to /#how-it-works on the homepage, and canonicalize or 301 redirect /faq to /#faq."
+        },
+        {
+          "title": "Branding & Entity Dilution (PreTaxPrice vs Reverse Sales Tax Calculator)",
+          "severity": "Medium",
+          "description": "The domain is salestaxreversecalculator.com, but the UI header and Organization schema declare 'PreTaxPrice'. This fragments entity authority.",
+          "recommendation": "Unify the brand identity: 'Reverse Sales Tax Calculator by PreTaxPrice' in schema, OpenGraph, and footer."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 82,
+      "what_works": [
+        "H1 spacing bug successfully resolved on homepage and state pages",
+        "Title tags concise and within the 60-character budget",
+        "Primary calculator tool is visible immediately in the initial viewport"
+      ],
+      "findings": [
+        {
+          "title": "New York H1 Intent Mismatch",
+          "severity": "Medium",
+          "description": "The New York page H1 is 'New York Sales Tax Calculator' rather than 'New York Reverse Sales Tax Calculator', dropping the core reverse intent keyword.",
+          "recommendation": "Update H1 to 'New York Reverse Sales Tax Calculator (NYC 8.875%)'."
+        },
+        {
+          "title": "Broken Encoding Character in Privacy Policy Meta Description",
+          "severity": "Low",
+          "description": "The Privacy Policy meta description has an unescaped replacement character: 'We collect no personal data  all calculations...'.",
+          "recommendation": "Replace with a standard ASCII hyphen or clean UTF-8 em-dash."
+        }
+      ]
+    },
+    {
+      "name": "Schema & Structured Data",
+      "score": 92,
+      "what_works": [
+        "Multi-schema graph with WebApplication (FinanceApplication), WebSite, Organization, FAQPage, and ImageObject",
+        "Fully valid JSON-LD parsing with zero syntax errors",
+        "Zero-dollar Offer schema accurately signaling free financial utility"
+      ],
+      "findings": [
+        {
+          "title": "Missing HowTo Structured Data",
+          "severity": "High",
+          "description": "Competitors like reversesalestaxcalc.org utilize HowTo schema for the reverse calculation steps to capture Google step-by-step rich snippets.",
+          "recommendation": "Add a HowTo schema block detailing the 3-step calculation process."
+        },
+        {
+          "title": "Missing Financial Specialist / CPA Reviewer Entity (E-E-A-T)",
+          "severity": "Medium",
+          "description": "Financial calculation pages fall under Google's YMYL (Your Money Your Life) guidelines. No Person / ReviewedBy schema exists.",
+          "recommendation": "Add an author / reviewedBy schema linking to a verified financial editor or tax professional profile."
+        }
+      ]
+    },
+    {
+      "name": "Performance & Core Web Vitals",
+      "score": 96,
+      "what_works": [
+        "Lighthouse Mobile & Desktop: 100/100 Accessibility, 100/100 Best Practices, 100/100 SEO",
+        "TTFB: 46ms, FCP: 928ms, Total Load: 949ms",
+        "Zero Cumulative Layout Shift (CLS = 0.00)"
+      ],
+      "findings": [
+        {
+          "title": "Uncompressed JPEG Formula Diagram",
+          "severity": "Low",
+          "description": "reverse-sales-tax-formula-diagram.jpg is 630 KB. Serving this as WebP with srcset reduces transfer size to under 60 KB.",
+          "recommendation": "Convert to WebP format and specify width/height attributes to preserve LCP."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness & GEO",
+      "score": 90,
+      "what_works": [
+        "llms.txt and llms-full.txt implemented and serving valid markdown",
+        "All major AI search bots explicitly permitted in robots.txt (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot)",
+        "Zero-JS fallback text enables seamless AI agent parsing"
+      ],
+      "findings": [
+        {
+          "title": "Missing Accept: text/markdown Content Negotiation",
+          "severity": "Low",
+          "description": "The site does not negotiate text/markdown for AI agent user-agents requesting markdown directly.",
+          "recommendation": "Configure Next.js middleware to return llms-full.txt when Accept header includes text/markdown."
+        }
+      ]
+    },
+    {
+      "name": "Images & Visual SEO",
+      "score": 70,
+      "what_works": [
+        "Formula diagram infographic added to homepage with descriptive alt text and schema"
+      ],
+      "findings": [
+        {
+          "title": "Zero Visual Assets on State Pages",
+          "severity": "Medium",
+          "description": "All 50 state pages have zero images. Google Image Search and SERP thumbnail snippets favor pages with state rate maps and visual tax breakdown tables.",
+          "recommendation": "Generate lightweight SVG or WebP rate breakdown infographics for top state pages."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Immediate Cannibalization & Algorithmic De-Risking (Days 1-7)",
+        "timeframe": "Week 1",
+        "items": [
+          "301 Redirect /how-it-works to https://salestaxreversecalculator.com/#how-it-works",
+          "301 Redirect or Canonicalize /faq to https://salestaxreversecalculator.com/#faq",
+          "Fix New York H1 tag to 'New York Reverse Sales Tax Calculator (NYC 8.875%)'",
+          "Standardize sitemap.xml URLs to match canonical URLs with trailing slash",
+          "Implement HowTo JSON-LD schema on homepage for 3-step reverse calculation"
+        ]
+      },
+      {
+        "name": "Phase 2: Eliminate Scaled Boilerplate on Top 10 States (Weeks 2-3)",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Rewrite California page with unique county tax ranges (7.25% - 10.75%), Prop 13 nuances, and local district taxes",
+          "Rewrite Texas page with 6.25% state + 2.0% local cap and transit authority tax rules",
+          "Rewrite Florida page with 6.0% state + discretionary sales surtax rates",
+          "Rewrite Pennsylvania, Illinois, Ohio, Georgia, North Carolina, Michigan, and New Jersey",
+          "Add state rate visual infographics (WebP) to each rewritten state page"
+        ]
+      },
+      {
+        "name": "Phase 3: Backlink Authority & E-E-A-T Foundation (Month 2)",
+        "timeframe": "Month 2",
+        "items": [
+          "Build 15-20 foundational backlinks from high-DR accounting, small business, and tool directory sites",
+          "Add CPA / Tax Specialist 'Reviewed by' editorial bio and Person schema to satisfy Google YMYL financial guidelines",
+          "Create a dedicated 'Sales Tax Calculator Widget / Embed' for e-commerce and invoicing blogs",
+          "Compress formula diagram from 630 KB to WebP (~60 KB)"
+        ]
+      },
+      {
+        "name": "Phase 4: Scaling & Dominating #1 Rankings (Month 3+)",
+        "timeframe": "Month 3+",
+        "items": [
+          "Track GSC weekly position recovery for 'reverse sales tax calculator' moving from Pos 45 back into Top 5",
+          "Expand programmatic coverage into high-intent US City calculators (e.g. Los Angeles, Chicago, Houston, Phoenix)",
+          "Enable text/markdown content negotiation for AI search crawlers (Perplexity, ChatGPT Search)",
+          "Monitor striking distance queries (Pos 10-25) and inject missing LSI keywords into page sections"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
