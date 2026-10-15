@@ -92,13 +92,16 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
 
-      <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
         <div className="container-main">
-          <h1 style={{ fontSize: 'clamp(28px,5vw,48px)', fontWeight: 900, color: '#fff', marginBottom: 16 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-sm)', color: 'var(--mint-200)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 12 }}>
+            Knowledge Base & Answers
+          </div>
+          <h1 style={{ fontSize: 'clamp(28px,4.5vw,44px)', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', marginBottom: 12 }}>
             Frequently Asked Questions
           </h1>
-          <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 560, margin: '0 auto' }}>
-            Everything you need to know about reverse sales tax calculations, state rates, and VAT.
+          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', maxWidth: 560, margin: '0 auto', lineHeight: 1.6 }}>
+            Everything you need to know about reverse sales tax calculations, state and local rates, exemptions, and international VAT.
           </p>
         </div>
       </section>
@@ -107,16 +110,16 @@ export default function FAQPage() {
         <AdSlot slot="faq-leaderboard" size="leaderboard" label="Leaderboard" />
       </div>
 
-      <div className="container-main" style={{ marginTop: 48, marginBottom: 80 }}>
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 48 }}>
-          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
+      <div className="container-main" style={{ marginTop: 32, marginBottom: 80 }}>
+        <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 32 }}>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
           <span style={{ margin: '0 8px' }}>›</span>
-          <span>FAQ</span>
+          <span style={{ color: 'var(--ink)' }}>FAQ</span>
         </nav>
         <FAQSection />
         <div style={{ textAlign: 'center', marginTop: 48 }}>
-          <Link href="/" style={{ background: 'var(--primary)', color: '#000', border: '2px solid #000', boxShadow: '3px 3px 0px 0px #000', padding: '16px 40px', borderRadius: 'var(--radius)', fontWeight: 800, fontSize: 16, textDecoration: 'none', display: 'inline-block', textTransform: 'uppercase' }}>
-            Use the Calculator →
+          <Link href="/" style={{ background: 'var(--primary)', color: '#ffffff', border: '1px solid var(--primary-deep)', padding: '14px 36px', borderRadius: 'var(--radius-sm)', fontWeight: 700, fontSize: 15, textDecoration: 'none', display: 'inline-block' }}>
+            Open Sales Tax Calculator →
           </Link>
         </div>
       </div>

@@ -108,24 +108,20 @@ export default async function CountryVatPage({ params }: Props) {
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      <section style={{ padding: '60px 0 80px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '6px 16px', marginBottom: 24, boxShadow: '4px 4px 0px 0px rgba(255,255,255,0.1)' }}>
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>🗺️ {countryData.code} · PRE-FILLED {countryData.type} RATE: {countryData.rate}%</span>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
+        <div className="container-main">
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>🗺️</span> {countryData.code} · Pre-filled {countryData.type} Rate: {countryData.rate}%
           </div>
 
           <h1
             aria-label={`${countryData.name} Reverse VAT Calculator`}
-            style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 24, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            {countryData.name} Reverse VAT{' '}
-            <br />
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator
-            </span>
+            {countryData.name} Reverse VAT Calculator
           </h1>
 
-          <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
             Pre-filled with {countryData.name}&apos;s standard {countryData.rate}% {countryData.type.toLowerCase()} rate.
             Enter any gross total amount to calculate the net ex-tax price instantly.
           </p>
@@ -134,14 +130,14 @@ export default async function CountryVatPage({ params }: Props) {
 
       {/* ── Main Layout ───────────────────── */}
       <div className="container-main" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: 860, width: '100%' }}>
+        <div style={{ maxWidth: 880, width: '100%' }}>
           
-          <nav style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 32, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', transition: 'color 0.2s' }}>Home</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <Link href="/vat-calculator" style={{ color: 'var(--primary)', textDecoration: 'none', transition: 'color 0.2s' }}>VAT Calculator</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>{countryData.name}</span>
+          <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <Link href="/vat-calculator" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>VAT Calculator</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <span style={{ color: 'var(--ink)' }}>{countryData.name}</span>
           </nav>
 
           <div style={{ marginBottom: 32 }}>
@@ -152,13 +148,13 @@ export default async function CountryVatPage({ params }: Props) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
             {[
               { label: 'Standard Rate', value: `${countryData.rate}%`, color: 'var(--primary)', desc: `Standard ${countryData.type} rate` },
-              { label: 'Currency', value: `${countryData.currency} (${countryData.symbol})`, color: '#a1a1aa', desc: 'Local transaction currency' },
-              { label: 'VAT-Inclusive', value: 'Yes', color: 'var(--primary)', desc: 'Prices display with tax pre-added', textShadow: '2px 2px 0px #000' },
-            ].map(({ label, value, color, desc, textShadow }) => (
-              <div key={label} className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)', textShadow }}>{value}</div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>{desc}</div>
+              { label: 'Currency', value: `${countryData.currency} (${countryData.symbol})`, color: 'var(--ink)', desc: 'Local transaction currency' },
+              { label: 'VAT-Inclusive', value: 'Yes', color: 'var(--primary)', desc: 'Prices display with tax pre-added' },
+            ].map(({ label, value, color, desc }) => (
+              <div key={label} className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'monospace' }}>{value}</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{label}</div>
+                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>{desc}</div>
               </div>
             ))}
           </div>
@@ -167,14 +163,14 @@ export default async function CountryVatPage({ params }: Props) {
             <VATCalculatorClient countryData={countryData} />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 48 }}>
             {/* Country Info */}
-            <section style={{ maxWidth: 860 }}>
+            <section style={{ maxWidth: 880 }}>
               <span className="section-label">Country Info</span>
-              <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
                 About {countryData.name} {countryData.type}
               </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--body)', fontSize: 16, lineHeight: 1.8 }}>
                 {countryData.aboutText.map((paragraph, idx) => (
                   <p key={idx}><LinkifiedText text={paragraph} currentState={countryData.name} /></p>
                 ))}
@@ -183,32 +179,32 @@ export default async function CountryVatPage({ params }: Props) {
 
             {/* City Rates */}
             {countryData.cities.length > 0 && (
-              <section style={{ maxWidth: 860 }}>
+              <section style={{ maxWidth: 880 }}>
                 <span className="section-label">Local Rates</span>
-                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
                   Tax Rates in Major {countryData.name} Cities
                 </h2>
-                <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+                <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
-                      <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                        <th style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>City</th>
-                        <th style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined Rate</th>
-                        <th style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Local Surcharge</th>
+                      <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>City</th>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Combined Rate</th>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Local Surcharge</th>
                       </tr>
                     </thead>
                     <tbody>
                       {countryData.cities.map((city, idx) => (
-                        <tr key={idx} style={{ borderBottom: idx === countryData.cities.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                          <td style={{ padding: '16px 24px', color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{city.name}</td>
-                          <td style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{city.rate.toFixed(1).replace(/\.?0+$/, '')}%</td>
-                          <td style={{ padding: '16px 24px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>None (Standard Rate)</td>
+                        <tr key={idx} style={{ borderBottom: idx === countryData.cities.length - 1 ? 'none' : '1px solid var(--hairline)', background: idx % 2 === 0 ? 'var(--canvas)' : 'var(--canvas-soft)' }}>
+                          <td style={{ padding: '14px 20px', color: 'var(--ink)', fontWeight: 600 }}>{city.name}</td>
+                          <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>{city.rate.toFixed(1).replace(/\.?0+$/, '')}%</td>
+                          <td style={{ padding: '14px 20px', color: 'var(--muted)', fontSize: 13 }}>None (Standard Rate)</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
-                <p style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 12, lineHeight: 1.5 }}>
+                <p style={{ fontSize: 13, color: 'var(--muted)', marginTop: 12, lineHeight: 1.5 }}>
                   * Consumption taxes like VAT and GST are levied strictly at the national level in {countryData.name}. Municipal or city-level surcharges do not apply, so rates are completely uniform country-wide.
                 </p>
               </section>
@@ -216,16 +212,16 @@ export default async function CountryVatPage({ params }: Props) {
 
             {/* Use Cases */}
             {countryData.useCases.length > 0 && (
-              <section style={{ maxWidth: 860 }}>
+              <section style={{ maxWidth: 880 }}>
                 <span className="section-label">Use Cases</span>
-                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
                   When to Use This Calculator in {countryData.name}
                 </h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
                   {countryData.useCases.map((useCase, idx) => (
-                    <div key={idx} className="card" style={{ padding: 24, border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                      <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 12 }}>{useCase.title}</h3>
-                      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}><LinkifiedText text={useCase.description} currentState={countryData.name} /></p>
+                    <div key={idx} className="card" style={{ padding: 24 }}>
+                      <h3 style={{ fontSize: 17, fontWeight: 800, color: 'var(--ink)', marginBottom: 10 }}>{useCase.title}</h3>
+                      <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.7, margin: 0 }}><LinkifiedText text={useCase.description} currentState={countryData.name} /></p>
                     </div>
                   ))}
                 </div>
@@ -234,19 +230,19 @@ export default async function CountryVatPage({ params }: Props) {
 
             {/* FAQs */}
             {countryData.faqs.length > 0 && (
-              <section style={{ maxWidth: 860 }}>
+              <section style={{ maxWidth: 880 }}>
                 <span className="section-label">FAQ</span>
-                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 32px' }}>
+                <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 24px', letterSpacing: '-0.02em' }}>
                   Frequently Asked Questions: {countryData.name} VAT/GST
                 </h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {countryData.faqs.map((faq, idx) => (
-                    <details key={idx} className="faq-item" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
-                      <summary className="faq-trigger" style={{ outline: 'none' }}>
+                    <details key={idx} className="faq-item">
+                      <summary style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span>{faq.question}</span>
-                        <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
+                        <span style={{ color: 'var(--primary)', fontSize: 20, fontWeight: 800 }}>+</span>
                       </summary>
-                      <p className="faq-content" style={{ margin: 0 }}>
+                      <p style={{ marginTop: 14, fontSize: 14, color: 'var(--body)', lineHeight: 1.7, paddingTop: 14, borderTop: '1px solid var(--hairline)' }}>
                         <LinkifiedText text={faq.answer} currentState={countryData.name} />
                       </p>
                     </details>

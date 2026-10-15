@@ -39,11 +39,11 @@ export default function ContactForm() {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '12px 16px',
-    background: 'var(--card-bg)',
-    border: '2px solid var(--border)',
-    borderRadius: 'var(--radius)',
-    color: 'var(--text-primary)',
-    fontSize: 16,
+    background: '#ffffff',
+    border: '1px solid var(--hairline-strong)',
+    borderRadius: 'var(--radius-sm)',
+    color: 'var(--ink)',
+    fontSize: 15,
     fontFamily: 'var(--font-sans)',
     outline: 'none',
     transition: 'border-color 0.2s',
@@ -51,7 +51,7 @@ export default function ContactForm() {
   };
 
   const errorStyle: React.CSSProperties = {
-    color: '#f87171',
+    color: '#dc2626',
     fontSize: 13,
     marginTop: 4,
   };
@@ -60,7 +60,7 @@ export default function ContactForm() {
     display: 'block',
     fontSize: 14,
     fontWeight: 700,
-    color: 'var(--text-primary)',
+    color: 'var(--ink)',
     marginBottom: 6,
   };
 
@@ -68,25 +68,25 @@ export default function ContactForm() {
     return (
       <div className="card" style={{ textAlign: 'center', padding: 48 }}>
         <div style={{ fontSize: 56, marginBottom: 16 }}>✅</div>
-        <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 12 }}>
+        <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--ink)', marginBottom: 12 }}>
           Message Sent!
         </h2>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
+        <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
           Thanks for reaching out. We&apos;ll get back to you at <strong>{form.email}</strong> as soon as possible — usually within 1–2 business days.
         </p>
         <Link
           href="/"
           style={{
             background: 'var(--primary)',
-            color: '#000',
+            color: '#ffffff',
             padding: '12px 32px',
-            borderRadius: 'var(--radius)',
-            fontWeight: 800,
+            borderRadius: 'var(--radius-sm)',
+            fontWeight: 700,
             fontSize: 15,
             textDecoration: 'none',
             display: 'inline-block',
-            border: '2px solid #000',
-            boxShadow: '3px 3px 0px 0px #000',
+            border: '1px solid var(--primary-deep)',
+            boxShadow: 'none',
           }}
         >
           Back to Calculator →
@@ -177,14 +177,14 @@ export default function ContactForm() {
           type="submit"
           disabled={loading}
           style={{
-            background: loading ? '#27272a' : 'var(--primary)',
-            color: loading ? '#71717a' : '#000',
-            border: loading ? '2px solid #3f3f46' : '2px solid #000',
-            boxShadow: loading ? 'none' : '3px 3px 0px 0px #000',
-            borderRadius: 'var(--radius)',
-            fontWeight: 800,
-            fontSize: 16,
-            padding: '14px 36px',
+            background: loading ? 'var(--canvas-soft)' : 'var(--primary)',
+            color: loading ? 'var(--muted)' : '#ffffff',
+            border: loading ? '1px solid var(--hairline-strong)' : '1px solid var(--primary-deep)',
+            boxShadow: 'none',
+            borderRadius: 'var(--radius-sm)',
+            fontWeight: 700,
+            fontSize: 15,
+            padding: '13px 32px',
             cursor: loading ? 'not-allowed' : 'pointer',
             transition: 'all 0.15s',
             width: '100%',

@@ -36,7 +36,7 @@ export default function CanadaCalculator() {
   return (
     <div className="calc-card">
       <div style={{ marginBottom: 20 }}>
-        <label htmlFor="ca-province-select" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Province / Territory</label>
+        <label htmlFor="ca-province-select" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>Province / Territory</label>
         <select
           id="ca-province-select"
           aria-label="Select Canadian Province or Territory"
@@ -51,15 +51,15 @@ export default function CanadaCalculator() {
           ))}
         </select>
         <div style={{ display: 'flex', gap: 10, marginTop: 12, flexWrap: 'wrap' }}>
-          {selectedProvince.gst > 0 && <span style={{ background: 'rgba(59, 130, 246, 0.15)', color: '#93c5fd', border: '1px solid rgba(59, 130, 246, 0.3)', padding: '4px 10px', borderRadius: 6, fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>GST: {selectedProvince.gst}%</span>}
-          {selectedProvince.pst > 0 && <span style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#6ee7b7', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '4px 10px', borderRadius: 6, fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>PST: {selectedProvince.pst}%</span>}
-          {selectedProvince.hst > 0 && <span style={{ background: 'rgba(168, 85, 247, 0.15)', color: '#d8b4fe', border: '1px solid rgba(168, 85, 247, 0.3)', padding: '4px 10px', borderRadius: 6, fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>HST: {selectedProvince.hst}%</span>}
-          <span style={{ background: 'rgba(204, 255, 0, 0.1)', color: 'var(--primary)', border: '1px solid rgba(204, 255, 0, 0.3)', padding: '4px 10px', borderRadius: 6, fontSize: 12, fontWeight: 800, fontFamily: 'var(--font-mono)' }}>Total: {selectedProvince.total}%</span>
+          {selectedProvince.gst > 0 && <span style={{ background: 'var(--canvas-soft)', color: 'var(--ink)', border: '1px solid var(--hairline-strong)', padding: '4px 10px', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>GST: {selectedProvince.gst}%</span>}
+          {selectedProvince.pst > 0 && <span style={{ background: 'var(--canvas-soft)', color: 'var(--ink)', border: '1px solid var(--hairline-strong)', padding: '4px 10px', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>PST: {selectedProvince.pst}%</span>}
+          {selectedProvince.hst > 0 && <span style={{ background: 'var(--canvas-soft)', color: 'var(--ink)', border: '1px solid var(--hairline-strong)', padding: '4px 10px', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, fontFamily: 'var(--font-mono)' }}>HST: {selectedProvince.hst}%</span>}
+          <span style={{ background: 'var(--mint-100)', color: 'var(--primary-deep)', border: '1px solid var(--mint-200)', padding: '4px 10px', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 800, fontFamily: 'var(--font-mono)' }}>Total: {selectedProvince.total}%</span>
         </div>
       </div>
 
       <div style={{ marginBottom: 20 }}>
-        <label htmlFor="ca-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Total Price Paid (CAD, with tax)</label>
+        <label htmlFor="ca-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>Total Price Paid (CAD, with tax)</label>
         <div className="input-wrapper">
           <span className="input-prefix" aria-hidden="true">$</span>
           <input
@@ -76,26 +76,26 @@ export default function CanadaCalculator() {
         </div>
       </div>
 
-      {error && <div style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 'var(--radius)', padding: '12px 16px', color: '#f87171', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 16 }}>[ERROR] {error}</div>}
+      {error && <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 'var(--radius-xs)', padding: '12px 16px', color: '#b91c1c', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 16 }}>{error}</div>}
 
-      <button onClick={calculate} className="btn-primary" style={{ minHeight: 56, marginBottom: result ? 20 : 0 }}>
+      <button onClick={calculate} className="btn-primary" style={{ minHeight: 52, marginBottom: result ? 20 : 0 }}>
         Calculate Pre-Tax Price ({selectedProvince.name})
       </button>
 
       {result && (
         <div style={{ animation: 'slideIn 0.3s ease' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }} className="grid-results">
-            <div className="result-card success">
-              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)', marginBottom: 8 }}>Pre-Tax (CAD)</div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: 'var(--primary)' }}>${fmt(result.preTaxPrice)}</div>
+            <div className="result-card success" style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)', padding: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary-deep)', marginBottom: 8 }}>Pre-Tax (CAD)</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)' }}>${fmt(result.preTaxPrice)}</div>
             </div>
-            <div className="result-card danger">
-              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#f87171', marginBottom: 8 }}>Tax Amount</div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: '#ef4444' }}>${fmt(result.taxAmount)}</div>
+            <div className="result-card danger" style={{ background: '#fff8f8', border: '1px solid #fee2e2', borderRadius: 'var(--radius-lg)', padding: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--error)', marginBottom: 8 }}>Tax Amount</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--error)', fontFamily: 'var(--font-mono)' }}>${fmt(result.taxAmount)}</div>
             </div>
-            <div className="result-card neutral">
-              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#e4e4e7', marginBottom: 8 }}>Total Paid</div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: '#ffffff' }}>${fmt(result.totalPaid)}</div>
+            <div className="result-card neutral" style={{ background: 'var(--canvas-soft)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: 8 }}>Total Paid</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', fontFamily: 'var(--font-mono)' }}>${fmt(result.totalPaid)}</div>
             </div>
           </div>
         </div>

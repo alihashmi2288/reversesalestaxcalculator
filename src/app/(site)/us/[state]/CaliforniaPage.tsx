@@ -116,64 +116,27 @@ export default function CaliforniaPage({ stateData }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      <section style={{ padding: '40px 0 48px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              background: 'var(--primary)',
-              border: '2px solid #000',
-              borderRadius: 'var(--radius)',
-              padding: '5px 14px',
-              marginBottom: 16,
-              boxShadow: '3px 3px 0px 0px rgba(255,255,255,0.1)',
-            }}
-          >
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
-              🗺️ CA · STATE BASE: 7.25% · AVG COMBINED: 8.85% · MAX: 10.75%
-            </span>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
+        <div className="container-main">
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>🗺️</span> CA · State Base: 7.25% · Avg Combined: 8.85% · Max: 10.75%
           </div>
 
           <h1
-            style={{
-              fontSize: 'clamp(32px, 6vw, 56px)',
-              fontWeight: 900,
-              color: 'var(--text-primary)',
-              lineHeight: 1.15,
-              marginBottom: 16,
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em',
-            }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            California Reverse Sales Tax{' '}
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator (CDTFA Rates)
-            </span>
+            California Reverse Sales Tax Calculator
           </h1>
 
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: 16,
-              fontSize: 13,
-              color: 'var(--text-secondary)',
-              marginBottom: 20,
-              fontFamily: 'var(--font-mono)',
-            }}
-          >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>
             <span>✍️ Written by <strong>California Tax Research Team</strong></span>
             <span>•</span>
             <span>🔍 Verified for <strong>2026 CDTFA District Rates</strong></span>
             <span>•</span>
-            <span>🏛️ Source: <strong>California Dept of Tax and Fee Administration</strong></span>
+            <span>🏛️ Source: <strong>CDTFA</strong></span>
           </div>
 
-          <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 720, margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 720, margin: '0 auto', lineHeight: 1.6 }}>
             Calculate the original pre-tax price from any California receipt or invoice total.
             Pre-loaded with California&apos;s {stateData.rate}% statewide average rate and adjustable for Los Angeles (9.50%), San Francisco (8.625%), and all municipal districts.
           </p>
@@ -182,27 +145,27 @@ export default function CaliforniaPage({ stateData }: Props) {
 
       {/* ── Main Layout ───────────────────── */}
       <div className="container-main" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: 860, width: '100%' }}>
+        <div style={{ maxWidth: 880, width: '100%' }}>
           
-          <nav style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 32, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Tax Rates</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>California</span>
+          <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Tax Rates</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <span style={{ color: 'var(--ink)' }}>California</span>
           </nav>
 
           {/* Rate Info Cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
             {[
-              { label: 'State Base Rate', value: '7.25%', color: 'var(--primary)', desc: 'Mandatory statewide base rate' },
-              { label: 'Avg Combined Rate', value: `${stateData.rate}%`, color: 'var(--primary)', desc: 'Population-weighted average', textShadow: '2px 2px 0px #000' },
-              { label: 'Max District Rate', value: '10.75%', color: '#a1a1aa', desc: 'Alameda County jurisdictions' },
-            ].map(({ label, value, color, desc, textShadow }) => (
-              <div key={label} className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)', textShadow }}>{value}</div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>{desc}</div>
+              { label: 'State Base Rate', value: '7.25%', color: 'var(--ink)', desc: 'Mandatory statewide base rate' },
+              { label: 'Avg Combined Rate', value: `${stateData.rate}%`, color: 'var(--primary)', desc: 'Population-weighted average' },
+              { label: 'Max District Rate', value: '10.75%', color: 'var(--ink)', desc: 'Alameda County jurisdictions' },
+            ].map(({ label, value, color, desc }) => (
+              <div key={label} className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'monospace' }}>{value}</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{label}</div>
+                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>{desc}</div>
               </div>
             ))}
           </div>
@@ -223,8 +186,8 @@ export default function CaliforniaPage({ stateData }: Props) {
                 <p>
                   California has one of the most layered sales tax frameworks in the United States. Unlike states with uniform local additions, California sales tax consists of a mandatory statewide base rate of <strong>7.25%</strong> plus local <strong>Transactions and Use Taxes (district taxes)</strong> that vary down to the city and neighborhood level.
                 </p>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                  <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 12, textTransform: 'uppercase' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                  <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 12 }}>
                     Components of California&apos;s 7.25% Base Rate:
                   </h3>
                   <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14 }}>
@@ -247,23 +210,23 @@ export default function CaliforniaPage({ stateData }: Props) {
               <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
                 Tax Rates in Major California Cities (2026)
               </h2>
-              <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+              <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                   <thead>
-                    <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>City / Jurisdiction</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>County</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined Rate</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Key Notes</th>
+                    <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>City / Jurisdiction</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>County</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Combined Rate</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Key Notes</th>
                     </tr>
                   </thead>
                   <tbody>
                     {caCities.map((c, idx) => (
-                      <tr key={idx} style={{ borderBottom: idx === caCities.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-primary)', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{c.name}</td>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 14 }}>{c.county}</td>
-                        <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{c.rate.toFixed(3).replace(/\.?0+$/, '')}%</td>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 13 }}>{c.note}</td>
+                      <tr key={idx} style={{ borderBottom: idx === caCities.length - 1 ? 'none' : '1px solid var(--hairline)', background: idx % 2 === 0 ? 'var(--canvas)' : 'var(--canvas-soft)' }}>
+                        <td style={{ padding: '14px 20px', color: 'var(--ink)', fontWeight: 600 }}>{c.name}</td>
+                        <td style={{ padding: '14px 20px', color: 'var(--body)', fontSize: 14 }}>{c.county}</td>
+                        <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>{c.rate.toFixed(3).replace(/\.?0+$/, '')}%</td>
+                        <td style={{ padding: '14px 20px', color: 'var(--muted)', fontSize: 13 }}>{c.note}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -274,19 +237,19 @@ export default function CaliforniaPage({ stateData }: Props) {
             {/* Worked Calculation Example */}
             <section>
               <span className="section-label">Mathematical Proof</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
                 Step-by-Step Calculation: Backing Out 9.50% Los Angeles Sales Tax
               </h2>
-              <div className="card" style={{ padding: 24, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px' }}>
+              <div className="card" style={{ padding: 28 }}>
+                <p style={{ color: 'var(--body)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px' }}>
                   Suppose you purchase computer hardware in Los Angeles, California, and the final receipt total is <strong>$547.50</strong> (inclusive of the 9.50% LA combined tax).
                 </p>
-                <div style={{ background: '#09090b', padding: 18, borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)', fontFamily: 'var(--font-mono)', fontSize: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div><span style={{ color: 'var(--text-muted)' }}>Step 1 — Identify Divisor:</span> <span style={{ color: 'var(--primary)' }}>1 + (9.50 / 100) = 1.095</span></div>
-                  <div><span style={{ color: 'var(--text-muted)' }}>Step 2 — Calculate Pre-Tax:</span> <span style={{ color: '#fff' }}>$547.50 ÷ 1.095 = </span><strong style={{ color: 'var(--primary)' }}>$500.00</strong></div>
-                  <div><span style={{ color: 'var(--text-muted)' }}>Step 3 — Extract Sales Tax:</span> <span style={{ color: '#fff' }}>$547.50 - $500.00 = </span><strong style={{ color: '#fff' }}>$47.50</strong></div>
+                <div style={{ background: 'var(--canvas-soft)', padding: 20, borderRadius: 'var(--radius-xs)', border: '1px solid var(--hairline)', fontFamily: 'monospace', fontSize: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div><span style={{ color: 'var(--muted)' }}>Step 1 — Identify Divisor:</span> <span style={{ color: 'var(--primary-deep)', fontWeight: 700 }}>1 + (9.50 / 100) = 1.095</span></div>
+                  <div><span style={{ color: 'var(--muted)' }}>Step 2 — Calculate Pre-Tax:</span> <span style={{ color: 'var(--ink)' }}>$547.50 ÷ 1.095 = </span><strong style={{ color: 'var(--primary-deep)' }}>$500.00</strong></div>
+                  <div><span style={{ color: 'var(--muted)' }}>Step 3 — Extract Sales Tax:</span> <span style={{ color: 'var(--ink)' }}>$547.50 - $500.00 = </span><strong style={{ color: '#b91c1c' }}>$47.50</strong></div>
                 </div>
-                <p style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 14, margin: '14px 0 0' }}>
+                <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 14, margin: '14px 0 0' }}>
                   ⚠️ <em>Common bookkeeping mistake:</em> If you mistakenly subtract 9.5% from $547.50, you calculate $495.49 — shorting your books by $4.51. Division is the mathematically exact reverse operator.
                 </p>
               </div>
@@ -295,25 +258,25 @@ export default function CaliforniaPage({ stateData }: Props) {
             {/* California Specific Exemptions */}
             <section>
               <span className="section-label">CDTFA Compliance</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px' }}>
                 California Statutory Exemptions & Rules
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>🥗 Unprepared Groceries (0%)</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Under CDTFA Reg 1602, raw groceries, vegetables, meat, bread, and milk for home consumption are completely exempt from California sales tax. Hot prepared meals and restaurant food are fully taxable.
                   </p>
                 </div>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>💊 Prescription Medications (0%)</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Medicines dispensed pursuant to a licensed physician prescription and medical implants are legally exempt from sales and use tax in California.
                   </p>
                 </div>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>📋 Resale Certificates</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Wholesalers and retailers holding a valid California Seller&apos;s Permit can issue CDTFA Form CDTFA-230 to purchase inventory tax-free for subsequent resale.
                   </p>
                 </div>
@@ -322,11 +285,11 @@ export default function CaliforniaPage({ stateData }: Props) {
 
             {/* Official Agency Links */}
             <section>
-              <div className="card" style={{ padding: 24, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8, textTransform: 'uppercase' }}>
+              <div className="card" style={{ padding: 24, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>
                   Official California Revenue Department
                 </h3>
-                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 16px' }}>
+                <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: '0 0 16px' }}>
                   Verify your address-specific district rates or file your periodic sales and use tax returns directly with the state authority:
                 </p>
                 <a
@@ -337,11 +300,12 @@ export default function CaliforniaPage({ stateData }: Props) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 8,
-                    color: '#000',
+                    color: '#ffffff',
                     background: 'var(--primary)',
+                    border: '1px solid var(--primary-deep)',
                     padding: '8px 16px',
                     borderRadius: 'var(--radius-sm)',
-                    fontWeight: 800,
+                    fontWeight: 700,
                     fontSize: 14,
                     textDecoration: 'none',
                     fontFamily: 'var(--font-mono)',
@@ -355,16 +319,16 @@ export default function CaliforniaPage({ stateData }: Props) {
             {/* FAQs */}
             <section>
               <span className="section-label">FAQ</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px' }}>
                 California Sales Tax FAQs
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {faqs.map((faq, idx) => (
-                  <div key={idx} className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div key={idx} className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       {faq.question}
                     </h3>
-                    <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>
+                    <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.7, margin: 0 }}>
                       {faq.answer}
                     </p>
                   </div>

@@ -114,26 +114,24 @@ export default function NYCalculatorClient({ stateData }: Props) {
   };
 
   return (
-    <div className="calc-card" style={{ border: '2px solid var(--primary)', boxShadow: 'var(--shadow-solid-dark)' }}>
+    <div className="calc-card">
       {/* Mode Selector Tabs */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 20 }}>
         <button
           type="button"
           onClick={() => handleModeChange('forward')}
           style={{
-            padding: '12px 16px',
-            fontSize: 14,
+            padding: '10px 16px',
+            fontSize: 13,
             fontWeight: 800,
             textTransform: 'uppercase',
             letterSpacing: '0.04em',
-            fontFamily: 'var(--font-mono)',
-            borderRadius: 'var(--radius)',
-            border: '2px solid #000',
+            borderRadius: 'var(--radius-xs)',
+            border: mode === 'forward' ? '1px solid var(--primary)' : '1px solid var(--hairline)',
             cursor: 'pointer',
             transition: 'all 0.15s ease',
-            background: mode === 'forward' ? 'var(--primary)' : 'var(--card-bg)',
-            color: mode === 'forward' ? '#000' : 'var(--text-secondary)',
-            boxShadow: mode === 'forward' ? '3px 3px 0px 0px rgba(255,255,255,0.15)' : 'none',
+            background: mode === 'forward' ? 'var(--primary)' : 'var(--canvas-soft)',
+            color: mode === 'forward' ? '#ffffff' : 'var(--body)',
           }}
         >
           ➕ Add Tax (Forward)
@@ -142,19 +140,17 @@ export default function NYCalculatorClient({ stateData }: Props) {
           type="button"
           onClick={() => handleModeChange('reverse')}
           style={{
-            padding: '12px 16px',
-            fontSize: 14,
+            padding: '10px 16px',
+            fontSize: 13,
             fontWeight: 800,
             textTransform: 'uppercase',
             letterSpacing: '0.04em',
-            fontFamily: 'var(--font-mono)',
-            borderRadius: 'var(--radius)',
-            border: '2px solid #000',
+            borderRadius: 'var(--radius-xs)',
+            border: mode === 'reverse' ? '1px solid var(--primary)' : '1px solid var(--hairline)',
             cursor: 'pointer',
             transition: 'all 0.15s ease',
-            background: mode === 'reverse' ? 'var(--primary)' : 'var(--card-bg)',
-            color: mode === 'reverse' ? '#000' : 'var(--text-secondary)',
-            boxShadow: mode === 'reverse' ? '3px 3px 0px 0px rgba(255,255,255,0.15)' : 'none',
+            background: mode === 'reverse' ? 'var(--primary)' : 'var(--canvas-soft)',
+            color: mode === 'reverse' ? '#ffffff' : 'var(--body)',
           }}
         >
           ➖ Remove Tax (Reverse)
@@ -163,7 +159,7 @@ export default function NYCalculatorClient({ stateData }: Props) {
 
       {/* Quick Rate Presets */}
       <div style={{ marginBottom: 20 }}>
-        <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 8, letterSpacing: '0.05em' }}>
+        <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', marginBottom: 8, letterSpacing: '0.04em' }}>
           Select New York Location Rate Preset:
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -174,20 +170,8 @@ export default function NYCalculatorClient({ stateData }: Props) {
                 key={p.rate}
                 type="button"
                 onClick={() => handlePresetSelect(p.rate)}
-                style={{
-                  padding: '6px 12px',
-                  borderRadius: 'var(--radius-sm)',
-                  border: isSelected ? '2px solid var(--primary)' : '1px solid var(--border)',
-                  background: isSelected ? 'rgba(34, 197, 94, 0.15)' : 'var(--card-bg)',
-                  color: isSelected ? 'var(--primary)' : 'var(--text-secondary)',
-                  fontSize: 12,
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  fontFamily: 'var(--font-mono)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                }}
+                className={`quick-btn ${isSelected ? 'active' : ''}`}
+                style={{ fontSize: 12 }}
               >
                 <span>{p.label}</span>
               </button>
@@ -199,7 +183,7 @@ export default function NYCalculatorClient({ stateData }: Props) {
       {/* Inputs Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }} className="grid-responsive">
         <div>
-          <label htmlFor="ny-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="ny-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>
             {mode === 'forward' ? 'Pre-Tax Price (Sticker Price)' : 'Total Price Paid (Receipt with tax)'}
           </label>
           <div className="input-wrapper">
@@ -224,7 +208,7 @@ export default function NYCalculatorClient({ stateData }: Props) {
         </div>
 
         <div>
-          <label htmlFor="ny-tax-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="ny-tax-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>
             Combined Sales Tax Rate
           </label>
           <div className="input-wrapper">
@@ -245,19 +229,19 @@ export default function NYCalculatorClient({ stateData }: Props) {
             />
             <span className="input-suffix" aria-hidden="true">%</span>
           </div>
-          <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>
+          <p style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>
             State (4%) + Local + MCTD (0.375% if downstate)
           </p>
         </div>
       </div>
 
       {error && (
-        <div style={{ background: '#000', border: '2px solid #ef4444', borderRadius: 'var(--radius)', padding: '12px 16px', color: '#ef4444', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 20 }}>
-          [ERROR] {error}
+        <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 'var(--radius-xs)', padding: '12px 16px', color: '#991b1b', fontSize: 13, fontWeight: 600, marginBottom: 20, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span>⚠️</span> {error}
         </div>
       )}
 
-      <button suppressHydrationWarning onClick={() => calculate()} className="btn-primary" style={{ minHeight: 56, marginBottom: 24 }}>
+      <button suppressHydrationWarning onClick={() => calculate()} className="btn-primary" style={{ minHeight: 52, marginBottom: 24 }}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <rect x="4" y="2" width="16" height="20" rx="2" />
           <path d="M9 7h6M9 12h6M9 17h4" />
@@ -269,50 +253,50 @@ export default function NYCalculatorClient({ stateData }: Props) {
         <div style={{ animation: 'slideIn 0.3s ease' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 20 }} className="grid-results">
             {/* Pre-Tax Price */}
-            <div className="result-card success" style={{ background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary)', marginBottom: 8 }}>
-                {mode === 'forward' ? 'Pre-Tax Price' : '✓ Original Price (Pre-Tax)'}
+            <div className="result-card success">
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary-deep)', marginBottom: 6 }}>
+                {mode === 'forward' ? 'Pre-Tax Price' : 'Original Price (Pre-Tax)'}
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary-deep)', lineHeight: 1.1, fontFamily: 'monospace' }}>
                 ${fmt(result.preTaxPrice)}
               </div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6 }}>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 6 }}>
                 {mode === 'forward' ? 'Amount entered' : 'Before tax was applied'}
               </div>
             </div>
 
             {/* Tax Amount */}
-            <div className="result-card danger" style={{ background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#f87171', marginBottom: 8 }}>
+            <div className="result-card danger">
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#991b1b', marginBottom: 6 }}>
                 Sales Tax ({result.taxRate}%)
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#ef4444', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: '#b91c1c', lineHeight: 1.1, fontFamily: 'monospace' }}>
                 ${fmt(result.taxAmount)}
               </div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6 }}>
+              <div style={{ fontSize: 12, color: '#991b1b', marginTop: 6 }}>
                 NY combined tax
               </div>
             </div>
 
             {/* Total Price */}
-            <div className="result-card neutral" style={{ background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#e4e4e7', marginBottom: 8 }}>
-                {mode === 'forward' ? '✓ Total Price Paid' : 'Total Paid'}
+            <div className="result-card neutral">
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: 6 }}>
+                {mode === 'forward' ? 'Total Price Paid' : 'Total Paid'}
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#ffffff', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--ink)', lineHeight: 1.1, fontFamily: 'monospace' }}>
                 ${fmt(result.totalPrice)}
               </div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6 }}>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 6 }}>
                 {mode === 'forward' ? 'Checkout price' : 'Amount you entered'}
               </div>
             </div>
           </div>
 
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <button suppressHydrationWarning onClick={copy} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>
+            <button suppressHydrationWarning onClick={copy} className="btn-secondary" style={{ flex: 1, minHeight: 44 }}>
               {copied ? (
                 <>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M20 6L9 17l-5-5" />
                   </svg>{' '}
                   Copied!
@@ -327,7 +311,7 @@ export default function NYCalculatorClient({ stateData }: Props) {
                 </>
               )}
             </button>
-            <button suppressHydrationWarning onClick={reset} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>
+            <button suppressHydrationWarning onClick={reset} className="btn-secondary" style={{ flex: 1, minHeight: 44 }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8" />
                 <path d="M3 3v5h5" />
@@ -337,7 +321,7 @@ export default function NYCalculatorClient({ stateData }: Props) {
           </div>
 
           {/* Formula display */}
-          <div style={{ background: 'var(--bg)', border: '2px dashed var(--border)', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: 13, color: 'var(--primary)', marginTop: 16, fontFamily: 'var(--font-mono)', wordBreak: 'break-word' }}>
+          <div style={{ background: 'var(--canvas-soft)', border: '1px solid var(--hairline)', borderRadius: 'var(--radius-xs)', padding: '12px 16px', fontSize: 13, color: 'var(--ink)', marginTop: 16, fontFamily: 'monospace', wordBreak: 'break-word' }}>
             {mode === 'forward' ? (
               <span>Formula: ${fmt(result.preTaxPrice)} × {(result.taxRate / 100).toFixed(5)} = ${fmt(result.taxAmount)} tax → Total = ${fmt(result.totalPrice)}</span>
             ) : (

@@ -116,64 +116,27 @@ export default function FloridaPage({ stateData }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      <section style={{ padding: '40px 0 48px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              background: 'var(--primary)',
-              border: '2px solid #000',
-              borderRadius: 'var(--radius)',
-              padding: '5px 14px',
-              marginBottom: 16,
-              boxShadow: '3px 3px 0px 0px rgba(255,255,255,0.1)',
-            }}
-          >
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
-              🗺️ FL · STATE BASE: 6.00% · COUNTY SURTAX: 0.5%–1.5% · COMBINED: 6.5%–7.5%
-            </span>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
+        <div className="container-main">
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>🗺️</span> FL · State Base: 6.00% · County Surtax: 0.5%–1.5% · Combined: 6.5%–7.5%
           </div>
 
           <h1
-            style={{
-              fontSize: 'clamp(32px, 6vw, 56px)',
-              fontWeight: 900,
-              color: 'var(--text-primary)',
-              lineHeight: 1.15,
-              marginBottom: 16,
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em',
-            }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            Florida Reverse Sales Tax{' '}
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator (FDOR Surtax Rates)
-            </span>
+            Florida Reverse Sales Tax Calculator
           </h1>
 
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: 16,
-              fontSize: 13,
-              color: 'var(--text-secondary)',
-              marginBottom: 20,
-              fontFamily: 'var(--font-mono)',
-            }}
-          >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>
             <span>✍️ Written by <strong>Florida Tax Compliance Analysts</strong></span>
             <span>•</span>
             <span>🔍 Verified for <strong>2026 FDOR County Surtaxes</strong></span>
             <span>•</span>
-            <span>🏛️ Source: <strong>Florida Department of Revenue</strong></span>
+            <span>🏛️ Source: <strong>Florida Dept of Revenue</strong></span>
           </div>
 
-          <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 720, margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 720, margin: '0 auto', lineHeight: 1.6 }}>
             Calculate original pre-tax amounts from any Florida receipt total.
             Pre-loaded with Florida&apos;s {stateData.rate}% average rate and adjustable for Miami (7.0%), Tampa (7.5%), Orlando (6.5%), and Jacksonville (7.5%).
           </p>
@@ -182,27 +145,27 @@ export default function FloridaPage({ stateData }: Props) {
 
       {/* ── Main Layout ───────────────────── */}
       <div className="container-main" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: 860, width: '100%' }}>
+        <div style={{ maxWidth: 880, width: '100%' }}>
           
-          <nav style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 32, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Tax Rates</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>Florida</span>
+          <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Tax Rates</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <span style={{ color: 'var(--ink)' }}>Florida</span>
           </nav>
 
           {/* Rate Info Cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
             {[
-              { label: 'State Base Rate', value: '6.00%', color: 'var(--primary)', desc: 'Florida statewide base rate' },
-              { label: 'Discretionary Surtax', value: '0.50% - 1.50%', color: '#a1a1aa', desc: 'County-level surtax addition' },
-              { label: 'Combined Typical', value: `${stateData.rate}%`, color: 'var(--primary)', desc: 'State average combined rate', textShadow: '2px 2px 0px #000' },
-            ].map(({ label, value, color, desc, textShadow }) => (
-              <div key={label} className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)', textShadow }}>{value}</div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>{desc}</div>
+              { label: 'State Base Rate', value: '6.00%', color: 'var(--ink)', desc: 'Florida statewide base rate' },
+              { label: 'Discretionary Surtax', value: '0.50% - 1.50%', color: 'var(--ink)', desc: 'County-level surtax addition' },
+              { label: 'Combined Typical', value: `${stateData.rate}%`, color: 'var(--primary)', desc: 'State average combined rate' },
+            ].map(({ label, value, color, desc }) => (
+              <div key={label} className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'monospace' }}>{value}</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{label}</div>
+                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>{desc}</div>
               </div>
             ))}
           </div>
@@ -224,8 +187,8 @@ export default function FloridaPage({ stateData }: Props) {
                   Florida utilizes a two-tier sales tax structure. The state imposes a <strong>6.00% general sales tax</strong> under Florida Statutes Chapter 212.
                   In addition, Florida counties are authorized under Section 212.055 to levy a <strong>Discretionary Sales Surtax</strong> (often called local option county taxes) for voter-approved projects:
                 </p>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                  <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 12, textTransform: 'uppercase' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                  <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 12 }}>
                     Key Florida Surtax Rules:
                   </h3>
                   <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14 }}>
@@ -243,26 +206,26 @@ export default function FloridaPage({ stateData }: Props) {
               <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
                 Sales Tax Rates in Top Florida Counties (2026)
               </h2>
-              <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+              <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                   <thead>
-                    <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>County / Principal Cities</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>State Rate</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>County Surtax</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined Rate</th>
+                    <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>County / Principal Cities</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>State Rate</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>County Surtax</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Combined Rate</th>
                     </tr>
                   </thead>
                   <tbody>
                     {flCounties.map((c, idx) => (
-                      <tr key={idx} style={{ borderBottom: idx === flCounties.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-primary)', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                      <tr key={idx} style={{ borderBottom: idx === flCounties.length - 1 ? 'none' : '1px solid var(--hairline)', background: idx % 2 === 0 ? 'var(--canvas)' : 'var(--canvas-soft)' }}>
+                        <td style={{ padding: '14px 20px', color: 'var(--ink)', fontWeight: 600 }}>
                           {c.county}
-                          <div style={{ fontSize: 12, color: 'var(--text-secondary)', fontWeight: 400 }}>{c.city}</div>
+                          <div style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 400 }}>{c.city}</div>
                         </td>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 14 }}>{c.state}</td>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 14 }}>{c.surtax}</td>
-                        <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{c.combined}</td>
+                        <td style={{ padding: '14px 20px', color: 'var(--body)', fontSize: 14 }}>{c.state}</td>
+                        <td style={{ padding: '14px 20px', color: 'var(--body)', fontSize: 14 }}>{c.surtax}</td>
+                        <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>{c.combined}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -273,19 +236,19 @@ export default function FloridaPage({ stateData }: Props) {
             {/* Worked Reverse Calculation */}
             <section>
               <span className="section-label">Worked Calculation</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
                 Worked Example: Reverse Calculating 7.00% Miami Sales Tax
               </h2>
-              <div className="card" style={{ padding: 24, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px' }}>
+              <div className="card" style={{ padding: 28 }}>
+                <p style={{ color: 'var(--body)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px' }}>
                   Suppose you purchase an electronic tablet in Miami-Dade County (7.00% rate) with a receipt total of <strong>$535.00</strong>.
                 </p>
-                <div style={{ background: '#09090b', padding: 18, borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)', fontFamily: 'var(--font-mono)', fontSize: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div><span style={{ color: 'var(--text-muted)' }}>1. Compute Decimal Factor:</span> <span style={{ color: 'var(--primary)' }}>1 + (7.00 / 100) = 1.07</span></div>
-                  <div><span style={{ color: 'var(--text-muted)' }}>2. Compute Pre-Tax Amount:</span> <span style={{ color: '#fff' }}>$535.00 ÷ 1.07 = </span><strong style={{ color: 'var(--primary)' }}>$500.00</strong></div>
-                  <div><span style={{ color: 'var(--text-muted)' }}>3. Extract Total Tax:</span> <span style={{ color: '#fff' }}>$535.00 - $500.00 = </span><strong style={{ color: '#fff' }}>$35.00</strong></div>
+                <div style={{ background: 'var(--canvas-soft)', padding: 20, borderRadius: 'var(--radius-xs)', border: '1px solid var(--hairline)', fontFamily: 'monospace', fontSize: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div><span style={{ color: 'var(--muted)' }}>1. Compute Decimal Factor:</span> <span style={{ color: 'var(--primary-deep)', fontWeight: 700 }}>1 + (7.00 / 100) = 1.07</span></div>
+                  <div><span style={{ color: 'var(--muted)' }}>2. Compute Pre-Tax Amount:</span> <span style={{ color: 'var(--ink)' }}>$535.00 ÷ 1.07 = </span><strong style={{ color: 'var(--primary-deep)' }}>$500.00</strong></div>
+                  <div><span style={{ color: 'var(--muted)' }}>3. Extract Total Tax:</span> <span style={{ color: 'var(--ink)' }}>$535.00 - $500.00 = </span><strong style={{ color: '#b91c1c' }}>$35.00</strong></div>
                 </div>
-                <p style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 14, margin: '14px 0 0' }}>
+                <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 14, margin: '14px 0 0' }}>
                   Of that $35.00 tax: $30.00 (6%) goes to Florida General Fund, and $5.00 (1%) goes to Miami-Dade County transit infrastructure.
                 </p>
               </div>
@@ -294,25 +257,25 @@ export default function FloridaPage({ stateData }: Props) {
             {/* Florida Exemptions */}
             <section>
               <span className="section-label">Florida Statutory Rules</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px' }}>
                 Florida Exemption Guidelines
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>🥗 Unprepared Groceries (0%)</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Food products sold for human consumption (meat, poultry, fish, bread, milk, vegetables, produce) are statutory exempt. Candy, soda, and prepared deli foods are fully taxable.
                   </p>
                 </div>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>💊 Prescription Drugs (0%)</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Prescription medicines, prosthetic devices, prescription glasses, and orthopedic appliances are statutory exempt from Florida sales and use tax.
                   </p>
                 </div>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>🏢 Commercial Lease Tax</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Unlike most states, Florida levies tax on commercial real estate rent. The statewide rate is reduced to 2.0% plus the applicable county discretionary surtax.
                   </p>
                 </div>
@@ -321,11 +284,11 @@ export default function FloridaPage({ stateData }: Props) {
 
             {/* Official Agency Links */}
             <section>
-              <div className="card" style={{ padding: 24, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8, textTransform: 'uppercase' }}>
+              <div className="card" style={{ padding: 24, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>
                   Official Florida Department of Revenue
                 </h3>
-                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 16px' }}>
+                <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: '0 0 16px' }}>
                   Verify annual county surtax changes or file Form DR-15 sales and use tax returns online:
                 </p>
                 <a
@@ -336,11 +299,12 @@ export default function FloridaPage({ stateData }: Props) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 8,
-                    color: '#000',
+                    color: '#ffffff',
                     background: 'var(--primary)',
+                    border: '1px solid var(--primary-deep)',
                     padding: '8px 16px',
                     borderRadius: 'var(--radius-sm)',
-                    fontWeight: 800,
+                    fontWeight: 700,
                     fontSize: 14,
                     textDecoration: 'none',
                     fontFamily: 'var(--font-mono)',
@@ -354,16 +318,16 @@ export default function FloridaPage({ stateData }: Props) {
             {/* FAQs */}
             <section>
               <span className="section-label">FAQ</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px' }}>
                 Florida Sales Tax Frequently Asked Questions
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {faqs.map((faq, idx) => (
-                  <div key={idx} className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div key={idx} className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       {faq.question}
                     </h3>
-                    <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>
+                    <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.7, margin: 0 }}>
                       {faq.answer}
                     </p>
                   </div>

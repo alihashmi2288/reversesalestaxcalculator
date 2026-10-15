@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Bricolage_Grotesque, JetBrains_Mono } from 'next/font/google';
+import { Montserrat, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const bricolage = Bricolage_Grotesque({
+const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-bricolage',
+  variable: '--font-montserrat',
+  weight: ['300', '400', '500', '600', '700', '800'],
   adjustFontFallback: true,
 });
 
@@ -123,7 +124,7 @@ const speculationRules = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${jetbrains.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

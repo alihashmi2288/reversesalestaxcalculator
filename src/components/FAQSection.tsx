@@ -217,28 +217,28 @@ export default function FAQSection() {
 
   return (
     <section>
-      <div style={{ textAlign: 'center', marginBottom: 48 }}>
-        <span className="section-label">FAQ</span>
-        <h2 style={{ fontSize: 36, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
-          Reverse Sales Tax Calculator FAQ
+      <div style={{ textAlign: 'center', marginBottom: 40 }}>
+        <span className="section-label">Knowledge Base</span>
+        <h2 style={{ fontSize: 32, fontWeight: 700, color: 'var(--ink)', margin: '10px 0 14px' }}>
+          Reverse Sales Tax Frequently Asked Questions
         </h2>
-        <p style={{ fontSize: 18, color: 'var(--text-secondary)', maxWidth: 640, margin: '0 auto' }}>
-          Everything you need to know about reverse sales tax — from the formula to business accounting, US states, Canada, and international VAT.
+        <p style={{ fontSize: 16, color: 'var(--body)', maxWidth: 640, margin: '0 auto' }}>
+          Everything you need to know about calculating pre-tax price, statutory sales tax rates, and business accounting rules.
         </p>
       </div>
 
-      <div style={{ maxWidth: 860, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 48 }}>
+      <div style={{ maxWidth: 860, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 40 }}>
         {FAQ_CATEGORIES.map((category, ci) => (
           <div key={ci}>
             <h3 style={{
-              fontSize: 14,
-              fontWeight: 800,
+              fontSize: 13,
+              fontWeight: 700,
               textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              color: 'var(--primary)',
-              marginBottom: 16,
+              letterSpacing: '0.08em',
+              color: 'var(--ink)',
+              marginBottom: 14,
               paddingBottom: 8,
-              borderBottom: '2px solid var(--border)',
+              borderBottom: '1px solid var(--hairline-strong)',
             }}>
               {category.label}
             </h3>
@@ -254,10 +254,10 @@ export default function FAQSection() {
                       onClick={() => setOpenKey(isOpen ? null : key)}
                       aria-expanded={isOpen}
                     >
-                      <span>{faq.q}</span>
+                      <span style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink)' }}>{faq.q}</span>
                       <svg
-                        width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5"
-                        style={{ flexShrink: 0, transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}
+                        width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5"
+                        style={{ flexShrink: 0, transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.15s ease' }}
                       >
                         <polyline points="6,9 12,15 18,9"/>
                       </svg>
@@ -266,12 +266,9 @@ export default function FAQSection() {
                       className="faq-content"
                       style={{
                         display: isOpen ? 'block' : 'none',
-                        marginTop: 16,
-                        paddingTop: 16,
-                        borderTop: '1px solid var(--border)',
-                        color: 'var(--text-secondary)',
-                        lineHeight: 1.75,
-                        fontSize: 15,
+                        color: 'var(--body)',
+                        lineHeight: 1.65,
+                        fontSize: 14,
                       }}
                       aria-hidden={!isOpen}
                     >
@@ -282,20 +279,15 @@ export default function FAQSection() {
               })}
             </div>
             {ci === 0 && (
-              <p style={{ marginTop: 16, fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-                For any of these calculations, the{' '}
+              <p style={{ marginTop: 14, fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>
+                Need to calculate right now? Jump straight to the{' '}
                 <Link
-                  href="/"
-                  style={{
-                    color: 'var(--primary)',
-                    fontWeight: 600,
-                    textDecoration: 'none',
-                    borderBottom: '1px solid rgba(165,180,252,0.3)',
-                  }}
+                  href="/#calculator"
+                  className="link-green"
                 >
                   reverse tax calculator
                 </Link>{' '}
-                handles the math automatically — just enter your total and tax rate.
+                to compute results automatically.
               </p>
             )}
           </div>

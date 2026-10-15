@@ -50,13 +50,13 @@ export default function TaxRatesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
+      <section className="hero-band" style={{ padding: '56px 0', textAlign: 'center' }}>
         <div className="container-main">
-          <span className="section-label" style={{ background: 'rgba(255,255,255,0.15)', color: '#a5b4fc' }}>US Tax Rates</span>
-          <h1 style={{ fontSize: 'clamp(28px,5vw,48px)', fontWeight: 900, color: '#fff', margin: '16px 0 16px', lineHeight: 1.15 }}>
+          <span className="section-label" style={{ background: 'var(--mint-100)', color: 'var(--primary-deep)', border: '1px solid var(--mint-200)' }}>US Tax Rates</span>
+          <h1 style={{ fontSize: 'clamp(28px,5vw,46px)', fontWeight: 700, color: '#ffffff', margin: '14px 0 12px', lineHeight: 1.15 }}>
             US State Sales Tax Rates 2026
           </h1>
-          <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 560, margin: '0 auto' }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 580, margin: '0 auto', lineHeight: 1.6 }}>
             Combined average sales tax rates (state + local) for all 50 states and Washington DC.
           </p>
         </div>
@@ -64,32 +64,32 @@ export default function TaxRatesPage() {
 
       {/* Breadcrumb */}
       <div className="container-main" style={{ marginTop: 24, marginBottom: 8 }}>
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)' }}>
-          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
+        <nav style={{ fontSize: 13, color: 'var(--muted)' }}>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
           <span style={{ margin: '0 8px' }}>›</span>
-          <span>Tax Rates</span>
+          <span style={{ color: 'var(--ink)', fontWeight: 600 }}>Tax Rates</span>
         </nav>
       </div>
 
       {/* Key Stats */}
-      <div className="container-main" style={{ marginTop: 24 }}>
+      <div className="container-main" style={{ marginTop: 20 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 32 }}>
           {[
-            { label: 'Highest Rate', value: `${highestState.rate.toFixed(2)}%`, note: `${highestState.state}`, color: '#dc2626' },
+            { label: 'Highest Rate', value: `${highestState.rate.toFixed(2)}%`, note: `${highestState.state}`, color: 'var(--error)' },
             { label: 'Average Rate', value: `${NATIONAL_AVERAGE_COMBINED_RATE}%`, note: 'National average', color: 'var(--primary)' },
-            { label: 'Lowest Rate', value: '0%', note: `${zeroTaxCount} tax-free states`, color: '#34d399' },
-            { label: 'States Covered', value: `${STATE_TAX_RATES.length}`, note: '50 states + DC', color: '#7c3aed' },
+            { label: 'Lowest Rate', value: '0%', note: `${zeroTaxCount} tax-free states`, color: 'var(--primary-deep)' },
+            { label: 'States Covered', value: `${STATE_TAX_RATES.length}`, note: '50 states + DC', color: 'var(--ink)' },
           ].map(({ label, value, note, color }) => (
-            <div key={label} className="card" style={{ textAlign: 'center' }}>
+            <div key={label} className="card" style={{ textAlign: 'center', background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: '20px 16px', boxShadow: 'var(--shadow-card)' }}>
               <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)' }}>{value}</div>
-              <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--text-primary)', margin: '4px 0 2px' }}>{label}</div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>{note}</div>
+              <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)', margin: '6px 0 2px' }}>{label}</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)' }}>{note}</div>
             </div>
           ))}
         </div>
 
         {/* US Sales Tax Map 2026 Infographic */}
-        <div style={{ margin: '24px 0 32px', borderRadius: 'var(--radius)', overflow: 'hidden', border: '2px solid var(--border)', background: '#09090b', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
+        <div style={{ margin: '24px 0 32px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--hairline-strong)', background: 'var(--canvas)', boxShadow: 'var(--shadow-card)' }}>
           <Image
             src="/images/us-sales-tax-rates-map-2026.jpg"
             alt="US sales tax rates by state 2026 map infographic showing combined state and local averages"
@@ -98,12 +98,12 @@ export default function TaxRatesPage() {
             style={{ width: '100%', height: 'auto', display: 'block' }}
             priority
           />
-          <div style={{ padding: '12px 20px', background: '#09090b', borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--text-muted)' }}>
+          <div style={{ padding: '12px 20px', background: 'var(--canvas-soft)', borderTop: '1px solid var(--hairline-strong)', fontSize: 13, color: 'var(--muted)' }}>
             Figure 2: 2026 US state and local combined average sales tax rate map visualization across all 50 states and Washington DC.
           </div>
         </div>
 
-        <p style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 24, maxWidth: 860 }}>
+        <p style={{ fontSize: 16, color: 'var(--body)', lineHeight: 1.7, marginBottom: 24, maxWidth: 860 }}>
           All rates in the table below are pre-loaded into each state&apos;s dedicated calculator. Click any state to open a{' '}
           <Link
             href="/"
@@ -123,9 +123,9 @@ export default function TaxRatesPage() {
 
       {/* Notes */}
       <div className="container-main" style={{ marginTop: 48, marginBottom: 64 }}>
-        <div style={{ background: 'rgba(255, 251, 235, 0.04)', border: '1px solid rgba(253, 230, 138, 0.2)', borderRadius: 16, padding: 24, maxWidth: 860, margin: '0 auto' }}>
-          <h2 style={{ fontWeight: 700, fontSize: 18, color: '#fef08a', marginBottom: 12 }}>📌 Important Notes</h2>
-          <ul style={{ paddingLeft: 20, color: 'var(--text-secondary)', fontSize: 15, lineHeight: 2 }}>
+        <div style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)', padding: 24, maxWidth: 860, margin: '0 auto' }}>
+          <h2 style={{ fontWeight: 700, fontSize: 17, color: 'var(--primary-deep)', marginBottom: 12 }}>📌 Important Notes</h2>
+          <ul style={{ paddingLeft: 20, color: 'var(--body)', fontSize: 15, lineHeight: 1.9, margin: 0 }}>
             <li>Rates shown are <strong>combined averages</strong> (state rate + average local rate).</li>
             <li>Your actual rate may differ based on your specific city and county jurisdiction.</li>
             <li>Certain necessities (unprepared groceries, prescription drugs) are exempt in many states.</li>

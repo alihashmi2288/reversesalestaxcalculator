@@ -136,111 +136,72 @@ export default function NewYorkPage({ stateData }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      <section style={{ padding: '40px 0 48px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              background: 'var(--primary)',
-              border: '2px solid #000',
-              borderRadius: 'var(--radius)',
-              padding: '5px 14px',
-              marginBottom: 16,
-              boxShadow: '3px 3px 0px 0px rgba(255,255,255,0.1)',
-            }}
-          >
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
-              🗺️ NY · NYC COMBINED RATE: 8.875% · STATE BASE: 4.00%
-            </span>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
+        <div className="container-main">
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>🗺️</span> NY · NYC Combined Rate: 8.875% · State Base: 4.00%
           </div>
 
           <h1
-            style={{
-              fontSize: 'clamp(32px, 6vw, 56px)',
-              fontWeight: 900,
-              color: 'var(--text-primary)',
-              lineHeight: 1.15,
-              marginBottom: 16,
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em',
-            }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            New York Reverse Sales Tax{' '}
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator (NYC 8.875%)
-            </span>
+            New York Reverse Sales Tax Calculator
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: 16,
-              fontSize: 13,
-              color: 'var(--text-secondary)',
-              marginBottom: 20,
-              fontFamily: 'var(--font-mono)',
-            }}
-          >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>
             <span>✍️ Written by <strong>Tax Research Team</strong></span>
             <span>•</span>
             <span>🔍 Reviewed for <strong>2026 Statutory Rates</strong></span>
             <span>•</span>
             <span>🏛️ Source: <strong>NYS Dept of Taxation and Finance</strong></span>
-            <span>•</span>
-            <span style={{ color: 'var(--primary)' }}>Updated for 2026</span>
           </div>
 
-          <div style={{ maxWidth: 780, margin: '0 auto', fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ maxWidth: 720, margin: '0 auto', fontSize: 16, color: 'var(--mint-100)', lineHeight: 1.6, display: 'flex', flexDirection: 'column', gap: 10 }}>
             <p>
-              New York sales tax calculator helps you add or remove sales tax for any New York location. Enter a price or total and the combined rate. The calculator shows the tax amount and the other value. New York has a 4% state base rate. Local rates add to that. The exact rate depends on where the item is delivered or picked up.
+              New York sales tax calculator helps you add or remove sales tax for any New York location. Enter a price or total and the combined rate. The calculator shows the tax amount and the other value. New York has a 4% state base rate. Local rates add to that.
             </p>
           </div>
         </div>
       </section>
 
       {/* ── Main Layout ───────────────────── */}
-      <div className="container-main" style={{ marginTop: 28, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: 860, width: '100%' }}>
+      <div className="container-main" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: 880, width: '100%' }}>
           
           {/* Breadcrumbs */}
-          <nav aria-label="Breadcrumbs" style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 28, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Tax Rates</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>New York</span>
+          <nav aria-label="Breadcrumbs" style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Tax Rates</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <span style={{ color: 'var(--ink)' }}>New York</span>
           </nav>
 
           {/* Rate Info Metric Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 16, marginBottom: 28 }}>
-            <div className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>4.00%</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>State Base Rate</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>Standard statewide base</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 16, marginBottom: 32 }}>
+            <div className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--ink)', fontFamily: 'monospace' }}>4.00%</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>State Base Rate</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>Standard statewide base</div>
             </div>
 
-            <div className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)', textShadow: '2px 2px 0px #000' }}>8.875%</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>NYC Combined Rate</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>All 5 NYC Boroughs</div>
+            <div className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>8.875%</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>NYC Combined Rate</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>All 5 NYC Boroughs</div>
             </div>
 
-            <div className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color: '#a1a1aa', fontFamily: 'var(--font-mono)' }}>0.375%</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>MCTD Surcharge</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>NYC + 7 Downstate Counties</div>
+            <div className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--ink)', fontFamily: 'monospace' }}>0.375%</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>MCTD Surcharge</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>NYC + 7 Downstate Counties</div>
             </div>
 
-            <div className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>8.66%</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>NY Combined Avg</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>Statewide benchmark</div>
+            <div className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>8.66%</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>NY Combined Avg</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>Statewide benchmark</div>
             </div>
           </div>
 
@@ -264,22 +225,22 @@ export default function NewYorkPage({ stateData }: Props) {
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, margin: '12px 0' }}>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 20 }}>
-                    <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: 800, fontSize: 14, marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 20 }}>
+                    <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 800, fontSize: 13, marginBottom: 8 }}>
                       FORWARD CALCULATION (ADD TAX TO A PRICE)
                     </div>
-                    <ol style={{ paddingLeft: 18, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: 'var(--text-primary)' }}>
+                    <ol style={{ paddingLeft: 18, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: 'var(--ink)' }}>
                       <li>Enter the pre-tax price.</li>
                       <li>Enter the combined sales tax rate for the location where the item is delivered or picked up (e.g., 8.875% in NYC).</li>
                       <li>The calculator shows the tax amount and the total checkout price.</li>
                     </ol>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 20 }}>
-                    <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: 800, fontSize: 14, marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 20 }}>
+                    <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 800, fontSize: 13, marginBottom: 8 }}>
                       REVERSE CALCULATION (REMOVE TAX FROM A TOTAL)
                     </div>
-                    <ol style={{ paddingLeft: 18, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: 'var(--text-primary)' }}>
+                    <ol style={{ paddingLeft: 18, margin: 0, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: 'var(--ink)' }}>
                       <li>Enter the total price you paid from your receipt or statement.</li>
                       <li>Enter the combined sales tax rate for the location.</li>
                       <li>The calculator shows the pre-tax price and the tax amount paid.</li>
@@ -338,25 +299,25 @@ export default function NewYorkPage({ stateData }: Props) {
                 </p>
 
                 {/* NYC Breakdown Table */}
-                <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)', marginTop: 8, marginBottom: 8 }}>
+                <div className="card" style={{ padding: 0, overflow: 'hidden', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', marginTop: 8, marginBottom: 8 }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
-                      <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Component</th>
-                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)', width: '120px' }}>Rate</th>
-                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Details</th>
+                      <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Component</th>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)', width: '120px' }}>Rate</th>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Details</th>
                       </tr>
                     </thead>
                     <tbody>
                       {nycBreakdown.map((row, idx) => (
-                        <tr key={idx} style={{ borderBottom: idx === nycBreakdown.length - 1 ? 'none' : '1px solid var(--border)', background: idx === nycBreakdown.length - 1 ? 'rgba(34, 197, 94, 0.05)' : 'transparent' }}>
-                          <td style={{ padding: '14px 20px', fontWeight: idx === nycBreakdown.length - 1 ? 800 : 600, color: 'var(--text-primary)', fontSize: 14 }}>
+                        <tr key={idx} style={{ borderBottom: idx === nycBreakdown.length - 1 ? 'none' : '1px solid var(--hairline)', background: idx === nycBreakdown.length - 1 ? 'var(--mint-50)' : 'transparent' }}>
+                          <td style={{ padding: '14px 20px', fontWeight: idx === nycBreakdown.length - 1 ? 800 : 600, color: 'var(--ink)', fontSize: 14 }}>
                             {row.component}
                           </td>
                           <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 16 }}>
                             {row.rate}
                           </td>
-                          <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 13 }}>
+                          <td style={{ padding: '14px 20px', color: 'var(--body)', fontSize: 13 }}>
                             {row.desc}
                           </td>
                         </tr>
@@ -369,7 +330,7 @@ export default function NewYorkPage({ stateData }: Props) {
                   The MCTD surcharge applies in New York City (Manhattan, Brooklyn, Queens, Bronx, Staten Island) and seven surrounding counties: Dutchess, Nassau, Orange, Putnam, Rockland, Suffolk, and Westchester. It directly funds the Metropolitan Transportation Authority (MTA).
                 </p>
 
-                <h3 style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-primary)', marginTop: 12, marginBottom: 8 }}>
+                <h3 style={{ fontSize: 20, fontWeight: 800, color: 'var(--ink)', marginTop: 12, marginBottom: 8 }}>
                   Key County & Regional Rate Comparisons
                 </h3>
                 <p>
@@ -377,24 +338,24 @@ export default function NewYorkPage({ stateData }: Props) {
                 </p>
 
                 {/* County Table */}
-                <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)', marginTop: 8, marginBottom: 8 }}>
+                <div className="card" style={{ padding: 0, overflow: 'hidden', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', marginTop: 8, marginBottom: 8 }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
-                      <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Jurisdiction</th>
-                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>State</th>
-                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Local</th>
-                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>MCTD</th>
-                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined</th>
+                      <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Jurisdiction</th>
+                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>State</th>
+                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Local</th>
+                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>MCTD</th>
+                        <th style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined</th>
                       </tr>
                     </thead>
                     <tbody>
                       {countyExamples.map((item, idx) => (
-                        <tr key={idx} style={{ borderBottom: idx === countyExamples.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                          <td style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--text-primary)', fontSize: 13 }}>{item.area}</td>
-                          <td style={{ padding: '12px 18px', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-secondary)' }}>{item.state}</td>
-                          <td style={{ padding: '12px 18px', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-secondary)' }}>{item.local}</td>
-                          <td style={{ padding: '12px 18px', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-secondary)' }}>{item.mctd}</td>
+                        <tr key={idx} style={{ borderBottom: idx === countyExamples.length - 1 ? 'none' : '1px solid var(--hairline)' }}>
+                          <td style={{ padding: '12px 18px', fontWeight: 700, color: 'var(--ink)', fontSize: 13 }}>{item.area}</td>
+                          <td style={{ padding: '12px 18px', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--body)' }}>{item.state}</td>
+                          <td style={{ padding: '12px 18px', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--body)' }}>{item.local}</td>
+                          <td style={{ padding: '12px 18px', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--body)' }}>{item.mctd}</td>
                           <td style={{ padding: '12px 18px', fontFamily: 'var(--font-mono)', fontSize: 14, fontWeight: 800, color: 'var(--primary)' }}>{item.combined}</td>
                         </tr>
                       ))}
@@ -425,34 +386,34 @@ export default function NewYorkPage({ stateData }: Props) {
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16, margin: '8px 0' }}>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       Example 1: $200 Purchase in NYC (8.875%)
                     </h3>
-                    <p style={{ margin: '0 0 6px', fontSize: 14 }}>You buy a $200 taxable retail item in New York City:</p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, color: 'var(--body)' }}>You buy a $200 taxable retail item in New York City:</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>
                       1. Combined rate: 8.875% (0.08875 decimal)
                     </p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>
                       2. Tax amount: $200 × 0.08875 = $17.75
                     </p>
-                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--text-primary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--ink)' }}>
                       3. Total price: $200 + $17.75 = $217.75
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       Example 2: $75 Purchase at 7% Combined Rate
                     </h3>
-                    <p style={{ margin: '0 0 6px', fontSize: 14 }}>You buy a $75 item in an upstate 7.00% jurisdiction:</p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, color: 'var(--body)' }}>You buy a $75 item in an upstate 7.00% jurisdiction:</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>
                       1. Combined rate: 7.00% (0.0700 decimal)
                     </p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>
                       2. Tax amount: $75 × 0.07 = $5.25
                     </p>
-                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--text-primary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--ink)' }}>
                       3. Total price: $75 + $5.25 = $80.25
                     </p>
                   </div>
@@ -471,34 +432,34 @@ export default function NewYorkPage({ stateData }: Props) {
                   When you have a final receipt total or bank charge and need to extract the original pre-tax price and the tax paid, use the reverse calculation formulas:
                 </p>
 
-                <div style={{ background: 'var(--card-bg)', border: '2px solid var(--primary)', borderRadius: 'var(--radius)', padding: 18, fontFamily: 'var(--font-mono)', fontSize: 15, color: 'var(--primary)' }}>
+                <div style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius)', padding: 18, fontFamily: 'var(--font-mono)', fontSize: 15, color: 'var(--primary-deep)' }}>
                   <div><strong>Pre-Tax Price = Total Price ÷ (1 + Combined Rate)</strong></div>
                   <div style={{ marginTop: 6 }}><strong>Tax Amount = Total Price – Pre-Tax Price</strong></div>
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16, margin: '8px 0' }}>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       Example 1: NYC Receipt of $217.75
                     </h3>
-                    <p style={{ margin: '0 0 6px', fontSize: 14 }}>You paid $217.75 in NYC and need the pre-tax price for accounting:</p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, color: 'var(--body)' }}>You paid $217.75 in NYC and need the pre-tax price for accounting:</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>
                       1. Combined rate: 8.875% → Divisor: 1.08875
                     </p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>
                       2. Pre-tax price: $217.75 ÷ 1.08875 = $200.00
                     </p>
-                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--text-primary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: '#b91c1c' }}>
                       3. Tax amount: $217.75 – $200.00 = $17.75
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       Example 2: Receipt of $54.00 at 6.25% Rate
                     </h3>
-                    <p style={{ margin: '0 0 6px', fontSize: 14 }}>You paid $54.00 in a 6.25% jurisdiction:</p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, color: 'var(--body)' }}>You paid $54.00 in a 6.25% jurisdiction:</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>
                       1. Combined rate: 6.25% → Divisor: 1.0625
                     </p>
                     <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
@@ -563,38 +524,38 @@ export default function NewYorkPage({ stateData }: Props) {
                 </p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       🥦 Groceries & Unprepared Food
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Most food items sold for home consumption are fully exempt from New York State and local sales taxes. This covers fresh produce, dairy, bakery items, meat, and pantry goods. However, restaurant meals, hot prepared foods, candy, soda/soft drinks, and alcoholic beverages are fully taxable at the standard combined rate.
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       👗 Clothing and Footwear Under $110
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Articles of clothing and footwear sold for <strong>less than $110 per individual item or pair</strong> are exempt from the 4% New York State sales tax. <strong>New York City has also elected this exemption</strong>, meaning clothing and footwear under $110 in NYC is <strong>100% tax-free (0% sales tax)</strong>. Items priced at $110 or more per item are subject to the full combined rate on the entire amount. Note that some upstate counties do not exempt clothing from their local taxes.
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       💊 Prescription and Over-the-Counter Medicines
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Prescription drugs, qualifying nonprescription (over-the-counter) medications, insulin, medical equipment, and prosthetics are exempt from New York State and local sales taxes.
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       ☕ Prepared Food & Dining
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Prepared food is taxable at the full combined rate (8.875% in NYC). This applies to heated meals, restaurant dining, take-out hot meals, catering services, and fountain drinks.
                     </p>
                   </div>
@@ -687,12 +648,12 @@ export default function NewYorkPage({ stateData }: Props) {
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {faqs.map((faq, idx) => (
-                  <details key={idx} className="faq-item" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+                  <details key={idx} className="faq-item" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)' }}>
                     <summary className="faq-trigger" style={{ outline: 'none' }}>
-                      <span style={{ fontSize: 16, fontWeight: 700 }}>{faq.question}</span>
+                      <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{faq.question}</span>
                       <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
                     </summary>
-                    <p className="faq-content" style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)' }}>
+                    <p className="faq-content" style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: 'var(--body)' }}>
                       {faq.answer}
                     </p>
                   </details>
@@ -730,21 +691,21 @@ export default function NewYorkPage({ stateData }: Props) {
             </section>
 
             {/* ── Section 12: Related State Calculators (Internal Links) ── */}
-            <section style={{ maxWidth: 860, borderTop: '2px solid var(--border)', paddingTop: 32 }}>
+            <section style={{ maxWidth: 860, borderTop: '1px solid var(--hairline)', paddingTop: 32 }}>
               <span className="section-label">Internal Directory</span>
-              <h2 style={{ fontSize: 24, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
+              <h2 style={{ fontSize: 24, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 16px' }}>
                 Related Sales Tax Calculators
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
                 <Link
                   href="/"
                   className="card"
-                  style={{ textDecoration: 'none', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18, transition: 'border-color 0.2s' }}
+                  style={{ textDecoration: 'none', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18, transition: 'border-color 0.2s' }}
                 >
-                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary)', marginBottom: 4 }}>
+                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary-deep)', marginBottom: 4 }}>
                     Reverse Sales Tax Calculator →
                   </div>
-                  <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)' }}>
+                  <p style={{ margin: 0, fontSize: 13, color: 'var(--body)' }}>
                     Universal reverse tax calculator for any US state or international purchase.
                   </p>
                 </Link>
@@ -752,12 +713,12 @@ export default function NewYorkPage({ stateData }: Props) {
                 <Link
                   href="/us/connecticut"
                   className="card"
-                  style={{ textDecoration: 'none', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18, transition: 'border-color 0.2s' }}
+                  style={{ textDecoration: 'none', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18, transition: 'border-color 0.2s' }}
                 >
-                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary)', marginBottom: 4 }}>
+                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary-deep)', marginBottom: 4 }}>
                     Connecticut Sales Tax Calculator →
                   </div>
-                  <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)' }}>
+                  <p style={{ margin: 0, fontSize: 13, color: 'var(--body)' }}>
                     Calculate sales tax in CT using the flat 6.35% statewide rate and meals tax.
                   </p>
                 </Link>
@@ -765,12 +726,12 @@ export default function NewYorkPage({ stateData }: Props) {
                 <Link
                   href="/us/california"
                   className="card"
-                  style={{ textDecoration: 'none', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18, transition: 'border-color 0.2s' }}
+                  style={{ textDecoration: 'none', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18, transition: 'border-color 0.2s' }}
                 >
-                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary)', marginBottom: 4 }}>
+                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary-deep)', marginBottom: 4 }}>
                     California Sales Tax Calculator →
                   </div>
-                  <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)' }}>
+                  <p style={{ margin: 0, fontSize: 13, color: 'var(--body)' }}>
                     Estimate tax across California&apos;s 7.25% state base rate and district taxes.
                   </p>
                 </Link>
@@ -778,12 +739,12 @@ export default function NewYorkPage({ stateData }: Props) {
                 <Link
                   href="/us/new-jersey"
                   className="card"
-                  style={{ textDecoration: 'none', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18, transition: 'border-color 0.2s' }}
+                  style={{ textDecoration: 'none', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18, transition: 'border-color 0.2s' }}
                 >
-                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary)', marginBottom: 4 }}>
+                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary-deep)', marginBottom: 4 }}>
                     New Jersey Sales Tax Calculator →
                   </div>
-                  <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)' }}>
+                  <p style={{ margin: 0, fontSize: 13, color: 'var(--body)' }}>
                     Calculate tax with New Jersey&apos;s 6.625% statewide rate and UEZ exemptions.
                   </p>
                 </Link>
@@ -791,12 +752,12 @@ export default function NewYorkPage({ stateData }: Props) {
                 <Link
                   href="/us/pennsylvania"
                   className="card"
-                  style={{ textDecoration: 'none', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18, transition: 'border-color 0.2s' }}
+                  style={{ textDecoration: 'none', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18, transition: 'border-color 0.2s' }}
                 >
-                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary)', marginBottom: 4 }}>
+                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary-deep)', marginBottom: 4 }}>
                     Pennsylvania Sales Tax Calculator →
                   </div>
-                  <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)' }}>
+                  <p style={{ margin: 0, fontSize: 13, color: 'var(--body)' }}>
                     Calculate tax for PA&apos;s 6.00% base rate, Allegheny (7%), and Philadelphia (8%).
                   </p>
                 </Link>
@@ -804,12 +765,12 @@ export default function NewYorkPage({ stateData }: Props) {
                 <Link
                   href="/tax-rates"
                   className="card"
-                  style={{ textDecoration: 'none', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18, transition: 'border-color 0.2s' }}
+                  style={{ textDecoration: 'none', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18, transition: 'border-color 0.2s' }}
                 >
-                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary)', marginBottom: 4 }}>
+                  <div style={{ fontWeight: 800, fontSize: 15, color: 'var(--primary-deep)', marginBottom: 4 }}>
                     All 50 US State Tax Rates →
                   </div>
-                  <p style={{ margin: 0, fontSize: 13, color: 'var(--text-secondary)' }}>
+                  <p style={{ margin: 0, fontSize: 13, color: 'var(--body)' }}>
                     Complete 2026 table of state base rates, local averages, and combined totals.
                   </p>
                 </Link>

@@ -33,23 +33,26 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '72px 0', textAlign: 'center' }}>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
         <div className="container-main">
-          <h1 style={{ fontSize: 'clamp(28px,5vw,44px)', fontWeight: 900, color: '#fff', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '-0.02em' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-sm)', color: 'var(--mint-200)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 12 }}>
+            About The Platform
+          </div>
+          <h1 style={{ fontSize: 'clamp(28px,4.5vw,44px)', fontWeight: 800, color: '#ffffff', marginBottom: 12, letterSpacing: '-0.02em' }}>
             About Sales Tax Reverse Calculator
           </h1>
-          <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 700, margin: '0 auto', lineHeight: 1.6 }}>
-            Our mission: make tax calculations free, instant, and accessible to everyone — backed by rigorous mathematical accuracy and verified government tax data.
+          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', maxWidth: 680, margin: '0 auto', lineHeight: 1.6 }}>
+            Our mission: make reverse tax calculations transparent, instant, and reliable — backed by rigorous mathematical accuracy and verified government rate circulars.
           </p>
         </div>
       </section>
 
-      <div style={{ maxWidth: 960, margin: '48px auto 80px', padding: '0 24px' }}>
+      <div style={{ maxWidth: 960, margin: '40px auto 80px', padding: '0 24px' }}>
         {/* Breadcrumb */}
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 40, fontFamily: 'var(--font-mono)' }}>
-          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
+        <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 32 }}>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
           <span style={{ margin: '0 8px' }}>›</span>
-          <span style={{ color: 'var(--text-primary)' }}>About</span>
+          <span style={{ color: 'var(--ink)' }}>About</span>
         </nav>
 
         {/* Why We Built This */}
@@ -146,10 +149,10 @@ export default function AboutPage() {
                 desc: 'Analyzing vehicle purchases and trade-ins that quote full price with registration fees and local taxes pre-bundled. Finding the pre-tax value is key for margin calculations.',
               },
             ].map(({ icon, title, desc }) => (
-              <div key={title} style={{ background: 'rgba(0, 0, 0, 0.2)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: 20 }}>
+              <div key={title} style={{ background: 'var(--canvas-soft)', border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', padding: 20 }}>
                 <div style={{ fontSize: 28, marginBottom: 8 }}>{icon}</div>
-                <h3 style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)', marginBottom: 8 }}>{title}</h3>
-                <p style={{ fontSize: 13.5, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>{desc}</p>
+                <h3 style={{ fontWeight: 700, fontSize: 15, color: 'var(--ink)', marginBottom: 8 }}>{title}</h3>
+                <p style={{ fontSize: 13.5, color: 'var(--body)', lineHeight: 1.7, margin: 0 }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -158,11 +161,11 @@ export default function AboutPage() {
         {/* Data Integrity Section */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>🛡️</div>
-          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>Our Data Integrity & Rate Sourcing Standards</h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--ink)', marginBottom: 14 }}>Our Data Integrity & Rate Sourcing Standards</h2>
+          <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.8 }}>
             Tax rates are dynamic — states adjust thresholds, local municipalities add surcharges, and tax laws change frequently. To maintain the high levels of precision required by businesses, we enforce a strict data integrity policy:
           </p>
-          <ul style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 12, color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginTop: 14 }}>
+          <ul style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 12, color: 'var(--body)', fontSize: 15, lineHeight: 1.7, marginTop: 14 }}>
             <li>
               <strong>Authoritative Sourcing</strong>: We pull state, federal, and local tax rates directly from official state revenue department circulars, the Canadian Revenue Agency (CRA), the UK HM Revenue and Customs (HMRC), and verified tax research foundations.
             </li>
@@ -173,7 +176,7 @@ export default function AboutPage() {
               <strong>Scheduled Audits</strong>: Our tax rate databases are audited semi-annually by finance professionals to ensure compliance with current tax year regulations (last reviewed and verified: May 2026, sourced from Tax Foundation).
             </li>
           </ul>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginTop: 14, fontStyle: 'italic' }}>
+          <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.7, marginTop: 14, fontStyle: 'italic' }}>
             Disclaimer: While we make every effort to maintain the accuracy of our databases, tax rates are subject to local jurisdictions. We always recommend consulting a certified CPA or verifying with local tax portals for official legal filings.
           </p>
         </div>
@@ -181,11 +184,11 @@ export default function AboutPage() {
         {/* Privacy */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>🔒</div>
-          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>100% Client-Side Privacy</h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--ink)', marginBottom: 14 }}>100% Client-Side Privacy</h2>
+          <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.8 }}>
             We understand that financial data is confidential. That is why our calculator runs <strong>entirely in your web browser</strong>. Every number you enter is processed locally on your device via JavaScript.
           </p>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
+          <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
             No calculations are transmitted to our servers, and we never collect, log, or share your financial data. You can perform unlimited calculations with complete confidentiality, free of cost.
           </p>
         </div>
@@ -193,11 +196,11 @@ export default function AboutPage() {
         {/* Contact */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 48 }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>✉️</div>
-          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>Get in Touch</h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--ink)', marginBottom: 14 }}>Get in Touch</h2>
+          <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.8 }}>
             Have a question about a calculation, feedback on features, or spotted a local tax rate that has recently changed? We would love to hear from you. 
           </p>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
+          <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.8, marginTop: 12 }}>
             Reach out to our editor team directly at{' '}
             <a href="mailto:salestaxreversecalculator@gmail.com" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>
               salestaxreversecalculator@gmail.com
@@ -215,22 +218,20 @@ export default function AboutPage() {
           <Link
             href="/"
             style={{
-              background: 'linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%)',
-              color: '#000',
-              padding: '16px 48px',
-              borderRadius: 'var(--radius)',
-              fontWeight: 800,
+              background: 'var(--primary)',
+              color: '#ffffff',
+              padding: '14px 40px',
+              borderRadius: 'var(--radius-sm)',
+              fontWeight: 700,
               fontSize: 16,
               textDecoration: 'none',
               display: 'inline-block',
-              boxShadow: '0 4px 15px rgba(204, 255, 0, 0.2)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.02em',
-              transition: 'transform 0.2s',
+              border: '1px solid var(--primary-deep)',
+              boxShadow: 'none',
+              transition: 'background-color 0.15s ease',
             }}
-            className="cta-button"
           >
-            Use the Calculator
+            Open Sales Tax Calculator →
           </Link>
         </div>
       </div>

@@ -116,64 +116,27 @@ export default function TexasPage({ stateData }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      <section style={{ padding: '40px 0 48px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              background: 'var(--primary)',
-              border: '2px solid #000',
-              borderRadius: 'var(--radius)',
-              padding: '5px 14px',
-              marginBottom: 16,
-              boxShadow: '3px 3px 0px 0px rgba(255,255,255,0.1)',
-            }}
-          >
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
-              🗺️ TX · STATE BASE: 6.25% · LOCAL CAP: 2.00% · STATUTORY MAXIMUM: 8.25%
-            </span>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
+        <div className="container-main">
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>🗺️</span> TX · State Base: 6.25% · Local Cap: 2.00% · Max: 8.25%
           </div>
 
           <h1
-            style={{
-              fontSize: 'clamp(32px, 6vw, 56px)',
-              fontWeight: 900,
-              color: 'var(--text-primary)',
-              lineHeight: 1.15,
-              marginBottom: 16,
-              textTransform: 'uppercase',
-              letterSpacing: '-0.02em',
-            }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            Texas Reverse Sales Tax{' '}
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator (8.25% Combined Rate)
-            </span>
+            Texas Reverse Sales Tax Calculator
           </h1>
 
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              gap: 16,
-              fontSize: 13,
-              color: 'var(--text-secondary)',
-              marginBottom: 20,
-              fontFamily: 'var(--font-mono)',
-            }}
-          >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>
             <span>✍️ Written by <strong>Texas Tax Compliance Research</strong></span>
             <span>•</span>
             <span>🔍 Verified for <strong>2026 Comptroller Tax Code</strong></span>
             <span>•</span>
-            <span>🏛️ Source: <strong>Texas Comptroller of Public Accounts</strong></span>
+            <span>🏛️ Source: <strong>Texas Comptroller</strong></span>
           </div>
 
-          <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 720, margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 720, margin: '0 auto', lineHeight: 1.6 }}>
             Calculate the original pre-tax price from any Texas sales receipt.
             Pre-loaded with Texas&apos;s standard 8.25% combined rate applicable across Houston, Dallas, Austin, San Antonio, and Fort Worth.
           </p>
@@ -182,27 +145,27 @@ export default function TexasPage({ stateData }: Props) {
 
       {/* ── Main Layout ───────────────────── */}
       <div className="container-main" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: 860, width: '100%' }}>
+        <div style={{ maxWidth: 880, width: '100%' }}>
           
-          <nav style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 32, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Tax Rates</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>Texas</span>
+          <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Tax Rates</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <span style={{ color: 'var(--ink)' }}>Texas</span>
           </nav>
 
           {/* Rate Info Cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
             {[
-              { label: 'State Base Rate', value: '6.25%', color: 'var(--primary)', desc: 'Texas statewide statutory rate' },
-              { label: 'Max Local Addition', value: '2.00%', color: '#a1a1aa', desc: 'Maximum city + MTA + county cap' },
-              { label: 'Standard Metro Rate', value: '8.25%', color: 'var(--primary)', desc: 'Houston, Dallas, Austin combined', textShadow: '2px 2px 0px #000' },
-            ].map(({ label, value, color, desc, textShadow }) => (
-              <div key={label} className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)', textShadow }}>{value}</div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>{desc}</div>
+              { label: 'State Base Rate', value: '6.25%', color: 'var(--ink)', desc: 'Texas statewide statutory rate' },
+              { label: 'Max Local Addition', value: '2.00%', color: 'var(--ink)', desc: 'Maximum city + MTA + county cap' },
+              { label: 'Standard Metro Rate', value: '8.25%', color: 'var(--primary)', desc: 'Houston, Dallas, Austin combined' },
+            ].map(({ label, value, color, desc }) => (
+              <div key={label} className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'monospace' }}>{value}</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{label}</div>
+                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>{desc}</div>
               </div>
             ))}
           </div>
@@ -224,8 +187,8 @@ export default function TexasPage({ stateData }: Props) {
                   In Texas, sales tax law is anchored by a constitutional cap: <strong>no purchase in Texas can be taxed at more than 8.25%</strong>.
                   The state government retains <strong>6.25%</strong> of every taxable retail dollar. Local taxing jurisdictions share a maximum pool of <strong>2.00%</strong>:
                 </p>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                  <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 12, textTransform: 'uppercase' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                  <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 12 }}>
                     How the 2.00% Local Allocation is Divided:
                   </h3>
                   <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14 }}>
@@ -247,25 +210,25 @@ export default function TexasPage({ stateData }: Props) {
               <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
                 Sales Tax Breakdown Across Major Texas Cities
               </h2>
-              <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+              <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                   <thead>
-                    <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Jurisdiction</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>State Rate</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>City Local</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Transit / SPD</th>
-                      <th style={{ padding: '16px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined Rate</th>
+                    <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Jurisdiction</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>State Rate</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>City Local</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Transit / SPD</th>
+                      <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Combined Rate</th>
                     </tr>
                   </thead>
                   <tbody>
                     {txCities.map((c, idx) => (
-                      <tr key={idx} style={{ borderBottom: idx === txCities.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-primary)', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{c.name}</td>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 14 }}>{c.stateRate}</td>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 14 }}>{c.cityRate}</td>
-                        <td style={{ padding: '14px 20px', color: 'var(--text-secondary)', fontSize: 14 }}>{c.mtaRate}</td>
-                        <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{c.combined}</td>
+                      <tr key={idx} style={{ borderBottom: idx === txCities.length - 1 ? 'none' : '1px solid var(--hairline)', background: idx % 2 === 0 ? 'var(--canvas)' : 'var(--canvas-soft)' }}>
+                        <td style={{ padding: '14px 20px', color: 'var(--ink)', fontWeight: 600 }}>{c.name}</td>
+                        <td style={{ padding: '14px 20px', color: 'var(--body)', fontSize: 14 }}>{c.stateRate}</td>
+                        <td style={{ padding: '14px 20px', color: 'var(--body)', fontSize: 14 }}>{c.cityRate}</td>
+                        <td style={{ padding: '14px 20px', color: 'var(--body)', fontSize: 14 }}>{c.mtaRate}</td>
+                        <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>{c.combined}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -276,19 +239,19 @@ export default function TexasPage({ stateData }: Props) {
             {/* Worked Reverse Calculation Example */}
             <section>
               <span className="section-label">Worked Example</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
                 Mathematical Proof: Backing Out 8.25% Texas Sales Tax
               </h2>
-              <div className="card" style={{ padding: 24, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px' }}>
+              <div className="card" style={{ padding: 28 }}>
+                <p style={{ color: 'var(--body)', fontSize: 15, lineHeight: 1.7, margin: '0 0 16px' }}>
                   Suppose your business receives a receipt from a Texas supplier for office furniture totaling <strong>$1,082.50</strong> with tax included.
                 </p>
-                <div style={{ background: '#09090b', padding: 18, borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)', fontFamily: 'var(--font-mono)', fontSize: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div><span style={{ color: 'var(--text-muted)' }}>1. Compute Divisor:</span> <span style={{ color: 'var(--primary)' }}>1 + (8.25 ÷ 100) = 1.0825</span></div>
-                  <div><span style={{ color: 'var(--text-muted)' }}>2. Compute Pre-Tax Amount:</span> <span style={{ color: '#fff' }}>$1,082.50 ÷ 1.0825 = </span><strong style={{ color: 'var(--primary)' }}>$1,000.00</strong></div>
-                  <div><span style={{ color: 'var(--text-muted)' }}>3. Determine Sales Tax Paid:</span> <span style={{ color: '#fff' }}>$1,082.50 - $1,000.00 = </span><strong style={{ color: '#fff' }}>$82.50</strong></div>
+                <div style={{ background: 'var(--canvas-soft)', padding: 20, borderRadius: 'var(--radius-xs)', border: '1px solid var(--hairline)', fontFamily: 'monospace', fontSize: 14, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  <div><span style={{ color: 'var(--muted)' }}>1. Compute Divisor:</span> <span style={{ color: 'var(--primary-deep)', fontWeight: 700 }}>1 + (8.25 ÷ 100) = 1.0825</span></div>
+                  <div><span style={{ color: 'var(--muted)' }}>2. Compute Pre-Tax Amount:</span> <span style={{ color: 'var(--ink)' }}>$1,082.50 ÷ 1.0825 = </span><strong style={{ color: 'var(--primary-deep)' }}>$1,000.00</strong></div>
+                  <div><span style={{ color: 'var(--muted)' }}>3. Determine Sales Tax Paid:</span> <span style={{ color: 'var(--ink)' }}>$1,082.50 - $1,000.00 = </span><strong style={{ color: '#b91c1c' }}>$82.50</strong></div>
                 </div>
-                <p style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 14, margin: '14px 0 0' }}>
+                <p style={{ color: 'var(--muted)', fontSize: 13, marginTop: 14, margin: '14px 0 0' }}>
                   If you had incorrectly subtracted 8.25% from $1,082.50, you would get $993.19 ($6.81 error). Accurate division protects your tax deduction legitimacy with the IRS and Comptroller.
                 </p>
               </div>
@@ -301,21 +264,21 @@ export default function TexasPage({ stateData }: Props) {
                 Texas Tax Code Chapter 151 Exemptions
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>🍎 Groceries & Food Items</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Flour, sugar, bread, milk, eggs, fresh produce, and unheated food items purchased for home consumption are non-taxable. Ready-to-eat hot restaurant meals and bakery goods served with utensils are taxable at 8.25%.
                   </p>
                 </div>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>💊 Medicine & First Aid</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Prescription drugs, insulin, hypodermic needles, and over-the-counter drugs with an FDA-required Drug Facts label (e.g. pain relievers, cold medications) are exempt from Texas sales tax.
                   </p>
                 </div>
-                <div className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
+                <div className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
                   <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>📦 Texas Resale Certificates</h3>
-                  <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                     Businesses purchasing tangible items to resell can provide Texas Resale Certificate (Form 01-339) to vendors to buy without paying sales tax.
                   </p>
                 </div>
@@ -324,11 +287,11 @@ export default function TexasPage({ stateData }: Props) {
 
             {/* Official Agency Links */}
             <section>
-              <div className="card" style={{ padding: 24, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8, textTransform: 'uppercase' }}>
+              <div className="card" style={{ padding: 24, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--primary)', marginBottom: 8 }}>
                   Official Texas Comptroller of Public Accounts
                 </h3>
-                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 16px' }}>
+                <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: '0 0 16px' }}>
                   For address-level tax jurisdiction verification or filing sales tax reports, access the Texas Comptroller official portal:
                 </p>
                 <a
@@ -339,11 +302,12 @@ export default function TexasPage({ stateData }: Props) {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 8,
-                    color: '#000',
+                    color: '#ffffff',
                     background: 'var(--primary)',
+                    border: '1px solid var(--primary-deep)',
                     padding: '8px 16px',
                     borderRadius: 'var(--radius-sm)',
-                    fontWeight: 800,
+                    fontWeight: 700,
                     fontSize: 14,
                     textDecoration: 'none',
                     fontFamily: 'var(--font-mono)',
@@ -357,16 +321,16 @@ export default function TexasPage({ stateData }: Props) {
             {/* FAQs */}
             <section>
               <span className="section-label">FAQ</span>
-              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px' }}>
                 Texas Sales Tax Frequently Asked Questions
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {faqs.map((faq, idx) => (
-                  <div key={idx} className="card" style={{ padding: 20, border: '2px solid var(--border)', background: 'var(--card-bg)' }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div key={idx} className="card" style={{ padding: 20, border: '1px solid var(--hairline)', background: 'var(--canvas)' }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       {faq.question}
                     </h3>
-                    <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}>
+                    <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.7, margin: 0 }}>
                       {faq.answer}
                     </p>
                   </div>

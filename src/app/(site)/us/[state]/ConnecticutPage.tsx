@@ -117,75 +117,65 @@ export default function ConnecticutPage({ stateData }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      <section style={{ padding: '40px 0 48px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '5px 14px', marginBottom: 16, boxShadow: '3px 3px 0px 0px rgba(255,255,255,0.1)' }}>
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
-              🗺️ CT · STANDARD STATEWIDE RATE: 6.35%
-            </span>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
+        <div className="container-main">
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>🗺️</span> CT · Standard Statewide Rate: 6.35%
           </div>
 
           <h1
-            style={{ fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.15, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            CT Sales Tax{' '}
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator
-            </span>
+            CT Sales Tax Calculator
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--text-secondary)', marginBottom: 20, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>
             <span>✍️ Written by <strong>Tax Research Team</strong></span>
             <span>•</span>
             <span>🔍 Reviewed by <strong>CPA Tax Editorial</strong></span>
             <span>•</span>
-            <span>📅 Last reviewed: <strong>July 2026</strong></span>
-            <span>•</span>
-            <span style={{ color: 'var(--primary)' }}>Updated for 2026</span>
+            <span>📅 Last reviewed: <strong>2026</strong></span>
           </div>
 
-          <div style={{ maxWidth: 760, margin: '0 auto', fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ maxWidth: 720, margin: '0 auto', fontSize: 16, color: 'var(--mint-100)', lineHeight: 1.6, display: 'flex', flexDirection: 'column', gap: 10 }}>
             <p>
               Connecticut has one of the simplest sales tax structures in the United States. The standard rate is 6.35% and it applies statewide with no city or county additions. Whether you are shopping in Hartford, New Haven, Stamford, or anywhere else in Connecticut, you pay the same base rate.
-            </p>
-            <p>
-              Use this CT sales tax calculator to find the original price before tax on any Connecticut receipt. Enter the total you paid, confirm the rate, and get your pre-tax amount in seconds.
             </p>
           </div>
         </div>
       </section>
 
       {/* ── Main Layout ───────────────────── */}
-      <div className="container-main" style={{ marginTop: 28, display: 'flex', justifyContent: 'center' }}>
-        <div style={{ maxWidth: 860, width: '100%' }}>
+      <div className="container-main" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: 880, width: '100%' }}>
           
-          <nav aria-label="Breadcrumbs" style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 28, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Tax Rates</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>Connecticut</span>
+          <nav aria-label="Breadcrumbs" style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Tax Rates</Link>
+            <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+            <span style={{ color: 'var(--ink)' }}>Connecticut</span>
           </nav>
 
           {/* Rate Info Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 28 }}>
-            <div className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>6.35%</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>State Base Rate</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>Standard statewide rate</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
+            <div className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>6.35%</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>State Base Rate</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>Standard statewide rate</div>
             </div>
 
-            <div className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color: '#a1a1aa', fontFamily: 'var(--font-mono)' }}>None</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>Local add-on: None</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>No city or county sales taxes</div>
+            <div className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--ink)', fontFamily: 'monospace' }}>None</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Local Add-On</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>No city or county taxes</div>
             </div>
 
-            <div className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)', textShadow: '2px 2px 0px #000' }}>6.35%</div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>Standard statewide rate: 6.35%</div>
-              <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>Pre-loaded checkout rate</div>
+            <div className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace' }}>6.35%</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Effective Total</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>Pre-loaded checkout rate</div>
             </div>
           </div>
 
@@ -211,21 +201,21 @@ export default function ConnecticutPage({ stateData }: Props) {
                 </p>
 
                 {/* Rate Table */}
-                <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)', marginTop: 12, marginBottom: 12 }}>
+                <div className="card" style={{ padding: 0, overflow: 'hidden', marginTop: 12, marginBottom: 12 }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
-                      <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)', width: '130px' }}>Rate</th>
-                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Applies To</th>
+                      <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em', width: '130px' }}>Rate</th>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, letterSpacing: '0.04em' }}>Applies To</th>
                       </tr>
                     </thead>
                     <tbody>
                       {specialRates.map((row, idx) => (
-                        <tr key={idx} style={{ borderBottom: idx === specialRates.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                          <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)', fontSize: 16 }}>
+                        <tr key={idx} style={{ borderBottom: idx === specialRates.length - 1 ? 'none' : '1px solid var(--hairline)', background: idx % 2 === 0 ? 'var(--canvas)' : 'var(--canvas-soft)' }}>
+                          <td style={{ padding: '14px 20px', fontWeight: 800, color: 'var(--primary)', fontFamily: 'monospace', fontSize: 16 }}>
                             {row.rate}
                           </td>
-                          <td style={{ padding: '14px 20px', color: 'var(--text-primary)', fontSize: 14, lineHeight: 1.5 }}>
+                          <td style={{ padding: '14px 20px', color: 'var(--ink)', fontSize: 14, lineHeight: 1.5 }}>
                             <strong>{row.label}:</strong> {row.applies}
                           </td>
                         </tr>
@@ -267,21 +257,21 @@ export default function ConnecticutPage({ stateData }: Props) {
                   This tool works backwards from what you paid to find what you should have paid before tax.
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, margin: '8px 0' }}>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 20 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 20 }}>
                     <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: 800, fontSize: 14, marginBottom: 8 }}>STEP 1</div>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-primary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)' }}>
                       Enter the total amount on your Connecticut receipt including tax.
                     </p>
                   </div>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 20 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 20 }}>
                     <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: 800, fontSize: 14, marginBottom: 8 }}>STEP 2</div>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-primary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)' }}>
                       The rate field shows 6.35% by default. This is the correct standard Connecticut rate. Change it only if your purchase falls under a special rate category such as meals (7.35%) or vehicle rental (9.35%).
                     </p>
                   </div>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 20 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 20 }}>
                     <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--primary)', fontWeight: 800, fontSize: 14, marginBottom: 8 }}>STEP 3</div>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-primary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--ink)' }}>
                       Your pre-tax price and the exact tax amount appear instantly.
                     </p>
                   </div>
@@ -299,46 +289,46 @@ export default function ConnecticutPage({ stateData }: Props) {
             {/* Section 3: Connecticut Special Tax Rates */}
             <section style={{ maxWidth: 860 }}>
               <span className="section-label">Special Tax Categories</span>
-              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 16px' }}>
                 Connecticut Special Tax Rates
               </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--body)', fontSize: 16, lineHeight: 1.8 }}>
                 <p>
                   Most purchases in Connecticut use the 6.35% standard rate. But certain categories have different rates. Here is what to know before using the calculator.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       Meals and beverages (7.35%)
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Restaurant meals, food sold at a heated temperature, and certain beverages are taxed at 7.35%, not 6.35%. If you are calculating the pre-tax price of a restaurant bill, change the rate to 7.35%.
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       Luxury goods (7.75%)
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Clothing, footwear, handbags, luggage, umbrellas, wallets, and watches above the statutory price threshold are taxed at 7.75%. Clothing, footwear, handbags, luggage, umbrellas, wallets, and watches priced more than $1,000 per item are taxed at 7.75%. Most motor vehicles priced more than $50,000 are also taxed at 7.75%.
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       Vehicle rentals (9.35%)
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Short-term passenger vehicle rentals of 30 days or less are taxed at 9.35%.
                     </p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
                       Computer services (1%)
                     </h3>
-                    <p style={{ margin: 0, fontSize: 14, color: 'var(--text-secondary)' }}>
+                    <p style={{ margin: 0, fontSize: 14, color: 'var(--body)' }}>
                       Certain computer and data-processing services and qualifying electronically accessed business software are taxed at 1%.
                     </p>
                   </div>
@@ -410,40 +400,40 @@ export default function ConnecticutPage({ stateData }: Props) {
                   The reverse sales tax formula for Connecticut is straightforward because there is only one standard rate.
                 </p>
 
-                <div style={{ background: 'var(--card-bg)', border: '2px solid var(--primary)', borderRadius: 'var(--radius)', padding: 18, fontFamily: 'var(--font-mono)', fontSize: 16, color: 'var(--primary)' }}>
-                  <strong>Formula:</strong> Pre-tax price = Total paid / 1.0635
+                <div style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius)', padding: 18, fontFamily: 'var(--font-mono)', fontSize: 16, color: 'var(--primary-deep)' }}>
+                  <strong>Formula:</strong> Pre-tax price = Total paid ÷ 1.0635
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16, margin: '8px 0' }}>
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       Example 1 (Standard Purchase)
                     </h3>
-                    <p style={{ margin: '0 0 6px', fontSize: 14 }}>You paid $89.50 at a Connecticut retailer.</p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>$89.50 / 1.0635 = $84.15 pre-tax price</p>
-                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--text-secondary)' }}>Tax paid: $5.35</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, color: 'var(--body)' }}>You paid $89.50 at a Connecticut retailer.</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>$89.50 ÷ 1.0635 = $84.15 pre-tax price</p>
+                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: '#b91c1c' }}>Tax paid: $5.35</p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       Example 2 (Restaurant Meal at 7.35%)
                     </h3>
-                    <p style={{ margin: '0 0 6px', fontSize: 14 }}>You paid $54.40 at a Connecticut restaurant.</p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>$54.40 / 1.0735 = $50.67 pre-tax price</p>
-                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--text-secondary)' }}>Tax paid: $3.73</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, color: 'var(--body)' }}>You paid $54.40 at a Connecticut restaurant.</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>$54.40 ÷ 1.0735 = $50.67 pre-tax price</p>
+                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: '#b91c1c' }}>Tax paid: $3.73</p>
                   </div>
 
-                  <div className="card" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)', padding: 18 }}>
-                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 8 }}>
+                  <div className="card" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)', background: 'var(--canvas)', padding: 18 }}>
+                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
                       Example 3 (Vehicle Rental at 9.35%)
                     </h3>
-                    <p style={{ margin: '0 0 6px', fontSize: 14 }}>You paid $218.70 for a two-day car rental.</p>
-                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>$218.70 / 1.0935 = $200.00 pre-tax price</p>
-                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: 'var(--text-secondary)' }}>Tax paid: $18.70</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, color: 'var(--body)' }}>You paid $218.70 for a two-day car rental.</p>
+                    <p style={{ margin: '0 0 6px', fontSize: 14, fontFamily: 'var(--font-mono)', color: 'var(--primary-deep)', fontWeight: 700 }}>$218.70 ÷ 1.0935 = $200.00 pre-tax price</p>
+                    <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: '#b91c1c' }}>Tax paid: $18.70</p>
                   </div>
                 </div>
 
-                <p>
+                <p style={{ color: 'var(--body)' }}>
                   Use the calculator above to skip the manual math. Enter your total and select the correct rate for your purchase type.
                 </p>
               </div>
@@ -452,10 +442,10 @@ export default function ConnecticutPage({ stateData }: Props) {
             {/* Section 6: Connecticut Sales Tax for Small Businesses */}
             <section style={{ maxWidth: 860 }}>
               <span className="section-label">Business Applications</span>
-              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 16px' }}>
                 Connecticut Sales Tax for Small Businesses
               </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--body)', fontSize: 16, lineHeight: 1.8 }}>
                 <p>
                   Small business owners and freelancers in Connecticut use this calculator for several practical tasks:
                 </p>
@@ -491,17 +481,17 @@ export default function ConnecticutPage({ stateData }: Props) {
             {/* Section 7: Frequently Asked Questions */}
             <section style={{ maxWidth: 860 }}>
               <span className="section-label">FAQ</span>
-              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 24px' }}>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 24px' }}>
                 Frequently Asked Questions
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {faqs.map((faq, idx) => (
-                  <details key={idx} className="faq-item" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+                  <details key={idx} className="faq-item" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)' }}>
                     <summary className="faq-trigger" style={{ outline: 'none' }}>
-                      <span style={{ fontSize: 16, fontWeight: 700 }}>{faq.question}</span>
+                      <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{faq.question}</span>
                       <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
                     </summary>
-                    <p className="faq-content" style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: 'var(--text-secondary)' }}>
+                    <p className="faq-content" style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: 'var(--body)' }}>
                       {faq.answer}
                     </p>
                   </details>

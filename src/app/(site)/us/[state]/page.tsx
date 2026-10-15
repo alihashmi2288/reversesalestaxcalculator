@@ -174,25 +174,21 @@ export default async function StatePage({ params }: Props) {
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      <section style={{ padding: '60px 0 80px', position: 'relative', borderBottom: '2px solid var(--border)' }}>
-        <div className="container-main" style={{ position: 'relative', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--primary)', border: '2px solid #000', borderRadius: 'var(--radius)', padding: '6px 16px', marginBottom: 24, boxShadow: '4px 4px 0px 0px rgba(255,255,255,0.1)' }}>
-            <span style={{ color: '#000', fontSize: 13, fontWeight: 800, letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>🗺️ {stateData.abbreviation} · PRE-FILLED COMBINED RATE: {stateData.rate}%</span>
-          </div>
+      <section className="hero-band" style={{ padding: '56px 0 64px', textAlign: 'center' }}>
+        <div className="container-main" style={{ position: 'relative' }}>
+          <span className="section-label" style={{ background: 'var(--mint-100)', color: 'var(--primary-deep)', border: '1px solid var(--mint-200)' }}>
+            🗺️ {stateData.abbreviation} · PRE-FILLED COMBINED RATE: {stateData.rate}%
+          </span>
 
           <h1
             aria-label={`${stateData.state} Reverse Sales Tax Calculator`}
-            style={{ fontSize: 'clamp(32px, 8vw, 64px)', fontWeight: 900, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 20, textTransform: 'uppercase', letterSpacing: '-0.02em' }}
+            style={{ fontSize: 'clamp(32px, 6vw, 52px)', fontWeight: 700, color: '#ffffff', lineHeight: 1.15, margin: '16px 0 16px' }}
           >
-            {stateData.state} Reverse Sales Tax{' '}
-            <br />
-            <span style={{ color: 'var(--primary)', textShadow: '4px 4px 0px #000' }}>
-              Calculator
-            </span>
+            {stateData.state} Reverse Sales Tax Calculator
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--text-secondary)', marginBottom: 20, fontFamily: 'var(--font-mono)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16, fontFamily: 'var(--font-mono)' }}>
             <span>✍️ Written by <strong>Tax Research Team</strong></span>
             <span>•</span>
             <span>🔍 Reviewed for <strong>2026 Statutory Rates</strong></span>
@@ -200,7 +196,7 @@ export default async function StatePage({ params }: Props) {
             <span>🏛️ Source: <strong>{stateData.source}</strong></span>
           </div>
 
-          <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
             Pre-filled with {stateData.state}&apos;s {stateData.rate}% combined average tax rate.
             Enter any total price to find the original pre-tax amount instantly.
           </p>
@@ -211,41 +207,41 @@ export default async function StatePage({ params }: Props) {
       <div className="container-main" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>
         <div style={{ maxWidth: 860, width: '100%' }}>
           
-          <nav style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 32, fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', transition: 'color 0.2s' }}>Home</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none', transition: 'color 0.2s' }}>Tax Rates</Link>
-            <span style={{ margin: '0 8px', color: 'var(--text-muted)' }}>/</span>
-            <span style={{ color: 'var(--text-primary)' }}>{stateData.state}</span>
+          <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+            <span style={{ margin: '0 8px', color: 'var(--hairline-strong)' }}>/</span>
+            <Link href="/tax-rates" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Tax Rates</Link>
+            <span style={{ margin: '0 8px', color: 'var(--hairline-strong)' }}>/</span>
+            <span style={{ color: 'var(--ink)', fontWeight: 600 }}>{stateData.state}</span>
           </nav>
 
           {/* Rate Info Cards */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 32 }}>
             {[
-              { label: 'State Base Rate', value: `${stateData.stateRate}%`, color: 'var(--primary)', desc: `Standard statewide rate` },
-              { label: 'Avg Local Rate', value: stateData.avgLocalRate > 0 ? `${stateData.avgLocalRate.toFixed(2)}%` : 'None', color: '#a1a1aa', desc: 'Average local surcharges' },
-              { label: 'Combined Rate', value: `${stateData.rate}%`, color: 'var(--primary)', desc: 'Pre-loaded checkout rate', textShadow: '2px 2px 0px #000' },
-            ].map(({ label, value, color, desc, textShadow }) => (
-              <div key={label} className="card" style={{ textAlign: 'center', border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)', textShadow }}>{value}</div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>{desc}</div>
+              { label: 'State Base Rate', value: `${stateData.stateRate}%`, color: 'var(--ink)', desc: `Standard statewide rate` },
+              { label: 'Avg Local Rate', value: stateData.avgLocalRate > 0 ? `${stateData.avgLocalRate.toFixed(2)}%` : 'None', color: 'var(--muted)', desc: 'Average local surcharges' },
+              { label: 'Combined Rate', value: `${stateData.rate}%`, color: 'var(--primary-deep)', desc: 'Pre-loaded checkout rate' },
+            ].map(({ label, value, color, desc }) => (
+              <div key={label} className="card" style={{ textAlign: 'center', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas)', padding: '20px 16px', boxShadow: 'var(--shadow-card)' }}>
+                <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)' }}>{value}</div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--ink)', marginTop: 8, textTransform: 'uppercase' }}>{label}</div>
+                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>{desc}</div>
               </div>
             ))}
           </div>
 
-          <div style={{ marginBottom: 64 }}>
+          <div style={{ marginBottom: 56 }}>
             <StateCalculatorClient stateData={stateData} />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
             {/* State Info */}
             <section style={{ maxWidth: 860 }}>
               <span className="section-label">State Info</span>
-              <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 700, color: 'var(--ink)', margin: '12px 0 20px' }}>
                 About {stateData.state} Sales Tax
               </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--body)', fontSize: 16, lineHeight: 1.8 }}>
                 {stateContent?.aboutText ? (
                   stateContent.aboutText.map((paragraph, idx) => (
                     <p key={idx}><LinkifiedText text={paragraph} currentState={stateData.state} /></p>
@@ -271,22 +267,22 @@ export default async function StatePage({ params }: Props) {
             {stateContent && stateContent.cities.length > 0 && (
               <section style={{ maxWidth: 860 }}>
                 <span className="section-label">Local Rates</span>
-                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+                <h2 style={{ fontSize: 30, fontWeight: 700, color: 'var(--ink)', margin: '12px 0 20px' }}>
                   Tax Rates in Major {stateData.state} Cities
                 </h2>
-                <div className="card" style={{ padding: 0, overflow: 'hidden', border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+                <div style={{ overflow: 'hidden', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas)', boxShadow: 'var(--shadow-card)' }}>
                   <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                     <thead>
-                      <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                        <th style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>City</th>
-                        <th style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined Rate</th>
+                      <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>City</th>
+                        <th style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--ink)', textTransform: 'uppercase', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Combined Rate</th>
                       </tr>
                     </thead>
                     <tbody>
                       {stateContent.cities.map((city, idx) => (
-                        <tr key={idx} style={{ borderBottom: idx === stateContent.cities.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                          <td style={{ padding: '16px 24px', color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{city.name}</td>
-                          <td style={{ padding: '16px 24px', fontWeight: 700, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>{city.rate.toFixed(2)}%</td>
+                        <tr key={idx} style={{ borderBottom: idx === stateContent.cities.length - 1 ? 'none' : '1px solid var(--hairline)' }}>
+                          <td style={{ padding: '14px 20px', color: 'var(--ink)', fontFamily: 'var(--font-mono)', fontSize: 14 }}>{city.name}</td>
+                          <td style={{ padding: '14px 20px', fontWeight: 700, color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 14 }}>{city.rate.toFixed(2)}%</td>
                         </tr>
                       ))}
                     </tbody>
@@ -298,14 +294,14 @@ export default async function StatePage({ params }: Props) {
             {/* Use Cases */}
             <section style={{ maxWidth: 860 }}>
               <span className="section-label">Use Cases</span>
-              <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 700, color: 'var(--ink)', margin: '12px 0 20px' }}>
                 When to Use This Calculator in {stateData.state}
               </h2>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
                 {localizedUseCases.map((useCase, idx) => (
-                  <div key={idx} className="card" style={{ padding: 24, border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
-                    <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 12 }}>{useCase.title}</h3>
-                    <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, margin: 0 }}><LinkifiedText text={useCase.description} currentState={stateData.state} /></p>
+                  <div key={idx} className="card" style={{ padding: 24, border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas)', boxShadow: 'var(--shadow-card)' }}>
+                    <h3 style={{ fontSize: 17, fontWeight: 700, color: 'var(--ink)', marginBottom: 10 }}>{useCase.title}</h3>
+                    <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}><LinkifiedText text={useCase.description} currentState={stateData.state} /></p>
                   </div>
                 ))}
               </div>
@@ -314,34 +310,35 @@ export default async function StatePage({ params }: Props) {
             {/* Official State Department of Revenue & Exemption Guidelines */}
             {revenueInfo && (
               <section style={{ maxWidth: 860 }}>
-                <span className="section-label">State Authority & Exemptions</span>
-                <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 20px' }}>
-                  Official {stateData.state} Tax Resources & Exemption Rules
+                <span className="section-label">State Authority &amp; Exemptions</span>
+                <h2 style={{ fontSize: 30, fontWeight: 700, color: 'var(--ink)', margin: '12px 0 20px' }}>
+                  Official {stateData.state} Tax Resources &amp; Exemption Rules
                 </h2>
-                <div className="card" style={{ padding: 24, border: '2px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--card-bg)' }}>
+                <div style={{ padding: 24, border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)', background: 'var(--mint-50)' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                     <div>
-                      <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--primary)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      <h3 style={{ fontSize: 15, fontWeight: 700, color: 'var(--primary-deep)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                         Official State Revenue Department
                       </h3>
-                      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: '0 0 12px' }}>
+                      <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: '0 0 12px' }}>
                         For statutory filing questions, sales tax permits, or audit guidance in {stateData.state}, verify directly with the governing revenue agency:
                       </p>
                       <a
                         href={revenueInfo.agencyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#000', background: 'var(--primary)', padding: '8px 16px', borderRadius: 'var(--radius-sm)', fontWeight: 800, fontSize: 14, textDecoration: 'none', fontFamily: 'var(--font-mono)' }}
+                        className="btn-primary"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: 8, textDecoration: 'none', width: 'auto' }}
                       >
                         🏛️ Visit {revenueInfo.agencyName} →
                       </a>
                     </div>
 
-                    <div style={{ borderTop: '1px solid var(--border)', paddingTop: 16 }}>
-                      <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 6 }}>
-                        Local Exemption Rules (Groceries, Medicine & Clothing)
+                    <div style={{ borderTop: '1px solid var(--mint-200)', paddingTop: 16 }}>
+                      <h3 style={{ fontSize: 15, fontWeight: 700, color: 'var(--ink)', marginBottom: 6 }}>
+                        Local Exemption Rules (Groceries, Medicine &amp; Clothing)
                       </h3>
-                      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+                      <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
                         {revenueInfo.exemptionNotes}
                       </p>
                     </div>
@@ -353,17 +350,17 @@ export default async function StatePage({ params }: Props) {
             {/* FAQs */}
             <section style={{ maxWidth: 860 }}>
               <span className="section-label">FAQ</span>
-              <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 32px' }}>
+              <h2 style={{ fontSize: 30, fontWeight: 700, color: 'var(--ink)', margin: '12px 0 32px' }}>
                 Frequently Asked Questions: {stateData.state} Taxes
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {localizedFaqs.map((faq, idx) => (
-                  <details key={idx} className="faq-item" style={{ border: '2px solid var(--border)', borderRadius: 'var(--radius)' }}>
+                  <details key={idx} className="faq-item" style={{ border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas)' }}>
                     <summary className="faq-trigger" style={{ outline: 'none' }}>
-                      <span>{faq.question}</span>
-                      <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
+                      <span style={{ fontWeight: 600, color: 'var(--ink)' }}>{faq.question}</span>
+                      <span style={{ color: 'var(--primary)', fontSize: 22, fontWeight: 700 }}>+</span>
                     </summary>
-                    <p className="faq-content" style={{ margin: 0 }}>
+                    <p className="faq-content" style={{ margin: 0, color: 'var(--body)' }}>
                       <LinkifiedText text={faq.answer} currentState={stateData.state} />
                     </p>
                   </details>

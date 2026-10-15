@@ -139,72 +139,74 @@ export default function VATPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <section style={{ background: 'linear-gradient(135deg, #0f172a, #065f46)', padding: '64px 0', textAlign: 'center' }}>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
         <div className="container-main">
-          <div style={{ fontSize: 48, marginBottom: 12 }}>🇪🇺</div>
-          <h1 style={{ fontSize: 'clamp(26px,4.5vw,44px)', fontWeight: 900, color: '#fff', marginBottom: 16, lineHeight: 1.15 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>🇪🇺</span> Global VAT & GST Standards (2026)
+          </div>
+          <h1 style={{ fontSize: 'clamp(28px,4.5vw,44px)', fontWeight: 800, color: '#ffffff', marginBottom: 14, lineHeight: 1.15, letterSpacing: '-0.02em' }}>
             Reverse VAT Calculator
           </h1>
-          <p style={{ fontSize: 17, color: '#6ee7b7', maxWidth: 620, margin: '0 auto' }}>
-            Remove VAT from any price. Supports UK 20%, EU member states, Australia GST, and custom international rates.
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 620, margin: '0 auto', lineHeight: 1.6 }}>
+            Remove VAT from any gross price. Supports UK 20%, EU member states, Australia GST, and custom international rates.
           </p>
         </div>
       </section>
 
       <div className="container-main" style={{ marginTop: 32, marginBottom: 80 }}>
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 32 }}>
-          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
-          <span style={{ margin: '0 8px' }}>›</span>
-          <span>VAT Calculator</span>
+        <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+          <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+          <span style={{ color: 'var(--ink)' }}>VAT Calculator</span>
         </nav>
 
         <VATCalculator />
 
         {/* In-depth content for SEO authority and E-E-A-T */}
-        <div style={{ marginTop: 64, maxWidth: 860, margin: '64px auto 0', display: 'flex', flexDirection: 'column', gap: 40 }}>
+        <div style={{ marginTop: 64, maxWidth: 880, margin: '64px auto 0', display: 'flex', flexDirection: 'column', gap: 32 }}>
           
-          <div className="card" style={{ borderLeft: '4px solid #10b981' }}>
-            <h2 style={{ fontSize: 24, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 14, textTransform: 'uppercase' }}>
+          <div className="card" style={{ borderLeft: '4px solid var(--primary)', padding: 32 }}>
+            <h2 style={{ fontSize: 22, fontWeight: 800, color: 'var(--ink)', marginBottom: 12, letterSpacing: '-0.01em' }}>
               What is Reverse VAT and How Does It Work?
             </h2>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.75, fontSize: 16, marginBottom: 12 }}>
+            <p style={{ color: 'var(--body)', lineHeight: 1.75, fontSize: 15, marginBottom: 14 }}>
               VAT (Value Added Tax) is a consumption tax assessed on goods and services in the United Kingdom, the European Union, Australia, New Zealand, and over 160 countries globally. In standard retail environments throughout Europe and Australasia, prices are displayed <strong>inclusive of VAT (gross price)</strong>.
             </p>
-            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.75, fontSize: 16, marginBottom: 12 }}>
+            <p style={{ color: 'var(--body)', lineHeight: 1.75, fontSize: 15, marginBottom: 16 }}>
               When businesses, freelancers, or accountants need to claim input tax credits or reconcile invoices, they must calculate the <strong>net (ex-VAT) amount</strong> and isolate the tax component.
             </p>
-            <div className="formula-box" style={{ margin: '20px 0' }}>
-              <div style={{ fontSize: 12, opacity: 0.75, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 8 }}>The Reverse VAT Formula</div>
+            <div className="formula-box" style={{ margin: '16px 0 8px' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary-deep)', marginBottom: 8 }}>The Reverse VAT Formula</div>
               <div className="formula-text">Net (Ex-VAT) Price = Gross Price ÷ (1 + VAT Rate / 100)</div>
-              <div style={{ marginTop: 12, fontSize: 14, opacity: 0.85 }}>VAT Amount Paid = Gross Price − Net Price</div>
+              <div style={{ marginTop: 10, fontSize: 13, color: 'var(--ink)' }}>VAT Amount Paid = Gross Price − Net Price</div>
             </div>
           </div>
 
           {/* International VAT Rates Table */}
-          <div className="card">
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 16, textTransform: 'uppercase' }}>
+          <div className="card" style={{ padding: 32 }}>
+            <h2 style={{ fontSize: 20, fontWeight: 800, color: 'var(--ink)', marginBottom: 8, letterSpacing: '-0.01em' }}>
               Global Standard VAT & GST Rates by Country (2026)
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginBottom: 20 }}>
+            <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.6, marginBottom: 24 }}>
               Click on any country to open its dedicated reverse VAT calculator pre-configured with local currency and standard rates:
             </p>
-            <div style={{ overflowX: 'auto' }}>
+            <div style={{ overflowX: 'auto', border: '1px solid var(--hairline)', borderRadius: 'var(--radius-lg)' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                 <thead>
-                  <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                    <th style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Country</th>
-                    <th style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Tax Type</th>
-                    <th style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Standard Rate</th>
-                    <th style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Calculator</th>
+                  <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                    <th style={{ padding: '12px 18px', color: 'var(--ink)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Country</th>
+                    <th style={{ padding: '12px 18px', color: 'var(--ink)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Tax Type</th>
+                    <th style={{ padding: '12px 18px', color: 'var(--ink)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Standard Rate</th>
+                    <th style={{ padding: '12px 18px', color: 'var(--ink)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Calculator</th>
                   </tr>
                 </thead>
                 <tbody>
                   {VAT_COUNTRY_RATES.map((c, idx) => (
-                    <tr key={c.slug} style={{ borderBottom: idx === VAT_COUNTRY_RATES.length - 1 ? 'none' : '1px solid var(--border)' }}>
-                      <td style={{ padding: '12px 16px', color: 'var(--text-primary)', fontWeight: 600 }}>{c.name}</td>
-                      <td style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: 13 }}>{c.type}</td>
-                      <td style={{ padding: '12px 16px', color: 'var(--primary)', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>{c.rate}%</td>
-                      <td style={{ padding: '12px 16px' }}>
+                    <tr key={c.slug} style={{ borderBottom: idx === VAT_COUNTRY_RATES.length - 1 ? 'none' : '1px solid var(--hairline)', background: idx % 2 === 0 ? 'var(--canvas)' : 'var(--canvas-soft)' }}>
+                      <td style={{ padding: '12px 18px', color: 'var(--ink)', fontWeight: 600, fontSize: 14 }}>{c.name}</td>
+                      <td style={{ padding: '12px 18px', color: 'var(--body)', fontSize: 13, fontFamily: 'monospace' }}>{c.type}</td>
+                      <td style={{ padding: '12px 18px', color: 'var(--primary)', fontWeight: 800, fontFamily: 'monospace', fontSize: 14 }}>{c.rate}%</td>
+                      <td style={{ padding: '12px 18px' }}>
                         <Link href={`/vat-calculator/${c.slug}`} style={{ color: 'var(--primary)', fontSize: 13, fontWeight: 700, textDecoration: 'none' }}>
                           Open {c.name} →
                         </Link>
@@ -217,26 +219,26 @@ export default function VATPage() {
           </div>
 
           {/* Common Scenarios */}
-          <div className="card">
-            <h2 style={{ fontSize: 22, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 16, textTransform: 'uppercase' }}>
+          <div className="card" style={{ padding: 32 }}>
+            <h2 style={{ fontSize: 20, fontWeight: 800, color: 'var(--ink)', marginBottom: 20, letterSpacing: '-0.01em' }}>
               Common Reverse VAT Scenarios
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
-              <div style={{ background: 'rgba(0,0,0,0.2)', padding: 18, borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 8 }}>💼 Expense Claim Reconciliations</h3>
-                <p style={{ fontSize: 13.5, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+              <div style={{ background: 'var(--canvas-soft)', padding: 20, borderRadius: 'var(--radius-lg)', border: '1px solid var(--hairline)' }}>
+                <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>💼 Expense Claim Reconciliations</h3>
+                <p style={{ fontSize: 13, color: 'var(--body)', lineHeight: 1.65, margin: 0 }}>
                   Employees submit hotel or meal receipts quoting the gross charge. Corporate accountants use reverse VAT to separate deductible tax from net business operating costs.
                 </p>
               </div>
-              <div style={{ background: 'rgba(0,0,0,0.2)', padding: 18, borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 8 }}>🇪🇺 B2B Cross-Border Reverse Charge</h3>
-                <p style={{ fontSize: 13.5, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+              <div style={{ background: 'var(--canvas-soft)', padding: 20, borderRadius: 'var(--radius-lg)', border: '1px solid var(--hairline)' }}>
+                <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>🇪🇺 B2B Cross-Border Reverse Charge</h3>
+                <p style={{ fontSize: 13, color: 'var(--body)', lineHeight: 1.65, margin: 0 }}>
                   When EU businesses sell to VAT-registered buyers in other member states, goods are invoiced net of VAT under the EU Reverse Charge mechanism.
                 </p>
               </div>
-              <div style={{ background: 'rgba(0,0,0,0.2)', padding: 18, borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                <h3 style={{ fontSize: 16, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 8 }}>🛒 E-Commerce Payout Audits</h3>
-                <p style={{ fontSize: 13.5, color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+              <div style={{ background: 'var(--canvas-soft)', padding: 20, borderRadius: 'var(--radius-lg)', border: '1px solid var(--hairline)' }}>
+                <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>🛒 E-Commerce Payout Audits</h3>
+                <p style={{ fontSize: 13, color: 'var(--body)', lineHeight: 1.65, margin: 0 }}>
                   Online merchants receiving consolidated gross disbursements from payment gateways calculate net revenue to ensure proper quarterly VAT return filings.
                 </p>
               </div>

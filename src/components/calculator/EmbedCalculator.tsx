@@ -71,8 +71,9 @@ export default function EmbedCalculator() {
         display: 'flex',
         flexDirection: 'column',
         gap: '12px',
-        fontFamily: 'var(--font-sans)',
-        color: 'var(--text-primary)',
+        fontFamily: 'var(--font-montserrat), sans-serif',
+        color: 'var(--body)',
+        backgroundColor: 'var(--canvas)',
       }}
     >
       {/* Compact Widget Header */}
@@ -81,25 +82,24 @@ export default function EmbedCalculator() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid var(--border)',
+          borderBottom: '1px solid var(--hairline)',
           paddingBottom: '10px',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <div
             style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '6px',
-              background: 'rgba(204, 255, 0, 0.12)',
-              border: '1px solid rgba(204, 255, 0, 0.3)',
+              width: '26px',
+              height: '26px',
+              borderRadius: 'var(--radius-xs)',
+              backgroundColor: 'var(--primary)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: 'var(--primary)',
+              color: 'var(--on-primary)',
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <rect x="4" y="2" width="16" height="20" rx="2" />
               <path d="M9 7h6M9 12h6M9 17h4" />
             </svg>
@@ -107,10 +107,10 @@ export default function EmbedCalculator() {
           <span
             style={{
               fontSize: '13px',
-              fontWeight: 800,
+              fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.04em',
-              color: 'var(--text-primary)',
+              color: 'var(--ink)',
             }}
           >
             Reverse Sales Tax Calculator
@@ -120,7 +120,7 @@ export default function EmbedCalculator() {
           style={{
             fontSize: '11px',
             fontFamily: 'var(--font-mono)',
-            color: 'var(--text-muted)',
+            color: 'var(--muted)',
             fontWeight: 600,
           }}
         >
@@ -147,13 +147,13 @@ export default function EmbedCalculator() {
               textTransform: 'uppercase',
               letterSpacing: '0.04em',
               marginBottom: '4px',
-              color: 'var(--text-primary)',
+              color: 'var(--ink)',
             }}
           >
             Total Paid (with tax)
           </label>
           <div className="input-wrapper">
-            <span className="input-prefix" aria-hidden="true" style={{ fontSize: '15px', left: '12px' }}>
+            <span className="input-prefix" aria-hidden="true" style={{ fontSize: '14px', left: '10px' }}>
               $
             </span>
             <input
@@ -170,7 +170,7 @@ export default function EmbedCalculator() {
                 setResult(null);
               }}
               className="calc-input with-prefix"
-              style={{ height: '44px', fontSize: '15px', paddingLeft: '32px' }}
+              style={{ height: '42px', fontSize: '14px', paddingLeft: '28px' }}
             />
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function EmbedCalculator() {
               textTransform: 'uppercase',
               letterSpacing: '0.04em',
               marginBottom: '4px',
-              color: 'var(--text-primary)',
+              color: 'var(--ink)',
             }}
           >
             Tax Rate
@@ -208,9 +208,9 @@ export default function EmbedCalculator() {
                 setSelectedState('');
               }}
               className="calc-input with-suffix"
-              style={{ height: '44px', fontSize: '15px', paddingRight: '32px' }}
+              style={{ height: '42px', fontSize: '14px', paddingRight: '28px' }}
             />
-            <span className="input-suffix" aria-hidden="true" style={{ fontSize: '14px', right: '12px' }}>
+            <span className="input-suffix" aria-hidden="true" style={{ fontSize: '13px', right: '10px' }}>
               %
             </span>
           </div>
@@ -226,7 +226,7 @@ export default function EmbedCalculator() {
             fontWeight: 700,
             fontSize: '11px',
             marginBottom: '4px',
-            color: 'var(--text-muted)',
+            color: 'var(--muted)',
             textTransform: 'uppercase',
             letterSpacing: '0.04em',
           }}
@@ -239,10 +239,10 @@ export default function EmbedCalculator() {
           className="state-select"
           value={selectedState}
           onChange={handleStateChange}
-          style={{ height: '42px', fontSize: '13px' }}
+          style={{ height: '40px', fontSize: '13px' }}
         >
           <option value="">— Select a State —</option>
-          {STATE_TAX_RATES.sort((a, b) => a.state.localeCompare(b.state)).map((s) => (
+          {STATE_TAX_RATES.slice().sort((a, b) => a.state.localeCompare(b.state)).map((s) => (
             <option key={s.abbreviation} value={s.abbreviation}>
               {s.state} — {s.rate}%{s.notes ? ` (${s.notes})` : ''}
             </option>
@@ -254,14 +254,13 @@ export default function EmbedCalculator() {
       {error && (
         <div
           style={{
-            background: 'rgba(239, 68, 68, 0.1)',
-            border: '1px solid rgba(239, 68, 68, 0.3)',
-            borderRadius: 'var(--radius-sm)',
+            backgroundColor: '#fff1f1',
+            border: '1px solid #ffd8d8',
+            borderRadius: 'var(--radius-xs)',
             padding: '8px 12px',
-            color: '#f87171',
+            color: 'var(--error)',
             fontSize: '12px',
             fontWeight: 600,
-            fontFamily: 'var(--font-mono)',
           }}
         >
           {error}
@@ -273,9 +272,9 @@ export default function EmbedCalculator() {
         id="embed-calculate-btn"
         onClick={calculate}
         className="btn-primary"
-        style={{ height: '46px', fontSize: '14px' }}
+        style={{ minHeight: '44px', fontSize: '13px', padding: '10px 16px' }}
       >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <rect x="4" y="2" width="16" height="20" rx="2" />
           <path d="M9 7h6M9 12h6M9 17h4" />
         </svg>
@@ -286,10 +285,9 @@ export default function EmbedCalculator() {
       {result && (
         <div
           style={{
-            animation: 'slideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '10px',
+            gap: '8px',
             marginTop: '2px',
           }}
         >
@@ -305,23 +303,22 @@ export default function EmbedCalculator() {
               <div
                 style={{
                   fontSize: '10px',
-                  fontWeight: 800,
+                  fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
-                  color: 'var(--primary)',
-                  marginBottom: '4px',
+                  color: 'var(--primary-deep)',
+                  marginBottom: '2px',
                 }}
               >
-                Pre-Tax Price
+                Pre-Tax
               </div>
               <div
                 style={{
-                  fontSize: '18px',
+                  fontSize: '17px',
                   fontWeight: 800,
                   color: 'var(--primary)',
                   lineHeight: 1.1,
                   fontFamily: 'var(--font-mono)',
-                  wordBreak: 'break-all',
                 }}
               >
                 ${fmt(result.preTaxPrice)}
@@ -333,23 +330,22 @@ export default function EmbedCalculator() {
               <div
                 style={{
                   fontSize: '10px',
-                  fontWeight: 800,
+                  fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
-                  color: '#f87171',
-                  marginBottom: '4px',
+                  color: 'var(--error)',
+                  marginBottom: '2px',
                 }}
               >
-                Tax Amount
+                Tax
               </div>
               <div
                 style={{
-                  fontSize: '18px',
+                  fontSize: '17px',
                   fontWeight: 800,
-                  color: '#ef4444',
+                  color: 'var(--error)',
                   lineHeight: 1.1,
                   fontFamily: 'var(--font-mono)',
-                  wordBreak: 'break-all',
                 }}
               >
                 ${fmt(result.taxAmount)}
@@ -361,23 +357,22 @@ export default function EmbedCalculator() {
               <div
                 style={{
                   fontSize: '10px',
-                  fontWeight: 800,
+                  fontWeight: 700,
                   textTransform: 'uppercase',
                   letterSpacing: '0.04em',
-                  color: '#e4e4e7',
-                  marginBottom: '4px',
+                  color: 'var(--muted)',
+                  marginBottom: '2px',
                 }}
               >
-                Total Paid
+                Total
               </div>
               <div
                 style={{
-                  fontSize: '18px',
+                  fontSize: '17px',
                   fontWeight: 800,
-                  color: '#ffffff',
+                  color: 'var(--ink)',
                   lineHeight: 1.1,
                   fontFamily: 'var(--font-mono)',
-                  wordBreak: 'break-all',
                 }}
               >
                 ${fmt(result.totalPaid)}
@@ -385,12 +380,12 @@ export default function EmbedCalculator() {
             </div>
           </div>
 
-          {/* Quick Buttons */}
+          {/* Action Buttons */}
           <div style={{ display: 'flex', gap: '8px' }}>
             <button
               onClick={copyToClipboard}
               className="btn-secondary"
-              style={{ flex: 1, height: '36px', fontSize: '11px', padding: '0 12px' }}
+              style={{ flex: 1, minHeight: '36px', fontSize: '11px', padding: '0 12px' }}
             >
               {copied ? (
                 <>
@@ -400,24 +395,14 @@ export default function EmbedCalculator() {
                   <span style={{ color: 'var(--primary)' }}>Copied</span>
                 </>
               ) : (
-                <>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="9" y="9" width="13" height="13" rx="2" />
-                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
-                  </svg>
-                  Copy Result
-                </>
+                'Copy Result'
               )}
             </button>
             <button
               onClick={reset}
               className="btn-secondary"
-              style={{ flex: 1, height: '36px', fontSize: '11px', padding: '0 12px' }}
+              style={{ flex: 1, minHeight: '36px', fontSize: '11px', padding: '0 12px' }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8" />
-                <path d="M3 3v5h5" />
-              </svg>
               Reset
             </button>
           </div>

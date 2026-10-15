@@ -33,23 +33,26 @@ export default function ContactPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
         <div className="container-main">
-          <h1 style={{ fontSize: 'clamp(28px,5vw,48px)', fontWeight: 900, color: '#fff', marginBottom: 16 }}>
-            Contact Us
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-sm)', color: 'var(--mint-200)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: 12 }}>
+            Get In Touch
+          </div>
+          <h1 style={{ fontSize: 'clamp(28px,4.5vw,44px)', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', marginBottom: 12 }}>
+            Contact the PreTaxPrice Team
           </h1>
-          <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 520, margin: '0 auto' }}>
-            Have a question, a rate update, or feedback on our calculators? We would love to hear from you.
+          <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', maxWidth: 540, margin: '0 auto', lineHeight: 1.6 }}>
+            Have a question, a rate update for your jurisdiction, or feedback on our calculators? We would love to hear from you.
           </p>
         </div>
       </section>
 
-      <div style={{ maxWidth: 1000, margin: '64px auto 80px', padding: '0 24px' }}>
+      <div style={{ maxWidth: 1000, margin: '40px auto 80px', padding: '0 24px' }}>
         {/* Breadcrumb */}
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 48 }}>
-          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
+        <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 32 }}>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
           <span style={{ margin: '0 8px' }}>›</span>
-          <span>Contact</span>
+          <span style={{ color: 'var(--ink)' }}>Contact</span>
         </nav>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 40, alignItems: 'start' }} className="contact-layout">

@@ -17,16 +17,16 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '48px 24px' }}>
-      <div className="card" style={{ maxWidth: 640, width: '100%', textAlign: 'center', padding: '48px 32px', border: '2px solid var(--border)' }}>
+      <div className="card" style={{ maxWidth: 640, width: '100%', textAlign: 'center', padding: '48px 32px', border: '1px solid var(--hairline)' }}>
         <div style={{ fontSize: 64, marginBottom: 16 }}>🔍</div>
         
         <span className="section-label" style={{ marginBottom: 16, display: 'inline-block' }}>Error 404</span>
         
-        <h1 style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 900, color: 'var(--text-primary)', marginBottom: 16, textTransform: 'uppercase' }}>
+        <h1 style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 800, color: 'var(--ink)', marginBottom: 16, letterSpacing: '-0.02em' }}>
           Page Not Found
         </h1>
         
-        <p style={{ color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>
+        <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.7, marginBottom: 32 }}>
           We couldn&apos;t find the page or calculator you were looking for. It may have been moved, renamed, or no longer exists.
         </p>
 
@@ -35,16 +35,14 @@ export default function NotFound() {
             href="/"
             style={{
               background: 'var(--primary)',
-              color: '#000',
+              color: '#ffffff',
               padding: '14px 28px',
-              borderRadius: 'var(--radius)',
-              fontWeight: 800,
+              borderRadius: 'var(--radius-sm)',
+              fontWeight: 700,
               fontSize: 15,
               textDecoration: 'none',
-              border: '2px solid #000',
-              boxShadow: '3px 3px 0px 0px #000',
-              textTransform: 'uppercase',
-              letterSpacing: '0.02em',
+              border: '1px solid var(--primary-deep)',
+              boxShadow: 'none',
             }}
           >
             Go to Reverse Sales Tax Calculator →
@@ -53,29 +51,25 @@ export default function NotFound() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 8, marginTop: 8 }}>
             <Link
               href="/tax-rates"
-              className="footer-link"
-              style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}
+              style={{ padding: '10px 14px', background: 'var(--canvas-soft)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--hairline)', color: 'var(--ink)', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}
             >
               US Tax Rates
             </Link>
             <Link
               href="/canada"
-              className="footer-link"
-              style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}
+              style={{ padding: '10px 14px', background: 'var(--canvas-soft)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--hairline)', color: 'var(--ink)', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}
             >
               Canada Calculator
             </Link>
             <Link
               href="/vat-calculator"
-              className="footer-link"
-              style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}
+              style={{ padding: '10px 14px', background: 'var(--canvas-soft)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--hairline)', color: 'var(--ink)', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}
             >
               VAT Calculator
             </Link>
             <Link
               href="/faq"
-              className="footer-link"
-              style={{ padding: '10px 14px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}
+              style={{ padding: '10px 14px', background: 'var(--canvas-soft)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--hairline)', color: 'var(--ink)', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}
             >
               Tax FAQ
             </Link>

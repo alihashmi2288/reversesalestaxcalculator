@@ -33,10 +33,10 @@ export default function StateCalculatorClient({ stateData, rateNote }: Props) {
   };
 
   return (
-    <div className="calc-card" style={{ border: '2px solid var(--primary)', boxShadow: 'var(--shadow-solid-dark)' }}>
+    <div className="calc-card">
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }} className="grid-responsive">
         <div>
-          <label htmlFor="state-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="state-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>
             Total Price Paid (with tax)
           </label>
           <div className="input-wrapper">
@@ -57,7 +57,7 @@ export default function StateCalculatorClient({ stateData, rateNote }: Props) {
           </div>
         </div>
         <div>
-          <label htmlFor="state-tax-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>
+          <label htmlFor="state-tax-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>
             {stateData.state} Tax Rate
           </label>
           <div className="input-wrapper">
@@ -75,19 +75,19 @@ export default function StateCalculatorClient({ stateData, rateNote }: Props) {
             />
             <span className="input-suffix" aria-hidden="true">%</span>
           </div>
-          <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 4 }}>
+          <p style={{ fontSize: 12, color: 'var(--muted)', marginTop: 4 }}>
             {rateNote || `Pre-filled with ${stateData.state}'s combined average rate`}
           </p>
         </div>
       </div>
 
       {error && (
-        <div style={{ background: '#000', border: '2px solid #ef4444', borderRadius: 'var(--radius)', padding: '12px 16px', color: '#ef4444', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 20 }}>
-          [ERROR] {error}
+        <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 'var(--radius-xs)', padding: '12px 16px', color: '#b91c1c', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 20 }}>
+          {error}
         </div>
       )}
 
-      <button suppressHydrationWarning onClick={calculate} className="btn-primary" style={{ minHeight: 56, marginBottom: 24 }}>
+      <button suppressHydrationWarning onClick={calculate} className="btn-primary" style={{ minHeight: 52, marginBottom: 24 }}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <rect x="4" y="2" width="16" height="20" rx="2" />
           <path d="M9 7h6M9 12h6M9 17h4" />
@@ -99,55 +99,55 @@ export default function StateCalculatorClient({ stateData, rateNote }: Props) {
         <div style={{ animation: 'slideIn 0.3s ease' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 20 }} className="grid-results">
             {/* Pre-Tax Price */}
-            <div className="result-card success" style={{ background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary)', marginBottom: 8 }}>
+            <div className="result-card success" style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)', padding: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary-deep)', marginBottom: 8 }}>
                 ✓ Original Price (Pre-Tax)
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--primary-deep)', lineHeight: 1, fontFamily: 'var(--font-mono)' }}>
                 ${fmt(result.preTaxPrice)}
               </div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6 }}>Before tax was applied</div>
+              <div style={{ fontSize: 12, color: 'var(--body)', marginTop: 8 }}>Before tax was applied</div>
             </div>
 
             {/* Tax Amount */}
-            <div className="result-card danger" style={{ background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#f87171', marginBottom: 8 }}>
+            <div className="result-card danger" style={{ background: '#fff8f8', border: '1px solid #fee2e2', borderRadius: 'var(--radius-lg)', padding: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--error)', marginBottom: 8 }}>
                 Tax Amount Paid
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#ef4444', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--error)', lineHeight: 1, fontFamily: 'var(--font-mono)' }}>
                 ${fmt(result.taxAmount)}
               </div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6 }}>{result.taxRate}% of pre-tax price</div>
+              <div style={{ fontSize: 12, color: 'var(--body)', marginTop: 8 }}>{result.taxRate}% of pre-tax price</div>
             </div>
 
             {/* Total Paid */}
-            <div className="result-card neutral" style={{ background: 'var(--card-bg)' }}>
-              <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#e4e4e7', marginBottom: 8 }}>
+            <div className="result-card neutral" style={{ background: 'var(--canvas-soft)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: 8 }}>
                 Total Paid
               </div>
-              <div style={{ fontSize: 36, fontWeight: 800, color: '#ffffff', lineHeight: 1 }}>
+              <div style={{ fontSize: 32, fontWeight: 800, color: 'var(--ink)', lineHeight: 1, fontFamily: 'var(--font-mono)' }}>
                 ${fmt(result.totalPaid)}
               </div>
-              <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 6 }}>Amount you entered</div>
+              <div style={{ fontSize: 12, color: 'var(--body)', marginTop: 8 }}>Amount you entered</div>
             </div>
           </div>
 
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <button suppressHydrationWarning onClick={copy} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>
+            <button suppressHydrationWarning onClick={copy} className="btn-secondary" style={{ flex: 1, minHeight: 44 }}>
               {copied ? (
-                <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg> Copied!</>
+                <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5"><path d="M20 6L9 17l-5-5"/></svg> Copied!</>
               ) : (
                 <><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Results</>
               )}
             </button>
-            <button suppressHydrationWarning onClick={reset} className="btn-secondary" style={{ flex: 1, minHeight: 48 }}>
+            <button suppressHydrationWarning onClick={reset} className="btn-secondary" style={{ flex: 1, minHeight: 44 }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
               Reset
             </button>
           </div>
 
           {/* Formula reminder */}
-          <div style={{ background: 'var(--bg)', border: '2px dashed var(--border)', borderRadius: 'var(--radius)', padding: '12px 16px', fontSize: 13, color: 'var(--primary)', marginTop: 16, fontFamily: 'var(--font-mono)', wordBreak: 'break-word' }}>
+          <div style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-sm)', padding: '12px 16px', fontSize: 13, color: 'var(--primary-deep)', marginTop: 16, fontFamily: 'var(--font-mono)', wordBreak: 'break-word' }}>
             <strong>Calculation formula:</strong> ${fmt(result.preTaxPrice)} = ${fmt(result.totalPaid)} ÷ (1 + {result.taxRate}/100)
           </div>
         </div>

@@ -46,7 +46,7 @@ export default function VATCalculator() {
   return (
     <div className="calc-card">
       <div style={{ marginBottom: 20 }}>
-        <label htmlFor="vat-country-select" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Country / Region</label>
+        <label htmlFor="vat-country-select" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>Country / Region</label>
         <select
           id="vat-country-select"
           aria-label="Select Country or Region for VAT rate"
@@ -70,7 +70,7 @@ export default function VATCalculator() {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20 }} className="grid-responsive">
         <div>
-          <label htmlFor="vat-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>VAT Rate</label>
+          <label htmlFor="vat-rate" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>VAT Rate</label>
           <div className="input-wrapper">
             <input
               id="vat-rate"
@@ -86,7 +86,7 @@ export default function VATCalculator() {
           </div>
         </div>
         <div>
-          <label htmlFor="vat-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--text-primary)' }}>Price (VAT-inclusive)</label>
+          <label htmlFor="vat-final-price" style={{ display: 'block', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: 8, color: 'var(--ink)' }}>Price (VAT-inclusive)</label>
           <div className="input-wrapper">
             <input
               id="vat-final-price"
@@ -103,9 +103,13 @@ export default function VATCalculator() {
         </div>
       </div>
 
-      {error && <div style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: 'var(--radius)', padding: '12px 16px', color: '#f87171', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-mono)', marginBottom: 16 }}>[ERROR] {error}</div>}
+      {error && (
+        <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 'var(--radius-xs)', padding: '12px 16px', color: '#991b1b', fontSize: 13, fontWeight: 600, marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span>⚠️</span> {error}
+        </div>
+      )}
 
-      <button onClick={calculate} className="btn-primary" style={{ minHeight: 56, marginBottom: result ? 20 : 0 }}>
+      <button onClick={calculate} className="btn-primary" style={{ minHeight: 52, marginBottom: result ? 20 : 0 }}>
         Remove VAT — Find Ex-VAT Price
       </button>
 
@@ -113,16 +117,16 @@ export default function VATCalculator() {
         <div style={{ animation: 'slideIn 0.3s ease' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }} className="grid-results">
             <div className="result-card success">
-              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary)', marginBottom: 8 }}>Ex-VAT Price</div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: 'var(--primary)' }}>{fmt(result.preTaxPrice)}</div>
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary-deep)', marginBottom: 6 }}>Ex-VAT (Net Price)</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--primary-deep)', fontFamily: 'monospace' }}>{fmt(result.preTaxPrice)}</div>
             </div>
             <div className="result-card danger">
-              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#f87171', marginBottom: 8 }}>VAT Amount</div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: '#ef4444' }}>{fmt(result.taxAmount)}</div>
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#991b1b', marginBottom: 6 }}>VAT Amount</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: '#b91c1c', fontFamily: 'monospace' }}>{fmt(result.taxAmount)}</div>
             </div>
             <div className="result-card neutral">
-              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#e4e4e7', marginBottom: 8 }}>Inc-VAT Price</div>
-              <div style={{ fontSize: 30, fontWeight: 800, color: '#ffffff' }}>{fmt(result.totalPaid)}</div>
+              <div style={{ fontSize: 11, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)', marginBottom: 6 }}>Inc-VAT (Gross Price)</div>
+              <div style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', fontFamily: 'monospace' }}>{fmt(result.totalPaid)}</div>
             </div>
           </div>
         </div>

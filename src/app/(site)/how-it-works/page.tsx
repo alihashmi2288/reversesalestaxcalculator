@@ -86,12 +86,15 @@ export default function HowItWorksPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
 
-      <section style={{ background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', padding: '64px 0', textAlign: 'center' }}>
+      <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
         <div className="container-main">
-          <h1 style={{ fontSize: 'clamp(28px,5vw,48px)', fontWeight: 900, color: '#fff', marginBottom: 16 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
+            <span>📐</span> Educational Guide & Algebraic Formula
+          </div>
+          <h1 style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', marginBottom: 14, letterSpacing: '-0.02em', lineHeight: 1.15 }}>
             How Reverse Sales Tax Works
           </h1>
-          <p style={{ fontSize: 18, color: '#94a3b8', maxWidth: 620, margin: '0 auto' }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 620, margin: '0 auto', lineHeight: 1.6 }}>
             A comprehensive guide to the reverse tax formula, algebraic derivation, and practical bookkeeping examples.
           </p>
         </div>
@@ -101,23 +104,23 @@ export default function HowItWorksPage() {
         <AdSlot slot="how-it-works-leaderboard" size="leaderboard" label="Leaderboard" />
       </div>
 
-      <div className="container-main" style={{ marginTop: 48 }}>
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 48 }}>
-          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
-          <span style={{ margin: '0 8px' }}>›</span>
-          <span>How It Works</span>
+      <div className="container-main" style={{ marginTop: 32, marginBottom: 80 }}>
+        <nav style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 28, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 600 }}>Home</Link>
+          <span style={{ color: 'var(--hairline-strong)' }}>/</span>
+          <span style={{ color: 'var(--ink)' }}>How It Works</span>
         </nav>
 
         <HowItWorks />
 
         {/* Formula Detail */}
-        <div style={{ marginTop: 64, maxWidth: 860, margin: '64px auto 0' }}>
-          <h2 style={{ fontSize: 32, fontWeight: 800, color: 'var(--text-primary)', marginBottom: 24, textTransform: 'uppercase' }}>
+        <div style={{ marginTop: 64, maxWidth: 880, margin: '64px auto 0' }}>
+          <h2 style={{ fontSize: 26, fontWeight: 800, color: 'var(--ink)', marginBottom: 24, letterSpacing: '-0.02em' }}>
             The Mathematics Behind Reverse Tax
           </h2>
 
           {/* Infographic Visual Asset */}
-          <div style={{ margin: '24px 0 32px', borderRadius: 'var(--radius)', overflow: 'hidden', border: '2px solid var(--border)', background: '#09090b', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
+          <div style={{ margin: '24px 0 32px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--hairline)', background: 'var(--canvas)', boxShadow: 'var(--shadow-card)' }}>
             <Image
               src="/images/reverse-sales-tax-formula-diagram.jpg"
               alt="Reverse sales tax formula diagram: Total price divided by one plus tax rate equals original pre-tax price"
@@ -126,32 +129,32 @@ export default function HowItWorksPage() {
               style={{ width: '100%', height: 'auto', display: 'block' }}
               priority
             />
-            <div style={{ padding: '12px 20px', background: '#09090b', borderTop: '1px solid var(--border)', fontSize: 13, color: 'var(--text-muted)' }}>
+            <div style={{ padding: '12px 20px', background: 'var(--canvas-soft)', borderTop: '1px solid var(--hairline)', fontSize: 13, color: 'var(--muted)' }}>
               Figure 1: Reverse sales tax calculation flowchart demonstrating algebraic inverse division ($107.50 / 1.075 = $100.00).
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            <div className="card" style={{ borderLeft: '4px solid var(--primary)' }}>
-              <h3 style={{ fontWeight: 700, fontSize: 18, color: 'var(--text-primary)', marginBottom: 12 }}>Why Not Just Subtract the Percentage?</h3>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+            <div className="card" style={{ borderLeft: '4px solid var(--primary)', padding: 32 }}>
+              <h3 style={{ fontWeight: 800, fontSize: 18, color: 'var(--ink)', marginBottom: 12, letterSpacing: '-0.01em' }}>Why Not Just Subtract the Percentage?</h3>
+              <p style={{ color: 'var(--body)', lineHeight: 1.7, fontSize: 15 }}>
                 The most frequent mistake in retail accounting is the &quot;percentage subtraction error.&quot;
                 For example, if you paid $107.50 with a 7.5% tax rate: calculating $107.50 × 7.5% = $8.0625 and subtracting it produces $99.44. <strong>This is mathematically wrong</strong>.
               </p>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginTop: 12 }}>
+              <p style={{ color: 'var(--body)', lineHeight: 1.7, marginTop: 12, fontSize: 15 }}>
                 The real original price was $100.00. The reason is simple: sales tax was originally levied on the <em>pre-tax base ($100.00)</em>, not the final gross amount ($107.50). Because $100.00 × 7.5% = $7.50, you must use the mathematical inverse: division.
               </p>
             </div>
 
             <div className="formula-box">
-              <div style={{ fontSize: 13, opacity: 0.75, marginBottom: 12, textTransform: 'uppercase', letterSpacing: '0.06em' }}>The Correct Reverse Tax Formula</div>
+              <div style={{ fontSize: 11, fontWeight: 700, opacity: 0.75, marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--primary-deep)' }}>The Correct Reverse Tax Formula</div>
               <div className="formula-text">Original Price = Total Price ÷ (1 + Tax Rate / 100)</div>
-              <div style={{ marginTop: 16, fontSize: 14, opacity: 0.85 }}>
+              <div style={{ marginTop: 14, fontSize: 14, opacity: 0.85, color: 'var(--ink)' }}>
                 Tax Component Paid = Total Price − Original Price
               </div>
             </div>
 
-            <div className="card">
-              <h3 style={{ fontWeight: 700, fontSize: 18, color: 'var(--text-primary)', marginBottom: 16, textTransform: 'uppercase' }}>Step-by-Step Worked Example</h3>
+            <div className="card" style={{ padding: 32 }}>
+              <h3 style={{ fontWeight: 800, fontSize: 18, color: 'var(--ink)', marginBottom: 20, letterSpacing: '-0.01em' }}>Step-by-Step Worked Example</h3>
               {[
                 { step: '1', label: 'Known: Total price paid from receipt', value: '$107.50' },
                 { step: '2', label: 'Known: Sales tax rate applied', value: '7.5%' },
@@ -159,23 +162,23 @@ export default function HowItWorksPage() {
                 { step: '4', label: 'Divide: $107.50 ÷ 1.075', value: '$100.00 (Original Pre-Tax Price)' },
                 { step: '5', label: 'Isolate tax: $107.50 − $100.00', value: '$7.50 (Sales Tax Paid)' },
               ].map(({ step, label, value }) => (
-                <div key={step} style={{ display: 'flex', gap: 16, alignItems: 'center', padding: '12px 0', borderBottom: '1px solid var(--border)' }}>
-                  <div style={{ width: 32, height: 32, borderRadius: 8, background: 'var(--primary)', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 14, flexShrink: 0 }}>{step}</div>
-                  <div style={{ flex: 1, color: 'var(--text-secondary)', fontSize: 15 }}>{label}</div>
-                  <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: 15, fontFamily: 'var(--font-mono)' }}>{value}</div>
+                <div key={step} style={{ display: 'flex', gap: 16, alignItems: 'center', padding: '14px 0', borderBottom: '1px solid var(--hairline)' }}>
+                  <div style={{ width: 28, height: 28, borderRadius: 'var(--radius-xs)', background: 'var(--primary)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>{step}</div>
+                  <div style={{ flex: 1, color: 'var(--body)', fontSize: 15 }}>{label}</div>
+                  <div style={{ fontWeight: 700, color: 'var(--ink)', fontSize: 15, fontFamily: 'monospace' }}>{value}</div>
                 </div>
               ))}
             </div>
 
-            <div className="card">
-              <h3 style={{ fontWeight: 700, fontSize: 18, color: 'var(--text-primary)', marginBottom: 16, textTransform: 'uppercase' }}>Reverse Tax Divisor Quick Reference</h3>
-              <div style={{ overflowX: 'auto' }}>
+            <div className="card" style={{ padding: 32 }}>
+              <h3 style={{ fontWeight: 800, fontSize: 18, color: 'var(--ink)', marginBottom: 20, letterSpacing: '-0.01em' }}>Reverse Tax Divisor Quick Reference</h3>
+              <div style={{ overflowX: 'auto', border: '1px solid var(--hairline)', borderRadius: 'var(--radius-lg)' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                   <thead>
-                    <tr style={{ background: '#09090b', borderBottom: '2px solid var(--border)' }}>
-                      <th style={{ padding: '10px 14px', color: 'var(--text-secondary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Tax Rate</th>
-                      <th style={{ padding: '10px 14px', color: 'var(--text-secondary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>Divisor Factor</th>
-                      <th style={{ padding: '10px 14px', color: 'var(--text-secondary)', fontSize: 12, fontFamily: 'var(--font-mono)' }}>$100 Receipt Pre-Tax Cost</th>
+                    <tr style={{ background: 'var(--canvas-soft)', borderBottom: '1px solid var(--hairline-strong)' }}>
+                      <th style={{ padding: '12px 18px', color: 'var(--ink)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Tax Rate</th>
+                      <th style={{ padding: '12px 18px', color: 'var(--ink)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Divisor Factor</th>
+                      <th style={{ padding: '12px 18px', color: 'var(--ink)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>$100 Receipt Pre-Tax Cost</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -204,7 +207,7 @@ export default function HowItWorksPage() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 48, marginBottom: 64 }}>
-          <Link href="/" style={{ background: 'var(--primary)', color: '#000', border: '2px solid #000', boxShadow: '3px 3px 0px 0px #000', padding: '16px 40px', borderRadius: 'var(--radius)', fontWeight: 800, fontSize: 16, textDecoration: 'none', display: 'inline-block', textTransform: 'uppercase' }}>
+          <Link href="/" style={{ background: 'var(--primary)', color: '#ffffff', border: '1px solid var(--primary-deep)', boxShadow: 'none', padding: '14px 36px', borderRadius: 'var(--radius-sm)', fontWeight: 700, fontSize: 15, textDecoration: 'none', display: 'inline-block' }}>
             Try the Calculator Now →
           </Link>
         </div>
