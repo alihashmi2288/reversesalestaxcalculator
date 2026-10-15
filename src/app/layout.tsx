@@ -68,13 +68,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/icon.png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-icon.png' },
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  manifest: '/site.webmanifest',
   other: {
     'geo.region': 'US',
     'geo.placename': 'United States',
@@ -85,6 +87,7 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  themeColor: '#008254',
 };
 
 // JSON-LD Schemas

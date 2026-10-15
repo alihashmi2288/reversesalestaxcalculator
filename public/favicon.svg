@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <clipPath id="tile-clip-32">
+      <rect width="32" height="32" rx="5" />
+    </clipPath>
+  </defs>
+
+  <!-- Deep Spruce Tile Background -->
+  <rect width="32" height="32" rx="5" fill="#008254" />
+
+  <!-- High-def edge highlight for dark/light browser contrast -->
+  <rect x="0.5" y="0.5" width="31" height="31" rx="4.5" fill="none" stroke="#00a36a" stroke-width="1" stroke-opacity="0.3" />
+
+  <!-- Top-Right NerdWallet Lime Corner Accent -->
+  <g clip-path="url(#tile-clip-32)">
+    <rect x="23" y="0" width="9" height="9" fill="#8dc63f" />
+  </g>
+
+  <!-- White Calculator Housing Frame -->
+  <rect x="5.5" y="4.5" width="21" height="23" rx="3.5" fill="none" stroke="#ffffff" stroke-width="2" />
+
+  <!-- Mint LCD Display Window -->
+  <rect x="8.5" y="7.5" width="15" height="4.5" rx="1" fill="#effcf8" />
+
+  <!-- 4 Distinct Financial Keys (2x2 Grid) -->
+  <!-- Key 1: White -->
+  <rect x="8.5" y="14.5" width="6.5" height="4.5" rx="1" fill="#ffffff" />
+  <!-- Key 2: White -->
+  <rect x="17" y="14.5" width="6.5" height="4.5" rx="1" fill="#ffffff" />
+  <!-- Key 3: White -->
+  <rect x="8.5" y="20.5" width="6.5" height="4.5" rx="1" fill="#ffffff" />
+  <!-- Key 4: Lime Action Key -->
+  <rect x="17" y="20.5" width="6.5" height="4.5" rx="1" fill="#8dc63f" />
+</svg>

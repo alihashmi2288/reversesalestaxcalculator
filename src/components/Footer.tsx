@@ -47,9 +47,14 @@ export default function Footer() {
                     backgroundColor: 'var(--logo-lime)',
                   }}
                 />
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M7 12h10M12 7v10" />
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                  <title>PreTaxPrice Logo</title>
+                  <rect x="5.5" y="4.5" width="21" height="23" rx="3.5" stroke="#ffffff" strokeWidth="2.2" />
+                  <rect x="8.5" y="7.5" width="15" height="4.5" rx="1" fill="#effcf8" />
+                  <rect x="8.5" y="14.5" width="6.5" height="4.5" rx="1" fill="#ffffff" />
+                  <rect x="17" y="14.5" width="6.5" height="4.5" rx="1" fill="#ffffff" />
+                  <rect x="8.5" y="20.5" width="6.5" height="4.5" rx="1" fill="#ffffff" />
+                  <rect x="17" y="20.5" width="6.5" height="4.5" rx="1" fill="var(--logo-lime)" />
                 </svg>
               </div>
               <div>
