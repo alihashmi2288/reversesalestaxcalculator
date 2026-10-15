@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import HashScrollHandler from '@/components/HashScrollHandler';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -141,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans antialiased">
+        <HashScrollHandler />
         {children}
       </body>
     </html>

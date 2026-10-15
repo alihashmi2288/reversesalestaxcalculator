@@ -100,8 +100,8 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
               {[
                 { href: '/tax-rates', label: '2026 US State Tax Rates' },
-                { href: '/#how-it-works', label: 'How It Works & Formula' },
-                { href: '/#faq', label: 'Frequently Asked Questions' },
+                { href: '/how-it-works', label: 'How It Works & Formula' },
+                { href: '/faq', label: 'Frequently Asked Questions' },
                 { href: '/about', label: 'About Us & Editorial Standards' },
                 { href: '/contact', label: 'Contact Support' },
               ].map(({ href, label }) => (

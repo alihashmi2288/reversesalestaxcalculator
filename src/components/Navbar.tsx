@@ -5,6 +5,19 @@ import Link from 'next/link';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const handleCalculatorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (typeof window !== 'undefined' && window.location.pathname === '/') {
+      const el = document.getElementById('calculator');
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth' });
+        if (window.location.hash !== '#calculator') {
+          window.history.pushState(null, '', '/#calculator');
+        }
+      }
+    }
+  };
+
   return (
     <nav
       style={{
@@ -65,10 +78,10 @@ export default function Navbar() {
 
         {/* Desktop Navigation Links */}
         <div style={{ display: 'flex', gap: 24, alignItems: 'center' }} className="hidden-mobile">
-          <Link href="/#calculator" className="nav-link">Calculator</Link>
-          <Link href="/#how-it-works" className="nav-link">How It Works</Link>
+          <Link href="/#calculator" className="nav-link" onClick={handleCalculatorClick}>Calculator</Link>
+          <Link href="/how-it-works" className="nav-link">How It Works</Link>
           <Link href="/tax-rates" className="nav-link">Tax Rates</Link>
-          <Link href="/#faq" className="nav-link">FAQ</Link>
+          <Link href="/faq" className="nav-link">FAQ</Link>
           <Link href="/vat-calculator" className="nav-link">VAT</Link>
           <Link href="/canada" className="nav-link">Canada</Link>
           <Link href="/about" className="nav-link">About</Link>
@@ -79,6 +92,7 @@ export default function Navbar() {
         <div className="hidden-mobile">
           <Link
             href="/#calculator"
+            onClick={handleCalculatorClick}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -150,20 +164,23 @@ export default function Navbar() {
           className="show-mobile-menu"
         >
           {[
-            { href: '/#calculator', label: 'Calculator' },
-            { href: '/#how-it-works', label: 'How It Works' },
+            { href: '/#calculator', label: 'Calculator', isCalc: true },
+            { href: '/how-it-works', label: 'How It Works' },
             { href: '/tax-rates', label: 'Tax Rates' },
-            { href: '/#faq', label: 'FAQ' },
+            { href: '/faq', label: 'FAQ' },
             { href: '/vat-calculator', label: 'VAT Calculator' },
             { href: '/canada', label: 'Canada Calculator' },
             { href: '/about', label: 'About' },
             { href: '/contact', label: 'Contact' },
-          ].map(({ href, label }) => (
+          ].map(({ href, label, isCalc }) => (
             <Link
               key={href}
               href={href}
               className="nav-link"
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                setOpen(false);
+                if (isCalc) handleCalculatorClick(e);
+              }}
               style={{
                 fontSize: 14,
                 fontWeight: 600,
@@ -178,7 +195,10 @@ export default function Navbar() {
           <div style={{ marginTop: 12 }}>
             <Link
               href="/#calculator"
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                setOpen(false);
+                handleCalculatorClick(e);
+              }}
               style={{
                 display: 'block',
                 textAlign: 'center',

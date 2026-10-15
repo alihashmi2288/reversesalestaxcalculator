@@ -49,6 +49,30 @@ export default function HowItWorks() {
           </div>
         ))}
       </div>
+
+      <div style={{ textAlign: 'center', marginTop: 32 }}>
+        <Link
+          href="/how-it-works"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            fontSize: 14,
+            fontWeight: 700,
+            color: 'var(--primary)',
+            textDecoration: 'none',
+            padding: '10px 22px',
+            borderRadius: 'var(--radius-sm)',
+            border: '1.5px solid var(--primary)',
+            backgroundColor: 'var(--canvas)',
+            transition: 'all 0.15s ease',
+          }}
+          className="hover-subtle"
+        >
+          <span>Read Full Step-by-Step Mathematical Guide &amp; Formula</span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      </div>
     </section>
   );
 }
