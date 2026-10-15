@@ -57,18 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Tier 7: Educational Guides & FAQ (Priority: 0.8, Changefreq: weekly)
-  const educationalRoutes: MetadataRoute.Sitemap = [
-    '/how-it-works',
-    '/faq',
-  ].map((path) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.8,
-  }));
-
-  // Tier 8: Informational & Legal Pages (Priority: 0.5, Changefreq: monthly)
+  // Tier 7: Informational & Legal Pages (Priority: 0.5, Changefreq: monthly)
   const infoRoutes: MetadataRoute.Sitemap = [
     '/about',
     '/contact',
@@ -87,7 +76,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stateRoutes,
     ...canadaRoutes,
     ...vatRoutes,
-    ...educationalRoutes,
     ...infoRoutes,
   ];
 }

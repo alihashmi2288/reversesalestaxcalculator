@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function Footer() {
@@ -100,13 +102,30 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
               {[
                 { href: '/tax-rates', label: '2026 US State Tax Rates' },
-                { href: '/how-it-works', label: 'How It Works & Formula' },
-                { href: '/faq', label: 'Frequently Asked Questions' },
+                { href: '/#how-it-works', label: 'How It Works & Formula', targetId: 'how-it-works' },
+                { href: '/#faq', label: 'Frequently Asked Questions', targetId: 'faq' },
                 { href: '/about', label: 'About Us & Editorial Standards' },
                 { href: '/contact', label: 'Contact Support' },
-              ].map(({ href, label }) => (
+              ].map(({ href, label, targetId }) => (
                 <li key={href}>
-                  <Link href={href} className="footer-link">{label}</Link>
+                  <Link
+                    href={href}
+                    className="footer-link"
+                    onClick={(e) => {
+                      if (targetId && typeof window !== 'undefined' && window.location.pathname === '/') {
+                        const el = document.getElementById(targetId);
+                        if (el) {
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: 'smooth' });
+                          if (window.location.hash !== `#${targetId}`) {
+                            window.history.pushState(null, '', `/#${targetId}`);
+                          }
+                        }
+                      }
+                    }}
+                  >
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>

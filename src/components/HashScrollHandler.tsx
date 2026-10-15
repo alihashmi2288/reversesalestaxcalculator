@@ -4,26 +4,34 @@ import { useEffect } from 'react';
 
 export default function HashScrollHandler() {
   useEffect(() => {
-    const handleHash = () => {
+    const scrollToHash = () => {
       const hash = window.location.hash;
-      if (hash) {
-        const id = hash.replace('#', '');
-        const el = document.getElementById(id);
-        if (el) {
-          // Allow DOM and client calculators to hydrate, then smoothly scroll
-          setTimeout(() => {
-            el.scrollIntoView({ behavior: 'smooth' });
-          }, 80);
-        }
+      if (!hash) return;
+      const id = hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
       }
     };
 
-    // Run on initial page load / hydration
-    handleHash();
+    // Run on mount with progressive retries for hydration & layout shifts
+    scrollToHash();
+    const t1 = setTimeout(scrollToHash, 100);
+    const t2 = setTimeout(scrollToHash, 300);
+    const t3 = setTimeout(scrollToHash, 700);
 
-    // Listen for hash changes
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    // Handle browser back/forward and hash changes
+    const onHashChange = () => scrollToHash();
+    window.addEventListener('hashchange', onHashChange);
+    window.addEventListener('popstate', onHashChange);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      window.removeEventListener('hashchange', onHashChange);
+      window.removeEventListener('popstate', onHashChange);
+    };
   }, []);
 
   return null;

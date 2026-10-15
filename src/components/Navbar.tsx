@@ -5,14 +5,14 @@ import Link from 'next/link';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const handleCalculatorClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleSectionScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     if (typeof window !== 'undefined' && window.location.pathname === '/') {
-      const el = document.getElementById('calculator');
+      const el = document.getElementById(targetId);
       if (el) {
         e.preventDefault();
         el.scrollIntoView({ behavior: 'smooth' });
-        if (window.location.hash !== '#calculator') {
-          window.history.pushState(null, '', '/#calculator');
+        if (window.location.hash !== `#${targetId}`) {
+          window.history.pushState(null, '', `/#${targetId}`);
         }
       }
     }
@@ -71,17 +71,17 @@ export default function Navbar() {
               PreTax<span style={{ color: 'var(--primary)' }}>Price</span>
             </div>
             <div style={{ fontSize: 10, color: 'var(--muted)', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-              Reverse Sales Tax Utility
+              Reverse Sales Tax Calculator
             </div>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
         <div style={{ display: 'flex', gap: 24, alignItems: 'center' }} className="hidden-mobile">
-          <Link href="/#calculator" className="nav-link" onClick={handleCalculatorClick}>Calculator</Link>
-          <Link href="/how-it-works" className="nav-link">How It Works</Link>
+          <Link href="/#calculator" className="nav-link" onClick={(e) => handleSectionScroll(e, 'calculator')}>Calculator</Link>
+          <Link href="/#how-it-works" className="nav-link" onClick={(e) => handleSectionScroll(e, 'how-it-works')}>How It Works</Link>
           <Link href="/tax-rates" className="nav-link">Tax Rates</Link>
-          <Link href="/faq" className="nav-link">FAQ</Link>
+          <Link href="/#faq" className="nav-link" onClick={(e) => handleSectionScroll(e, 'faq')}>FAQ</Link>
           <Link href="/vat-calculator" className="nav-link">VAT</Link>
           <Link href="/canada" className="nav-link">Canada</Link>
           <Link href="/about" className="nav-link">About</Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
         <div className="hidden-mobile">
           <Link
             href="/#calculator"
-            onClick={handleCalculatorClick}
+            onClick={(e) => handleSectionScroll(e, 'calculator')}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -164,22 +164,22 @@ export default function Navbar() {
           className="show-mobile-menu"
         >
           {[
-            { href: '/#calculator', label: 'Calculator', isCalc: true },
-            { href: '/how-it-works', label: 'How It Works' },
+            { href: '/#calculator', label: 'Calculator', targetId: 'calculator' },
+            { href: '/#how-it-works', label: 'How It Works', targetId: 'how-it-works' },
             { href: '/tax-rates', label: 'Tax Rates' },
-            { href: '/faq', label: 'FAQ' },
+            { href: '/#faq', label: 'FAQ', targetId: 'faq' },
             { href: '/vat-calculator', label: 'VAT Calculator' },
             { href: '/canada', label: 'Canada Calculator' },
             { href: '/about', label: 'About' },
             { href: '/contact', label: 'Contact' },
-          ].map(({ href, label, isCalc }) => (
+          ].map(({ href, label, targetId }) => (
             <Link
               key={href}
               href={href}
               className="nav-link"
               onClick={(e) => {
                 setOpen(false);
-                if (isCalc) handleCalculatorClick(e);
+                if (targetId) handleSectionScroll(e, targetId);
               }}
               style={{
                 fontSize: 14,
@@ -197,7 +197,7 @@ export default function Navbar() {
               href="/#calculator"
               onClick={(e) => {
                 setOpen(false);
-                handleCalculatorClick(e);
+                handleSectionScroll(e, 'calculator');
               }}
               style={{
                 display: 'block',
