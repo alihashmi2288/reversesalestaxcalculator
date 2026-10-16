@@ -7,6 +7,10 @@ Allow: /_next/static/
 Allow: /_next/
 Disallow: /api/
 Allow: /api/og
+
+# Explicit crawler access for Google Favicon & Image Search
+User-agent: Googlebot-Image
+Allow: /
 Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /search

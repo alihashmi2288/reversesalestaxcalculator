@@ -110,6 +110,7 @@ async function buildAllIcons() {
   const b16 = await sharp(Buffer.from(svg512)).resize(16, 16).png().toBuffer();
   const b32 = await sharp(Buffer.from(svg512)).resize(32, 32).png().toBuffer();
   const b48 = await sharp(Buffer.from(svg512)).resize(48, 48).png().toBuffer();
+  const b96 = await sharp(Buffer.from(svg512)).resize(96, 96).png().toBuffer();
   const b180 = await sharp(Buffer.from(svg512)).resize(180, 180).png().toBuffer();
   const b192 = await sharp(Buffer.from(svg512)).resize(192, 192).png().toBuffer();
   const b512 = await sharp(Buffer.from(svg512)).resize(512, 512).png().toBuffer();
@@ -121,13 +122,17 @@ async function buildAllIcons() {
     { width: 48, height: 48, buffer: b48 },
   ]);
   fs.writeFileSync(path.join(publicDir, 'favicon.ico'), ico);
-  console.log('✔ Generated public/favicon.ico (multi-resolution 16/32/48)');
+  fs.writeFileSync(path.join(appDir, 'favicon.ico'), ico);
+  console.log('✔ Generated public/favicon.ico & src/app/favicon.ico (multi-resolution 16/32/48)');
 
-  // 4. Save PNG files to public/
+  // 4. Save PNG files to public/ (including Google-compliant 48px multiples)
+  fs.writeFileSync(path.join(publicDir, 'icon-48.png'), b48);
+  fs.writeFileSync(path.join(publicDir, 'icon-96.png'), b96);
+  fs.writeFileSync(path.join(publicDir, 'icon-192.png'), b192);
   fs.writeFileSync(path.join(publicDir, 'icon.png'), b192);
   fs.writeFileSync(path.join(publicDir, 'apple-icon.png'), b180);
   fs.writeFileSync(path.join(publicDir, 'icon-512.png'), b512);
-  console.log('✔ Generated public/icon.png (192x192), public/apple-icon.png (180x180), public/icon-512.png (512x512)');
+  console.log('✔ Generated public/icon-48.png, icon-96.png, icon-192.png, icon.png, apple-icon.png, icon-512.png');
 
   // 5. Save PNG files to src/app/
   fs.writeFileSync(path.join(appDir, 'icon.png'), b192);
@@ -145,7 +150,17 @@ async function buildAllIcons() {
     theme_color: '#008254',
     icons: [
       {
-        src: '/icon.png',
+        src: '/icon-48.png',
+        sizes: '48x48',
+        type: 'image/png'
+      },
+      {
+        src: '/icon-96.png',
+        sizes: '96x96',
+        type: 'image/png'
+      },
+      {
+        src: '/icon-192.png',
         sizes: '192x192',
         type: 'image/png',
         purpose: 'any maskable'

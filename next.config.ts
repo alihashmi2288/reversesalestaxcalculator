@@ -35,6 +35,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/:icon(favicon\\.ico|favicon\\.svg|apple-icon\\.png|icon\\.png|icon-.*\\.png|site\\.webmanifest)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      {
         source: '/embed',
         headers: [
           {
