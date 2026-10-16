@@ -5,10 +5,14 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
 
-    // Dynamic params
+    // Dynamic query parameters
     const title = searchParams.get('title') || 'Reverse Sales Tax Calculator';
     const rate = searchParams.get('rate');
     const location = searchParams.get('location');
+
+    // Dynamically adjust title size if text is long
+    const isLongTitle = title.length > 45;
+    const titleFontSize = isLongTitle ? '44px' : '52px';
 
     return new ImageResponse(
       (
@@ -18,88 +22,239 @@ export async function GET(req: NextRequest) {
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#0f172a',
-            backgroundImage: 'radial-gradient(circle at 25% 25%, #1e293b 0%, transparent 50%), radial-gradient(circle at 75% 75%, #1e293b 0%, transparent 50%)',
-            padding: '40px',
-            fontFamily: 'sans-serif',
+            justifyContent: 'space-between',
+            background: 'linear-gradient(145deg, #00482f 0%, #006642 45%, #008254 100%)',
+            padding: '48px',
+            fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            position: 'relative',
           }}
         >
-          {/* Main Container */}
+          {/* Subtle Corner Background Radial Glows */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '-100px',
+              right: '-100px',
+              width: '450px',
+              height: '450px',
+              borderRadius: '9999px',
+              background: 'radial-gradient(circle, rgba(154, 230, 0, 0.18) 0%, transparent 70%)',
+              display: 'flex',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '-120px',
+              left: '-120px',
+              width: '450px',
+              height: '450px',
+              borderRadius: '9999px',
+              background: 'radial-gradient(circle, rgba(183, 236, 218, 0.15) 0%, transparent 70%)',
+              display: 'flex',
+            }}
+          />
+
+          {/* Main Card Container */}
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: 'rgba(30, 41, 59, 0.5)',
-              border: '2px solid #334155',
-              borderRadius: '24px',
-              padding: '60px',
-              width: '90%',
-              height: '80%',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+              justifyContent: 'space-between',
+              height: '100%',
+              width: '100%',
+              backgroundColor: 'rgba(0, 48, 31, 0.55)',
+              border: '1.5px solid rgba(183, 236, 218, 0.25)',
+              borderRadius: '16px',
+              padding: '44px 48px',
             }}
           >
-            {/* Logo/Brand */}
+            {/* 1. Header Row: Logo & Trust Badge */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                marginBottom: '40px',
+                justifyContent: 'space-between',
+                width: '100%',
               }}
             >
+              {/* Brand Logo & Wordmark */}
               <div
                 style={{
-                  width: '40px',
-                  height: '40px',
-                  backgroundColor: '#6366f1',
-                  borderRadius: '8px',
-                  marginRight: '16px',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  fontWeight: 'bold',
-                  fontSize: '24px',
                 }}
               >
-                %
+                {/* SVG Brand Calculator Icon */}
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '8px',
+                    backgroundColor: '#008254',
+                    border: '1.5px solid #00a36a',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginRight: '16px',
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                >
+                  {/* Top-Right Lime Accent Corner */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      right: 0,
+                      width: '14px',
+                      height: '14px',
+                      backgroundColor: '#8dc63f',
+                      display: 'flex',
+                    }}
+                  />
+                  {/* White Calculator Housing */}
+                  <div
+                    style={{
+                      width: '30px',
+                      height: '34px',
+                      border: '2px solid #ffffff',
+                      borderRadius: '4px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      padding: '3px',
+                      justifyContent: 'space-between',
+                    }}
+                  >
+                    {/* Mint LCD Screen */}
+                    <div
+                      style={{
+                        width: '20px',
+                        height: '7px',
+                        backgroundColor: '#effcf8',
+                        borderRadius: '2px',
+                        display: 'flex',
+                      }}
+                    />
+                    {/* Keys Grid */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        width: '20px',
+                        justifyContent: 'space-between',
+                        gap: '2px',
+                      }}
+                    >
+                      <div style={{ width: '8px', height: '6px', backgroundColor: '#ffffff', borderRadius: '1px' }} />
+                      <div style={{ width: '8px', height: '6px', backgroundColor: '#ffffff', borderRadius: '1px' }} />
+                      <div style={{ width: '8px', height: '6px', backgroundColor: '#ffffff', borderRadius: '1px' }} />
+                      <div style={{ width: '8px', height: '6px', backgroundColor: '#8dc63f', borderRadius: '1px' }} />
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span
+                    style={{
+                      fontSize: '28px',
+                      fontWeight: 800,
+                      color: '#ffffff',
+                      letterSpacing: '-0.02em',
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    PreTaxPrice
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      color: '#e8fdac',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      marginTop: '2px',
+                    }}
+                  >
+                    Reverse Sales Tax Calculator
+                  </span>
+                </div>
               </div>
-              <span
+
+              {/* Verified Editorial Badge */}
+              <div
                 style={{
-                  fontSize: '28px',
-                  fontWeight: 'bold',
-                  color: '#f8fafc',
-                  letterSpacing: '-0.02em',
+                  display: 'flex',
+                  alignItems: 'center',
+                  backgroundColor: '#e8fdac',
+                  color: '#00482f',
+                  padding: '8px 18px',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  fontWeight: 800,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
                 }}
               >
-                PreTaxPrice
-              </span>
+                ✓ 2026 Tax Rates Verified
+              </div>
             </div>
 
-            {/* Title */}
-            <h1
-              style={{
-                fontSize: '64px',
-                fontWeight: 900,
-                color: '#fff',
-                textAlign: 'center',
-                marginBottom: '24px',
-                lineHeight: 1.1,
-                letterSpacing: '-0.04em',
-              }}
-            >
-              {title}
-            </h1>
-
-            {/* Stats Row */}
+            {/* 2. Middle Content: Eyebrow + Dynamic Title + Description */}
             <div
               style={{
                 display: 'flex',
-                gap: '32px',
-                marginTop: '20px',
+                flexDirection: 'column',
+                margin: '16px 0',
+              }}
+            >
+              <span
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  color: '#9ae600',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  marginBottom: '10px',
+                }}
+              >
+                Instant Pre-Tax Price & Sales Tax Breakdown
+              </span>
+              <h1
+                style={{
+                  fontSize: titleFontSize,
+                  fontWeight: 900,
+                  color: '#ffffff',
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.03em',
+                  margin: 0,
+                  marginBottom: '12px',
+                  display: 'flex',
+                  maxWidth: '1020px',
+                }}
+              >
+                {title}
+              </h1>
+              <p
+                style={{
+                  fontSize: '19px',
+                  color: '#effcf8',
+                  lineHeight: 1.4,
+                  margin: 0,
+                  fontWeight: 400,
+                }}
+              >
+                Calculate original before-tax price from any checkout receipt or invoice total.
+              </p>
+            </div>
+
+            {/* 3. Stats Row (Location, Rate, Algebra Formula) */}
+            <div
+              style={{
+                display: 'flex',
+                gap: '16px',
+                alignItems: 'center',
               }}
             >
               {location && (
@@ -107,46 +262,137 @@ export async function GET(req: NextRequest) {
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'center',
-                    padding: '16px 32px',
-                    backgroundColor: '#1e293b',
-                    border: '1px solid #334155',
-                    borderRadius: '16px',
+                    padding: '12px 24px',
+                    backgroundColor: 'rgba(0, 102, 66, 0.65)',
+                    border: '1.5px solid rgba(183, 236, 218, 0.35)',
+                    borderRadius: '8px',
                   }}
                 >
-                  <span style={{ color: '#94a3b8', fontSize: '18px', fontWeight: 600, marginBottom: '4px' }}>Location</span>
-                  <span style={{ color: '#6366f1', fontSize: '32px', fontWeight: 800 }}>{location}</span>
+                  <span
+                    style={{
+                      color: '#b7ecda',
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    Jurisdiction
+                  </span>
+                  <span
+                    style={{
+                      color: '#ffffff',
+                      fontSize: '24px',
+                      fontWeight: 800,
+                    }}
+                  >
+                    {location}
+                  </span>
                 </div>
               )}
+
               {rate && (
                 <div
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'center',
-                    padding: '16px 32px',
-                    backgroundColor: '#1e293b',
-                    border: '1px solid #334155',
-                    borderRadius: '16px',
+                    padding: '12px 24px',
+                    backgroundColor: 'rgba(0, 102, 66, 0.65)',
+                    border: '1.5px solid rgba(183, 236, 218, 0.35)',
+                    borderRadius: '8px',
                   }}
                 >
-                  <span style={{ color: '#94a3b8', fontSize: '18px', fontWeight: 600, marginBottom: '4px' }}>Avg. Rate</span>
-                  <span style={{ color: '#f59e0b', fontSize: '32px', fontWeight: 800 }}>{rate}%</span>
+                  <span
+                    style={{
+                      color: '#b7ecda',
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    Tax Rate
+                  </span>
+                  <span
+                    style={{
+                      color: '#9ae600',
+                      fontSize: '24px',
+                      fontWeight: 900,
+                    }}
+                  >
+                    {rate}%
+                  </span>
                 </div>
               )}
+
+              {/* Exact Formula Block */}
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  padding: '12px 24px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: '8px',
+                }}
+              >
+                <span
+                  style={{
+                    color: '#b7ecda',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    marginBottom: '4px',
+                  }}
+                >
+                  Exact Formula
+                </span>
+                <span
+                  style={{
+                    color: '#effcf8',
+                    fontSize: '19px',
+                    fontWeight: 700,
+                    fontFamily: 'monospace',
+                  }}
+                >
+                  PreTax = Total ÷ (1 + r)
+                </span>
+              </div>
             </div>
 
-            {/* URL Footer */}
+            {/* 4. Footer Row */}
             <div
               style={{
-                position: 'absolute',
-                bottom: '40px',
-                fontSize: '20px',
-                color: '#475569',
-                fontWeight: 600,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                borderTop: '1px solid rgba(183, 236, 218, 0.2)',
+                paddingTop: '16px',
+                marginTop: '12px',
               }}
             >
-              salestaxreversecalculator.com
+              <span
+                style={{
+                  fontSize: '16px',
+                  color: '#e8fdac',
+                  fontWeight: 700,
+                  letterSpacing: '0.02em',
+                }}
+              >
+                salestaxreversecalculator.com
+              </span>
+              <span
+                style={{
+                  fontSize: '13px',
+                  color: '#b7ecda',
+                  fontWeight: 500,
+                }}
+              >
+                All 50 US States • Canada GST/HST/PST • International VAT
+              </span>
             </div>
           </div>
         </div>
@@ -157,9 +403,8 @@ export async function GET(req: NextRequest) {
       }
     );
   } catch (e: unknown) {
-    console.log(`${(e as Error)?.message || 'OG Error'}`);
-    return new Response(`Failed to generate the image`, {
-      status: 500,
-    });
+    console.error('OG Image Generation Error:', e);
+    return new Response('Failed to generate image', { status: 500 });
   }
 }
+
