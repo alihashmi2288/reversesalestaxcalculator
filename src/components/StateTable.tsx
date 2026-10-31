@@ -124,6 +124,7 @@ export default function StateTable() {
                       href={`/us/${s.state.toLowerCase().replace(/\s+/g, '-')}`}
                       className="link-green"
                       style={{ fontSize: 13 }}
+                      aria-label={`Calculate reverse sales tax for ${s.state}`}
                     >
                       Calculate →
                     </Link>

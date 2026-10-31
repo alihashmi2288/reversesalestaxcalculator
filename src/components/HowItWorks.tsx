@@ -31,7 +31,7 @@ export default function HowItWorks() {
             extra: (
               <span style={{ display: 'block', marginTop: 12 }}>
                 Use the{' '}
-                <Link href="/#calculator" className="link-green">
+                <Link href="/" className="link-green">
                   reverse tax calculator
                 </Link>{' '}
                 to back out tax from any receipt with zero manual math.

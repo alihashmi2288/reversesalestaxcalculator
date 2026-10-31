@@ -282,10 +282,10 @@ export default function FAQSection() {
               <p style={{ marginTop: 14, fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>
                 Need to calculate right now? Jump straight to the{' '}
                 <Link
-                  href="/#calculator"
+                  href="/"
                   className="link-green"
                 >
-                  reverse tax calculator
+                  sales tax reverse calculator
                 </Link>{' '}
                 to compute results automatically.
               </p>

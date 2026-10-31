@@ -305,42 +305,37 @@ export default function HomePage() {
             <CalculatorCard />
           </div>
 
-          {/* Intro Text and Formula Columns below Calculator */}
-          <div className="homepage-hero-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 32, alignItems: 'stretch' }}>
+          {/* ── Primary Definitional Section (FIRST H2 of Homepage) ── */}
+          <div style={{ maxWidth: 840, margin: '0 auto' }}>
+            <span className="section-label">About</span>
+            <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 34px)', fontWeight: 700, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
+              What Is a Reverse Sales Tax Calculator?
+            </h2>
+            <div style={{ fontSize: 16, color: 'var(--body)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <p>
+                A <strong>reverse sales tax calculator</strong> works backwards from a tax-included total to find the original price before tax was added. Most calculators start with a base price and add tax on top. This one does the opposite.
+              </p>
+              <p>
+                Here is why that matters. When you see a price on a receipt, invoice, or expense report, that number already includes tax. To find what the item actually cost, you cannot just subtract the tax percentage from the total. That gives you the wrong number every time.
+              </p>
 
-            {/* Hero Left: Intro text */}
-            <div className="hero-left" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'var(--body)', lineHeight: 1.65 }}>
-                <p style={{ margin: 0 }}>
-                  You paid <strong style={{ color: 'var(--ink)' }}>$113.85</strong> at checkout. The receipt shows an <strong style={{ color: 'var(--ink)' }}>8.25%</strong> tax rate. But what did the item actually cost before tax was added? Find out in one step with zero guesswork.
+              {/* Common Subtracting Mistake Callout - Clean styling, no alert warning */}
+              <div style={{ backgroundColor: 'var(--mint-50)', borderLeft: '4px solid var(--primary-deep)', borderRight: '1px solid var(--mint-200)', borderTop: '1px solid var(--mint-200)', borderBottom: '1px solid var(--mint-200)', padding: '20px 24px', borderRadius: 'var(--radius-lg)', margin: '8px 0' }}>
+                <p style={{ color: 'var(--primary-deep)', margin: 0, fontWeight: 700, textTransform: 'uppercase', fontSize: 13, letterSpacing: '0.04em' }}>
+                  Common Subtracting Mistake:
                 </p>
-                <p style={{ margin: 0 }}>
-                  Supports all <strong style={{ color: 'var(--ink)' }}>50 US states</strong>, Canadian GST/HST, UK VAT, and European standard VAT rates. Runs entirely inside your browser — no financial data or receipt numbers leave your computer.
-                </p>
-              </div>
-            </div>
-
-            {/* Hero Right: Formula Callout */}
-            <div className="hero-right" style={{ display: 'flex', alignItems: 'center' }}>
-              <div style={{ width: '100%', padding: '22px 26px', backgroundColor: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)' }}>
-                <span style={{ color: 'var(--primary-deep)', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: 6 }}>
-                  Standard Accounting Formula
-                </span>
-                <span style={{ color: 'var(--primary-deep)', fontWeight: 800, fontSize: 16, fontFamily: 'var(--font-mono)' }}>
-                  Original Price = Total ÷ (1 + Rate / 100)
-                </span>
-                <p style={{ color: 'var(--body)', fontSize: 13, marginTop: 10, marginBottom: 0, lineHeight: 1.5, textTransform: 'none' }}>
-                  The mathematically sound reverse calculation method used by CPAs, QuickBooks, and accounting ledgers globally to back out sales tax.
+                <p style={{ margin: '8px 0 0', fontSize: 14, color: 'var(--body)', lineHeight: 1.6 }}>
+                  You paid $107.50 with a 7.5% tax rate. If you subtract 7.5% from $107.50, you get $99.44. <strong>That is mathematically wrong.</strong> The true original price is <strong>$100.00</strong>. The reverse sales tax formula divides rather than subtracts, which prevents significant accounting discrepancies over time.
                 </p>
               </div>
-            </div>
 
+              <p>
+                This tool fixes that problem instantly. The term <strong>reverse tax</strong> refers to working backwards from a final amount to isolate the base price and the tax component separately. Accountants, business owners, freelancers, and everyday shoppers use this process daily for expense tracking, invoice verification, and financial reporting.
+              </p>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* ── Embed Widget Callout Section ── */}
-      <EmbedWidgetSection />
 
       {/* ── Main Layout: Content + Sidebars ── */}
       <div className="container-main" style={{ marginTop: 40, marginBottom: 40 }}>
@@ -363,19 +358,6 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <p style={{ fontSize: 13, color: 'var(--body)', lineHeight: 1.6, marginTop: 14 }}>
-                For state-specific pre-tax calculations, see our dedicated{' '}
-                <Link href="/us/new-york" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>New York reverse sales tax calculator</Link>{' '}
-                covering NYC&apos;s 8.875% rate, the{' '}
-                <Link href="/us/florida" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Florida reverse sales tax calculator</Link>{' '}
-                with county-by-county breakdowns, the{' '}
-                <Link href="/us/north-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>North Carolina sales tax calculator</Link>, the{' '}
-                <Link href="/us/south-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>South Carolina sales tax calculator</Link>, and the{' '}
-                <Link href="/us/massachusetts" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Massachusetts reverse sales tax calculator</Link>.{' '}
-                For Canadian purchases, the{' '}
-                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Canadian GST and HST reverse calculator</Link>{' '}
-                covers all 13 provinces and territories.
-              </p>
               
               <div className="divider" style={{ margin: '16px 0', height: 1, backgroundColor: 'var(--hairline-strong)' }} />
               
@@ -384,11 +366,6 @@ export default function HomePage() {
                 <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>🇨🇦 Canada GST/HST</span>
                 <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>5–15%</span>
               </Link>
-              <p style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.5, margin: '8px 0 12px' }}>
-                The{' '}
-                <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>Canadian GST and HST reverse calculator</Link>{' '}
-                handles all provincial tax types including Ontario HST at 13%, Quebec GST plus QST at 14.975%, and Alberta GST-only at 5%.
-              </p>
               <Link href="/vat-calculator" className="sidebar-state-link" style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}>
                 <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>🇪🇺 EU VAT</span>
                 <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>20–27%</span>
@@ -457,33 +434,6 @@ export default function HomePage() {
         {/* Centered Educational Content Layout */}
         <div className="educational-content-layout">
               
-              {/* SECTION: What is Reverse Sales Tax */}
-              <section>
-                <span className="section-label">About</span>
-                <h2 style={{ fontSize: 32, fontWeight: 700, color: 'var(--ink)', margin: '12px 0 20px' }}>
-                  What Is a Reverse Sales Tax Calculator?
-                </h2>
-                <div style={{ fontSize: 16, color: 'var(--body)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
-                  <p>
-                    A <strong>reverse sales tax calculator</strong> works backwards from a tax-included total to find the original price before tax was added. Most calculators start with a base price and add tax on top. This one does the opposite.
-                  </p>
-                  <p>
-                    Here is why that matters. When you see a price on a receipt, invoice, or expense report, that number already includes tax. To find what the item actually cost, you cannot just subtract the tax percentage from the total. That gives you the wrong number every time.
-                  </p>
-                  <div style={{ backgroundColor: '#fff8f8', borderLeft: '4px solid var(--error)', borderRight: '1px solid #ffd8d8', borderTop: '1px solid #ffd8d8', borderBottom: '1px solid #ffd8d8', padding: '20px', borderRadius: 'var(--radius-lg)', margin: '16px 0' }}>
-                    <p style={{ color: 'var(--error)', margin: 0, fontWeight: 700, textTransform: 'uppercase', fontSize: 13, letterSpacing: '0.04em', display: 'flex', alignItems: 'center', gap: 6 }}>
-                      ⚠️ Common Subtracting Mistake:
-                    </p>
-                    <p style={{ margin: '8px 0 0', fontSize: 14, color: 'var(--body)', lineHeight: 1.6 }}>
-                      You paid $107.50 with a 7.5% tax rate. If you subtract 7.5% from $107.50, you get $99.44. <strong>That is mathematically wrong.</strong> The true original price is <strong>$100.00</strong>. The reverse sales tax formula divides rather than subtracts, which prevents significant accounting discrepancies over time.
-                    </p>
-                  </div>
-                  <p>
-                    This tool fixes that problem instantly. The term <strong>reverse tax</strong> refers to working backwards from a final amount to isolate the base price and the tax component separately. Accountants, business owners, freelancers, and everyday shoppers use this process daily for expense tracking, invoice verification, and financial reporting.
-                  </p>
-                </div>
-              </section>
-
               {/* SECTION: The Reverse Sales Tax Formula */}
               <section id="formula" style={{ scrollMarginTop: 100 }}>
                 <span className="section-label">Math &amp; Logic</span>
@@ -620,6 +570,13 @@ export default function HomePage() {
                     Sales tax in the United States operates at multiple levels. The state sets a base rate. Counties and cities can add their own rates on top. The combined total is what you actually pay at the register.
                   </p>
                   <p>
+                    If you&apos;re calculating a purchase made in Florida, the{' '}
+                    <Link href="/us/florida" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                      Florida reverse sales tax calculator
+                    </Link>{' '}
+                    can help separate the original price from the sales tax included in the final amount.
+                  </p>
+                  <p>
                     Five states have no state-level sales tax at all: <strong>Alaska, Delaware, Montana, New Hampshire, and Oregon</strong>. Alaska is worth noting separately because local municipalities there do charge sales tax, giving it a small combined average of around 1.76%.
                   </p>
                   <p>
@@ -627,6 +584,13 @@ export default function HomePage() {
                   </p>
                   <p>
                     The national average combined rate sits at approximately <strong>{NATIONAL_AVERAGE_COMBINED_RATE}%</strong> according to the Tax Foundation. But that average covers a range from 0% in tax-free states to over 9.5% in the highest-tax states.
+                  </p>
+                  <p>
+                    If you&apos;re checking a purchase made in Massachusetts, use the{' '}
+                    <Link href="/us/massachusetts" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                      Massachusetts reverse sales tax calculator
+                    </Link>{' '}
+                    to determine the original price and tax amount from the total you paid.
                   </p>
 
                   {/* Pro Tip Callout */}
@@ -667,6 +631,13 @@ export default function HomePage() {
                         <span style={{ background: 'var(--mint-100)', color: 'var(--primary-deep)', border: '1px solid var(--mint-200)', padding: '2px 8px', borderRadius: 'var(--radius-xs)', fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 12 }}>8.875%</span>
                       </div>
                       <p style={{ fontSize: 13, margin: 0, color: 'var(--body)', lineHeight: 1.5 }}>Includes 4% state, 4.5% city, plus a 0.375% MTA surcharge. Upstate counties typically range between 7% and 8%.</p>
+                      <p style={{ fontSize: 13, margin: '8px 0 0', color: 'var(--body)', lineHeight: 1.5 }}>
+                        For purchases made in New York City, use the{' '}
+                        <Link href="/us/new-york" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                          New York reverse sales tax calculator
+                        </Link>{' '}
+                        to work backward from a tax-inclusive total using the applicable 8.875% rate.
+                      </p>
                     </div>
 
                     <div style={{ border: '1px solid var(--hairline-strong)', padding: 20, borderRadius: 'var(--radius-lg)', background: 'var(--canvas)', boxShadow: 'var(--shadow-card)' }}>
@@ -804,7 +775,11 @@ export default function HomePage() {
                     <li>Coworking space memberships where tax is bundled into the monthly fee</li>
                   </ul>
                   <p>
-                    If you use accounting software and enter the full tax-inclusive total instead of the pre-tax amount, your expense records are overstated. That produces inaccurate profit and loss reports and potentially incorrect tax deductions at year-end.
+                    If you use accounting software and enter the full tax-inclusive total instead of the pre-tax amount, your expense records are overstated. That produces inaccurate profit and loss reports and potentially incorrect tax deductions at year-end. For North Carolina purchases, the{' '}
+                    <Link href="/us/north-carolina" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                      North Carolina sales tax calculator
+                    </Link>{' '}
+                    can help you determine the pre-tax cost of equipment, software, and other business expenses from a tax-inclusive total.
                   </p>
                 </div>
               </section>
@@ -989,7 +964,11 @@ export default function HomePage() {
                   </div>
 
                   <p>
-                    <strong>Quebec sequential QST:</strong> Quebec charges 5% GST plus 9.975% QST. The effective combined rate is 14.975%, but the precise sequential calculation is handled correctly by our dedicated Canadian page.
+                    <strong>Quebec sequential QST:</strong> Quebec charges 5% GST plus 9.975% QST. The effective combined rate is 14.975%, but the precise sequential calculation is handled correctly by our dedicated Canadian page. For Canadian purchases, the{' '}
+                    <Link href="/canada" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                      Canadian GST and HST reverse calculator
+                    </Link>{' '}
+                    helps you work backward from a tax-inclusive total to find the pre-tax amount and applicable tax component.
                   </p>
                 </div>
               </section>
@@ -1080,6 +1059,13 @@ export default function HomePage() {
                     </li>
                     <li style={{ border: '1px solid #fee2e2', borderLeft: '3px solid var(--error)', padding: '12px 16px', background: '#fffcfc', borderRadius: '0 var(--radius-xs) var(--radius-xs) 0' }}>
                       <strong style={{ color: 'var(--ink)' }}>Using State Rate Instead of Combined Rate:</strong> Recording transactions at California&apos;s 7.25% state rate when the combined local rate paid was 9.5% results in underreporting your tax payable liabilities.
+                    </li>
+                    <li style={{ border: '1px solid var(--mint-200)', borderLeft: '3px solid var(--primary-deep)', padding: '12px 16px', background: 'var(--mint-50)', borderRadius: '0 var(--radius-xs) var(--radius-xs) 0' }}>
+                      For California transactions, the{' '}
+                      <Link href="/us/california" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                        California reverse sales tax calculator
+                      </Link>{' '}
+                      helps you separate the original price from state and local district taxes.
                     </li>
                     <li style={{ border: '1px solid #fee2e2', borderLeft: '3px solid var(--error)', padding: '12px 16px', background: '#fffcfc', borderRadius: '0 var(--radius-xs) var(--radius-xs) 0' }}>
                       <strong style={{ color: 'var(--ink)' }}>Applying Tax to Non-Taxable Items:</strong> Mixing taxable goods with tax-exempt items (e.g. services, groceries) on the same invoice and applying the tax percentage to the full total.
@@ -1237,6 +1223,9 @@ export default function HomePage() {
         <AdSlot slot="in-article-2" size="in-article" />
       </div>
 
+      {/* ── Embed Widget Callout Section ── */}
+      <EmbedWidgetSection />
+
       {/* ── References & Sources ──────────────────────────────── */}
       <div className="container-main" style={{ marginTop: 64, marginBottom: 64 }}>
           <span className="section-label">Sources</span>
@@ -1275,14 +1264,14 @@ export default function HomePage() {
               {
                 title: 'OECD — Consumption Tax Trends',
                 desc: 'International VAT/GST rates and consumption tax policy data across 38 member countries.',
-                href: 'https://www.oecd.org/en/publications/consumption-tax-trends_ctpa-2024-en.html',
+                href: 'https://www.oecd.org/en/topics/sub-issues/consumption-tax-trends.html',
                 badge: 'oecd.org',
               },
               {
-                title: 'Tax Policy Center — State & Local Tax Data',
-                desc: 'Research briefs and data on US state and local government tax revenue and policy.',
-                href: 'https://www.taxpolicycenter.org/statistics/state-and-local-general-sales-and-gross-receipts-tax-revenue',
-                badge: 'taxpolicycenter.org',
+                title: 'U.S. Census Bureau — State & Local Tax Revenue',
+                desc: 'Official federal quarterly data on state and local general sales and gross receipts tax collections.',
+                href: 'https://www.census.gov/programs-surveys/qtax.html',
+                badge: 'census.gov',
               },
             ].map(({ title, desc, href, badge }) => (
               <a
