@@ -452,6 +452,7 @@ export default function HomePage() {
                       alt="Reverse sales tax formula diagram: Total price divided by one plus tax rate equals original pre-tax price"
                       width={1200}
                       height={675}
+                      sizes="(max-width: 768px) 100vw, 840px"
                       style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-lg)' }}
                       loading="lazy"
                     />

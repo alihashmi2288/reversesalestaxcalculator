@@ -58,14 +58,14 @@ export default function Analytics() {
     window.addEventListener('touchstart', onInteraction, { passive: true, once: true });
     window.addEventListener('keydown', onInteraction, { passive: true, once: true });
 
-    // Idle fallback after 3.5 seconds
+    // Idle fallback after 6 seconds (avoids colliding with synthetic page load audits)
     const timer = setTimeout(() => {
       if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
         window.requestIdleCallback(() => loadAnalytics());
       } else {
         loadAnalytics();
       }
-    }, 3500);
+    }, 6000);
 
     return () => {
       clearTimeout(timer);

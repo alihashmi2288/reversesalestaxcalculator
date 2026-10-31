@@ -7,7 +7,6 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-montserrat',
-  weight: ['300', '400', '500', '600', '700', '800'],
   adjustFontFallback: true,
 });
 
@@ -125,6 +124,7 @@ const speculationRules = {
         '/vat-calculator',
         '/tax-rates',
       ],
+      eagerness: 'moderate',
     },
   ],
 };
@@ -133,8 +133,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${montserrat.variable} ${jetbrains.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
