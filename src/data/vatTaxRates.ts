@@ -22,30 +22,49 @@ export const VAT_COUNTRY_RATES: CountryVatRate[] = [
     rate: 20,
     type: 'VAT',
     aboutText: [
-      'The standard Value Added Tax (VAT) rate in the United Kingdom is 20%. UK pricing in retail settings is almost always displayed inclusive of VAT, meaning the price you see on the shelf or tag is the final amount you pay.',
-      'For UK businesses and sole traders, separating input VAT from expense totals is a daily bookkeeping task required for filing VAT returns to HM Revenue and Customs (HMRC). Reversing the 20% UK VAT involves dividing the total price by 1.20.',
-      'Certain items in the UK carry a reduced VAT rate of 5% (like domestic fuel and electricity) or are zero-rated (like children\'s clothes, books, and most food).'
+      'The standard Value Added Tax (VAT) rate in the United Kingdom is 20%. Governed by the Value Added Tax Act 1994 (VATA 1994) and administered by HM Revenue and Customs (HMRC), retail pricing in the UK is statutory required to be displayed inclusive of VAT, meaning the shelf price is the final amount payable.',
+      'To extract the VAT component from a gross UK receipt, businesses use the statutory "VAT Fraction." For the standard 20% rate, the VAT fraction is 1/6 (20/120). Multiplying any gross total by 1/6 isolates the exact VAT amount, while dividing by 1.20 determines the net price before tax. For the 5% reduced rate, the VAT fraction is 1/21 (5/105).',
+      'For VAT-registered UK businesses and sole traders filing quarterly returns on HMRC Making Tax Digital (MTD), separating input tax (VAT paid on business purchases, claimed in Box 4) from output tax (VAT charged on sales, recorded in Box 1) is mandatory to establish net VAT due (Box 5).',
+      'Under the UK Domestic Reverse Charge (DRC) for construction services (VATA 1994 Section 55A), standard B2B construction subcontractors do not charge VAT to VAT-registered contractors; instead, the customer accounts for the VAT directly on their own HMRC return to combat missing-trader fraud.'
     ],
     cities: [
       { name: 'London', rate: 20 },
       { name: 'Birmingham', rate: 20 },
       { name: 'Manchester', rate: 20 },
-      { name: 'Glasgow', rate: 20 }
+      { name: 'Glasgow', rate: 20 },
+      { name: 'Edinburgh', rate: 20 },
+      { name: 'Belfast', rate: 20 }
     ],
     useCases: [
       {
-        title: 'HMRC VAT Return prep',
-        description: 'Sole traders and VAT-registered UK businesses use this calculator to quickly back out the 20% VAT portion from invoice receipts, ensuring their quarterly returns are mathematically correct.'
+        title: 'HMRC VAT Return Preparation',
+        description: 'Sole traders and VAT-registered UK businesses use this calculator to quickly back out the 20% VAT portion from expense receipts and supplier invoices, ensuring quarterly Making Tax Digital (MTD) returns are mathematically accurate.'
+      },
+      {
+        title: 'Input Tax Reclaims (Box 4)',
+        description: 'Easily calculate deductible input VAT on fuel, office equipment, software subscriptions, and commercial purchases.'
       }
     ],
     faqs: [
       {
         question: 'How do I remove 20% UK VAT from a price?',
-        answer: 'To remove the standard UK VAT, divide the total inclusive price by 1.20. For example: £240.00 total paid / 1.20 equals £200.00 ex-VAT price. The VAT component is exactly £40.00.'
+        answer: 'To remove the standard 20% UK VAT, divide the total inclusive price by 1.20. For example: £240.00 total paid ÷ 1.20 equals £200.00 ex-VAT price. The VAT component is exactly £40.00 (or calculated directly via the statutory VAT fraction: £240.00 × 1/6 = £40.00).'
       },
       {
-        question: 'What is the VAT rate in London?',
-        answer: 'The standard VAT rate is 20% throughout the entire United Kingdom. There are no additional regional, county, or municipal sales taxes in London, Edinburgh, Belfast, or Cardiff.'
+        question: 'What is the VAT fraction for 20% in the UK?',
+        answer: 'The UK VAT fraction for the standard 20% rate is 1/6 (derived from 20 / (100 + 20) = 20/120 = 1/6). To find the VAT included in any gross price, simply divide the gross amount by 6. For example, £60 gross ÷ 6 = £10 VAT, leaving £50 net.'
+      },
+      {
+        question: 'What is the UK Domestic Reverse Charge (DRC)?',
+        answer: 'The Domestic Reverse Charge (Section 55A VATA 1994) applies to specified supplies of construction services reported under the Construction Industry Scheme (CIS). Under the DRC, the customer—rather than the supplier—accounts for the VAT directly on their HMRC VAT return, eliminating the risk of subcontractor supply-chain fraud.'
+      },
+      {
+        question: 'What items are zero-rated or exempt from UK VAT?',
+        answer: 'Under UK law, most staple groceries, books, newspapers, children\'s clothing and footwear, and public passenger transport are zero-rated (0% VAT). Domestic electricity and gas, child car seats, and mobility aids carry a reduced 5% rate. Financial services, postal services, and residential property rentals are statutory exempt.'
+      },
+      {
+        question: 'What is the VAT rate in London and regional cities?',
+        answer: 'The standard VAT rate is 20% uniformly throughout the entire United Kingdom. There are no additional regional, county, or municipal sales taxes in London, Manchester, Edinburgh, Cardiff, or Belfast.'
       }
     ]
   },
@@ -58,26 +77,45 @@ export const VAT_COUNTRY_RATES: CountryVatRate[] = [
     rate: 19,
     type: 'VAT',
     aboutText: [
-      'Germany charges standard Value Added Tax (known as Mehrwertsteuer - MwSt or Umsatzsteuer - USt) at a rate of 19%. A reduced rate of 7% applies to basic foodstuffs, books, public transport, and hotel stays.',
-      'Reversing the German MwSt at 19% requires dividing the total price by 1.19. This isolates the net price from the tax component, which is vital for German businesses preparing their monthly or quarterly VAT declarations (Umsatzsteuervoranmeldung).',
-      'The MwSt rate is federal and uniform across all German states and cities including Berlin, Munich, Hamburg, and Frankfurt.'
+      'Germany charges standard Value Added Tax (known as Mehrwertsteuer - MwSt or Umsatzsteuer - USt) at a rate of 19% under § 12 Abs. 1 of the German VAT Act (Umsatzsteuergesetz - UStG). A reduced rate of 7% under § 12 Abs. 2 UStG applies to basic groceries, books, periodicals, public passenger transit, and hotel accommodations.',
+      'Reversing the German MwSt at 19% requires dividing the gross invoice price by 1.19. This isolates the net price (Nettobetrag) from the tax component (Steuerbetrag), which is essential for German businesses filing advance VAT returns (Umsatzsteuer-Voranmeldung) via the ELSTER portal.',
+      'Under the German reverse-charge procedure (§ 13b UStG - Steuerschuldnerschaft des Leistungsempfängers), liability for VAT shifts from the seller to the recipient for specific domestic transactions (such as construction services and scrap metal) and cross-border B2B supplies under EU Directive 2006/112/EC.',
+      'The MwSt rate is federal and completely uniform across all 16 German federal states (Bundesländer) and cities including Berlin, Munich, Hamburg, and Frankfurt, with zero municipal surcharges.'
     ],
     cities: [
       { name: 'Berlin', rate: 19 },
       { name: 'Munich', rate: 19 },
       { name: 'Hamburg', rate: 19 },
-      { name: 'Frankfurt', rate: 19 }
+      { name: 'Frankfurt', rate: 19 },
+      { name: 'Cologne', rate: 19 },
+      { name: 'Stuttgart', rate: 19 }
     ],
     useCases: [
       {
-        title: 'MwSt Auditing',
-        description: 'German businesses use this calculator to verify MwSt calculations on vendor bills and to accurately record net expenses in their accounting systems.'
+        title: 'Umsatzsteuer-Voranmeldung Preparation',
+        description: 'German businesses and freelancers (Freiberufler) use this calculator to separate input tax (Vorsteuer) from gross expenses to accurately claim tax credits on monthly and quarterly ELSTER declarations.'
+      },
+      {
+        title: 'Vendor Invoice Auditing',
+        description: 'Verify statutory § 14 UStG invoice requirements by recalculating net amounts from gross receipts received from suppliers.'
       }
     ],
     faqs: [
       {
         question: 'How do I calculate net price from gross MwSt in Germany?',
         answer: 'To find the net price before 19% MwSt in Germany, divide the gross total price by 1.19. For example, a gross total of €119.00 divided by 1.19 equals €100.00 net price. The MwSt is €19.00.'
+      },
+      {
+        question: 'How do I calculate net price for 7% reduced MwSt in Germany?',
+        answer: 'For goods taxed at the 7% reduced rate (groceries, books, hotels), divide the gross total by 1.07. For example: €107.00 gross ÷ 1.07 = €100.00 net price, with €7.00 MwSt.'
+      },
+      {
+        question: 'What is the § 13b UStG reverse-charge procedure in Germany?',
+        answer: 'Section 13b of the Umsatzsteuergesetz (UStG) governs the reverse-charge mechanism in Germany. When a foreign company performs B2B services in Germany, or when domestic construction companies bill other builders, the tax liability shifts to the corporate buyer. The recipient declares both the output tax and the corresponding input tax (Vorsteuerabzug) simultaneously.'
+      },
+      {
+        question: 'What is the German Kleinunternehmer exemption?',
+        answer: 'Under § 19 UStG (Kleinunternehmerregelung), small businesses with prior-year revenues below €22,000 (raised to €25,000) and current-year projected revenues below €50,000 (raised to €100,000) can elect not to charge MwSt on invoices. However, they cannot reclaim input tax (Vorsteuer).'
       }
     ]
   },

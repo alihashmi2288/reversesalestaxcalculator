@@ -57,7 +57,7 @@ export default async function CountryVatPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
       { '@type': 'ListItem', position: 2, name: 'VAT Calculator', item: 'https://salestaxreversecalculator.com/vat-calculator' },
       { '@type': 'ListItem', position: 3, name: countryData.name, item: `https://salestaxreversecalculator.com/vat-calculator/${countrySlug}` },
     ],
@@ -88,6 +88,39 @@ export default async function CountryVatPage({ params }: Props) {
     "screenshot": "https://salestaxreversecalculator.com/og-image.png"
   };
 
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to Reverse Calculate ${countryData.name} ${countryData.rate}% ${countryData.type}`,
+    description: `Step-by-step instructions to calculate net pre-tax price from ${countryData.name} gross receipts and invoices.`,
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: `Identify the applicable ${countryData.type} rate`,
+        text: `Standard ${countryData.name} ${countryData.type} rate is ${countryData.rate}%.`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Formulate the decimal divisor',
+        text: `Divide the rate by 100 and add 1 (1 + ${countryData.rate}/100 = ${(1 + countryData.rate / 100).toFixed(4).replace(/\.?0+$/, '')}).`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Divide gross price by the divisor',
+        text: `Divide the gross total by ${(1 + countryData.rate / 100).toFixed(4).replace(/\.?0+$/, '')} to extract the net price excluding tax.`,
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Subtract net price from gross total to verify tax',
+        text: `Subtract the calculated net price from the gross invoice total to confirm exact ${countryData.type} paid.`,
+      },
+    ],
+  };
+
   const faqSchema = countryData.faqs.length ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -105,6 +138,7 @@ export default async function CountryVatPage({ params }: Props) {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
 
       {/* ── Hero Section ─────────────────────────────────────── */}

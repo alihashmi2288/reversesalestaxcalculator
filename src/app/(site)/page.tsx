@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
   description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
   alternates: { 
-    canonical: 'https://salestaxreversecalculator.com/',
+    canonical: 'https://salestaxreversecalculator.com',
     languages: {
-      'x-default': 'https://salestaxreversecalculator.com/',
-      'en-US': 'https://salestaxreversecalculator.com/',
+      'x-default': 'https://salestaxreversecalculator.com',
+      'en-US': 'https://salestaxreversecalculator.com',
       'en-CA': 'https://salestaxreversecalculator.com/canada',
       'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
     },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
     description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
-    url: 'https://salestaxreversecalculator.com/',
+    url: 'https://salestaxreversecalculator.com',
     images: [{ url: 'https://salestaxreversecalculator.com/api/og?title=Reverse%20Sales%20Tax%20Calculator&rate=7.53', alt: 'Reverse Sales Tax Calculator Tool Home' }],
   },
   twitter: {

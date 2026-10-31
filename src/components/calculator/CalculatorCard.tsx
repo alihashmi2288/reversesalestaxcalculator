@@ -29,18 +29,38 @@ const TABS = [
 export default function CalculatorCard() {
   const [activeTab, setActiveTab] = useState('basic');
 
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    let newIndex = index;
+    if (e.key === 'ArrowRight') {
+      newIndex = (index + 1) % TABS.length;
+    } else if (e.key === 'ArrowLeft') {
+      newIndex = (index - 1 + TABS.length) % TABS.length;
+    } else if (e.key === 'Home') {
+      newIndex = 0;
+    } else if (e.key === 'End') {
+      newIndex = TABS.length - 1;
+    } else {
+      return;
+    }
+    e.preventDefault();
+    setActiveTab(TABS[newIndex].id);
+    document.getElementById(`tab-${TABS[newIndex].id}`)?.focus();
+  };
+
   return (
     <div id="calculator" className="calc-card" style={{ minHeight: 480 }}>
       {/* Tab Bar */}
       <div className="calc-tab-bar" role="tablist" aria-label="Calculator Modes">
-        {TABS.map((tab) => (
+        {TABS.map((tab, idx) => (
           <button
             key={tab.id}
             role="tab"
             aria-selected={activeTab === tab.id}
             aria-controls={`panel-${tab.id}`}
             id={`tab-${tab.id}`}
+            tabIndex={activeTab === tab.id ? 0 : -1}
             onClick={() => setActiveTab(tab.id)}
+            onKeyDown={(e) => handleKeyDown(e, idx)}
             className={`calc-tab-btn ${activeTab === tab.id ? 'active' : ''}`}
             title={tab.desc}
           >

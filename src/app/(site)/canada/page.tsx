@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   alternates: { 
     canonical: 'https://salestaxreversecalculator.com/canada',
     languages: {
-      'x-default': 'https://salestaxreversecalculator.com/',
-      'en-US': 'https://salestaxreversecalculator.com/',
+      'x-default': 'https://salestaxreversecalculator.com',
+      'en-US': 'https://salestaxreversecalculator.com',
       'en-CA': 'https://salestaxreversecalculator.com/canada',
       'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
     },
@@ -71,6 +71,39 @@ const webApplicationSchema = {
   }
 };
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Reverse Calculate Canadian GST/HST for Input Tax Credit (ITC) Claims",
+  "description": "Step-by-step CRA guidelines to isolate GST/HST and calculate eligible Input Tax Credits from tax-inclusive Canadian invoices.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Identify the applicable provincial tax rate and structure",
+      "text": "Determine if the purchase occurred in an HST province (Ontario 13%, Atlantic 15%), a GST-only province (Alberta 5%), or a dual GST+PST province (BC 12%)."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Use statutory CRA ITC fractions or divisors",
+      "text": "For 5% GST, multiply total by 5/105 or divide by 1.05. For 13% Ontario HST, multiply by 13/113 or divide by 1.13. For 15% Atlantic HST, multiply by 15/115 or divide by 1.15."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Separate deductible GST/HST from non-deductible provincial tax",
+      "text": "In dual-tax provinces (BC, SK, MB), only the 5% GST portion qualifies for CRA Input Tax Credits; provincial PST is expensed as an operating cost."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Record pre-tax base and claimable ITC in your accounting ledger",
+      "text": "Record the pre-tax amount as your net expense and the isolated GST/HST in your CRA Line 106/108 ITC reconciliation."
+    }
+  ]
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -96,7 +129,7 @@ const faqSchema = {
       "name": "What is the combined tax rate in Quebec?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Quebec charges the 5% federal GST plus the 9.975% QST (Quebec Sales Tax). The effective combined rate is approximately 14.975%. In Quebec, QST is calculated on the GST-inclusive price, making the precise combined multiplier 1.05 x 1.09975 = 1.14975."
+        "text": "Quebec charges the 5% federal GST plus the 9.975% QST (Quebec Sales Tax) administered by Revenu Québec. Since 2013, QST is calculated directly on the selling price (not stacked on top of GST), creating a flat combined rate of 14.975%. Divide tax-inclusive receipts by 1.14975 to extract pre-tax amounts."
       }
     },
     {
@@ -149,6 +182,7 @@ export default function CanadaPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
@@ -249,6 +283,38 @@ export default function CanadaPage() {
               </div>
             </section>
 
+            {/* CRA Input Tax Credit Fractions Section */}
+            <section>
+              <h2 style={{ fontSize: 26, fontWeight: 800, color: 'var(--ink)', marginBottom: 20, letterSpacing: '-0.02em' }}>
+                CRA Input Tax Credit (ITC) Reverse Tax Fractions
+              </h2>
+              <div style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.75, display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <p>
+                  Under <strong>Subsection 169(1) of the Excise Tax Act (ETA)</strong>, GST/HST-registered Canadian businesses are entitled to recover the tax paid on commercial inputs by claiming an Input Tax Credit (ITC). When a supplier invoice or receipt displays only a tax-inclusive total, the Canada Revenue Agency (CRA) authorizes the use of statutory <strong>ITC calculation fractions</strong>:
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
+                  <div className="card" style={{ padding: 20 }}>
+                    <div style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 15, marginBottom: 6 }}>5% GST (Alberta, Territories)</div>
+                    <div style={{ fontFamily: 'monospace', fontSize: 18, fontWeight: 700, color: 'var(--ink)', marginBottom: 8 }}>Total × 5 / 105</div>
+                    <p style={{ fontSize: 13, color: 'var(--muted)', margin: 0 }}>On a $105 receipt, $105 × (5/105) = $5.00 ITC. Pre-tax base is $100.00.</p>
+                  </div>
+                  <div className="card" style={{ padding: 20 }}>
+                    <div style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 15, marginBottom: 6 }}>13% HST (Ontario)</div>
+                    <div style={{ fontFamily: 'monospace', fontSize: 18, fontWeight: 700, color: 'var(--ink)', marginBottom: 8 }}>Total × 13 / 113</div>
+                    <p style={{ fontSize: 13, color: 'var(--muted)', margin: 0 }}>On a $565 receipt, $565 × (13/113) = $65.00 ITC. Pre-tax base is $500.00.</p>
+                  </div>
+                  <div className="card" style={{ padding: 20 }}>
+                    <div style={{ fontWeight: 800, color: 'var(--primary)', fontSize: 15, marginBottom: 6 }}>15% HST (Atlantic Canada)</div>
+                    <div style={{ fontFamily: 'monospace', fontSize: 18, fontWeight: 700, color: 'var(--ink)', marginBottom: 8 }}>Total × 15 / 115</div>
+                    <p style={{ fontSize: 13, color: 'var(--muted)', margin: 0 }}>On a $230 receipt, $230 × (15/115) = $30.00 ITC. Pre-tax base is $200.00.</p>
+                  </div>
+                </div>
+                <div className="card" style={{ padding: 20, background: 'var(--canvas-soft)', border: '1px solid var(--hairline)', fontSize: 14 }}>
+                  <strong>Important Notice for BC, Saskatchewan, and Manitoba:</strong> In provinces with separate Provincial Sales Tax (PST/RST), <em>only the federal 5% GST is claimable as an ITC</em>. The provincial sales tax portion (7% in BC, 6% in SK, 7% in MB) is a non-recoverable retail sales tax that must be expensed in operating overhead rather than claimed on your CRA GST/HST return.
+                </div>
+              </div>
+            </section>
+
             <section>
               <h2 style={{ fontSize: 26, fontWeight: 800, color: 'var(--ink)', marginBottom: 24, letterSpacing: '-0.02em' }}>
                 When to Use the Canadian Reverse Tax Calculator
@@ -272,6 +338,33 @@ export default function CanadaPage() {
                     Sometimes receipts from smaller vendors, contractors, or handwritten invoices only show a final total. Our tool helps you instantly verify that the correct tax rate was applied according to your specific province&apos;s HST, PST, or QST regulations.
                   </p>
                 </div>
+              </div>
+            </section>
+
+            {/* Individual Province Hubs Section */}
+            <section className="card" style={{ padding: 28, background: 'var(--canvas-soft)', border: '1px solid var(--hairline)' }}>
+              <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--ink)', marginBottom: 14 }}>
+                Explore Dedicated Canadian Province Calculators
+              </h3>
+              <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.7, marginBottom: 16 }}>
+                Access customized reverse calculation guides and rate matrices for key Canadian economic regions:
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                <Link href="/canada/ontario" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
+                  Ontario 13% HST Calculator
+                </Link>
+                <Link href="/canada/quebec" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
+                  Quebec 14.975% GST/QST Calculator
+                </Link>
+                <Link href="/canada/british-columbia" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
+                  British Columbia 12% GST/PST
+                </Link>
+                <Link href="/canada/alberta" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
+                  Alberta 5% GST Calculator
+                </Link>
+                <Link href="/tax-rates" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
+                  US & Global Tax Rates
+                </Link>
               </div>
             </section>
 

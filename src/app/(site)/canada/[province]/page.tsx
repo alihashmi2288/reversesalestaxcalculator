@@ -57,7 +57,7 @@ export default async function ProvincePage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
       { '@type': 'ListItem', position: 2, name: 'Canada', item: 'https://salestaxreversecalculator.com/canada' },
       { '@type': 'ListItem', position: 3, name: provinceData.name, item: `https://salestaxreversecalculator.com/canada/${provinceSlug}` },
     ],

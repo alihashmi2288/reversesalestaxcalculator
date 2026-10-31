@@ -76,7 +76,7 @@ export default function NewYorkPage({ stateData }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
       { '@type': 'ListItem', position: 2, name: 'US States', item: 'https://salestaxreversecalculator.com/tax-rates' },
       { '@type': 'ListItem', position: 3, name: 'New York', item: 'https://salestaxreversecalculator.com/us/new-york' },
     ],
@@ -85,7 +85,7 @@ export default function NewYorkPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'New York Sales Tax Calculator',
+    name: 'New York Reverse Sales Tax Calculator',
     url: 'https://salestaxreversecalculator.com/us/new-york',
     applicationCategory: 'FinanceApplication',
     applicationSubCategory: 'Sales Tax & Reverse Tax Calculation',
@@ -116,6 +116,40 @@ export default function NewYorkPage({ stateData }: Props) {
     screenshot: 'https://salestaxreversecalculator.com/og-image.png',
   };
 
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Reverse Calculate New York City 8.875% Sales Tax',
+    description:
+      'Step-by-step mathematical guide to reverse calculate pre-tax price from New York City receipts with 8.875% combined tax.',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Determine the NYC combined sales tax rate',
+        text: 'New York City has a combined sales tax rate of 8.875% (4.00% state + 4.50% city + 0.375% MCTD transit).',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Calculate the decimal divisor',
+        text: 'Divide 8.875% by 100 and add 1 to get 1.08875.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Divide the receipt total by 1.08875',
+        text: 'Divide your total checkout amount by 1.08875. For example, $544.38 ÷ 1.08875 = $500.00 pre-tax.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Subtract pre-tax price to confirm sales tax paid',
+        text: 'Subtract $500.00 from $544.38 to isolate the exact $44.38 in New York sales tax paid.',
+      },
+    ],
+  };
+
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -133,6 +167,7 @@ export default function NewYorkPage({ stateData }: Props) {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── Hero Section ─────────────────────────────────────── */}

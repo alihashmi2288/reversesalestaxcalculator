@@ -13,6 +13,8 @@ import NewYorkPage from './NewYorkPage';
 import CaliforniaPage from './CaliforniaPage';
 import TexasPage from './TexasPage';
 import FloridaPage from './FloridaPage';
+import ArizonaPage from './ArizonaPage';
+import SouthCarolinaPage from './SouthCarolinaPage';
 
 // Generate static paths for top 10 states + all others
 export async function generateStaticParams() {
@@ -50,6 +52,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   } else if (stateSlug === 'new-york') {
     title = 'New York Reverse Sales Tax Calculator (NYC 8.875%)';
     description = 'Unlock the true pre-tax cost of purchases in New York City with our reverse sales tax calculator. Pre-loaded with 8.875% NYC combined tax.';
+  } else if (stateSlug === 'arizona') {
+    title = 'Arizona Reverse Sales Tax Calculator (TPT Rates 7.8% - 9.2%)';
+    description = 'Free Arizona reverse sales tax calculator pre-loaded with ADOR Transaction Privilege Tax (TPT) rates. Back out TPT from Phoenix, Tucson, Mesa, and Scottsdale receipts.';
+  } else if (stateSlug === 'south-carolina') {
+    title = 'South Carolina Reverse Sales Tax Calculator (6% to 9% Rates)';
+    description = 'Free South Carolina reverse sales tax calculator with 2026 county surtaxes. Back out sales tax from Charleston (9%), Columbia (8%), and Myrtle Beach receipts.';
   } else if (stateData.rate === 0) {
     title = `${stateData.state} Reverse Sales Tax Calculator (0% Tax Free)`;
     description = `Free ${stateData.state} reverse sales tax calculator. ${stateData.state} has no state sales tax (0%). Calculate pre-tax and checkout amounts instantly.`;
@@ -105,6 +113,14 @@ export default async function StatePage({ params }: Props) {
     return <NewYorkPage stateData={stateData} />;
   }
 
+  if (stateSlug === 'arizona') {
+    return <ArizonaPage stateData={stateData} />;
+  }
+
+  if (stateSlug === 'south-carolina') {
+    return <SouthCarolinaPage stateData={stateData} />;
+  }
+
   const stateContent = getStateContentBySlug(stateSlug);
   const revenueInfo = getStateRevenueInfo(stateSlug);
 
@@ -115,7 +131,7 @@ export default async function StatePage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://salestaxreversecalculator.com' },
       { '@type': 'ListItem', position: 2, name: 'US States', item: 'https://salestaxreversecalculator.com/tax-rates' },
       { '@type': 'ListItem', position: 3, name: stateData.state, item: `https://salestaxreversecalculator.com/us/${stateSlug}` },
     ],

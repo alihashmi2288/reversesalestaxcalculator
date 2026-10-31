@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   alternates: { 
     canonical: 'https://salestaxreversecalculator.com/vat-calculator',
     languages: {
-      'x-default': 'https://salestaxreversecalculator.com/',
-      'en-US': 'https://salestaxreversecalculator.com/',
+      'x-default': 'https://salestaxreversecalculator.com',
+      'en-US': 'https://salestaxreversecalculator.com',
       'en-CA': 'https://salestaxreversecalculator.com/canada',
       'en-GB': 'https://salestaxreversecalculator.com/vat-calculator',
     },

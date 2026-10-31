@@ -60,11 +60,11 @@ export default function ConnecticutPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'CT Sales Tax Calculator',
+    name: 'Connecticut Reverse Sales Tax Calculator',
     url: 'https://salestaxreversecalculator.com/us/connecticut',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'All',
-    description: 'Free CT sales tax calculator with all 2026 Connecticut rates. Find your pre-tax price instantly. No signup needed. Covers standard and special rates.',
+    description: 'Free Connecticut reverse sales tax calculator with 2026 rates. Find your pre-tax price instantly. No signup needed. Covers standard and special rates.',
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -85,6 +85,40 @@ export default function ConnecticutPage({ stateData }: Props) {
       url: 'https://salestaxreversecalculator.com',
     },
     screenshot: 'https://salestaxreversecalculator.com/og-image.png',
+  };
+
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Reverse Calculate Connecticut 6.35% Sales Tax',
+    description:
+      'Step-by-step mathematical guide to reverse calculate pre-tax amounts from Connecticut receipts with the 6.35% flat rate.',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Identify the Connecticut flat sales tax rate',
+        text: 'Connecticut enforces a uniform 6.35% sales tax statewide with 0% local taxes.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Calculate the decimal divisor',
+        text: 'Divide 6.35% by 100 and add 1 to get 1.0635.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Divide the receipt total by 1.0635',
+        text: 'Divide your total receipt amount by 1.0635. For a $106.35 receipt: $106.35 ÷ 1.0635 = $100.00 pre-tax.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Subtract pre-tax amount to verify sales tax paid',
+        text: 'Subtract $100.00 from $106.35 to confirm exactly $6.35 in Connecticut sales tax paid.',
+      },
+    ],
   };
 
   const faqSchema = {
@@ -114,6 +148,7 @@ export default function ConnecticutPage({ stateData }: Props) {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ── Hero Section ─────────────────────────────────────── */}

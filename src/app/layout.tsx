@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: { 
-    canonical: `${SITE_URL}/`,
+    canonical: SITE_URL,
     languages: {
-      'x-default': `${SITE_URL}/`,
-      'en-US': `${SITE_URL}/`,
+      'x-default': SITE_URL,
+      'en-US': SITE_URL,
       'en-CA': `${SITE_URL}/canada`,
       'en-GB': `${SITE_URL}/vat-calculator`,
     },
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
     description: 'Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT.',
-    url: `${SITE_URL}/`,
+    url: SITE_URL,
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Reverse Sales Tax Calculator and Pre-tax Price Finder Tool' }],
   },
   twitter: {

@@ -1,0 +1,203 @@
+{
+  "summary": {
+    "health_score": 86,
+    "business_type": "Financial Web Application & Calculator (US 50 States, Canada GST/HST, VAT)",
+    "current_status": "Rankings are in active recovery following early-autumn adjustments. GSC data confirms 17,534 impressions and 32 clicks over the last 28 days with average position climbing from 45.8 to 18.6 overall. High-intent state pages with enriched content (New York at pos 9.4 and Connecticut at pos 10.9) are already ranking on Google Page 1.",
+    "top_findings": [
+      "Content Enrichment Disparity: The two states with custom deep guides (New York: 2,409 words, Connecticut: 1,525 words) hold Google Page 1 rankings (pos 9.4 and 10.9), while 48 templated state pages (633-996 words) linger in positions 15-40.",
+      "Google Search Console Indexation Success: 100% of sampled regional and root pages passed GSC inspection with 'Submitted and indexed' status, verified Mobile crawler fetch, and valid Breadcrumb rich results.",
+      "SEO Drift Confirmed Positive: Title tags have been tightened (eliminating redundant brand repetition), H1 spacing glitch resolved, and schema expanded from 5 to 7 structured blocks.",
+      "AI & Agentic Readiness High: llms.txt is 100% valid under Lighthouse standards (3,010 bytes), primary content is 100% server-rendered (7,683 words without JS), and robots.txt explicitly welcomes GPTBot, ClaudeBot, PerplexityBot, and Google-Extended.",
+      "Duplicate Endpoint Equity Leak: /how-it-works and /faq return HTTP 200 with identical homepage content and canonical tags to root rather than permanent 301 redirects, diluting crawl budget and equity."
+    ],
+    "quick_wins": [
+      "Implement 301 redirects from /how-it-works and /faq to /#how-it-works and /#faq to concentrate all historical query equity into the primary homepage URL.",
+      "Fix Schema name glitch on New York state page from 'New York Sales Tax Calculator' to 'New York Reverse Sales Tax Calculator' for 100% entity consistency.",
+      "Enrich the top 5 high-impression state pages (Texas: 618 impr, California: 454 impr, South Carolina: 345 impr, Florida: 311 impr, Arizona: 299 impr) using the proven New York/Connecticut depth playbook.",
+      "Expand lean international hubs (Canada: 723 words, UK VAT: 437 words, Germany VAT: 374 words) with local invoice compliance rules and reverse VAT refund workflows.",
+      "Standardize sitemap.xml trailing slash formatting to perfectly mirror server canonical endpoints."
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 90,
+      "what_works": [
+        "100% Server-Side Rendered (SSR) content via Next.js Turbopack — 7,683 words delivered on initial HTML payload without client JS requirement",
+        "Edge global delivery via Vercel CDN with sub-50ms TTFB and HTTP/2 gzip compression",
+        "Enterprise security headers: Strict-Transport-Security (max-age 63072000; includeSubDomains; preload), nosniff, and SAMEORIGIN X-Frame-Options",
+        "All 79 sitemap URLs verified indexed with zero sitemap parse errors in Google Search Console",
+        "Clean HTTP 404 response codes for non-existent routes (soft-404 tests passed)"
+      ],
+      "findings": [
+        {
+          "title": "Duplicate URL Handlers on /how-it-works and /faq",
+          "severity": "Medium",
+          "description": "/how-it-works and /faq return HTTP 200 with 6,706 words identical to the homepage and self-referential canonical pointing to root. While canonical tags prevent indexation conflicts, returning HTTP 200 wastes Googlebot crawl frequency.",
+          "recommendation": "Deploy permanent HTTP 301 redirects in next.config.mjs from /how-it-works to /#how-it-works and from /faq to /#faq."
+        },
+        {
+          "title": "Canonical & Sitemap Trailing Slash Uniformity",
+          "severity": "Low",
+          "description": "Sitemap URLs list URLs without trailing slash while canonical link tags in HTML include trailing slashes. Harmonizing these avoids unnecessary redirect reconciliation.",
+          "recommendation": "Standardize all URLs in sitemap.xml to match exact canonical URLs."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality & Depth",
+      "score": 74,
+      "what_works": [
+        "Homepage contains 7,737 words of exhaustive mathematical, tax law, and accounting guidance with an Information Density score of 1.0 and zero filler",
+        "New York state page upgraded to 2,409 words covering NYC 8.875% combined rate, MTA surcharge, clothing exemptions, and local audit guidelines",
+        "Connecticut state page enriched to 1,525 words, directly propelling it to Google Page 1 (Position 10.9 with 1,566 impressions)",
+        "Official citations and outbound links to IRS, Tax Foundation, Sales Tax Institute, CRA, and OECD establish high E-E-A-T trust"
+      ],
+      "findings": [
+        {
+          "title": "48 US State Pages Remain on Standard Templated Footprint",
+          "severity": "Critical",
+          "description": "48 of 50 state pages average between 633 and 996 words with recurring boilerplate paragraphs. GSC data proves that enriched states (NY and CT) achieve Page 1 ranks, while templated states lag on Pages 2-4 despite high search interest.",
+          "recommendation": "Execute Phase 2 content expansion across the top 10 highest-traffic states (Texas, California, Florida, South Carolina, Arizona, Pennsylvania, Illinois, Ohio, Georgia, North Carolina), adding county-level local brackets, food/clothing exemptions, and real receipt examples."
+        },
+        {
+          "title": "International VAT & Canada Hubs Thin Content Gap",
+          "severity": "High",
+          "description": "Canada (/canada: 723 words) and international VAT pages (UK: 437 words, Germany: 374 words, Australia: 313 words) lack the depth required to compete for high-volume overseas accounting queries.",
+          "recommendation": "Expand international country guides with cross-border invoice rules, reverse-charge VAT mechanisms, and Canadian provincial tax blend breakdowns (GST + PST/HST/QST)."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 88,
+      "what_works": [
+        "Primary H1 tags clearly aligned with target intent across all audited pages",
+        "Homepage title tag successfully refined to 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free' (53 characters), removing brand redundancy",
+        "Comprehensive OpenGraph and Twitter card metadata including dynamic OG images with calculated rate overlays",
+        "Logical heading hierarchy across desktop and mobile viewports with 1 H1, 25 H2s, and 44 H3s"
+      ],
+      "findings": [
+        {
+          "title": "Internal Link Equity Anchor Distribution",
+          "severity": "Medium",
+          "description": "Internal links from state pages back to the homepage frequently use generic anchor text rather than keyword-rich contextual anchors like 'free reverse sales tax calculator'.",
+          "recommendation": "Refine internal footer and contextual breadcrumb links to use descriptive anchors."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 92,
+      "what_works": [
+        "Homepage deploys 7 distinct valid JSON-LD schemas: Organization, WebSite, WebApplication, HowTo, Person, FAQPage, and ImageObject",
+        "Rich breadcrumbs valid and verified by GSC across state and international pages",
+        "FAQPage schema correctly reflects 6 high-value questions and answers, unlocking search result accordion features"
+      ],
+      "findings": [
+        {
+          "title": "WebApplication Schema Entity Name Discrepancy on New York Page",
+          "severity": "Low",
+          "description": "The WebApplication schema on /us/new-york declares name as 'New York Sales Tax Calculator' instead of 'New York Reverse Sales Tax Calculator'.",
+          "recommendation": "Update the JSON-LD schema builder to inject 'Reverse Sales Tax Calculator' uniformly across all state applications."
+        }
+      ]
+    },
+    {
+      "name": "Performance (Core Web Vitals)",
+      "score": 88,
+      "what_works": [
+        "Next.js optimized responsive image delivery serves WebP format at just 46.7 KB for the primary diagram",
+        "Clean DOM architecture with zero layout-shifting ads or intrusive modal scripts",
+        "Mobile viewport meta tag configured properly with disabled horizontal scroll and compliant touch targets"
+      ],
+      "findings": [
+        {
+          "title": "CSS & Script Chunk Preload Optimization",
+          "severity": "Low",
+          "description": "Multiple small Turbopack chunk files are loaded asynchronously. Bundling or inlining critical paths can shave an additional 15-25ms off mobile render times.",
+          "recommendation": "Ensure Next.js experimental optimizePackageImports is enabled for UI icon libraries."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness (GEO & Agentic)",
+      "score": 94,
+      "what_works": [
+        "100% compliant llms.txt file (3,010 bytes) passing Lighthouse agentic checks",
+        "Explicit crawler access configured in robots.txt for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, and CCBot",
+        "Content structured with direct definition boxes, formula proofs, and worked mathematical examples highly quotable by LLMs and AI Overviews"
+      ],
+      "findings": [
+        {
+          "title": "Content-Signal Preference Header",
+          "severity": "Info",
+          "description": "Robots.txt does not currently declare the optional Content-Signal header (search=yes, ai-input=yes, ai-train=no).",
+          "recommendation": "Consider adding Content-Signal metadata if specific AI training restrictions are desired."
+        }
+      ]
+    },
+    {
+      "name": "Images & Visual Assets",
+      "score": 85,
+      "what_works": [
+        "Homepage formula infographic has descriptive alt text and ImageObject structured data",
+        "All 4 viewport screenshots (Desktop, Laptop, Tablet, Mobile) render cleanly without overlaps or text clipping",
+        "Next.js responsive picture element automatically handles dynamic device sizing"
+      ],
+      "findings": [
+        {
+          "title": "State-Specific Visual Infographics Missing",
+          "severity": "Medium",
+          "description": "State pages currently rely purely on text and interactive form inputs without visual breakdown graphics for state vs county tax splits.",
+          "recommendation": "Generate lightweight SVG or WebP regional rate cards for the top 10 states to capture Google Image Search traffic."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical URL Equity & Schema Hygiene",
+        "timeframe": "Week 1",
+        "items": [
+          "Deploy 301 permanent redirects from /how-it-works to /#how-it-works and /faq to /#faq in next.config.mjs",
+          "Fix WebApplication schema name on /us/new-york to 'New York Reverse Sales Tax Calculator'",
+          "Standardize trailing slash conventions across sitemap.xml to mirror canonical headers"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact State Content Expansion",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Enrich California (/us/california) to 2,000+ words with district tax rules, CDTFA audit nuances, and city rate ranges",
+          "Enrich Texas (/us/texas) to 2,000+ words covering Texas Comptroller single local use tax and city/county brackets",
+          "Enrich Florida (/us/florida) to 1,800+ words covering county discretionary sales surtaxes (DR-15 rules)",
+          "Enrich South Carolina and Arizona following the New York/Connecticut blueprint"
+        ]
+      },
+      {
+        "name": "Phase 3: International Hub Expansion & Visual Assets",
+        "timeframe": "Month 2",
+        "items": [
+          "Expand Canada hub (/canada) and top provinces (Ontario, BC, Quebec) with GST/HST/QST breakdown guides",
+          "Deepen UK and EU VAT hubs with reverse-charge accounting instructions and B2B export guidelines",
+          "Add state tax breakdown SVG cards to top 10 US states to target Google Image Search and visual snippets"
+        ]
+      },
+      {
+        "name": "Phase 4: Authority Building & Brand Signals",
+        "timeframe": "Ongoing",
+        "items": [
+          "Submit calculator to reputable accounting software, small business, and bookkeeping resource directories",
+          "Publish embeddable widget documentation with outbound attribution backlinks to reverse sales tax calculator",
+          "Track GSC keyword position momentum weekly as enriched state pages gain traction"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}
