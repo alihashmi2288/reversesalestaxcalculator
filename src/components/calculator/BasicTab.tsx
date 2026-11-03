@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { calculateReverseTax, fmt, type BasicResult } from '@/lib/taxCalc';
 import { STATE_TAX_RATES } from '@/data/stateTaxRates';
 
@@ -19,6 +19,28 @@ export default function BasicTab() {
 
   const finalPriceInputRef = useRef<HTMLInputElement>(null);
   const taxRateInputRef = useRef<HTMLInputElement>(null);
+
+  // Debounced live calculation (~150ms)
+  useEffect(() => {
+    if (!finalPrice || !taxRate) return;
+    const timer = setTimeout(() => {
+      const price = parseFloat(finalPrice.replace(/[^0-9.]/g, ''));
+      const rate = parseFloat(taxRate.replace(/[^0-9.]/g, ''));
+      if (!isNaN(price) && price > 0 && !isNaN(rate) && rate >= 0 && rate <= 100) {
+        try {
+          const res = calculateReverseTax(price, rate);
+          if (isFinite(res.preTaxPrice) && isFinite(res.taxAmount)) {
+            setResult(res);
+            setIsStale(false);
+            setError('');
+          }
+        } catch {
+          // ignore typing validation errors until manual calculation
+        }
+      }
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [finalPrice, taxRate]);
 
   const handleQuickRate = (rate: number) => {
     setTaxRate(String(rate));
@@ -42,20 +64,36 @@ export default function BasicTab() {
 
   const calculate = useCallback(() => {
     setError('');
-    const price = parseFloat(finalPrice.replace(/[^0-9.]/g, ''));
-    const rate = parseFloat(taxRate.replace(/[^0-9.]/g, ''));
-    if (isNaN(price) || price <= 0) {
-      setError('Please enter a valid final price greater than 0.');
+    if (!finalPrice.trim()) {
+      setError('Please enter the total price paid.');
       finalPriceInputRef.current?.focus();
       return;
     }
-    if (isNaN(rate) || rate < 0) {
-      setError('Please enter a valid tax rate (0 or above).');
+    const cleanPrice = finalPrice.replace(/[^0-9.-]/g, '');
+    const price = parseFloat(cleanPrice);
+    if (isNaN(price) || price <= 0) {
+      setError('Please enter a valid price greater than $0.00.');
+      finalPriceInputRef.current?.focus();
+      return;
+    }
+    if (!taxRate.trim()) {
+      setError('Please enter a sales tax rate (e.g. 7.5% or 0% for tax-free).');
+      taxRateInputRef.current?.focus();
+      return;
+    }
+    const cleanRate = taxRate.replace(/[^0-9.-]/g, '');
+    const rate = parseFloat(cleanRate);
+    if (isNaN(rate) || rate < 0 || rate > 100) {
+      setError('Please enter a valid tax rate between 0% and 100%.');
       taxRateInputRef.current?.focus();
       return;
     }
     try {
       const res = calculateReverseTax(price, rate);
+      if (!isFinite(res.preTaxPrice) || !isFinite(res.taxAmount)) {
+        setError('Calculation resulted in an invalid number. Please check your inputs.');
+        return;
+      }
       setResult(res);
       setIsStale(false);
       setAnnouncement(`Calculation complete. Original pre-tax price: $${fmt(res.preTaxPrice)}. Sales tax amount: $${fmt(res.taxAmount)}. Total paid: $${fmt(res.totalPaid)}.`);
@@ -113,6 +151,8 @@ export default function BasicTab() {
               step="0.01"
               placeholder="107.50"
               aria-label="Total Price Paid with tax in dollars"
+              aria-invalid={!!error}
+              aria-describedby={error ? "basic-error-msg" : undefined}
               value={finalPrice}
               onChange={(e) => {
                 setFinalPrice(e.target.value);
@@ -137,10 +177,12 @@ export default function BasicTab() {
               type="number"
               inputMode="decimal"
               min="0"
-              max="99"
+              max="100"
               step="0.001"
               placeholder="8.25"
               aria-label="Sales Tax Rate percentage"
+              aria-invalid={!!error}
+              aria-describedby={error ? "basic-error-msg" : undefined}
               value={taxRate}
               onChange={(e) => {
                 setTaxRate(e.target.value);
@@ -157,7 +199,7 @@ export default function BasicTab() {
 
       {/* Quick Rates */}
       <div role="group" aria-label="Quick Select Rate">
-        <div style={{ display: 'block', fontWeight: 700, fontSize: 11, marginBottom: 8, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <div style={{ display: 'block', fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--body)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Quick Select Rate
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -178,7 +220,7 @@ export default function BasicTab() {
 
       {/* State Dropdown */}
       <div>
-        <label htmlFor="basic-state-select" style={{ display: 'block', fontWeight: 700, fontSize: 11, marginBottom: 8, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <label htmlFor="basic-state-select" style={{ display: 'block', fontWeight: 700, fontSize: 13, marginBottom: 8, color: 'var(--body)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
           Or Select US State (auto-fills combined rate)
         </label>
         <select
@@ -195,12 +237,36 @@ export default function BasicTab() {
             </option>
           ))}
         </select>
+        <div style={{ fontSize: 13, color: 'var(--body)', marginTop: 6, lineHeight: 1.5 }}>
+          Rates shown are combined state + average local rates. Your exact local rate may differ.
+        </div>
       </div>
 
-      {/* Error */}
+      {/* Error Announcement */}
       {error && (
-        <div role="alert" aria-live="assertive" style={{ backgroundColor: '#fff1f1', border: '1px solid #ffd8d8', borderRadius: 'var(--radius-xs)', padding: '12px 16px', color: 'var(--error)', fontSize: 13, fontWeight: 600 }}>
-          {error}
+        <div
+          id="basic-error-msg"
+          role="alert"
+          aria-live="assertive"
+          style={{
+            backgroundColor: '#fff1f1',
+            border: '1px solid #ffd8d8',
+            borderRadius: 'var(--radius-xs)',
+            padding: '12px 16px',
+            color: 'var(--error)',
+            fontSize: 13,
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span>{error}</span>
         </div>
       )}
 
@@ -216,6 +282,9 @@ export default function BasicTab() {
       {/* Results */}
       {result && (
         <div
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
           style={{
             marginTop: 8,
             opacity: isStale ? 0.6 : 1,
@@ -225,13 +294,13 @@ export default function BasicTab() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 18 }} className="grid-results">
             {/* Pre-Tax Original Price */}
             <div className="result-card success">
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary-deep)', marginBottom: 6 }}>
-                ✓ Original Price
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--primary-deep)', marginBottom: 6 }}>
+                <span aria-hidden="true">✓ </span>Original Price
               </div>
               <div className="tabular-nums" style={{ fontSize: 28, fontWeight: 800, color: 'var(--primary)', lineHeight: 1.1, fontFamily: 'var(--font-mono)' }}>
                 ${fmt(result.preTaxPrice)}
               </div>
-              <div style={{ fontSize: 12, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>Pre-tax item cost</div>
+              <div style={{ fontSize: 13, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>Pre-tax item cost</div>
             </div>
 
             {/* Tax Amount */}
@@ -243,30 +312,36 @@ export default function BasicTab() {
                 color: 'var(--ink)',
               }}
             >
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 6 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--body)', marginBottom: 6 }}>
                 Tax Amount
               </div>
               <div className="tabular-nums" style={{ fontSize: 28, fontWeight: 800, color: 'var(--primary-deep)', lineHeight: 1.1, fontFamily: 'var(--font-mono)' }}>
                 ${fmt(result.taxAmount)}
               </div>
-              <div style={{ fontSize: 12, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>{result.taxRate}% sales tax</div>
+              <div style={{ fontSize: 13, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>{result.taxRate}% sales tax</div>
             </div>
 
             {/* Total Paid */}
             <div className="result-card neutral">
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 6 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--body)', marginBottom: 6 }}>
                 Total Paid
               </div>
               <div className="tabular-nums" style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', lineHeight: 1.1, fontFamily: 'var(--font-mono)' }}>
                 ${fmt(result.totalPaid)}
               </div>
-              <div style={{ fontSize: 12, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>Receipt total</div>
+              <div style={{ fontSize: 13, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>Receipt total</div>
             </div>
+          </div>
+
+          {/* Verification check line */}
+          <div className="tabular-nums" style={{ backgroundColor: 'var(--canvas-soft)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-xs)', padding: '10px 14px', fontSize: 13, color: 'var(--body)', marginBottom: 16, fontFamily: 'var(--font-mono)', textAlign: 'center' }}>
+            <span style={{ fontWeight: 700, color: 'var(--ink)' }}>Check: </span>
+            ${fmt(result.preTaxPrice)} × {(1 + Number(result.taxRate) / 100).toFixed(4).replace(/\.?0+$/, '')} = ${fmt(result.totalPaid)}
           </div>
 
           {/* Actions */}
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            <button type="button" onClick={copyToClipboard} className="btn-secondary" style={{ flex: 1 }}>
+            <button type="button" onClick={copyToClipboard} className="btn-secondary" style={{ flex: 1, minHeight: 44 }}>
               {copied ? (
                 <>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
@@ -279,7 +354,7 @@ export default function BasicTab() {
                 </>
               )}
             </button>
-            <button type="button" onClick={reset} className="btn-secondary" style={{ flex: 1 }}>
+            <button type="button" onClick={reset} className="btn-secondary" style={{ flex: 1, minHeight: 44 }}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
               Reset
             </button>

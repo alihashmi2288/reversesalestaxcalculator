@@ -63,29 +63,39 @@ export default function StateTable() {
       </div>
 
       <div style={{ backgroundColor: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-card)' }}>
-        <div style={{ overflowX: 'auto' }}>
-          <table className="data-table" style={{ tableLayout: 'fixed', minWidth: 640 }}>
+        <div
+          tabIndex={0}
+          role="region"
+          aria-label="State sales tax rates comparison"
+          style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}
+        >
+          <table className="data-table" style={{ tableLayout: 'fixed', minWidth: 640, width: '100%', borderCollapse: 'collapse' }}>
+            <caption className="sr-only">
+              2026 US State and Local Sales Tax Rates and Reverse Multipliers
+            </caption>
             <thead>
-              <tr>
-                <th style={{ width: '26%' }}>State</th>
-                <th style={{ width: '12%' }}>Abbr.</th>
-                <th style={{ width: '16%' }}>State Base</th>
-                <th style={{ width: '16%' }}>Avg Local</th>
-                <th style={{ width: '18%' }}>Combined Average</th>
-                <th style={{ width: '12%' }}>Action</th>
+              <tr style={{ position: 'sticky', top: 0, backgroundColor: 'var(--canvas-soft)', zIndex: 10 }}>
+                <th scope="col" style={{ width: '26%', position: 'sticky', top: 0, backgroundColor: 'var(--canvas-soft)' }}>State</th>
+                <th scope="col" style={{ width: '12%', position: 'sticky', top: 0, backgroundColor: 'var(--canvas-soft)' }}>Abbr.</th>
+                <th scope="col" style={{ width: '16%', position: 'sticky', top: 0, backgroundColor: 'var(--canvas-soft)' }}>State Base</th>
+                <th scope="col" style={{ width: '16%', position: 'sticky', top: 0, backgroundColor: 'var(--canvas-soft)' }}>Avg Local</th>
+                <th scope="col" style={{ width: '18%', position: 'sticky', top: 0, backgroundColor: 'var(--canvas-soft)' }}>Combined Average</th>
+                <th scope="col" style={{ width: '12%', position: 'sticky', top: 0, backgroundColor: 'var(--canvas-soft)' }}>Action</th>
               </tr>
             </thead>
             <tbody>
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={6} style={{ textAlign: 'center', padding: '36px 16px', color: 'var(--muted)', fontSize: 14 }}>
+                  <td colSpan={6} style={{ textAlign: 'center', padding: '36px 16px', color: 'var(--body)', fontSize: 14 }}>
                     No jurisdictions found matching &ldquo;{search}&rdquo;. <button type="button" onClick={() => setSearch('')} className="link-green" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, textDecoration: 'underline' }}>Clear filter</button>
                   </td>
                 </tr>
               ) : (
                 filtered.map((s) => (
                   <tr key={s.abbreviation}>
-                    <td style={{ fontWeight: 600, color: 'var(--ink)' }}>{s.state}</td>
+                    <th scope="row" style={{ fontWeight: 600, color: 'var(--ink)', textAlign: 'left', fontStyle: 'normal' }}>
+                      {s.state}
+                    </th>
                     <td>
                       <span
                         style={{
@@ -94,7 +104,7 @@ export default function StateTable() {
                           border: '1px solid var(--mint-200)',
                           padding: '2px 8px',
                           borderRadius: 'var(--radius-xs)',
-                          fontSize: 12,
+                          fontSize: 13,
                           fontWeight: 700,
                           fontFamily: 'var(--font-mono)',
                         }}
@@ -105,7 +115,7 @@ export default function StateTable() {
                     <td className="tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
                       {s.stateRate === 0 ? <span style={{ color: 'var(--primary)', fontWeight: 600 }}>0% (None)</span> : `${s.stateRate}%`}
                     </td>
-                    <td className="tabular-nums" style={{ fontFamily: 'var(--font-mono)', color: 'var(--muted)' }}>
+                    <td className="tabular-nums" style={{ fontFamily: 'var(--font-mono)', color: 'var(--body)' }}>
                       {s.avgLocalRate > 0 ? `${s.avgLocalRate.toFixed(2)}%` : '—'}
                     </td>
                     <td>
@@ -117,9 +127,9 @@ export default function StateTable() {
                           style={{
                             marginLeft: 8,
                             backgroundColor: 'var(--canvas-soft)',
-                            color: 'var(--muted)',
+                            color: 'var(--body)',
                             border: '1px solid var(--hairline-strong)',
-                            fontSize: 11,
+                            fontSize: 13,
                             padding: '2px 6px',
                             borderRadius: 'var(--radius-xs)',
                             fontWeight: 500,
@@ -132,9 +142,9 @@ export default function StateTable() {
                     <td>
                       <Link
                         href={`/us/${s.state.toLowerCase().replace(/\s+/g, '-')}`}
-                        className="link-green"
+                        className="link-green focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-1 rounded-xs"
                         style={{ fontSize: 13 }}
-                        aria-label={`Calculate reverse sales tax for ${s.state}`}
+                        aria-label={`Calculate for ${s.state}`}
                       >
                         Calculate →
                       </Link>
@@ -145,11 +155,11 @@ export default function StateTable() {
             </tbody>
           </table>
         </div>
-        <div style={{ padding: '14px 20px', backgroundColor: 'var(--canvas-soft)', borderTop: '1px solid var(--hairline)', fontSize: 12, color: 'var(--muted)' }}>
+        <div style={{ padding: '14px 20px', backgroundColor: 'var(--canvas-soft)', borderTop: '1px solid var(--hairline)', fontSize: 13, color: 'var(--body)' }}>
           Showing {filtered.length} of {STATE_TAX_RATES.length} jurisdictions · Combined average rates · Rates verified 2026
         </div>
       </div>
-      <p className="table-note" style={{ marginTop: 14, fontSize: 12, color: 'var(--muted)', textAlign: 'center' }}>
+      <p className="table-note" style={{ marginTop: 14, fontSize: 13, color: 'var(--body)', textAlign: 'center' }}>
         Combined average rates include state baseline and population-weighted municipal/district surtaxes. Source:{' '}
         <a href="https://taxfoundation.org" target="_blank" rel="noopener noreferrer" className="link-inline">
           Tax Foundation

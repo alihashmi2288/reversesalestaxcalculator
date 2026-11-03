@@ -318,7 +318,7 @@ export default function FAQSection() {
                         color: 'var(--body)',
                         lineHeight: 1.65,
                         fontSize: '14px',
-                        fontWeight: 300,
+                        fontWeight: 400,
                         borderTop: 'none',
                       }}
                     >
@@ -329,7 +329,7 @@ export default function FAQSection() {
               })}
             </div>
             {ci === 0 && (
-              <p style={{ marginTop: 14, fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>
+              <p style={{ marginTop: 14, fontSize: 13, color: 'var(--body)', lineHeight: 1.6 }}>
                 Need to calculate right now? Jump straight to the{' '}
                 <Link
                   href="/"

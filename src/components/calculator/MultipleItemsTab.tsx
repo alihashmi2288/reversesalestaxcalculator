@@ -102,16 +102,22 @@ export default function MultipleItemsTab() {
       </p>
 
       {/* Table */}
-      <div style={{ overflowX: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--hairline-strong)' }}>
-        <table className="data-table" style={{ minWidth: 640 }}>
+      <div
+        tabIndex={0}
+        role="region"
+        aria-label="Multiple items table"
+        style={{ overflowX: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--hairline-strong)' }}
+      >
+        <table className="data-table" style={{ minWidth: 640, width: '100%' }}>
+          <caption className="sr-only">Multiple Items Reverse Tax Calculation List</caption>
           <thead>
             <tr>
-              <th>Item Name</th>
-              <th>Total Price ($)</th>
-              <th>Tax Rate (%)</th>
-              <th>Pre-Tax Price</th>
-              <th>Tax Amount</th>
-              <th style={{ width: 44 }}>
+              <th scope="col">Item Name</th>
+              <th scope="col">Total Price ($)</th>
+              <th scope="col">Tax Rate (%)</th>
+              <th scope="col">Pre-Tax Price</th>
+              <th scope="col">Tax Amount</th>
+              <th scope="col" style={{ width: 44 }}>
                 <span className="sr-only">Actions</span>
               </th>
             </tr>
@@ -119,7 +125,7 @@ export default function MultipleItemsTab() {
           <tbody>
             {rowCalcs.map(({ row, calc }) => (
               <tr key={row.id}>
-                <td>
+                <th scope="row" style={{ fontWeight: 'normal', textAlign: 'left', padding: '12px 14px' }}>
                   <input
                     type="text"
                     name={`itemName-${row.id}`}
@@ -137,7 +143,7 @@ export default function MultipleItemsTab() {
                     }}
                     placeholder="Item name"
                   />
-                </td>
+                </th>
                 <td>
                   <div style={{ position: 'relative' }}>
                     <span style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--muted)', fontSize: 14, fontFamily: 'var(--font-mono)' }} aria-hidden="true">$</span>
@@ -145,6 +151,7 @@ export default function MultipleItemsTab() {
                       type="number"
                       name={`itemPrice-${row.id}`}
                       autoComplete="off"
+                      inputMode="decimal"
                       min="0"
                       step="0.01"
                       aria-label={`Item ${row.id} total price in dollars`}
@@ -168,6 +175,7 @@ export default function MultipleItemsTab() {
                       type="number"
                       name={`itemTaxRate-${row.id}`}
                       autoComplete="off"
+                      inputMode="decimal"
                       min="0"
                       step="0.001"
                       aria-label={`Item ${row.id} tax rate percentage`}
@@ -216,7 +224,7 @@ export default function MultipleItemsTab() {
                 <td colSpan={2} style={{ padding: '14px 18px', fontSize: 13, color: 'var(--ink)' }}>
                   Totals ({validCount} items)
                 </td>
-                <td className="tabular-nums" style={{ padding: '14px 18px', color: 'var(--muted)', fontSize: 13, fontFamily: 'var(--font-mono)' }}>
+                <td className="tabular-nums" style={{ padding: '14px 18px', color: 'var(--body)', fontSize: 13, fontFamily: 'var(--font-mono)' }}>
                   Total: ${fmt(totals.totalPaid)}
                 </td>
                 <td className="tabular-nums" style={{ padding: '14px 18px', color: 'var(--primary-deep)', fontSize: 15, fontFamily: 'var(--font-mono)' }}>

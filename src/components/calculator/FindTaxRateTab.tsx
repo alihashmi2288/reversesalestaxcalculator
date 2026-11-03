@@ -65,10 +65,13 @@ export default function FindTaxRateTab() {
               name="originalPrice"
               autoComplete="off"
               type="number"
+              inputMode="decimal"
               min="0"
               step="0.01"
               placeholder="100.00"
               aria-label="Original Price before tax in dollars"
+              aria-invalid={!!error}
+              aria-describedby={error ? "find-rate-error" : undefined}
               value={originalPrice}
               onChange={(e) => { setOriginalPrice(e.target.value); setResult(null); }}
               className="calc-input with-prefix"
@@ -86,10 +89,13 @@ export default function FindTaxRateTab() {
               name="finalPrice"
               autoComplete="off"
               type="number"
+              inputMode="decimal"
               min="0"
               step="0.01"
               placeholder="108.25"
               aria-label="Final Price with tax in dollars"
+              aria-invalid={!!error}
+              aria-describedby={error ? "find-rate-error" : undefined}
               value={finalPrice}
               onChange={(e) => { setFinalPrice(e.target.value); setResult(null); }}
               className="calc-input with-prefix"
@@ -99,8 +105,29 @@ export default function FindTaxRateTab() {
       </div>
 
       {error && (
-        <div role="alert" aria-live="assertive" style={{ backgroundColor: '#fff1f1', border: '1px solid #ffd8d8', borderRadius: 'var(--radius-xs)', padding: '12px 16px', color: 'var(--error)', fontSize: 13, fontWeight: 600 }}>
-          {error}
+        <div
+          id="find-rate-error"
+          role="alert"
+          aria-live="assertive"
+          style={{
+            backgroundColor: '#fff1f1',
+            border: '1px solid #ffd8d8',
+            borderRadius: 'var(--radius-xs)',
+            padding: '12px 16px',
+            color: 'var(--error)',
+            fontSize: 13,
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span>{error}</span>
         </div>
       )}
 
@@ -108,17 +135,17 @@ export default function FindTaxRateTab() {
         <button id="find-rate-calc-btn" type="submit" className="btn-primary" style={{ flex: 1 }}>
           Find Tax Rate
         </button>
-        <button type="button" onClick={reset} className="btn-secondary">
+        <button type="button" onClick={reset} className="btn-secondary" style={{ minHeight: 44 }}>
           Reset
         </button>
       </div>
 
       {result && (
-        <div style={{ marginTop: 8 }} aria-live="polite">
+        <div role="status" aria-live="polite" aria-atomic="true" style={{ marginTop: 8 }}>
           {/* Main Rate Feature Card */}
           <div style={{ backgroundColor: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)', padding: '24px 20px', textAlign: 'center', marginBottom: 16 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary-deep)', marginBottom: 6 }}>
-              ✓ Implied Sales Tax Rate
+            <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--primary-deep)', marginBottom: 6 }}>
+              <span aria-hidden="true">✓ </span>Implied Sales Tax Rate
             </div>
             <div className="tabular-nums" style={{ fontSize: 44, fontWeight: 800, lineHeight: 1.1, fontFamily: 'var(--font-mono)', color: 'var(--primary)' }}>
               {result.taxRate.toFixed(3)}%
@@ -130,15 +157,15 @@ export default function FindTaxRateTab() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }} className="grid-results">
             <div className="result-card neutral">
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 6 }}>Original Price</div>
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--body)', marginBottom: 6 }}>Original Price</div>
               <div className="tabular-nums" style={{ fontSize: 22, fontWeight: 800, color: 'var(--ink)', fontFamily: 'var(--font-mono)' }}>${fmt(result.originalPrice)}</div>
             </div>
             <div className="result-card" style={{ background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', color: 'var(--ink)' }}>
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 6 }}>Tax Amount</div>
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--body)', marginBottom: 6 }}>Tax Amount</div>
               <div className="tabular-nums" style={{ fontSize: 22, fontWeight: 800, color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)' }}>${fmt(result.taxAmount)}</div>
             </div>
             <div className="result-card success">
-              <div style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--primary-deep)', marginBottom: 6 }}>Total Paid</div>
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--primary-deep)', marginBottom: 6 }}>Total Paid</div>
               <div className="tabular-nums" style={{ fontSize: 22, fontWeight: 800, color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>${fmt(result.finalPrice)}</div>
             </div>
           </div>
@@ -149,7 +176,7 @@ export default function FindTaxRateTab() {
             const taxPct = (result.taxAmount / result.finalPrice) * 100;
             return (
               <div style={{ backgroundColor: 'var(--canvas-soft)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-sm)', padding: '16px 20px', marginTop: 14 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, fontSize: 12, fontWeight: 600 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, fontSize: 13, fontWeight: 600 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                     <span style={{ width: 10, height: 10, borderRadius: 'var(--radius-xs)', backgroundColor: 'var(--primary)', display: 'inline-block' }} aria-hidden="true" />
                     <span style={{ color: 'var(--ink)' }}>Pre-tax Cost:</span>

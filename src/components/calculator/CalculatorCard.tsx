@@ -2,22 +2,9 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import BasicTab from './BasicTab';
-
-const TabLoadingFallback = () => (
-  <div style={{ minHeight: 380, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--muted)', fontFamily: 'var(--font-mono)', fontSize: 14 }}>
-    Loading calculator…
-  </div>
-);
-
-const MultipleItemsTab = dynamic(() => import('./MultipleItemsTab'), { 
-  loading: TabLoadingFallback,
-});
-const FindTaxRateTab = dynamic(() => import('./FindTaxRateTab'), { 
-  loading: TabLoadingFallback,
-});
-const BatchModeTab = dynamic(() => import('./BatchModeTab'), { 
-  loading: TabLoadingFallback,
-});
+import MultipleItemsTab from './MultipleItemsTab';
+import FindTaxRateTab from './FindTaxRateTab';
+import BatchModeTab from './BatchModeTab';
 
 function CalculatorIcon() {
   return (
@@ -117,10 +104,18 @@ export default function CalculatorCard() {
 
       {/* Tab Content */}
       <div style={{ minHeight: 380 }}>
-        {activeTab === 'basic'      && <div id="panel-basic" role="tabpanel" aria-labelledby="tab-basic"><BasicTab /></div>}
-        {activeTab === 'multiple'   && <div id="panel-multiple" role="tabpanel" aria-labelledby="tab-multiple"><MultipleItemsTab /></div>}
-        {activeTab === 'find-rate'  && <div id="panel-find-rate" role="tabpanel" aria-labelledby="tab-find-rate"><FindTaxRateTab /></div>}
-        {activeTab === 'batch'      && <div id="panel-batch" role="tabpanel" aria-labelledby="tab-batch"><BatchModeTab /></div>}
+        <div id="panel-basic" role="tabpanel" aria-labelledby="tab-basic" tabIndex={0} hidden={activeTab !== 'basic'}>
+          <BasicTab />
+        </div>
+        <div id="panel-multiple" role="tabpanel" aria-labelledby="tab-multiple" tabIndex={0} hidden={activeTab !== 'multiple'}>
+          <MultipleItemsTab />
+        </div>
+        <div id="panel-find-rate" role="tabpanel" aria-labelledby="tab-find-rate" tabIndex={0} hidden={activeTab !== 'find-rate'}>
+          <FindTaxRateTab />
+        </div>
+        <div id="panel-batch" role="tabpanel" aria-labelledby="tab-batch" tabIndex={0} hidden={activeTab !== 'batch'}>
+          <BatchModeTab />
+        </div>
       </div>
     </div>
   );
