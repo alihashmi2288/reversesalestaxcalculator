@@ -1,0 +1,193 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Reverse Sales Tax Calculator",
+    "alternateName": "PreTaxPrice",
+    "url": "https://salestaxreversecalculator.com",
+    "logo": "https://salestaxreversecalculator.com/og-image.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "salestaxreversecalculator@gmail.com",
+      "contactType": "customer service",
+      "url": "https://salestaxreversecalculator.com/contact"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Reverse Sales Tax Calculator by PreTaxPrice",
+    "alternateName": "PreTaxPrice",
+    "url": "https://salestaxreversecalculator.com",
+    "description": "Free reverse sales tax calculator. Find the original pre-tax price from any receipt total. Works for all 50 US states, Canada GST/HST, and EU VAT.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Reverse Sales Tax Calculator",
+      "alternateName": "PreTaxPrice",
+      "url": "https://salestaxreversecalculator.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://salestaxreversecalculator.com/og-image.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://salestaxreversecalculator.com/tax-rates?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Reverse Sales Tax Calculator",
+    "alternateName": "PreTaxPrice",
+    "url": "https://salestaxreversecalculator.com",
+    "applicationCategory": "FinanceApplication",
+    "applicationSubCategory": "Sales Tax Calculation & Accounting",
+    "softwareVersion": "2.4.0",
+    "inLanguage": "en",
+    "operatingSystem": "All modern browsers (Desktop & Mobile)",
+    "browserRequirements": "Requires JavaScript",
+    "description": "A free reverse sales tax calculator that works backwards from a tax-inclusive total to find the original pre-tax price. Supports all 50 US states, Canada GST/HST/PST/QST, and European VAT.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Reverse sales tax calculation for all 50 US states",
+      "Canada GST, HST, PST and QST reverse calculation",
+      "EU and UK VAT reverse calculation",
+      "Batch/CSV mode for multiple receipts",
+      "Find Tax Rate mode",
+      "No signup required",
+      "Client-side calculation — no data sent to servers"
+    ],
+    "screenshot": "https://salestaxreversecalculator.com/og-image.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Reverse Sales Tax Calculator",
+      "alternateName": "PreTaxPrice",
+      "url": "https://salestaxreversecalculator.com"
+    },
+    "reviewedBy": {
+      "@type": "Person",
+      "name": "Tax Compliance & Accounting Review Team",
+      "jobTitle": "Certified Public Accountant (CPA) / Tax Research Specialist",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Reverse Sales Tax Calculator",
+        "url": "https://salestaxreversecalculator.com"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Reverse Sales Tax (Back Out Tax from Total)",
+    "description": "Step-by-step mathematical guide to reverse-calculate the pre-tax price from any sales-tax inclusive receipt or invoice total.",
+    "image": "https://salestaxreversecalculator.com/images/reverse-sales-tax-formula-diagram.jpg",
+    "totalTime": "PT1M",
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "Reverse Sales Tax Calculator"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Identify Total Price and Tax Rate",
+        "text": "Locate the gross receipt total paid and find the sales tax rate applicable to your purchase (e.g., $107.50 total at a 7.5% combined rate).",
+        "url": "https://salestaxreversecalculator.com/#calculator"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Convert Tax Rate to Decimal and Add 1",
+        "text": "Divide the tax rate percentage by 100 to convert it to a decimal, then add 1. For example, 7.5% becomes 0.075, and adding 1 gives a divisor of 1.075.",
+        "url": "https://salestaxreversecalculator.com/#formula"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Divide Total Price by Tax Divisor",
+        "text": "Divide the total receipt amount by the divisor: $107.50 / 1.075 = $100.00 original pre-tax price. The tax paid is $107.50 - $100.00 = $7.50.",
+        "url": "https://salestaxreversecalculator.com/#calculator"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tax Compliance & Accounting Review Team",
+    "jobTitle": "Certified Public Accountant (CPA) / Tax Research Specialist",
+    "description": "Financial compliance team verifying statutory 2026 US state, local, Canadian GST/HST, and European VAT rates.",
+    "url": "https://salestaxreversecalculator.com/about"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a reverse sales tax calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A reverse sales tax calculator works backwards from a tax-inclusive total price to find the original pre-tax amount. Instead of adding tax to a price, it removes the tax using the formula: Original Price = Final Price divided by (1 + Tax Rate / 100)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the formula for reverse sales tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The reverse sales tax formula is: Original Price = Final Price divided by (1 + Tax Rate / 100). For example, if you paid $107.50 at a 7.5% tax rate: $107.50 / 1.075 = $100.00 pre-tax price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do you divide instead of subtract the tax percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because sales tax is applied to the pre-tax price, not the final total. Division is the exact mathematical inverse of the original multiplication. Subtracting the percentage from the total gives a slightly wrong answer because you would be calculating a percentage of the wrong base."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which US states have no sales tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Five US states have no state-level general sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon. Note that some Alaska localities do charge local sales taxes, giving Alaska a small combined average rate of about 1.76%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this calculator work for Canada and Europe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The calculator supports Canadian taxes including federal GST (5%), HST for applicable provinces (13-15%), provincial PST, and Quebec's QST (9.975%). It also supports EU and UK VAT at all standard rates. The reverse calculation formula is identical regardless of what the tax is called."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this calculator free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, completely free with no account required. All calculations run entirely in your browser — no data is sent to any server."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "name": "Reverse Sales Tax Calculation Formula Diagram",
+    "contentUrl": "https://salestaxreversecalculator.com/images/reverse-sales-tax-formula-diagram.jpg",
+    "description": "Visual infographic diagram illustrating the reverse sales tax calculation formula, division factor, and worked receipt example."
+  }
+]

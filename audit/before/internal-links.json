@@ -1,0 +1,507 @@
+[
+  {
+    "href": "#main-content",
+    "text": "Skip to main content",
+    "rawContent": "Skip to main content"
+  },
+  {
+    "href": "/",
+    "text": "PreTaxPrice LogoPreTaxPriceReverse Sales Tax Calculator",
+    "rawContent": "<div style=\"width:36px;height:36px;border-radius:var(--radius-xs);background-color:var(--primary);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden\"><div style=\"position:absolute;top:0;right:0;width:10px;height:10px;background-color:var(--logo-lime)\"></div><svg width=\"22\" height=\"22\" viewBox=\"0 0 32 32\" fill=\"none\" aria-hidden=\"true\"><title>PreTaxPrice Logo</title><rect x=\"5.5\" y=\"4.5\" width=\"21\" height=\"23\" rx=\"3.5\" stroke=\"#ffffff\" stroke-width=\"2.2\"></rect><rect x=\"8.5\" y=\"7.5\" width=\"15\" height=\"4.5\" rx=\"1\" fill=\"#effcf8\"></rect><rect x=\"8.5\" y=\"14.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"#ffffff\"></rect><rect x=\"17\" y=\"14.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"#ffffff\"></rect><rect x=\"8.5\" y=\"20.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"#ffffff\"></rect><rect x=\"17\" y=\"20.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"var(--logo-lime)\"></rect></svg></div><div><div style=\"font-weight:800;font-size:18px;color:var(--ink);line-height:1.1;letter-spacing:-0.02em\">PreTax<span style=\"color:var(--primary)\">Price</span></div><div style=\"font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.04em;text-transform:uppercase\">Reverse Sales Tax Calculator</div></div>"
+  },
+  {
+    "href": "/#calculator",
+    "text": "Calculator",
+    "rawContent": "Calculator"
+  },
+  {
+    "href": "/#how-it-works",
+    "text": "How It Works",
+    "rawContent": "How It Works"
+  },
+  {
+    "href": "/tax-rates",
+    "text": "Tax Rates",
+    "rawContent": "Tax Rates"
+  },
+  {
+    "href": "/#faq",
+    "text": "FAQ",
+    "rawContent": "FAQ"
+  },
+  {
+    "href": "/vat-calculator",
+    "text": "VAT",
+    "rawContent": "VAT"
+  },
+  {
+    "href": "/canada",
+    "text": "Canada",
+    "rawContent": "Canada"
+  },
+  {
+    "href": "/about",
+    "text": "About",
+    "rawContent": "About"
+  },
+  {
+    "href": "/contact",
+    "text": "Contact",
+    "rawContent": "Contact"
+  },
+  {
+    "href": "/#calculator",
+    "text": "Calculate Now",
+    "rawContent": "Calculate Now"
+  },
+  {
+    "href": "/us/california",
+    "text": "California9.21%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">California</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">9.21<!-- -->%</span>"
+  },
+  {
+    "href": "/us/texas",
+    "text": "Texas8.24%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">Texas</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">8.24<!-- -->%</span>"
+  },
+  {
+    "href": "/us/new-york",
+    "text": "New York8.66%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">New York</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">8.66<!-- -->%</span>"
+  },
+  {
+    "href": "/us/florida",
+    "text": "Florida7.13%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">Florida</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">7.13<!-- -->%</span>"
+  },
+  {
+    "href": "/us/washington",
+    "text": "Washington9.4%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">Washington</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">9.4<!-- -->%</span>"
+  },
+  {
+    "href": "/us/illinois",
+    "text": "Illinois8.95%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">Illinois</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">8.95<!-- -->%</span>"
+  },
+  {
+    "href": "/us/tennessee",
+    "text": "Tennessee9.6%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">Tennessee</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">9.6<!-- -->%</span>"
+  },
+  {
+    "href": "/us/ohio",
+    "text": "Ohio7.37%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">Ohio</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">7.37<!-- -->%</span>"
+  },
+  {
+    "href": "/tax-rates",
+    "text": "View All 50 States →",
+    "rawContent": "View All 50 States →"
+  },
+  {
+    "href": "/canada",
+    "text": "🇨🇦 Canada GST/HST5–15%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">🇨🇦 Canada GST/HST</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">5–15%</span>"
+  },
+  {
+    "href": "/vat-calculator",
+    "text": "🇪🇺 EU VAT20–27%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">🇪🇺 EU VAT</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">20–27%</span>"
+  },
+  {
+    "href": "/vat-calculator",
+    "text": "🇬🇧 UK VAT20%",
+    "rawContent": "<span class=\"sidebar-state-name\" style=\"color:var(--ink);font-size:13px;font-weight:500\">🇬🇧 UK VAT</span><span class=\"sidebar-state-rate\" style=\"color:var(--primary-deep);font-family:var(--font-mono);font-size:12px;font-weight:700\">20%</span>"
+  },
+  {
+    "href": "/",
+    "text": "reverse tax calculator",
+    "rawContent": "reverse tax calculator"
+  },
+  {
+    "href": "/us/florida",
+    "text": "Florida reverse sales tax calculator",
+    "rawContent": "Florida reverse sales tax calculator"
+  },
+  {
+    "href": "/us/massachusetts",
+    "text": "Massachusetts reverse sales tax calculator",
+    "rawContent": "Massachusetts reverse sales tax calculator"
+  },
+  {
+    "href": "/us/new-york",
+    "text": "New York reverse sales tax calculator",
+    "rawContent": "New York reverse sales tax calculator"
+  },
+  {
+    "href": "/us/north-carolina",
+    "text": "North Carolina sales tax calculator",
+    "rawContent": "North Carolina sales tax calculator"
+  },
+  {
+    "href": "/canada",
+    "text": "Canadian GST and HST reverse calculator",
+    "rawContent": "Canadian GST and HST reverse calculator"
+  },
+  {
+    "href": "/us/california",
+    "text": "California reverse sales tax calculator",
+    "rawContent": "California reverse sales tax calculator"
+  },
+  {
+    "href": "/us/alabama",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/alaska",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/arizona",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/arkansas",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/california",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/colorado",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/connecticut",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/delaware",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/district-of-columbia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/florida",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/georgia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/hawaii",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/idaho",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/illinois",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/indiana",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/iowa",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/kansas",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/kentucky",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/louisiana",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/maine",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/maryland",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/massachusetts",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/michigan",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/minnesota",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/mississippi",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/missouri",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/montana",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/nebraska",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/nevada",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-hampshire",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-jersey",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-mexico",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-york",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/north-carolina",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/north-dakota",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/ohio",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/oklahoma",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/oregon",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/pennsylvania",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/rhode-island",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/south-carolina",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/south-dakota",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/tennessee",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/texas",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/utah",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/vermont",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/virginia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/washington",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/west-virginia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/wisconsin",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/wyoming",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/",
+    "text": "sales tax reverse calculator",
+    "rawContent": "sales tax reverse calculator"
+  },
+  {
+    "href": "/vat-calculator",
+    "text": "🇪🇺VAT CalculatorRemove VAT from prices for UK, EU, and Australia",
+    "rawContent": "<div role=\"img\" aria-label=\"European Union flag icon\" style=\"font-size:32px;margin-bottom:12px\">🇪🇺</div><h3 style=\"font-weight:700;font-size:16px;color:var(--primary);margin-bottom:8px\">VAT Calculator</h3><p style=\"font-size:14px;color:var(--body);line-height:1.5;margin:0\">Remove VAT from prices for UK, EU, and Australia</p>"
+  },
+  {
+    "href": "/canada",
+    "text": "🇨🇦Canada Tax CalculatorGST, HST, PST and Quebec QST reverse calculations",
+    "rawContent": "<div role=\"img\" aria-label=\"Canada flag icon\" style=\"font-size:32px;margin-bottom:12px\">🇨🇦</div><h3 style=\"font-weight:700;font-size:16px;color:var(--primary);margin-bottom:8px\">Canada Tax Calculator</h3><p style=\"font-size:14px;color:var(--body);line-height:1.5;margin:0\">GST, HST, PST and Quebec QST reverse calculations</p>"
+  },
+  {
+    "href": "/us/california",
+    "text": "🌴California CalculatorPre-filled with California&#x27;s 9.21% combined rate",
+    "rawContent": "<div role=\"img\" aria-label=\"California palm tree icon\" style=\"font-size:32px;margin-bottom:12px\">🌴</div><h3 style=\"font-weight:700;font-size:16px;color:var(--primary);margin-bottom:8px\">California Calculator</h3><p style=\"font-size:14px;color:var(--body);line-height:1.5;margin:0\">Pre-filled with California&#x27;s 9.21% combined rate</p>"
+  },
+  {
+    "href": "/us/texas",
+    "text": "⭐Texas CalculatorPre-filled with Texas&#x27;s 8.24% combined rate",
+    "rawContent": "<div role=\"img\" aria-label=\"Texas star icon\" style=\"font-size:32px;margin-bottom:12px\">⭐</div><h3 style=\"font-weight:700;font-size:16px;color:var(--primary);margin-bottom:8px\">Texas Calculator</h3><p style=\"font-size:14px;color:var(--body);line-height:1.5;margin:0\">Pre-filled with Texas&#x27;s 8.24% combined rate</p>"
+  },
+  {
+    "href": "/us/new-york",
+    "text": "🗽New York CalculatorPre-filled with New York&#x27;s 8.66% combined rate",
+    "rawContent": "<div role=\"img\" aria-label=\"Statue of Liberty icon\" style=\"font-size:32px;margin-bottom:12px\">🗽</div><h3 style=\"font-weight:700;font-size:16px;color:var(--primary);margin-bottom:8px\">New York Calculator</h3><p style=\"font-size:14px;color:var(--body);line-height:1.5;margin:0\">Pre-filled with New York&#x27;s 8.66% combined rate</p>"
+  },
+  {
+    "href": "/tax-rates",
+    "text": "📊All State Tax RatesComplete table of all 50 state combined tax rates",
+    "rawContent": "<div role=\"img\" aria-label=\"Chart icon\" style=\"font-size:32px;margin-bottom:12px\">📊</div><h3 style=\"font-weight:700;font-size:16px;color:var(--primary);margin-bottom:8px\">All State Tax Rates</h3><p style=\"font-size:14px;color:var(--body);line-height:1.5;margin:0\">Complete table of all 50 state combined tax rates</p>"
+  },
+  {
+    "href": "/",
+    "text": "Reverse Sales Tax",
+    "rawContent": "Reverse Sales Tax"
+  },
+  {
+    "href": "/vat-calculator",
+    "text": "VAT Calculator (EU/UK)",
+    "rawContent": "VAT Calculator (EU/UK)"
+  },
+  {
+    "href": "/canada",
+    "text": "Canada GST / HST / PST",
+    "rawContent": "Canada GST / HST / PST"
+  },
+  {
+    "href": "/us/california",
+    "text": "California Tax Calculator",
+    "rawContent": "California Tax Calculator"
+  },
+  {
+    "href": "/us/texas",
+    "text": "Texas Tax Calculator",
+    "rawContent": "Texas Tax Calculator"
+  },
+  {
+    "href": "/us/new-york",
+    "text": "New York Tax Calculator",
+    "rawContent": "New York Tax Calculator"
+  },
+  {
+    "href": "/tax-rates",
+    "text": "2026 US State Tax Rates",
+    "rawContent": "2026 US State Tax Rates"
+  },
+  {
+    "href": "/#how-it-works",
+    "text": "How It Works &amp; Formula",
+    "rawContent": "How It Works &amp; Formula"
+  },
+  {
+    "href": "/#faq",
+    "text": "Frequently Asked Questions",
+    "rawContent": "Frequently Asked Questions"
+  },
+  {
+    "href": "/about",
+    "text": "About Us &amp; Editorial Standards",
+    "rawContent": "About Us &amp; Editorial Standards"
+  },
+  {
+    "href": "/contact",
+    "text": "Contact Support",
+    "rawContent": "Contact Support"
+  },
+  {
+    "href": "/privacy-policy",
+    "text": "Privacy Policy",
+    "rawContent": "Privacy Policy"
+  },
+  {
+    "href": "/terms-of-service",
+    "text": "Terms of Service",
+    "rawContent": "Terms of Service"
+  }
+]

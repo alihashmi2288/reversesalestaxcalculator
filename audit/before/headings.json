@@ -1,0 +1,572 @@
+[
+  {
+    "level": "h1",
+    "text": "Reverse Sales Tax Calculator",
+    "raw": "Reverse Sales Tax Calculator"
+  },
+  {
+    "level": "h2",
+    "text": "What Is a Reverse Sales Tax Calculator?",
+    "raw": "What Is a Reverse Sales Tax Calculator?"
+  },
+  {
+    "level": "h2",
+    "text": "3 Simple Steps to Reverse Sales Tax",
+    "raw": "3 Simple Steps to Reverse Sales Tax"
+  },
+  {
+    "level": "h3",
+    "text": "Enter Total Price Paid",
+    "raw": "Enter Total Price Paid"
+  },
+  {
+    "level": "h3",
+    "text": "Specify Sales Tax Rate",
+    "raw": "Specify Sales Tax Rate"
+  },
+  {
+    "level": "h3",
+    "text": "View Instant Breakdown",
+    "raw": "View Instant Breakdown"
+  },
+  {
+    "level": "h2",
+    "text": "The Reverse Sales Tax Formula",
+    "raw": "The Reverse Sales Tax Formula"
+  },
+  {
+    "level": "h3",
+    "text": "How the math breaks down step-by-step:",
+    "raw": "How the math breaks down step-by-step:"
+  },
+  {
+    "level": "h3",
+    "text": "Worked Example:",
+    "raw": "Worked Example:"
+  },
+  {
+    "level": "h2",
+    "text": "How to Use This Calculator",
+    "raw": "How to Use This Calculator"
+  },
+  {
+    "level": "h3",
+    "text": "Enter Total Price",
+    "raw": "Enter Total Price"
+  },
+  {
+    "level": "h3",
+    "text": "Set Tax Rate",
+    "raw": "Set Tax Rate"
+  },
+  {
+    "level": "h3",
+    "text": "Get Results",
+    "raw": "Get Results"
+  },
+  {
+    "level": "h2",
+    "text": "US Sales Tax Rates by State (2026)",
+    "raw": "US Sales Tax Rates by State (2026)"
+  },
+  {
+    "level": "h3",
+    "text": "⭐ Pro Tip: Combined vs. State Rates",
+    "raw": "⭐ Pro Tip: Combined vs. State Rates"
+  },
+  {
+    "level": "h2",
+    "text": "City-Level Tax Rates: Where the Real Differences Are",
+    "raw": "City-Level Tax Rates: Where the Real Differences Are"
+  },
+  {
+    "level": "h2",
+    "text": "How Businesses Use Reverse Tax Calculations Every Day",
+    "raw": "How Businesses Use Reverse Tax Calculations Every Day"
+  },
+  {
+    "level": "h3",
+    "text": "Expense Reporting",
+    "raw": "Expense Reporting"
+  },
+  {
+    "level": "h3",
+    "text": "Vendor Invoice Verification",
+    "raw": "Vendor Invoice Verification"
+  },
+  {
+    "level": "h3",
+    "text": "Financial Statement Preparation",
+    "raw": "Financial Statement Preparation"
+  },
+  {
+    "level": "h3",
+    "text": "Sales Tax Remittance Reconciliation",
+    "raw": "Sales Tax Remittance Reconciliation"
+  },
+  {
+    "level": "h3",
+    "text": "Multi-State Operations",
+    "raw": "Multi-State Operations"
+  },
+  {
+    "level": "h2",
+    "text": "E-Commerce Sellers: What You Need to Know",
+    "raw": "E-Commerce Sellers: What You Need to Know"
+  },
+  {
+    "level": "h2",
+    "text": "Freelancers and Independent Contractors",
+    "raw": "Freelancers and Independent Contractors"
+  },
+  {
+    "level": "h2",
+    "text": "Special Industry Considerations",
+    "raw": "Special Industry Considerations"
+  },
+  {
+    "level": "h3",
+    "text": "Restaurant and Hospitality",
+    "raw": "Restaurant and Hospitality"
+  },
+  {
+    "level": "h3",
+    "text": "Real Estate and Property Management",
+    "raw": "Real Estate and Property Management"
+  },
+  {
+    "level": "h2",
+    "text": "Accounting Software &amp; Spreadsheet Integration",
+    "raw": "Accounting Software &amp; Spreadsheet Integration"
+  },
+  {
+    "level": "h3",
+    "text": "Excel &amp; Google Sheets Formulas",
+    "raw": "Excel &amp; Google Sheets Formulas"
+  },
+  {
+    "level": "h2",
+    "text": "Tax Compliance &amp; Record Keeping",
+    "raw": "Tax Compliance &amp; Record Keeping"
+  },
+  {
+    "level": "h3",
+    "text": "Records You Need to Keep:",
+    "raw": "Records You Need to Keep:"
+  },
+  {
+    "level": "h2",
+    "text": "Industry-Specific Edge Cases",
+    "raw": "Industry-Specific Edge Cases"
+  },
+  {
+    "level": "h2",
+    "text": "International Tax Rates &amp; Reverse Calculations",
+    "raw": "International Tax Rates &amp; Reverse Calculations"
+  },
+  {
+    "level": "h3",
+    "text": "🇬🇧 United Kingdom VAT",
+    "raw": "🇬🇧 United Kingdom VAT"
+  },
+  {
+    "level": "h3",
+    "text": "🇪🇺 European Union VAT",
+    "raw": "🇪🇺 European Union VAT"
+  },
+  {
+    "level": "h3",
+    "text": "🇨🇦 Canada GST, HST, PST &amp; QST",
+    "raw": "🇨🇦 Canada GST, HST, PST &amp; QST"
+  },
+  {
+    "level": "h3",
+    "text": "🇦🇺 Australia GST",
+    "raw": "🇦🇺 Australia GST"
+  },
+  {
+    "level": "h3",
+    "text": "🇯🇵 Japan Consumption Tax",
+    "raw": "🇯🇵 Japan Consumption Tax"
+  },
+  {
+    "level": "h3",
+    "text": "🌎 Other Major Markets",
+    "raw": "🌎 Other Major Markets"
+  },
+  {
+    "level": "h2",
+    "text": "Who Uses a Reverse Sales Tax Calculator?",
+    "raw": "Who Uses a Reverse Sales Tax Calculator?"
+  },
+  {
+    "level": "h2",
+    "text": "How to Automate Reverse Tax Calculations",
+    "raw": "How to Automate Reverse Tax Calculations"
+  },
+  {
+    "level": "h3",
+    "text": "JavaScript Implementation",
+    "raw": "JavaScript Implementation"
+  },
+  {
+    "level": "h3",
+    "text": "Python Implementation",
+    "raw": "Python Implementation"
+  },
+  {
+    "level": "h2",
+    "text": "Common Mistakes When Backing Out Sales Tax",
+    "raw": "Common Mistakes When Backing Out Sales Tax"
+  },
+  {
+    "level": "h2",
+    "text": "Manual Calculation vs. This Calculator",
+    "raw": "Manual Calculation vs. This Calculator"
+  },
+  {
+    "level": "h2",
+    "text": "Glossary of Reverse Tax Terms",
+    "raw": "Glossary of Reverse Tax Terms"
+  },
+  {
+    "level": "h2",
+    "text": "Sales Tax Rates for the Most-Searched US Locations",
+    "raw": "Sales Tax Rates for the Most-Searched US Locations"
+  },
+  {
+    "level": "h2",
+    "text": "2026 Reverse Sales Tax Rates by State",
+    "raw": "2026 Reverse Sales Tax Rates by State"
+  },
+  {
+    "level": "h2",
+    "text": "Embed the Reverse Tax Calculator on Your Website",
+    "raw": "Embed the Reverse Tax Calculator on Your Website"
+  },
+  {
+    "level": "h2",
+    "text": "References &amp; Official Sources",
+    "raw": "References &amp; Official Sources"
+  },
+  {
+    "level": "h3",
+    "text": "IRS — Sales Tax Deduction",
+    "raw": "IRS — Sales Tax Deduction"
+  },
+  {
+    "level": "h3",
+    "text": "Tax Foundation — State Sales Tax Rates",
+    "raw": "Tax Foundation — State Sales Tax Rates"
+  },
+  {
+    "level": "h3",
+    "text": "Sales Tax Institute",
+    "raw": "Sales Tax Institute"
+  },
+  {
+    "level": "h3",
+    "text": "Canada Revenue Agency — GST/HST",
+    "raw": "Canada Revenue Agency — GST/HST"
+  },
+  {
+    "level": "h3",
+    "text": "OECD — Consumption Tax Trends",
+    "raw": "OECD — Consumption Tax Trends"
+  },
+  {
+    "level": "h3",
+    "text": "U.S. Census Bureau — State &amp; Local Tax Revenue",
+    "raw": "U.S. Census Bureau — State &amp; Local Tax Revenue"
+  },
+  {
+    "level": "h2",
+    "text": "Reverse Sales Tax Frequently Asked Questions",
+    "raw": "Reverse Sales Tax Frequently Asked Questions"
+  },
+  {
+    "level": "h3",
+    "text": "Basics &amp; How It Works",
+    "raw": "Basics &amp; How It Works"
+  },
+  {
+    "level": "h4",
+    "text": "What is a reverse sales tax calculator?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-0\" class=\"faq-trigger\" aria-expanded=\"true\" aria-controls=\"faq-answer-0-0\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is a reverse sales tax calculator?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(180deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is the formula for reverse sales tax?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-1\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-0-1\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the formula for reverse sales tax?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Why do you divide instead of just subtracting the tax percentage?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-2\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-0-2\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Why do you divide instead of just subtracting the tax percentage?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I calculate the original price before tax?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-3\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-0-3\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I calculate the original price before tax?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is the backwards tax calculator and is it the same thing?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-4\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-0-4\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the backwards tax calculator and is it the same thing?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is the difference between sales tax and VAT?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-5\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-0-5\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the difference between sales tax and VAT?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Is this calculator free to use?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-6\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-0-6\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Is this calculator free to use?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Does this calculator work on mobile?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-0-7\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-0-7\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Does this calculator work on mobile?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h3",
+    "text": "US State Sales Tax",
+    "raw": "US State Sales Tax"
+  },
+  {
+    "level": "h4",
+    "text": "Which US states have no sales tax?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-0\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-0\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Which US states have no sales tax?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Which state has the highest combined sales tax rate?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-1\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-1\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Which state has the highest combined sales tax rate?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is the average US combined sales tax rate?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-2\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-2\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the average US combined sales tax rate?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is a combined sales tax rate?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-3\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-3\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is a combined sales tax rate?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Why does my city have a different tax rate than my state?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-4\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-4\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Why does my city have a different tax rate than my state?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I find the exact sales tax rate for my zip code?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-5\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-5\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I find the exact sales tax rate for my zip code?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Does sales tax apply to online purchases?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-6\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-6\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Does sales tax apply to online purchases?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Does sales tax apply to food and groceries?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-7\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-7\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Does sales tax apply to food and groceries?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Is shipping taxable in the US?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-8\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-8\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Is shipping taxable in the US?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What if I do not know whether shipping was taxed?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-9\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-9\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What if I do not know whether shipping was taxed?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Are services subject to sales tax?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-1-10\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-1-10\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Are services subject to sales tax?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h3",
+    "text": "Business &amp; Accounting Use",
+    "raw": "Business &amp; Accounting Use"
+  },
+  {
+    "level": "h4",
+    "text": "How do businesses use reverse sales tax calculations?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-0\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-0\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do businesses use reverse sales tax calculations?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Can I use this for claiming input tax credits?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-1\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-1\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Can I use this for claiming input tax credits?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is the difference between pre-tax and post-tax price?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-2\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-2\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the difference between pre-tax and post-tax price?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do e-commerce businesses use reverse tax calculations?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-3\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-3\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do e-commerce businesses use reverse tax calculations?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I verify a vendor invoice for correct tax?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-4\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-4\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I verify a vendor invoice for correct tax?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Does this work for calculating reverse taxes on car purchases?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-5\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-5\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Does this work for calculating reverse taxes on car purchases?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I use reverse tax calculations for insurance claims?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-6\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-6\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I use reverse tax calculations for insurance claims?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Can I process multiple receipts at once?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-2-7\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-2-7\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Can I process multiple receipts at once?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h3",
+    "text": "Canada (GST, HST, PST, QST)",
+    "raw": "Canada (GST, HST, PST, QST)"
+  },
+  {
+    "level": "h4",
+    "text": "What is the difference between GST, HST, PST, and QST in Canada?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-3-0\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-3-0\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the difference between GST, HST, PST, and QST in Canada?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I calculate the price before HST in Ontario?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-3-1\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-3-1\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I calculate the price before HST in Ontario?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I remove GST from a price in Alberta?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-3-2\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-3-2\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I remove GST from a price in Alberta?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Can I use this calculator for Canadian QST calculations?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-3-3\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-3-3\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Can I use this calculator for Canadian QST calculations?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is the combined tax rate in Quebec?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-3-4\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-3-4\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the combined tax rate in Quebec?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h3",
+    "text": "VAT &amp; International",
+    "raw": "VAT &amp; International"
+  },
+  {
+    "level": "h4",
+    "text": "Can I use this calculator for UK VAT?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-4-0\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-4-0\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Can I use this calculator for UK VAT?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is the VAT rate in Germany, France, and other EU countries?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-4-1\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-4-1\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the VAT rate in Germany, France, and other EU countries?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How is VAT different from US sales tax for reverse calculations?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-4-2\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-4-2\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How is VAT different from US sales tax for reverse calculations?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I figure out tax from total amounts on foreign receipts?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-4-3\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-4-3\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I figure out tax from total amounts on foreign receipts?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What is Australia&#x27;s GST rate?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-4-4\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-4-4\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is Australia&#x27;s GST rate?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h3",
+    "text": "Math &amp; Technical Questions",
+    "raw": "Math &amp; Technical Questions"
+  },
+  {
+    "level": "h4",
+    "text": "What is the mathematical proof that division is correct for reverse tax?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-5-0\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-5-0\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What is the mathematical proof that division is correct for reverse tax?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What happens when I have a 0% tax rate?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-5-1\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-5-1\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What happens when I have a 0% tax rate?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "How do I handle a transaction where the tax amount on the receipt does not match what the reverse formula calculates?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-5-2\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-5-2\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>How do I handle a transaction where the tax amount on the receipt does not match what the reverse formula calculates?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Does the order of rounding matter in tax calculations?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-5-3\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-5-3\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Does the order of rounding matter in tax calculations?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "What if I have multiple tax rates applied (state + city + county)?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-5-4\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-5-4\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>What if I have multiple tax rates applied (state + city + county)?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Can I calculate sales tax if I only know the tax amount and the total?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-5-5\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-5-5\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Can I calculate sales tax if I only know the tax amount and the total?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h4",
+    "text": "Is this calculator accurate for very large amounts (e.g., $1,000,000)?",
+    "raw": "<button type=\"button\" id=\"faq-trigger-5-6\" class=\"faq-trigger\" aria-expanded=\"false\" aria-controls=\"faq-answer-5-6\" style=\"width:100%;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-family:var(--font-montserrat), sans-serif;font-size:15px;font-weight:600;color:var(--ink);background:transparent;border:none;cursor:pointer;text-align:left;gap:16px\"><span>Is this calculator accurate for very large amounts (e.g., $1,000,000)?</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"2.5\" style=\"flex-shrink:0;transform:rotate(0deg);transition:transform 0.15s ease\" aria-hidden=\"true\"><polyline points=\"6,9 12,15 18,9\"></polyline></svg></button>"
+  },
+  {
+    "level": "h2",
+    "text": "More Free Tax Calculators",
+    "raw": "More Free Tax Calculators"
+  },
+  {
+    "level": "h3",
+    "text": "VAT Calculator",
+    "raw": "VAT Calculator"
+  },
+  {
+    "level": "h3",
+    "text": "Canada Tax Calculator",
+    "raw": "Canada Tax Calculator"
+  },
+  {
+    "level": "h3",
+    "text": "California Calculator",
+    "raw": "California Calculator"
+  },
+  {
+    "level": "h3",
+    "text": "Texas Calculator",
+    "raw": "Texas Calculator"
+  },
+  {
+    "level": "h3",
+    "text": "New York Calculator",
+    "raw": "New York Calculator"
+  },
+  {
+    "level": "h3",
+    "text": "All State Tax Rates",
+    "raw": "All State Tax Rates"
+  }
+]
