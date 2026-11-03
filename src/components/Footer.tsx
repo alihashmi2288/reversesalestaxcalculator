@@ -46,7 +46,7 @@ export default function Footer() {
                 <div style={{ fontWeight: 800, fontSize: 17, color: 'var(--ink)', lineHeight: 1.1, letterSpacing: '-0.02em' }}>
                   PreTax<span style={{ color: 'var(--primary)' }}>Price</span>
                 </div>
-                <div style={{ fontSize: 11, color: 'var(--muted)', fontWeight: 500 }}>
+                <div style={{ fontSize: 13, color: 'var(--body)', fontWeight: 600 }}>
                   Reverse Sales Tax Calculator
                 </div>
               </div>
@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* Calculators */}
           <div>
-            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: 12, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: 13, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Calculators
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -79,7 +79,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: 12, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: 13, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Resources
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Legal & Compliance */}
           <div>
-            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: 12, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: 13, marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Legal & Trust
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -115,7 +115,7 @@ export default function Footer() {
               ))}
             </ul>
             <div style={{ marginTop: 20, padding: 14, backgroundColor: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-sm)' }}>
-              <p style={{ fontSize: 11, lineHeight: 1.5, color: 'var(--muted)', margin: 0 }}>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--body)', margin: 0 }}>
                 <strong>Disclaimer:</strong> PreTaxPrice is a free mathematical estimation utility. For formal tax returns, audit filings, or multi-jurisdiction nexus determination, consult a qualified CPA or state revenue department.
               </p>
             </div>
@@ -124,8 +124,8 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div style={{ borderTop: '1px solid var(--hairline)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ fontSize: 12, color: 'var(--muted)', margin: 0 }}>© {year} PreTaxPrice. All calculations perform client-side in your browser.</p>
-          <p style={{ fontSize: 12, color: 'var(--muted)', margin: 0 }}>100% Free · No registration required</p>
+          <p style={{ fontSize: 13, color: 'var(--body)', margin: 0 }}>© {year} PreTaxPrice. All calculations perform client-side in your browser.</p>
+          <p style={{ fontSize: 13, color: 'var(--body)', margin: 0 }}>100% Free · No registration required</p>
         </div>
       </div>
     </footer>

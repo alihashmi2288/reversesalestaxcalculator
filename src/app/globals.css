@@ -29,16 +29,16 @@
 
   /* Hairlines & Dividers */
   --hairline: #ebebec;
-  --hairline-strong: #d8d9da;
+  --hairline-strong: #767676;
   --border: #ebebec;
-  --border-strong: #d8d9da;
+  --border-strong: #767676;
   --border-focus: #008254;
 
   /* Typography / Ink Tiers */
   --ink: #000000;
-  --body: #3d4045;
-  --muted: #64666a;
-  --faint: #b1b3b5;
+  --body: #374151;
+  --muted: #52525b;
+  --faint: #71717a;
 
   /* Typography Design Token Aliases */
   --text-primary: var(--ink);
@@ -130,8 +130,8 @@ body {
   background-color: var(--canvas);
   color: var(--body);
   font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-weight: 300;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -162,9 +162,15 @@ h3, h4 {
 
 p {
   color: var(--body);
-  font-weight: 300;
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: 1.7;
   margin-top: 0;
+}
+
+.educational-content-layout p,
+.editorial-prose p,
+section p {
+  max-width: 72ch;
 }
 
 strong, b {
@@ -320,7 +326,7 @@ strong, b {
   gap: 6px;
   margin-bottom: 28px;
   background: var(--canvas-soft);
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--hairline-strong);
   border-radius: var(--radius-sm);
   padding: 6px;
 }
@@ -328,18 +334,19 @@ strong, b {
 .calc-tab-btn {
   flex: 1;
   min-width: 120px;
+  min-height: 44px;
   padding: 10px 14px;
   border-radius: var(--radius-xs);
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
-  color: var(--muted);
+  color: var(--body);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -349,16 +356,22 @@ strong, b {
 
 .calc-tab-btn:hover {
   color: var(--ink);
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .calc-tab-btn.active {
   background: var(--primary);
-  color: var(--on-primary);
+  color: #ffffff;
+  border-color: var(--forest);
   box-shadow: 0 1px 3px rgba(0, 72, 47, 0.2);
 }
 
-/* ─── Form Inputs ───────────────────────────────────────────── */
+/* ─── Form Inputs & Placeholders ───────────────────────────── */
+input::placeholder, select::placeholder, textarea::placeholder {
+  color: #595959 !important;
+  opacity: 1 !important;
+}
+
 .input-wrapper {
   position: relative;
   display: flex;
@@ -369,8 +382,9 @@ strong, b {
   position: absolute;
   font-size: 16px;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--body);
   pointer-events: none;
+  user-select: none;
   z-index: 1;
   font-family: var(--font-mono);
 }
@@ -410,18 +424,19 @@ strong, b {
 
 /* Quick Select Buttons */
 .quick-btn {
-  min-height: 40px;
+  min-height: 44px;
+  min-width: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: var(--radius-xs);
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   border: 1px solid var(--hairline-strong);
   background: var(--canvas);
-  color: var(--body);
+  color: var(--ink);
   cursor: pointer;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
@@ -433,9 +448,9 @@ strong, b {
 }
 
 .quick-btn.active {
-  border-color: var(--primary);
+  border-color: var(--forest);
   background: var(--primary);
-  color: var(--on-primary);
+  color: #ffffff;
 }
 
 /* Native Select */
@@ -687,7 +702,7 @@ strong, b {
   align-items: center;
   gap: 8px;
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--body);
   padding: 8px 16px;
@@ -705,7 +720,7 @@ strong, b {
   border-radius: var(--radius-xs);
   padding: 4px 12px;
   font-family: var(--font-montserrat), sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
