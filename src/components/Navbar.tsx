@@ -103,9 +103,11 @@ export default function Navbar() {
           <Link
             href="/#calculator"
             onClick={(e) => handleSectionScroll(e, 'calculator')}
-            className="inline-flex items-center justify-center bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-[var(--on-primary)] px-[18px] py-[10px] rounded-[var(--radius-xs)] font-bold text-[13px] uppercase tracking-[0.04em] transition-colors duration-150 no-underline focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2"
+            className="inline-flex items-center justify-center bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-white px-[18px] py-[10px] rounded-[var(--radius-xs)] font-bold text-[13px] uppercase tracking-[0.04em] transition-colors duration-150 no-underline shadow-xs focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
+            style={{ color: '#ffffff' }}
+            aria-label="Calculate reverse sales tax"
           >
-            Calculate Now
+            Calculate
           </Link>
         </div>
 
@@ -170,9 +172,11 @@ export default function Navbar() {
                 setOpen(false);
                 handleSectionScroll(e, 'calculator');
               }}
-              className="block text-center bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-[var(--on-primary)] px-[18px] py-[12px] rounded-[var(--radius-xs)] font-bold text-[13px] uppercase tracking-[0.04em] no-underline transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2"
+              className="block text-center bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-white px-[18px] py-[12px] rounded-[var(--radius-xs)] font-bold text-[13px] uppercase tracking-[0.04em] no-underline transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
+              style={{ color: '#ffffff' }}
+              aria-label="Calculate reverse sales tax"
             >
-              Calculate Now
+              Calculate
             </Link>
           </div>
         </div>
