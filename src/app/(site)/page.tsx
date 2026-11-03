@@ -247,62 +247,65 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}
       />
 
-      {/* ── Editorial Hero Band (NerdWallet Style) ───────────────── */}
-      <section className="hero-band" style={{ padding: 'clamp(44px, 5vw, 68px) 0 48px', borderBottom: '1px solid var(--forest)' }}>
+      {/* ── Editorial Hero Band (NerdWallet Style - Compact for Above-The-Fold Visibility) ── */}
+      <section className="hero-band" style={{ padding: 'clamp(16px, 2.5vw, 24px) 0 clamp(14px, 2vw, 18px)', borderBottom: '1px solid var(--forest)' }}>
         <div className="container-main" style={{ textAlign: 'center' }}>
-          <div className="editorial-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-            <span>Free Utility · Client-Side Private · All 50 US States &amp; International</span>
-          </div>
-
-          <h1 style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 16, letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 8, letterSpacing: '-0.02em' }}>
             Reverse Sales Tax Calculator
           </h1>
           
-          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#ffffff', maxWidth: 760, margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#ffffff', maxWidth: 740, margin: '0 auto', lineHeight: 1.5, fontWeight: 400 }}>
             Instantly calculate the original price before tax from any receipt or invoice total. Enter your total amount paid and tax rate for a complete arithmetic breakdown.
           </p>
-
-          {/* Hero Trust Badges in Pills */}
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 10 }}>
-            {[
-              'All 50 US States (Combined Rates)',
-              'Canada GST / HST / PST',
-              'EU & UK VAT Support',
-              '100% Client-Side Private',
-            ].map((text) => (
-              <span
-                key={text}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                  color: '#ffffff',
-                  border: '1px solid rgba(255, 255, 255, 0.22)',
-                  borderRadius: 'var(--radius-full)',
-                  padding: '5px 14px',
-                  fontSize: 12,
-                  fontWeight: 600,
-                  letterSpacing: '0.01em',
-                }}
-              >
-                <span style={{ color: 'var(--lime-hero)', fontWeight: 800 }}>✓</span>
-                {text}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* ── Calculator Spotlight Section on Soft Canvas ──────────── */}
-      <section id="calculator" style={{ backgroundColor: 'var(--canvas-soft)', padding: '40px 0 48px', borderBottom: '1px solid var(--hairline-strong)' }}>
+      <section id="calculator" style={{ backgroundColor: 'var(--canvas-soft)', padding: '24px 0 40px', borderBottom: '1px solid var(--hairline-strong)' }}>
         <div className="container-main">
           {/* Centered Calculator Container */}
-          <div style={{ maxWidth: 840, margin: '0 auto 36px' }}>
+          <div style={{ maxWidth: 840, margin: '0 auto 20px' }}>
             <CalculatorCard />
+          </div>
+
+          {/* Feature Badges & Editorial Verification - Positioned directly below calculator */}
+          <div style={{ maxWidth: 840, margin: '0 auto 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
+            <div className="editorial-badge" style={{ backgroundColor: 'var(--canvas)', border: '1px solid var(--hairline-strong)', color: 'var(--body)' }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span style={{ fontSize: 13, fontWeight: 600 }}>Free Utility · Client-Side Private · All 50 US States &amp; International</span>
+            </div>
+
+            {/* Hero Trust Badges in Pills */}
+            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 8 }}>
+              {[
+                'All 50 US States (Combined Rates)',
+                'Canada GST / HST / PST',
+                'EU & UK VAT Support',
+                '100% Client-Side Private',
+              ].map((text) => (
+                <span
+                  key={text}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    backgroundColor: 'var(--canvas)',
+                    color: 'var(--body)',
+                    border: '1px solid var(--hairline-strong)',
+                    borderRadius: 'var(--radius-full)',
+                    padding: '6px 14px',
+                    fontSize: 13,
+                    fontWeight: 600,
+                    letterSpacing: '0.01em',
+                  }}
+                >
+                  <span style={{ color: 'var(--primary)', fontWeight: 800 }} aria-hidden="true">✓</span>
+                  {text}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* ── Primary Definitional Section (FIRST H2 of Homepage) ── */}
@@ -345,7 +348,9 @@ export default function HomePage() {
           {/* Column 1: Popular States (3 cols) */}
           <div className="dashboard-col-3">
             <div className="sidebar-state-links" style={{ height: '100%', background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: 20, boxShadow: 'var(--shadow-card)' }}>
-              <div className="sidebar-title" style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 14 }}>🇺🇸 Popular States</div>
+              <div className="sidebar-title" style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 14 }}>
+                <span aria-hidden="true">🇺🇸 </span>Popular States
+              </div>
               {getPopularStates().map((state) => (
                 <Link key={state.abbr} href={`/us/${state.state.toLowerCase().replace(/\s+/g, '-')}`} className="sidebar-state-link" style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}>
                   <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>{state.state}</span>
@@ -361,7 +366,9 @@ export default function HomePage() {
               
               <div className="divider" style={{ margin: '16px 0', height: 1, backgroundColor: 'var(--hairline-strong)' }} />
               
-              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--ink)', marginTop: 8, marginBottom: 10 }}>🌍 International</div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--ink)', marginTop: 8, marginBottom: 10 }}>
+                <span aria-hidden="true">🌍 </span>International
+              </div>
               <Link href="/canada" className="sidebar-state-link" style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}>
                 <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>🇨🇦 Canada GST/HST</span>
                 <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>5–15%</span>
@@ -380,7 +387,9 @@ export default function HomePage() {
           {/* Column 2: Quick Reference Tips (5 cols) */}
           <div className="dashboard-col-5">
             <div className="sidebar-quick-ref" style={{ height: '100%', background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: 20, boxShadow: 'var(--shadow-card)' }}>
-              <div className="sidebar-title" style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 14 }}>💡 Quick Reference Tips</div>
+              <div className="sidebar-title" style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--ink)', marginBottom: 14 }}>
+                <span aria-hidden="true">💡 </span>Quick Reference Tips
+              </div>
               {[
                 { title: 'The Formula', text: 'Price ÷ (1 + rate/100) backs out tax correctly.' },
                 { title: 'Local Rates', text: 'Use the US state dropdown to auto-load combined local rates.' },
@@ -399,7 +408,9 @@ export default function HomePage() {
           {/* Column 3: Why Use PreTaxPrice? (4 cols) */}
           <div className="dashboard-col-4">
             <div className="sidebar-quick-ref" style={{ height: '100%', background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)', padding: 20 }}>
-              <div className="sidebar-title" style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--primary-deep)', marginBottom: 14 }}>🚀 Why Use PreTaxPrice?</div>
+              <div className="sidebar-title" style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--primary-deep)', marginBottom: 14 }}>
+                <span aria-hidden="true">🚀 </span>Why Use PreTaxPrice?
+              </div>
               <div className="sidebar-quick-ref-item" style={{ padding: '8px 0', borderBottom: '1px solid var(--mint-200)', color: 'var(--body)' }}>
                 <strong style={{ color: 'var(--ink)', fontSize: 13, display: 'block', marginBottom: 2 }}>100% Client-Side Safe</strong>
                 Calculations run directly inside your browser. No receipt data or transaction totals ever leave your device.
@@ -420,6 +431,79 @@ export default function HomePage() {
           </div>
 
         </div>
+
+        {/* ── Table of Contents / Jump Navigation ── */}
+        <nav
+          aria-label="On this page navigation"
+          style={{
+            backgroundColor: 'var(--canvas)',
+            border: '1px solid var(--hairline-strong)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '16px 20px',
+            marginTop: 24,
+            marginBottom: 24,
+            boxShadow: 'var(--shadow-card)',
+          }}
+        >
+          <details className="toc-details" open>
+            <summary
+              style={{
+                fontSize: 14,
+                fontWeight: 700,
+                color: 'var(--ink)',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                userSelect: 'none',
+              }}
+            >
+              <span aria-hidden="true">📑</span> On this page
+              <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--muted)', marginLeft: 'auto' }}>
+                (Table of Contents)
+              </span>
+            </summary>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 10,
+                marginTop: 12,
+                paddingTop: 12,
+                borderTop: '1px solid var(--hairline)',
+              }}
+            >
+              {[
+                { href: '#calculator', label: 'Calculator' },
+                { href: '#how-it-works', label: 'How It Works' },
+                { href: '#formula', label: 'The Reverse Formula' },
+                { href: '#state-search', label: 'State Tax Rates' },
+                { href: '#faq', label: 'Frequently Asked Questions' },
+                { href: '#embed-widget-section', label: 'Embed Widget' },
+              ].map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '6px 12px',
+                    borderRadius: 'var(--radius-xs)',
+                    backgroundColor: 'var(--canvas-soft)',
+                    border: '1px solid var(--hairline)',
+                    color: 'var(--primary)',
+                    fontSize: 13,
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                  }}
+                  className="toc-jump-link focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-1"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </details>
+        </nav>
 
         {/* Ad Space below the dashboard grid */}
         <div style={{ marginTop: 24, marginBottom: 24 }}>
@@ -471,7 +555,7 @@ export default function HomePage() {
                   </div>
 
                   <p>
-                    That is the sales tax reverse formula used by accountants, IRS-compliant bookkeeping systems, and financial reporting tools worldwide.
+                    That is the sales tax reverse formula used by accountants, standard accounting practice, and financial reporting tools worldwide.
                   </p>
 
                   <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--ink)', marginTop: 8, marginBottom: 4 }}>
@@ -957,7 +1041,9 @@ export default function HomePage() {
                     </div>
 
                     <div style={{ border: '1px solid var(--hairline-strong)', padding: 18, borderRadius: 'var(--radius-lg)', background: 'var(--canvas)', boxShadow: 'var(--shadow-card)' }}>
-                      <h3 style={{ fontWeight: 700, color: 'var(--ink)', fontSize: 15, marginBottom: 8 }}>🌎 Other Major Markets</h3>
+                      <h3 style={{ fontWeight: 700, color: 'var(--ink)', fontSize: 15, marginBottom: 8 }}>
+                        <span aria-hidden="true">🌎 </span>Other Major Markets
+                      </h3>
                       <p style={{ fontSize: 14, margin: 0, color: 'var(--body)', lineHeight: 1.5 }}>
                         India has GST slabs of 5%, 12%, 18%, and 28%. Mexico IVA is 16%. Singapore GST is 9%. New Zealand GST is 15%.
                       </p>
@@ -1320,7 +1406,7 @@ export default function HomePage() {
                 { href: '/tax-rates', icon: '📊', title: 'All State Tax Rates', desc: 'Complete table of all 50 state combined tax rates', alt: 'Chart icon' },
               ].map(({ href, icon, title, desc, alt }) => (
                 <Link key={href} href={href} className="tool-card" style={{ background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: 24, boxShadow: 'var(--shadow-card)', textDecoration: 'none', display: 'block', transition: 'all 0.15s ease' }}>
-                  <div role="img" aria-label={alt} style={{ fontSize: 32, marginBottom: 12 }}>{icon}</div>
+                  <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>{icon}</div>
                   <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--primary)', marginBottom: 8 }}>{title}</h3>
                   <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.5, margin: 0 }}>{desc}</p>
                 </Link>
