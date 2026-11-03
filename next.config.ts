@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
         destination: '/#faq',
         permanent: true,
       },
+      {
+        source: '/us',
+        destination: '/tax-rates',
+        permanent: true,
+      },
     ];
   },
   async headers() {

@@ -49,7 +49,7 @@ export default function EmbedWidgetSection() {
           borderRadius: 'var(--radius-xxxl)',
           padding: 'clamp(28px, 4vw, 44px)',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
           gap: 'clamp(32px, 4vw, 48px)',
           alignItems: 'center',
           position: 'relative',
@@ -79,49 +79,66 @@ export default function EmbedWidgetSection() {
               color: 'var(--body)',
               fontSize: '15px',
               lineHeight: 1.6,
-              margin: '0 0 28px',
+              margin: '0 0 20px',
               maxWidth: '480px',
             }}
           >
             Add instant value to your invoicing tool, e-commerce checkout guide, or accounting blog. Embed our lightweight, responsive reverse sales tax utility with zero setup friction.
           </p>
 
-          <button
-            id="embed-section-copy-btn"
-            onClick={copyEmbedCode}
-            aria-label="Copy Embed Code - Embed widget HTML snippet"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              padding: '14px 28px',
-              borderRadius: 'var(--radius-xs)',
-              backgroundColor: 'var(--primary)',
-              color: 'var(--on-primary)',
-              border: 'none',
-              fontFamily: 'var(--font-montserrat), sans-serif',
-              fontSize: '14px',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em',
-              cursor: 'pointer',
-              transition: 'background-color 0.15s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--primary-deep)')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--primary)')}
-          >
-            {copied ? (
-              <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span>Copied to Clipboard!</span>
-              </>
-            ) : (
-              'Copy Embed Code'
-            )}
-          </button>
+          {/* Inspectable Code Snippet */}
+          <div style={{ width: '100%', maxWidth: '480px', marginBottom: 20 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+              <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--muted)' }}>
+                Widget Embed Code (HTML)
+              </span>
+              <span style={{ fontSize: '11px', color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
+                420px iframe
+              </span>
+            </div>
+            <pre
+              style={{
+                backgroundColor: 'var(--canvas)',
+                border: '1px solid var(--hairline-strong)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '12px 14px',
+                margin: 0,
+                overflowX: 'auto',
+                maxHeight: '130px',
+                lineHeight: 1.5,
+                color: 'var(--ink)',
+              }}
+            >
+              <code className="font-mono text-xs">{EMBED_SNIPPET}</code>
+            </pre>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <button
+              id="embed-section-copy-btn"
+              onClick={copyEmbedCode}
+              aria-label="Copy Embed Code - Embed widget HTML snippet"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[var(--radius-xs)] bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-[var(--on-primary)] font-bold text-sm uppercase tracking-[0.04em] transition-colors duration-150 cursor-pointer border-none focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2"
+            >
+              {copied ? (
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span>Copied to Clipboard!</span>
+                </>
+              ) : (
+                'Copy Embed Code'
+              )}
+            </button>
+            <div
+              aria-live="polite"
+              aria-atomic="true"
+              className="sr-only"
+            >
+              {copied ? 'HTML embed code copied to clipboard successfully' : ''}
+            </div>
+          </div>
         </div>
 
         {/* Right Column: Widget Preview Card */}

@@ -40,10 +40,18 @@
   --muted: #64666a;
   --faint: #b1b3b5;
 
+  /* Typography Design Token Aliases */
+  --text-primary: var(--ink);
+  --text-secondary: var(--body);
+  --text-muted: var(--muted);
+  --text-faint: var(--faint);
+
   /* Semantic */
   --link: #005fb9;
   --info: #4b99e6;
   --error: #de2828;
+  --error-bg: #fff5f5;
+  --error-border: #ffd8d8;
 
   /* Geometry & Border Radii */
   --radius-none: 0px;
@@ -58,8 +66,6 @@
 
   /* Backward Compatibility Radii */
   --radius: 8px;
-  --radius-sm: 4px;
-  --radius-lg: 8px;
 
   /* Elevation (deliberately flat & subtle per DESIGN.md) */
   --shadow-none: none;
@@ -82,6 +88,42 @@ html {
   scroll-behavior: smooth;
   background-color: var(--canvas);
   color: var(--body);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+button, input, select, textarea, a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ─── Focus Visible Architecture ────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.calc-input:focus-visible,
+.state-select:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 0;
+  border-color: var(--primary);
+}
+
+.tabular-nums, .data-table td, .result-card div, .formula-text {
+  font-variant-numeric: tabular-nums;
 }
 
 body {
@@ -147,7 +189,7 @@ strong, b {
 }
 
 .hero-band p {
-  color: rgba(255, 255, 255, 0.92);
+  color: #ffffff;
 }
 
 .editorial-badge {
@@ -155,7 +197,7 @@ strong, b {
   align-items: center;
   gap: 6px;
   background: rgba(232, 253, 172, 0.16);
-  color: var(--lime-panel);
+  color: #ffffff;
   border: 1px solid rgba(232, 253, 172, 0.35);
   border-radius: var(--radius-xs);
   padding: 6px 14px;
@@ -245,7 +287,7 @@ strong, b {
   font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   text-decoration: none;
 }
 
@@ -293,7 +335,7 @@ strong, b {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   cursor: pointer;
   border: none;
   background: transparent;
@@ -352,7 +394,8 @@ strong, b {
 
 .calc-input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary);
+  outline: 2px solid var(--primary);
+  outline-offset: 0;
 }
 
 .calc-input.with-prefix {
@@ -367,6 +410,10 @@ strong, b {
 
 /* Quick Select Buttons */
 .quick-btn {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 14px;
   border-radius: var(--radius-xs);
   font-family: var(--font-montserrat), sans-serif;
@@ -376,7 +423,7 @@ strong, b {
   background: var(--canvas);
   color: var(--body);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .quick-btn:hover {
@@ -414,7 +461,8 @@ strong, b {
 
 .state-select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary);
+  outline: 2px solid var(--primary);
+  outline-offset: 0;
 }
 
 /* ─── Result Cards ──────────────────────────────────────────── */
@@ -434,8 +482,14 @@ strong, b {
 }
 
 .result-card.danger {
-  background: #fff8f8;
-  border-color: #ffd8d8;
+  background: var(--canvas);
+  border: 1px solid var(--hairline-strong);
+  color: var(--ink);
+}
+
+.result-card.danger .stat-value,
+.result-card.danger .stat-val {
+  color: var(--primary-deep);
 }
 
 .result-card.neutral {
@@ -871,7 +925,7 @@ a:hover {
   padding: 10px 0;
   border-bottom: 1px solid var(--hairline);
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .sidebar-state-link:last-child {

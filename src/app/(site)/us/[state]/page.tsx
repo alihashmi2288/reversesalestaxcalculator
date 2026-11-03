@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title = 'Connecticut Reverse Sales Tax Calculator (6.35% Rate)';
     description = 'Free Connecticut reverse sales tax calculator with 2026 rates. Find your pre-tax price from any receipt instantly. No signup required.';
   } else if (stateSlug === 'california') {
-    title = 'California Reverse Sales Tax Calculator (7.25% to 10.75%)';
-    description = 'Free California reverse sales tax calculator pre-loaded with CDTFA rates. Back out sales tax from Los Angeles (9.50%), San Francisco (8.625%), and all CA cities.';
+    title = 'California Sales Tax Calculator 2026 | Forward & Reverse Tool (7.25% - 10.75%)';
+    description = 'Free 2026 California sales tax calculator. Calculate sales tax forward on retail purchases or back out sales tax from gross receipts. Includes all 58 CA counties, top city rates (7.25%–10.75%), CDTFA tax rules, and instant receipt breakdowns.';
   } else if (stateSlug === 'texas') {
     title = 'Texas Reverse Sales Tax Calculator (8.25% Standard Rate)';
     description = 'Free Texas reverse sales tax calculator pre-filled with the 8.25% combined rate. Find original pre-tax prices from Houston, Dallas, Austin, and San Antonio receipts.';
@@ -77,6 +77,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
+      type: 'website',
+      siteName: 'Sales Tax Reverse Calculator',
+      locale: 'en_US',
       url: `https://salestaxreversecalculator.com/us/${stateSlug}`,
       images: [{ url: ogUrl.toString() }],
     },

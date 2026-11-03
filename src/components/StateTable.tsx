@@ -3,12 +3,19 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { STATE_TAX_RATES } from '@/data/stateTaxRates';
 
+const SORTED_STATES = STATE_TAX_RATES.slice().sort((a, b) => a.state.localeCompare(b.state));
+
 export default function StateTable() {
   const [search, setSearch] = useState('');
 
-  const filtered = STATE_TAX_RATES
-    .filter((s) => s.state.toLowerCase().includes(search.toLowerCase()) || s.abbreviation.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => a.state.localeCompare(b.state));
+  const query = search.trim().toLowerCase();
+  const filtered = query
+    ? SORTED_STATES.filter(
+        (s) =>
+          s.state.toLowerCase().includes(query) ||
+          s.abbreviation.toLowerCase().includes(query)
+      )
+    : SORTED_STATES;
 
   return (
     <section>
@@ -28,114 +35,118 @@ export default function StateTable() {
             fill="none"
             stroke="var(--muted)"
             strokeWidth="2.5"
+            aria-hidden="true"
             style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
           >
-            <title>Search Icon</title>
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
           <input
-            suppressHydrationWarning
+            id="state-search"
+            name="stateSearch"
             type="text"
-            placeholder="Filter by state or abbreviation..."
+            autoComplete="off"
+            placeholder="Filter by state or abbreviation…"
             aria-label="Search US state sales tax rates"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            className="calc-input"
             style={{
               width: '100%',
-              padding: '12px 16px 12px 40px',
-              borderRadius: 'var(--radius-xs)',
-              border: '1px solid var(--hairline-strong)',
-              background: 'var(--canvas)',
-              color: 'var(--ink)',
+              height: 46,
+              padding: '10px 16px 10px 40px',
               fontSize: 14,
-              fontFamily: 'var(--font-montserrat), sans-serif',
-              outline: 'none',
-              transition: 'border-color 0.15s ease',
+              fontFamily: 'var(--font-sans)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = 'var(--primary)')}
-            onBlur={(e) => (e.target.style.borderColor = 'var(--hairline-strong)')}
           />
         </div>
       </div>
 
       <div style={{ backgroundColor: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-card)' }}>
         <div style={{ overflowX: 'auto' }}>
-          <table className="data-table">
+          <table className="data-table" style={{ tableLayout: 'fixed', minWidth: 640 }}>
             <thead>
               <tr>
-                <th>State</th>
-                <th>Abbr.</th>
-                <th>State Base</th>
-                <th>Avg Local</th>
-                <th>Combined Average</th>
-                <th>Action</th>
+                <th style={{ width: '26%' }}>State</th>
+                <th style={{ width: '12%' }}>Abbr.</th>
+                <th style={{ width: '16%' }}>State Base</th>
+                <th style={{ width: '16%' }}>Avg Local</th>
+                <th style={{ width: '18%' }}>Combined Average</th>
+                <th style={{ width: '12%' }}>Action</th>
               </tr>
             </thead>
             <tbody>
-              {filtered.map((s) => (
-                <tr key={s.abbreviation}>
-                  <td style={{ fontWeight: 600, color: 'var(--ink)' }}>{s.state}</td>
-                  <td>
-                    <span
-                      style={{
-                        backgroundColor: 'var(--mint-100)',
-                        color: 'var(--primary-deep)',
-                        border: '1px solid var(--mint-200)',
-                        padding: '2px 8px',
-                        borderRadius: 'var(--radius-xs)',
-                        fontSize: 12,
-                        fontWeight: 700,
-                        fontFamily: 'var(--font-mono)',
-                      }}
-                    >
-                      {s.abbreviation}
-                    </span>
-                  </td>
-                  <td style={{ fontFamily: 'var(--font-mono)' }}>
-                    {s.stateRate === 0 ? <span style={{ color: 'var(--primary)', fontWeight: 600 }}>0% (None)</span> : `${s.stateRate}%`}
-                  </td>
-                  <td style={{ fontFamily: 'var(--font-mono)', color: 'var(--muted)' }}>
-                    {s.avgLocalRate > 0 ? `${s.avgLocalRate.toFixed(2)}%` : '—'}
-                  </td>
-                  <td>
-                    <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--ink)', fontFamily: 'var(--font-mono)' }}>
-                      {s.rate === 0 ? '0%' : `${s.rate}%`}
-                    </span>
-                    {s.notes && (
-                      <span
-                        style={{
-                          marginLeft: 8,
-                          backgroundColor: 'var(--canvas-soft)',
-                          color: 'var(--muted)',
-                          border: '1px solid var(--hairline-strong)',
-                          fontSize: 11,
-                          padding: '2px 6px',
-                          borderRadius: 'var(--radius-xs)',
-                          fontWeight: 500,
-                        }}
-                      >
-                        {s.notes}
-                      </span>
-                    )}
-                  </td>
-                  <td>
-                    <Link
-                      href={`/us/${s.state.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="link-green"
-                      style={{ fontSize: 13 }}
-                      aria-label={`Calculate reverse sales tax for ${s.state}`}
-                    >
-                      Calculate →
-                    </Link>
+              {filtered.length === 0 ? (
+                <tr>
+                  <td colSpan={6} style={{ textAlign: 'center', padding: '36px 16px', color: 'var(--muted)', fontSize: 14 }}>
+                    No jurisdictions found matching &ldquo;{search}&rdquo;. <button type="button" onClick={() => setSearch('')} className="link-green" style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, textDecoration: 'underline' }}>Clear filter</button>
                   </td>
                 </tr>
-              ))}
+              ) : (
+                filtered.map((s) => (
+                  <tr key={s.abbreviation}>
+                    <td style={{ fontWeight: 600, color: 'var(--ink)' }}>{s.state}</td>
+                    <td>
+                      <span
+                        style={{
+                          backgroundColor: 'var(--mint-100)',
+                          color: 'var(--primary-deep)',
+                          border: '1px solid var(--mint-200)',
+                          padding: '2px 8px',
+                          borderRadius: 'var(--radius-xs)',
+                          fontSize: 12,
+                          fontWeight: 700,
+                          fontFamily: 'var(--font-mono)',
+                        }}
+                      >
+                        {s.abbreviation}
+                      </span>
+                    </td>
+                    <td className="tabular-nums" style={{ fontFamily: 'var(--font-mono)' }}>
+                      {s.stateRate === 0 ? <span style={{ color: 'var(--primary)', fontWeight: 600 }}>0% (None)</span> : `${s.stateRate}%`}
+                    </td>
+                    <td className="tabular-nums" style={{ fontFamily: 'var(--font-mono)', color: 'var(--muted)' }}>
+                      {s.avgLocalRate > 0 ? `${s.avgLocalRate.toFixed(2)}%` : '—'}
+                    </td>
+                    <td>
+                      <span className="tabular-nums" style={{ fontWeight: 700, fontSize: 15, color: 'var(--ink)', fontFamily: 'var(--font-mono)' }}>
+                        {s.rate === 0 ? '0%' : `${s.rate}%`}
+                      </span>
+                      {s.notes && (
+                        <span
+                          style={{
+                            marginLeft: 8,
+                            backgroundColor: 'var(--canvas-soft)',
+                            color: 'var(--muted)',
+                            border: '1px solid var(--hairline-strong)',
+                            fontSize: 11,
+                            padding: '2px 6px',
+                            borderRadius: 'var(--radius-xs)',
+                            fontWeight: 500,
+                          }}
+                        >
+                          {s.notes}
+                        </span>
+                      )}
+                    </td>
+                    <td>
+                      <Link
+                        href={`/us/${s.state.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="link-green"
+                        style={{ fontSize: 13 }}
+                        aria-label={`Calculate reverse sales tax for ${s.state}`}
+                      >
+                        Calculate →
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
         <div style={{ padding: '14px 20px', backgroundColor: 'var(--canvas-soft)', borderTop: '1px solid var(--hairline)', fontSize: 12, color: 'var(--muted)' }}>
-          Showing 51 of 51 jurisdictions · Combined average rates · Rates verified 2026
+          Showing {filtered.length} of {STATE_TAX_RATES.length} jurisdictions · Combined average rates · Rates verified 2026
         </div>
       </div>
       <p className="table-note" style={{ marginTop: 14, fontSize: 12, color: 'var(--muted)', textAlign: 'center' }}>

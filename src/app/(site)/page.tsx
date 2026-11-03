@@ -221,7 +221,7 @@ export default function HomePage() {
   };
 
   return (
-    <main>
+    <main id="main-content">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -261,7 +261,7 @@ export default function HomePage() {
             Reverse Sales Tax Calculator
           </h1>
           
-          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255, 255, 255, 0.92)', maxWidth: 760, margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
+          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: '#ffffff', maxWidth: 760, margin: '0 auto 28px', lineHeight: 1.6, fontWeight: 300 }}>
             Instantly calculate the original price before tax from any receipt or invoice total. Enter your total amount paid and tax rate for a complete arithmetic breakdown.
           </p>
 
@@ -450,11 +450,11 @@ export default function HomePage() {
                     <Image
                       src="/images/reverse-sales-tax-formula-diagram.jpg"
                       alt="Reverse sales tax formula diagram: Total price divided by one plus tax rate equals original pre-tax price"
-                      width={1200}
-                      height={675}
+                      width={800}
+                      height={450}
                       sizes="(max-width: 768px) 100vw, 840px"
                       style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-lg)' }}
-                      loading="lazy"
+                      priority
                     />
                     <div style={{ padding: '12px 14px 4px', fontSize: 13, color: 'var(--muted)', textAlign: 'center' }}>
                       Figure 1: Reverse sales tax formula breakdown ($107.50 receipt total divided by 1.075 equals $100.00 base pre-tax amount).

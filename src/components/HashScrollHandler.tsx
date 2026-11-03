@@ -14,16 +14,24 @@ export default function HashScrollHandler() {
       }
     };
 
+    // Handle browser back/forward and hash changes
+    const onHashChange = () => scrollToHash();
+    window.addEventListener('hashchange', onHashChange);
+    window.addEventListener('popstate', onHashChange);
+
+    // Guard timer scheduling to avoid scheduling unneeded setTimeout callbacks when there is no URL hash
+    if (typeof window !== 'undefined' && !window.location.hash) {
+      return () => {
+        window.removeEventListener('hashchange', onHashChange);
+        window.removeEventListener('popstate', onHashChange);
+      };
+    }
+
     // Run on mount with progressive retries for hydration & layout shifts
     scrollToHash();
     const t1 = setTimeout(scrollToHash, 100);
     const t2 = setTimeout(scrollToHash, 300);
     const t3 = setTimeout(scrollToHash, 700);
-
-    // Handle browser back/forward and hash changes
-    const onHashChange = () => scrollToHash();
-    window.addEventListener('hashchange', onHashChange);
-    window.addEventListener('popstate', onHashChange);
 
     return () => {
       clearTimeout(t1);

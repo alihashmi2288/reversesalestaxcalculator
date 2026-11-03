@@ -34,7 +34,7 @@ export default function LinkifiedText({ text, currentState }: { text: string; cu
                 color: 'var(--primary)',
                 fontWeight: 600,
                 textDecoration: 'none',
-                borderBottom: '1px solid rgba(165,180,252,0.3)',
+                borderBottom: '1px solid var(--hairline-strong)',
               }}
             >
               {anchor}
@@ -69,7 +69,7 @@ export default function LinkifiedText({ text, currentState }: { text: string; cu
                       color: 'var(--primary)',
                       fontWeight: 600,
                       textDecoration: 'none',
-                      borderBottom: '1px solid rgba(165,180,252,0.3)',
+                      borderBottom: '1px solid var(--hairline-strong)',
                     }}
                   >
                     {part}

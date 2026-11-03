@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function ContactForm() {
@@ -8,6 +8,13 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (submitted && successHeadingRef.current) {
+      successHeadingRef.current.focus();
+    }
+  }, [submitted]);
 
   function validate() {
     const e: Record<string, string> = {};
@@ -28,7 +35,13 @@ export default function ContactForm() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const errs = validate();
-    if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      const firstField = Object.keys(errs)[0];
+      const el = document.getElementById(firstField);
+      if (el) el.focus();
+      return;
+    }
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -45,13 +58,12 @@ export default function ContactForm() {
     color: 'var(--ink)',
     fontSize: 15,
     fontFamily: 'var(--font-sans)',
-    outline: 'none',
     transition: 'border-color 0.2s',
     boxSizing: 'border-box',
   };
 
   const errorStyle: React.CSSProperties = {
-    color: '#dc2626',
+    color: 'var(--error)',
     fontSize: 13,
     marginTop: 4,
   };
@@ -68,7 +80,11 @@ export default function ContactForm() {
     return (
       <div className="card" style={{ textAlign: 'center', padding: 48 }}>
         <div style={{ fontSize: 56, marginBottom: 16 }}>✅</div>
-        <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--ink)', marginBottom: 12 }}>
+        <h2
+          ref={successHeadingRef}
+          tabIndex={-1}
+          style={{ fontWeight: 800, fontSize: 24, color: 'var(--ink)', marginBottom: 12, outline: 'none' }}
+        >
           Message Sent!
         </h2>
         <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.7, marginBottom: 24 }}>
@@ -98,11 +114,11 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <div className="card">
-        <h2 style={{ fontWeight: 800, fontSize: 22, color: 'var(--text-primary)', marginBottom: 24 }}>
+        <h2 style={{ fontWeight: 800, fontSize: 22, color: 'var(--ink)', marginBottom: 24 }}>
           Send Us a Message
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20 }} className="form-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, marginBottom: 20 }} className="form-grid">
           {/* Name */}
           <div>
             <label htmlFor="name" style={labelStyle}>Your Name</label>
@@ -110,13 +126,17 @@ export default function ContactForm() {
               id="name"
               name="name"
               type="text"
+              required
+              aria-required="true"
+              aria-invalid={Boolean(errors.name)}
               placeholder="Jane Smith"
               value={form.name}
               onChange={handleChange}
-              style={{ ...inputStyle, ...(errors.name ? { borderColor: '#f87171' } : {}) }}
+              style={{ ...inputStyle, ...(errors.name ? { borderColor: 'var(--error)' } : {}) }}
               autoComplete="name"
+              aria-describedby={errors.name ? 'name-error' : undefined}
             />
-            {errors.name && <p style={errorStyle}>{errors.name}</p>}
+            {errors.name && <p id="name-error" style={errorStyle}>{errors.name}</p>}
           </div>
 
           {/* Email */}
@@ -126,13 +146,17 @@ export default function ContactForm() {
               id="email"
               name="email"
               type="email"
+              required
+              aria-required="true"
+              aria-invalid={Boolean(errors.email)}
               placeholder="jane@example.com"
               value={form.email}
               onChange={handleChange}
-              style={{ ...inputStyle, ...(errors.email ? { borderColor: '#f87171' } : {}) }}
+              style={{ ...inputStyle, ...(errors.email ? { borderColor: 'var(--error)' } : {}) }}
               autoComplete="email"
+              aria-describedby={errors.email ? 'email-error' : undefined}
             />
-            {errors.email && <p style={errorStyle}>{errors.email}</p>}
+            {errors.email && <p id="email-error" style={errorStyle}>{errors.email}</p>}
           </div>
         </div>
 
@@ -142,9 +166,13 @@ export default function ContactForm() {
           <select
             id="subject"
             name="subject"
+            required
+            aria-required="true"
+            aria-invalid={Boolean(errors.subject)}
             value={form.subject}
             onChange={handleChange}
-            style={{ ...inputStyle, cursor: 'pointer', ...(errors.subject ? { borderColor: '#f87171' } : {}) }}
+            style={{ ...inputStyle, cursor: 'pointer', ...(errors.subject ? { borderColor: 'var(--error)' } : {}) }}
+            aria-describedby={errors.subject ? 'subject-error' : undefined}
           >
             <option value="">Select a topic…</option>
             <option value="Tax Rate Update">Tax Rate Update / Correction</option>
@@ -154,7 +182,7 @@ export default function ContactForm() {
             <option value="Partnership">Partnership / Advertising</option>
             <option value="Other">Other</option>
           </select>
-          {errors.subject && <p style={errorStyle}>{errors.subject}</p>}
+          {errors.subject && <p id="subject-error" style={errorStyle}>{errors.subject}</p>}
         </div>
 
         {/* Message */}
@@ -163,13 +191,17 @@ export default function ContactForm() {
           <textarea
             id="message"
             name="message"
+            required
+            aria-required="true"
+            aria-invalid={Boolean(errors.message)}
             rows={6}
-            placeholder="Describe your question or request in detail…"
+            placeholder="Describe your question or request in detail."
             value={form.message}
             onChange={handleChange}
-            style={{ ...inputStyle, resize: 'vertical', minHeight: 140, ...(errors.message ? { borderColor: '#f87171' } : {}) }}
+            style={{ ...inputStyle, resize: 'vertical', minHeight: 140, ...(errors.message ? { borderColor: 'var(--error)' } : {}) }}
+            aria-describedby={errors.message ? 'message-error' : undefined}
           />
-          {errors.message && <p style={errorStyle}>{errors.message}</p>}
+          {errors.message && <p id="message-error" style={errorStyle}>{errors.message}</p>}
         </div>
 
         <button
@@ -186,7 +218,7 @@ export default function ContactForm() {
             fontSize: 15,
             padding: '13px 32px',
             cursor: loading ? 'not-allowed' : 'pointer',
-            transition: 'all 0.15s',
+            transition: 'background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease',
             width: '100%',
             fontFamily: 'var(--font-sans)',
           }}

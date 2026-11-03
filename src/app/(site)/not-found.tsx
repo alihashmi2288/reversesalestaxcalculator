@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '48px 24px' }}>
+    <main id="main-content" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '48px 24px' }}>
       <div className="card" style={{ maxWidth: 640, width: '100%', textAlign: 'center', padding: '48px 32px', border: '1px solid var(--hairline)' }}>
         <div style={{ fontSize: 64, marginBottom: 16 }}>🔍</div>
         
@@ -68,7 +68,7 @@ export default function NotFound() {
               VAT Calculator
             </Link>
             <Link
-              href="/faq"
+              href="/#faq"
               style={{ padding: '10px 14px', background: 'var(--canvas-soft)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--hairline)', color: 'var(--ink)', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}
             >
               Tax FAQ

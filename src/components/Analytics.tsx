@@ -49,7 +49,11 @@ export default function Analytics() {
     };
 
     const onInteraction = () => {
-      loadAnalytics();
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        window.requestIdleCallback(() => loadAnalytics());
+      } else {
+        setTimeout(loadAnalytics, 0);
+      }
     };
 
     // User interaction triggers

@@ -4,21 +4,6 @@ export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer style={{ backgroundColor: 'var(--canvas-soft)', borderTop: '1px solid var(--hairline-strong)', color: 'var(--body)', marginTop: 80 }}>
-      <style>{`
-        .footer-link {
-          color: var(--muted);
-          text-decoration: none;
-          font-size: 13px;
-          display: inline-flex;
-          align-items: center;
-          min-height: 28px;
-          padding: 2px 0;
-          transition: color 0.15s ease;
-        }
-        .footer-link:hover {
-          color: var(--primary);
-        }
-      `}</style>
       <div className="container-main" style={{ paddingTop: 56, paddingBottom: 40 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 40, marginBottom: 40 }}>
           {/* Brand */}
@@ -47,7 +32,7 @@ export default function Footer() {
                     backgroundColor: 'var(--logo-lime)',
                   }}
                 />
-                <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none" aria-hidden="true">
                   <title>PreTaxPrice Logo</title>
                   <rect x="5.5" y="4.5" width="21" height="23" rx="3.5" stroke="#ffffff" strokeWidth="2.2" />
                   <rect x="8.5" y="7.5" width="15" height="4.5" rx="1" fill="#effcf8" />
@@ -86,7 +71,7 @@ export default function Footer() {
                 { href: '/us/new-york', label: 'New York Tax Calculator' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="footer-link">{label}</Link>
+                  <Link href={href} className="footer-link focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2 rounded-[var(--radius-xs)]">{label}</Link>
                 </li>
               ))}
             </ul>
@@ -106,7 +91,7 @@ export default function Footer() {
                 { href: '/contact', label: 'Contact Support' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="footer-link">
+                  <Link href={href} className="footer-link focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2 rounded-[var(--radius-xs)]">
                     {label}
                   </Link>
                 </li>
@@ -125,7 +110,7 @@ export default function Footer() {
                 { href: '/terms-of-service', label: 'Terms of Service' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="footer-link">{label}</Link>
+                  <Link href={href} className="footer-link focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2 rounded-[var(--radius-xs)]">{label}</Link>
                 </li>
               ))}
             </ul>
