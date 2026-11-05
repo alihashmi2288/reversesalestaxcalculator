@@ -151,6 +151,14 @@ export default function SouthCarolinaPage({ stateData }: Props) {
     { county: 'Florence County', stateRate: '6.00%', localRate: '2.00%', combined: '8.00%', note: 'State + LOST + Capital Projects' },
   ];
 
+  const southCarolinaPresets = [
+    { label: 'Charleston (9.00%)', rate: 9.00 },
+    { label: 'Columbia / Richland (8.00%)', rate: 8.00 },
+    { label: 'Myrtle Beach / Horry (8.00%)', rate: 8.00 },
+    { label: 'Greenville (6.00%)', rate: 6.00 },
+    { label: 'South Carolina Base (6.00%)', rate: 6.00 },
+  ];
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -215,7 +223,11 @@ export default function SouthCarolinaPage({ stateData }: Props) {
 
           {/* Calculator Card */}
           <div style={{ marginBottom: 64 }}>
-            <StateCalculatorClient stateData={stateData} rateNote="South Carolina state rate is 6.00%. Enter your specific county rate (e.g., 9.00% for Charleston, 8.00% for Columbia or Myrtle Beach, 6.00% for Greenville) to back out exact tax." />
+            <StateCalculatorClient
+              stateData={stateData}
+              presetRates={southCarolinaPresets}
+              rateNote="South Carolina state rate is 6.00%. Enter your specific county rate (e.g., 9.00% for Charleston, 8.00% for Columbia or Myrtle Beach, 6.00% for Greenville) to back out exact tax."
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>

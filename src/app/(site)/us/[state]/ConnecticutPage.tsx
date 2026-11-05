@@ -144,6 +144,12 @@ export default function ConnecticutPage({ stateData }: Props) {
     { rate: '9.35%', label: 'Vehicle Rentals', applies: 'Passenger motor vehicle rentals for 30 consecutive days or less' },
   ];
 
+  const connecticutPresets = [
+    { label: 'Standard Retail (6.35%)', rate: 6.35 },
+    { label: 'Prepared Meals (7.35%)', rate: 7.35 },
+    { label: 'Luxury Goods (7.75%)', rate: 7.75 },
+  ];
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -216,7 +222,11 @@ export default function ConnecticutPage({ stateData }: Props) {
 
           {/* Interactive Calculator */}
           <div style={{ marginBottom: 48 }}>
-            <StateCalculatorClient stateData={stateData} rateNote="Standard statewide rate: 6.35%" />
+            <StateCalculatorClient
+              stateData={stateData}
+              presetRates={connecticutPresets}
+              rateNote="Standard statewide rate: 6.35%"
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
@@ -376,7 +386,7 @@ export default function ConnecticutPage({ stateData }: Props) {
                 <p>
                   If you make purchases across state lines, our{' '}
                   <Link href="/us/new-york" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline' }}>
-                    NY sales tax calculator
+                    NY Sales Tax Calculator
                   </Link>{' '}
                   covers New York&apos;s 8.875% NYC rate and all upstate county variations.
                 </p>
@@ -522,7 +532,7 @@ export default function ConnecticutPage({ stateData }: Props) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {faqs.map((faq, idx) => (
                   <details key={idx} className="faq-item" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)' }}>
-                    <summary className="faq-trigger" style={{ outline: 'none' }}>
+                    <summary className="faq-trigger">
                       <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{faq.question}</span>
                       <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
                     </summary>

@@ -85,7 +85,7 @@ export default function NewYorkPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'New York Reverse Sales Tax Calculator',
+    name: 'NY Sales Tax Calculator',
     url: 'https://salestaxreversecalculator.com/us/new-york',
     applicationCategory: 'FinanceApplication',
     applicationSubCategory: 'Sales Tax & Reverse Tax Calculation',
@@ -180,7 +180,7 @@ export default function NewYorkPage({ stateData }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            New York Reverse Sales Tax Calculator
+            NY Sales Tax Calculator
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
@@ -248,15 +248,15 @@ export default function NewYorkPage({ stateData }: Props) {
           {/* Structured Content Stream */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
 
-            {/* ── Section 1: How Do You Use the New York Sales Tax Calculator? ── */}
+            {/* ── Section 1: How Do You Use the NY Sales Tax Calculator? ── */}
             <section style={{ maxWidth: 860 }}>
               <span className="section-label">User Guide</span>
               <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--text-primary)', margin: '12px 0 16px' }}>
-                How Do You Use the New York Sales Tax Calculator?
+                How Do You Use the NY Sales Tax Calculator?
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'var(--text-secondary)', fontSize: 16, lineHeight: 1.8 }}>
                 <p>
-                  The New York sales tax calculator works in two directions. Use the forward mode to add tax to a pretax price. Use the reverse mode to remove tax from a total price. Enter the combined rate for the applicable jurisdiction. The calculator then shows the sales tax amount and the pre-tax or total price. For an exact location-based rate, use a ZIP code or address lookup from the New York State Department of Taxation and Finance.
+                  The New York sales tax calculator works in two directions, allowing you to calculate tax on a pretax price or remove it from a tax-inclusive total. With the NY Sales Tax Calculator, you can enter the combined rate for the applicable jurisdiction and instantly see the sales tax amount, original price, or final total. For an exact location-based rate, use a ZIP code or address lookup from the New York State Department of Taxation and Finance.
                 </p>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, margin: '12px 0' }}>
@@ -684,7 +684,7 @@ export default function NewYorkPage({ stateData }: Props) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 {faqs.map((faq, idx) => (
                   <details key={idx} className="faq-item" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)' }}>
-                    <summary className="faq-trigger" style={{ outline: 'none' }}>
+                    <summary className="faq-trigger">
                       <span style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{faq.question}</span>
                       <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
                     </summary>

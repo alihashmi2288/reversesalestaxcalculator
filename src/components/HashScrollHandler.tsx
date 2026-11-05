@@ -7,10 +7,11 @@ export default function HashScrollHandler() {
     const scrollToHash = () => {
       const hash = window.location.hash;
       if (!hash) return;
-      const id = hash.replace('#', '');
-      const el = document.getElementById(id);
+      const id = hash.startsWith('#calc?') || hash.startsWith('#mode=') ? 'calculator' : hash.replace('#', '');
+      const el = document.getElementById(id) || (id === 'calculator' ? document.getElementById('calculator-card') : null);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
       }
     };
 

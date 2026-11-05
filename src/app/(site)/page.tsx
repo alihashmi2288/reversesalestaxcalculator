@@ -7,6 +7,7 @@ import HowItWorks from '@/components/HowItWorks';
 import FAQSection from '@/components/FAQSection';
 import StateTable from '@/components/StateTable';
 import EmbedWidgetSection from '@/components/EmbedWidgetSection';
+import BackToTop from '@/components/BackToTop';
 import { getPopularStates, getStateBySlug, NATIONAL_AVERAGE_COMBINED_RATE } from '@/data/stateTaxRates';
 
 export const metadata: Metadata = {
@@ -221,7 +222,7 @@ export default function HomePage() {
   };
 
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -270,11 +271,22 @@ export default function HomePage() {
 
           {/* Feature Badges & Editorial Verification - Positioned directly below calculator */}
           <div style={{ maxWidth: 840, margin: '0 auto 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
-            <div className="editorial-badge" style={{ backgroundColor: 'var(--canvas)', border: '1px solid var(--hairline-strong)', color: 'var(--body)' }}>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <div
+              className="editorial-badge"
+              style={{
+                backgroundColor: 'var(--primary)',
+                border: '1px solid var(--forest)',
+                color: '#ffffff',
+                borderRadius: 'var(--radius-full)',
+                padding: '7px 16px',
+                boxShadow: '0 1px 3px rgba(0, 72, 47, 0.16)',
+                margin: 0,
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: '#ffffff', flexShrink: 0 }}>
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <span style={{ fontSize: 13, fontWeight: 600 }}>Free Utility · Client-Side Private · All 50 US States &amp; International</span>
+              <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.01em', color: '#ffffff' }}>Free Utility · Client-Side Private · All 50 US States &amp; International</span>
             </div>
 
             {/* Hero Trust Badges in Pills */}
@@ -291,17 +303,20 @@ export default function HomePage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 6,
-                    backgroundColor: 'var(--canvas)',
-                    color: 'var(--body)',
-                    border: '1px solid var(--hairline-strong)',
+                    backgroundColor: 'var(--primary)',
+                    color: '#ffffff',
+                    border: '1px solid var(--forest)',
                     borderRadius: 'var(--radius-full)',
-                    padding: '6px 14px',
+                    padding: '7px 16px',
                     fontSize: 13,
                     fontWeight: 600,
                     letterSpacing: '0.01em',
+                    boxShadow: '0 1px 3px rgba(0, 72, 47, 0.12)',
                   }}
                 >
-                  <span style={{ color: 'var(--primary)', fontWeight: 800 }} aria-hidden="true">✓</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: '#ffffff', flexShrink: 0 }}>
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                   {text}
                 </span>
               ))}
@@ -381,6 +396,7 @@ export default function HomePage() {
                 <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>🇬🇧 UK VAT</span>
                 <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>20%</span>
               </Link>
+              <AdSlot slot="sidebar-rectangle" size="rectangle" />
             </div>
           </div>
 
@@ -435,44 +451,20 @@ export default function HomePage() {
         {/* ── Table of Contents / Jump Navigation ── */}
         <nav
           aria-label="On this page navigation"
-          style={{
-            backgroundColor: 'var(--canvas)',
-            border: '1px solid var(--hairline-strong)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '16px 20px',
-            marginTop: 24,
-            marginBottom: 24,
-            boxShadow: 'var(--shadow-card)',
-          }}
+          className="toc-nav"
+          style={{ marginTop: 24, marginBottom: 24 }}
         >
           <details className="toc-details" open>
-            <summary
-              style={{
-                fontSize: 14,
-                fontWeight: 700,
-                color: 'var(--ink)',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                userSelect: 'none',
-              }}
-            >
+            <summary className="toc-summary">
               <span aria-hidden="true">📑</span> On this page
-              <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--muted)', marginLeft: 'auto' }}>
+              <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--muted)', marginLeft: 'auto', marginRight: 8 }}>
                 (Table of Contents)
               </span>
+              <svg className="toc-toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </summary>
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 10,
-                marginTop: 12,
-                paddingTop: 12,
-                borderTop: '1px solid var(--hairline)',
-              }}
-            >
+            <div className="toc-links-list">
               {[
                 { href: '#calculator', label: 'Calculator' },
                 { href: '#how-it-works', label: 'How It Works' },
@@ -484,18 +476,6 @@ export default function HomePage() {
                 <a
                   key={href}
                   href={href}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    padding: '6px 12px',
-                    borderRadius: 'var(--radius-xs)',
-                    backgroundColor: 'var(--canvas-soft)',
-                    border: '1px solid var(--hairline)',
-                    color: 'var(--primary)',
-                    fontSize: 13,
-                    fontWeight: 600,
-                    textDecoration: 'none',
-                  }}
                   className="toc-jump-link focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-1"
                 >
                   {label}
@@ -514,6 +494,7 @@ export default function HomePage() {
         <div id="how-it-works" style={{ scrollMarginTop: 100, marginBottom: 56 }}>
           <HowItWorks />
         </div>
+        <AdSlot slot="after-how-it-works" size="leaderboard" />
 
         {/* Centered Educational Content Layout */}
         <div className="educational-content-layout">
@@ -602,6 +583,8 @@ export default function HomePage() {
                   </p>
                 </div>
               </section>
+
+              <AdSlot slot="mid-content-1" size="in-article" />
 
               {/* SECTION: How to Use This Calculator */}
               <section>
@@ -719,7 +702,7 @@ export default function HomePage() {
                       <p style={{ fontSize: 13, margin: '8px 0 0', color: 'var(--body)', lineHeight: 1.5 }}>
                         For purchases made in New York City, use the{' '}
                         <Link href="/us/new-york" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '3px' }}>
-                          New York reverse sales tax calculator
+                          NY Sales Tax Calculator
                         </Link>{' '}
                         to work backward from a tax-inclusive total using the applicable 8.875% rate.
                       </p>
@@ -1080,6 +1063,8 @@ export default function HomePage() {
                 </div>
               </section>
 
+              <AdSlot slot="mid-content-2" size="in-article" />
+
               {/* SECTION: Automation */}
               <section>
                 <span className="section-label">Automation</span>
@@ -1397,23 +1382,99 @@ export default function HomePage() {
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-            { [
-                { href: '/vat-calculator', icon: '🇪🇺', title: 'VAT Calculator', desc: 'Remove VAT from prices for UK, EU, and Australia', alt: 'European Union flag icon' },
-                { href: '/canada', icon: '🇨🇦', title: 'Canada Tax Calculator', desc: 'GST, HST, PST and Quebec QST reverse calculations', alt: 'Canada flag icon' },
-                { href: '/us/california', icon: '🌴', title: 'California Calculator', desc: `Pre-filled with California's ${getStateBySlug('california')?.rate}% combined rate`, alt: 'California palm tree icon' },
-                { href: '/us/texas', icon: '⭐', title: 'Texas Calculator', desc: `Pre-filled with Texas's ${getStateBySlug('texas')?.rate}% combined rate`, alt: 'Texas star icon' },
-                { href: '/us/new-york', icon: '🗽', title: 'New York Calculator', desc: `Pre-filled with New York's ${getStateBySlug('new-york')?.rate}% combined rate`, alt: 'Statue of Liberty icon' },
-                { href: '/tax-rates', icon: '📊', title: 'All State Tax Rates', desc: 'Complete table of all 50 state combined tax rates', alt: 'Chart icon' },
-              ].map(({ href, icon, title, desc, alt }) => (
-                <Link key={href} href={href} className="tool-card" style={{ background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: 24, boxShadow: 'var(--shadow-card)', textDecoration: 'none', display: 'block', transition: 'all 0.15s ease' }}>
-                  <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>{icon}</div>
-                  <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--primary)', marginBottom: 8 }}>{title}</h3>
-                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.5, margin: 0 }}>{desc}</p>
-                </Link>
-              ))}
+            {[
+              {
+                href: '/vat-calculator',
+                svgIcon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                  </svg>
+                ),
+                title: 'VAT Calculator',
+                desc: 'Remove VAT from prices for UK, EU, and Australia',
+              },
+              {
+                href: '/canada',
+                svgIcon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                    <line x1="4" y1="22" x2="4" y2="15" />
+                  </svg>
+                ),
+                title: 'Canada Tax Calculator',
+                desc: 'GST, HST, PST and Quebec QST reverse calculations',
+              },
+              {
+                href: '/us/california',
+                svgIcon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                  </svg>
+                ),
+                title: 'California Calculator',
+                desc: `Pre-filled with California's ${getStateBySlug('california')?.rate}% combined rate`,
+              },
+              {
+                href: '/us/texas',
+                svgIcon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                ),
+                title: 'Texas Calculator',
+                desc: `Pre-filled with Texas's ${getStateBySlug('texas')?.rate}% combined rate`,
+              },
+              {
+                href: '/us/new-york',
+                svgIcon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="4" y="2" width="16" height="20" rx="2" />
+                    <line x1="9" y1="6" x2="9" y2="6.01" />
+                    <line x1="15" y1="6" x2="15" y2="6.01" />
+                    <line x1="9" y1="10" x2="9" y2="10.01" />
+                    <line x1="15" y1="10" x2="15" y2="10.01" />
+                    <line x1="9" y1="14" x2="9" y2="14.01" />
+                    <line x1="15" y1="14" x2="15" y2="14.01" />
+                    <line x1="9" y1="18" x2="15" y2="18" />
+                  </svg>
+                ),
+                title: 'NY Sales Tax Calculator',
+                desc: `Pre-filled with New York's ${getStateBySlug('new-york')?.rate}% combined rate`,
+              },
+              {
+                href: '/tax-rates',
+                svgIcon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                    <line x1="2" y1="20" x2="22" y2="20" />
+                  </svg>
+                ),
+                title: 'All State Tax Rates',
+                desc: 'Complete table of all 50 state combined tax rates',
+              },
+            ].map(({ href, svgIcon, title, desc }) => (
+              <Link key={href} href={href} className="tool-card" style={{ background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: 24, boxShadow: 'var(--shadow-card)', textDecoration: 'none', display: 'block', transition: 'all 0.15s ease' }}>
+                <div style={{ marginBottom: 12, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44, borderRadius: 'var(--radius-xs)', backgroundColor: 'var(--mint-50)', border: '1px solid var(--mint-200)' }}>
+                  {svgIcon}
+                </div>
+                <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--primary)', marginBottom: 8 }}>{title}</h3>
+                <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.5, margin: 0 }}>{desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
+      <BackToTop />
     </main>
   );
 }

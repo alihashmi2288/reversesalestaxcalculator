@@ -1,0 +1,16 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Reverse Sales Tax Calculator",
+    "alternateName": "PreTaxPrice",
+    "url": "https://salestaxreversecalculator.com",
+    "logo": "https://salestaxreversecalculator.com/og-image.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "salestaxreversecalculator@gmail.com",
+      "contactType": "customer service",
+      "url": "https://salestaxreversecalculator.com/contact"
+    }
+  }
+]

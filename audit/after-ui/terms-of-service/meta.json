@@ -1,0 +1,187 @@
+{
+  "title": "Terms of Service: PreTaxPrice",
+  "canonical": "https://salestaxreversecalculator.com/terms-of-service",
+  "metaTags": [
+    {
+      "name": "viewport",
+      "content": "width=device-width, initial-scale=1, maximum-scale=5"
+    },
+    {
+      "name": "theme-color",
+      "content": "#008254"
+    },
+    {
+      "name": "description",
+      "content": "Terms of service for PreTaxPrice. For informational purposes only — not professional tax advice."
+    },
+    {
+      "name": "author",
+      "content": "Reverse Sales Tax Calculator by PreTaxPrice"
+    },
+    {
+      "name": "creator",
+      "content": "Reverse Sales Tax Calculator"
+    },
+    {
+      "name": "publisher",
+      "content": "Reverse Sales Tax Calculator"
+    },
+    {
+      "name": "robots",
+      "content": "index, follow"
+    },
+    {
+      "name": "googlebot",
+      "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    },
+    {
+      "name": "geo.region",
+      "content": "US"
+    },
+    {
+      "name": "geo.placename",
+      "content": "United States"
+    },
+    {
+      "property": "og:title",
+      "content": "Reverse Sales Tax Calculator: Find Pre-Tax Price Free"
+    },
+    {
+      "property": "og:description",
+      "content": "Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT."
+    },
+    {
+      "property": "og:url",
+      "content": "https://salestaxreversecalculator.com"
+    },
+    {
+      "property": "og:site_name",
+      "content": "Reverse Sales Tax Calculator"
+    },
+    {
+      "property": "og:image",
+      "content": "https://salestaxreversecalculator.com/og-image.png"
+    },
+    {
+      "property": "og:image:width",
+      "content": "1200"
+    },
+    {
+      "property": "og:image:height",
+      "content": "630"
+    },
+    {
+      "property": "og:image:alt",
+      "content": "Reverse Sales Tax Calculator and Pre-tax Price Finder Tool"
+    },
+    {
+      "property": "og:type",
+      "content": "website"
+    },
+    {
+      "name": "twitter:card",
+      "content": "summary_large_image"
+    },
+    {
+      "name": "twitter:title",
+      "content": "Reverse Sales Tax Calculator: Find Pre-Tax Price Free"
+    },
+    {
+      "name": "twitter:description",
+      "content": "Free reverse sales tax calculator. Find the pre-tax price from any receipt total instantly. Supports all 50 US states, Canada GST/HST, and VAT."
+    },
+    {
+      "name": "twitter:image",
+      "content": "https://salestaxreversecalculator.com/og-image.png"
+    },
+    {
+      "name": "next-size-adjust",
+      "content": ""
+    }
+  ],
+  "linkTags": [
+    {
+      "rel": "preload",
+      "href": "/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2",
+      "as": "font",
+      "crossorigin": "",
+      "type": "font/woff2"
+    },
+    {
+      "rel": "preload",
+      "href": "/_next/static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2",
+      "as": "font",
+      "crossorigin": "",
+      "type": "font/woff2"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "/_next/static/chunks/2p8grj5t_438p.css",
+      "data-precedence": "next"
+    },
+    {
+      "rel": "preload",
+      "as": "script",
+      "fetchpriority": "low",
+      "href": "/_next/static/chunks/1ckvzn7sfprko.js"
+    },
+    {
+      "rel": "manifest",
+      "href": "/site.webmanifest"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://salestaxreversecalculator.com/terms-of-service"
+    },
+    {
+      "rel": "shortcut icon",
+      "href": "/favicon.ico"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.ico?favicon.19s-pz5g6gbvz.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.ico",
+      "sizes": "48x48"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

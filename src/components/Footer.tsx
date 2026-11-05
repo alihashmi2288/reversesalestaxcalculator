@@ -68,7 +68,7 @@ export default function Footer() {
                 { href: '/canada', label: 'Canada GST / HST / PST' },
                 { href: '/us/california', label: 'California Tax Calculator' },
                 { href: '/us/texas', label: 'Texas Tax Calculator' },
-                { href: '/us/new-york', label: 'New York Tax Calculator' },
+                { href: '/us/new-york', label: 'NY Sales Tax Calculator' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href} className="footer-link focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2 rounded-[var(--radius-xs)]">{label}</Link>

@@ -1,0 +1,387 @@
+[
+  {
+    "href": "#main-content",
+    "text": "Skip to main content",
+    "rawContent": "Skip to main content"
+  },
+  {
+    "href": "/",
+    "text": "PreTaxPrice LogoPreTaxPriceReverse Sales Tax Calculator",
+    "rawContent": "<div style=\"width:36px;height:36px;border-radius:var(--radius-xs);background-color:var(--primary);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden\"><div style=\"position:absolute;top:0;right:0;width:10px;height:10px;background-color:var(--logo-lime)\"></div><svg width=\"22\" height=\"22\" viewBox=\"0 0 32 32\" fill=\"none\" aria-hidden=\"true\"><title>PreTaxPrice Logo</title><rect x=\"5.5\" y=\"4.5\" width=\"21\" height=\"23\" rx=\"3.5\" stroke=\"#ffffff\" stroke-width=\"2.2\"></rect><rect x=\"8.5\" y=\"7.5\" width=\"15\" height=\"4.5\" rx=\"1\" fill=\"#effcf8\"></rect><rect x=\"8.5\" y=\"14.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"#ffffff\"></rect><rect x=\"17\" y=\"14.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"#ffffff\"></rect><rect x=\"8.5\" y=\"20.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"#ffffff\"></rect><rect x=\"17\" y=\"20.5\" width=\"6.5\" height=\"4.5\" rx=\"1\" fill=\"var(--logo-lime)\"></rect></svg></div><div><div style=\"font-weight:800;font-size:18px;color:var(--ink);line-height:1.1;letter-spacing:-0.02em\">PreTax<span style=\"color:var(--primary)\">Price</span></div><div style=\"font-size:10px;color:var(--muted);font-weight:600;letter-spacing:0.04em;text-transform:uppercase\">Reverse Sales Tax Calculator</div></div>"
+  },
+  {
+    "href": "/#calculator",
+    "text": "Calculator",
+    "rawContent": "Calculator"
+  },
+  {
+    "href": "/#how-it-works",
+    "text": "How It Works",
+    "rawContent": "How It Works"
+  },
+  {
+    "href": "/tax-rates",
+    "text": "Tax Rates",
+    "rawContent": "Tax Rates"
+  },
+  {
+    "href": "/#faq",
+    "text": "FAQ",
+    "rawContent": "FAQ"
+  },
+  {
+    "href": "/vat-calculator",
+    "text": "VAT",
+    "rawContent": "VAT"
+  },
+  {
+    "href": "/canada",
+    "text": "Canada",
+    "rawContent": "Canada"
+  },
+  {
+    "href": "/about",
+    "text": "About",
+    "rawContent": "About"
+  },
+  {
+    "href": "/contact",
+    "text": "Contact",
+    "rawContent": "Contact"
+  },
+  {
+    "href": "/#calculator",
+    "text": "Calculate",
+    "rawContent": "Calculate"
+  },
+  {
+    "href": "/",
+    "text": "Home",
+    "rawContent": "Home"
+  },
+  {
+    "href": "/",
+    "text": "reverse tax calculator",
+    "rawContent": "reverse tax calculator"
+  },
+  {
+    "href": "/us/alabama",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/alaska",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/arizona",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/arkansas",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/california",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/colorado",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/connecticut",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/delaware",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/district-of-columbia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/florida",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/georgia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/hawaii",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/idaho",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/illinois",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/indiana",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/iowa",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/kansas",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/kentucky",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/louisiana",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/maine",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/maryland",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/massachusetts",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/michigan",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/minnesota",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/mississippi",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/missouri",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/montana",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/nebraska",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/nevada",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-hampshire",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-jersey",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-mexico",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/new-york",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/north-carolina",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/north-dakota",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/ohio",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/oklahoma",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/oregon",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/pennsylvania",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/rhode-island",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/south-carolina",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/south-dakota",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/tennessee",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/texas",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/utah",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/vermont",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/virginia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/washington",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/west-virginia",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/wisconsin",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/us/wyoming",
+    "text": "Calculate →",
+    "rawContent": "Calculate →"
+  },
+  {
+    "href": "/",
+    "text": "Reverse Sales Tax",
+    "rawContent": "Reverse Sales Tax"
+  },
+  {
+    "href": "/vat-calculator",
+    "text": "VAT Calculator (EU/UK)",
+    "rawContent": "VAT Calculator (EU/UK)"
+  },
+  {
+    "href": "/canada",
+    "text": "Canada GST / HST / PST",
+    "rawContent": "Canada GST / HST / PST"
+  },
+  {
+    "href": "/us/california",
+    "text": "California Tax Calculator",
+    "rawContent": "California Tax Calculator"
+  },
+  {
+    "href": "/us/texas",
+    "text": "Texas Tax Calculator",
+    "rawContent": "Texas Tax Calculator"
+  },
+  {
+    "href": "/us/new-york",
+    "text": "New York Tax Calculator",
+    "rawContent": "New York Tax Calculator"
+  },
+  {
+    "href": "/tax-rates",
+    "text": "2026 US State Tax Rates",
+    "rawContent": "2026 US State Tax Rates"
+  },
+  {
+    "href": "/#how-it-works",
+    "text": "How It Works &amp; Formula",
+    "rawContent": "How It Works &amp; Formula"
+  },
+  {
+    "href": "/#faq",
+    "text": "Frequently Asked Questions",
+    "rawContent": "Frequently Asked Questions"
+  },
+  {
+    "href": "/about",
+    "text": "About Us &amp; Editorial Standards",
+    "rawContent": "About Us &amp; Editorial Standards"
+  },
+  {
+    "href": "/contact",
+    "text": "Contact Support",
+    "rawContent": "Contact Support"
+  },
+  {
+    "href": "/privacy-policy",
+    "text": "Privacy Policy",
+    "rawContent": "Privacy Policy"
+  },
+  {
+    "href": "/terms-of-service",
+    "text": "Terms of Service",
+    "rawContent": "Terms of Service"
+  }
+]

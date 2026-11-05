@@ -1,0 +1,191 @@
+{
+  "title": "Contact Us: Reverse Sales Tax Calculator",
+  "canonical": "https://salestaxreversecalculator.com/contact",
+  "metaTags": [
+    {
+      "name": "viewport",
+      "content": "width=device-width, initial-scale=1, maximum-scale=5"
+    },
+    {
+      "name": "theme-color",
+      "content": "#008254"
+    },
+    {
+      "name": "description",
+      "content": "Get in touch with the PreTaxPrice team for reverse sales tax questions, rate updates, bug reports, or feedback."
+    },
+    {
+      "name": "author",
+      "content": "Reverse Sales Tax Calculator by PreTaxPrice"
+    },
+    {
+      "name": "creator",
+      "content": "Reverse Sales Tax Calculator"
+    },
+    {
+      "name": "publisher",
+      "content": "Reverse Sales Tax Calculator"
+    },
+    {
+      "name": "robots",
+      "content": "index, follow"
+    },
+    {
+      "name": "googlebot",
+      "content": "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    },
+    {
+      "name": "geo.region",
+      "content": "US"
+    },
+    {
+      "name": "geo.placename",
+      "content": "United States"
+    },
+    {
+      "property": "og:title",
+      "content": "Contact Us: Reverse Sales Tax Calculator"
+    },
+    {
+      "property": "og:description",
+      "content": "Get in touch with the PreTaxPrice team for reverse sales tax questions, rate updates, bug reports, or feedback."
+    },
+    {
+      "property": "og:url",
+      "content": "https://salestaxreversecalculator.com/contact"
+    },
+    {
+      "property": "og:image",
+      "content": "https://salestaxreversecalculator.com/og-image.png"
+    },
+    {
+      "property": "og:image:width",
+      "content": "1200"
+    },
+    {
+      "property": "og:image:height",
+      "content": "630"
+    },
+    {
+      "property": "og:image:alt",
+      "content": "Contact PreTaxPrice"
+    },
+    {
+      "name": "twitter:card",
+      "content": "summary_large_image"
+    },
+    {
+      "name": "twitter:title",
+      "content": "Contact Us: Reverse Sales Tax Calculator"
+    },
+    {
+      "name": "twitter:description",
+      "content": "Get in touch with the PreTaxPrice team for reverse sales tax questions, rate updates, bug reports, or feedback."
+    },
+    {
+      "name": "twitter:image",
+      "content": "https://salestaxreversecalculator.com/og-image.png"
+    },
+    {
+      "name": "twitter:image:alt",
+      "content": "Contact PreTaxPrice"
+    },
+    {
+      "name": "twitter:image:width",
+      "content": "1200"
+    },
+    {
+      "name": "twitter:image:height",
+      "content": "630"
+    },
+    {
+      "name": "next-size-adjust",
+      "content": ""
+    }
+  ],
+  "linkTags": [
+    {
+      "rel": "preload",
+      "href": "/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2",
+      "as": "font",
+      "crossorigin": "",
+      "type": "font/woff2"
+    },
+    {
+      "rel": "preload",
+      "href": "/_next/static/media/e8f2fbee2754df70-s.p.1dqa_6e_ad4sj.woff2",
+      "as": "font",
+      "crossorigin": "",
+      "type": "font/woff2"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "/_next/static/chunks/084rf73bj2apk.css",
+      "data-precedence": "next"
+    },
+    {
+      "rel": "preload",
+      "as": "script",
+      "fetchpriority": "low",
+      "href": "/_next/static/chunks/1ckvzn7sfprko.js"
+    },
+    {
+      "rel": "manifest",
+      "href": "/site.webmanifest"
+    },
+    {
+      "rel": "canonical",
+      "href": "https://salestaxreversecalculator.com/contact"
+    },
+    {
+      "rel": "shortcut icon",
+      "href": "/favicon.ico"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.ico?favicon.19s-pz5g6gbvz.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.ico",
+      "sizes": "48x48"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title = 'Florida Reverse Sales Tax Calculator (6.5% to 7.5% Surtax)';
     description = 'Free Florida reverse sales tax calculator with 2026 county surtax rates. Find original pre-tax prices from Miami, Tampa, Orlando, and Jacksonville receipts.';
   } else if (stateSlug === 'new-york') {
-    title = 'New York Reverse Sales Tax Calculator (NYC 8.875%)';
+    title = 'NY Sales Tax Calculator (NYC 8.875%)';
     description = 'Unlock the true pre-tax cost of purchases in New York City with our reverse sales tax calculator. Pre-loaded with 8.875% NYC combined tax.';
   } else if (stateSlug === 'arizona') {
     title = 'Arizona Reverse Sales Tax Calculator (TPT Rates 7.8% - 9.2%)';
@@ -129,6 +129,24 @@ export default async function StatePage({ params }: Props) {
 
   const localizedUseCases = getLocalizedUseCases(stateData);
   const localizedFaqs = getLocalizedFaqs(stateData);
+
+  const statePresets = [
+    ...(stateData.stateRate > 0 && Math.abs(stateData.stateRate - stateData.rate) >= 0.01
+      ? [{ label: `${stateData.state} Base (${stateData.stateRate}%)`, rate: stateData.stateRate }]
+      : []),
+    ...(stateData.rate > 0
+      ? [{ label: `Combined Avg (${stateData.rate}%)`, rate: stateData.rate }]
+      : [{ label: `${stateData.state} Tax-Free (0%)`, rate: 0 }]),
+    ...(stateContent?.cities
+      ? stateContent.cities
+          .filter((c) => Math.abs(c.rate - stateData.rate) >= 0.01 && Math.abs(c.rate - stateData.stateRate) >= 0.01)
+          .slice(0, 4)
+          .map((c) => ({
+            label: `${c.name} (${c.rate}%)`,
+            rate: c.rate,
+          }))
+      : []),
+  ];
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -250,7 +268,7 @@ export default async function StatePage({ params }: Props) {
           </div>
 
           <div style={{ marginBottom: 56 }}>
-            <StateCalculatorClient stateData={stateData} />
+            <StateCalculatorClient stateData={stateData} presetRates={statePresets} />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
@@ -375,7 +393,7 @@ export default async function StatePage({ params }: Props) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {localizedFaqs.map((faq, idx) => (
                   <details key={idx} className="faq-item" style={{ border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', background: 'var(--canvas)' }}>
-                    <summary className="faq-trigger" style={{ outline: 'none' }}>
+                    <summary className="faq-trigger">
                       <span style={{ fontWeight: 600, color: 'var(--ink)' }}>{faq.question}</span>
                       <span style={{ color: 'var(--primary)', fontSize: 22, fontWeight: 700 }}>+</span>
                     </summary>

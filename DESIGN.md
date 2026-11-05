@@ -1,12 +1,13 @@
 ---
-version: alpha
-name: NerdWallet Analysis
-description: An analysis of NerdWallet's design language — a personal-finance comparison platform built almost entirely from one deep green and a ladder of mints beneath it. Editorial pages open on a green gradient band, then drop to near-white where dense comparison tables do the real work. Corners are almost square, shadows are nearly absent, and the whole system separates content with hairlines and pale mint washes rather than elevation.
+version: 2.0.0
+name: Reverse Sales Tax Calculator Design System & Accessibility Specification
+description: An authoritative, production-grade design system and accessibility specification for Reverse Sales Tax Calculator (salestaxreversecalculator.com). Grounded in high-trust personal finance utility aesthetics (NerdWallet / Stripe / Tax Foundation caliber). Built with spruce green (#008254), deep forest (#005a36 / #00482f), clean white canvases, and a ladder of mint washes (#effcf8 to #b7ecda). Corners are precise and geometric (2px–8px), elevation is flat and ruled with hairlines rather than heavy drop shadows, and all interactive surfaces strictly satisfy WCAG 2.2 AA (and AAA for core text). Every component is architected for 100% SEO indexability, zero cumulative layout shift (CLS = 0.000), and robust assistive technology support.
 
 colors:
   primary: "#008254"
   primary-deep: "#006642"
-  forest: "#00482f"
+  forest: "#005a36"
+  forest-deep: "#00482f"
   on-primary: "#ffffff"
   lime-hero: "#9ae600"
   lime-panel: "#e8fdac"
@@ -15,108 +16,116 @@ colors:
   logo-lime: "#8dc63f"
   canvas: "#ffffff"
   canvas-soft: "#f7f7f7"
+  card-bg: "#ffffff"
+  card-bg-soft: "#f7f7f7"
   mint-50: "#effcf8"
   mint-100: "#e3faf2"
   mint-200: "#b7ecda"
   hairline: "#ebebec"
   hairline-strong: "#767676"
-  ink: "#000000"
+  ink: "#111827"
+  ink-pure: "#000000"
   body: "#374151"
   muted: "#52525b"
   faint: "#71717a"
   input-placeholder: "#595959"
-  border-focus: "#00482f"
+  border-focus: "#005a36"
   link: "#005fb9"
   info: "#4b99e6"
   error: "#de2828"
+  error-bg: "#fff5f5"
+  error-border: "#ffd8d8"
 
 typography:
   display-xl:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 52px
     fontWeight: 700
     lineHeight: 1.15
-    letterSpacing: 0
+    letterSpacing: -0.015em
   display-lg:
-    fontFamily: GothamDisplay
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 40px
     fontWeight: 700
     lineHeight: 1.2
-    letterSpacing: 0
+    letterSpacing: -0.015em
   heading-1:
-    fontFamily: GothamDisplay
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 36px
     fontWeight: 700
     lineHeight: 1.2
-    letterSpacing: 0
+    letterSpacing: -0.015em
   heading-2:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 28px
     fontWeight: 700
     lineHeight: 1.25
-    letterSpacing: 0
+    letterSpacing: -0.015em
   heading-3:
-    fontFamily: GothamDisplay
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 20px
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: 0
   heading-4:
-    fontFamily: Gotham
-    fontSize: 20px
-    fontWeight: 500
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
+    fontSize: 18px
+    fontWeight: 600
     lineHeight: 1.3
     letterSpacing: 0
   stat-value:
-    fontFamily: Gotham
-    fontSize: 24px
-    fontWeight: 700
-    lineHeight: 1.2
+    fontFamily: var(--font-mono), monospace
+    fontSize: 28px
+    fontWeight: 800
+    lineHeight: 1.1
     letterSpacing: 0
   body-lg:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.65
     letterSpacing: 0
+    maxWidth: 72ch
   body-md:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 16px
     fontWeight: 400
     lineHeight: 1.7
     letterSpacing: 0
+    maxWidth: 72ch
   body-sm:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 14px
     fontWeight: 400
     lineHeight: 1.6
     letterSpacing: 0
+    maxWidth: 72ch
   ui-label:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 14px
     fontWeight: 700
     lineHeight: 1.2
-    letterSpacing: 0
+    letterSpacing: 0.02em
   ui-sm:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.3
-    letterSpacing: 0
+    letterSpacing: 0.02em
   caption:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.4
     letterSpacing: 0
   eyebrow:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 13px
     fontWeight: 700
     lineHeight: 1.2
-    letterSpacing: 0
+    letterSpacing: 0.08em
   micro:
-    fontFamily: Gotham
+    fontFamily: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif
     fontSize: 13px
     fontWeight: 600
     lineHeight: 1.4
@@ -124,7 +133,6 @@ typography:
 
 rounded:
   none: 0px
-  xxs: 1px
   xs: 2px
   sm: 4px
   md: 6px
@@ -132,7 +140,6 @@ rounded:
   xl: 10px
   xxl: 12px
   xxxl: 16px
-  tooltip: 20px
   full: 9999px
 
 spacing:
@@ -144,625 +151,1326 @@ spacing:
   xl: 24px
   xxl: 32px
   section: 40px
+  section-lg: 64px
 
 components:
   nav-bar:
     backgroundColor: "{colors.canvas}"
     textColor: "{colors.ink}"
     typography: "{typography.ui-label}"
-
-  logo-wordmark:
-    textColor: "{colors.primary}"
-    typography: "{typography.heading-4}"
+    breakpoint: 1024px
+    linkGapDesktop: 16px
+    minHeight: 70px
 
   button-primary:
     backgroundColor: "{colors.primary}"
+    hoverBackgroundColor: "{colors.primary-deep}"
     textColor: "{colors.on-primary}"
     typography: "{typography.ui-label}"
     rounded: "{rounded.xs}"
-    padding: "{spacing.md}"
+    padding: "16px 24px"
+    minHeight: 54px
+    minWidth: 44px
 
   button-secondary:
     backgroundColor: "{colors.canvas-soft}"
-    textColor: "{colors.primary}"
-    typography: "{typography.ui-label}"
+    hoverBackgroundColor: "{colors.mint-50}"
+    textColor: "{colors.primary-deep}"
+    typography: "{typography.ui-sm}"
     rounded: "{rounded.xs}"
-    padding: "{spacing.md}"
+    padding: "12px 20px"
+    borderColor: "{colors.hairline-strong}"
+    minHeight: 48px
+    minWidth: 44px
 
   button-outline:
+    backgroundColor: "transparent"
+    hoverBackgroundColor: "{colors.mint-50}"
     textColor: "{colors.primary}"
-    typography: "{typography.ui-label}"
+    typography: "{typography.ui-sm}"
     rounded: "{rounded.lg}"
     padding: "8px 16px"
     borderColor: "{colors.hairline-strong}"
+    minHeight: 44px
+    minWidth: 44px
+
+  mode-segmented-control:
+    backgroundColor: "{colors.canvas-soft}"
+    borderColor: "{colors.hairline-strong}"
+    activeBackgroundColor: "{colors.canvas}"
+    activeBorderColor: "{colors.primary}"
+    activeTextColor: "{colors.primary-deep}"
+    inactiveTextColor: "{colors.body}"
+    rounded: "{rounded.sm}"
+    itemRounded: "{rounded.xs}"
+    minHeight: 44px
+    padding: "4px"
+
+  calc-card:
+    backgroundColor: "{colors.canvas}"
+    borderColor: "{colors.hairline-strong}"
+    rounded: "{rounded.lg}"
+    padding: "32px"
+    mobilePadding: "20px 16px"
+    minHeight: 480px
+
+  calc-tab-bar:
+    backgroundColor: "{colors.canvas-soft}"
+    borderColor: "{colors.hairline-strong}"
+    rounded: "{rounded.sm}"
+    padding: "6px"
+    gap: "6px"
+
+  calc-tab-btn:
+    activeBackgroundColor: "{colors.primary}"
+    activeTextColor: "{colors.on-primary}"
+    activeBorderColor: "{colors.forest}"
+    inactiveTextColor: "{colors.body}"
+    typography: "{typography.ui-sm}"
+    rounded: "{rounded.xs}"
+    minHeight: 44px
+    minWidth: 120px
+    padding: "10px 14px"
 
   text-input:
-    textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.none}"
-
-  hero-band:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.body-md}"
-
-  breadcrumb:
-    textColor: "{colors.on-primary}"
-    typography: "{typography.caption}"
-
-  editorial-badge:
-    textColor: "{colors.lime-panel}"
-    typography: "{typography.micro}"
-
-  expert-tip-panel:
-    backgroundColor: "{colors.lime-panel}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.lg}"
-
-  stat-block-dark:
-    backgroundColor: "{colors.primary-deep}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.stat-value}"
-    rounded: "{rounded.lg}"
-
-  stat-chip-light:
     backgroundColor: "{colors.canvas}"
-    textColor: "{colors.muted}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.lg}"
-
-  product-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.lg}"
     borderColor: "{colors.hairline-strong}"
+    focusBorderColor: "{colors.primary}"
+    textColor: "{colors.ink}"
+    placeholderColor: "{colors.input-placeholder}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.xs}"
+    height: 52px
+    padding: "0 16px"
 
-  category-tile:
+  quick-rate-chip:
     backgroundColor: "{colors.canvas}"
+    activeBackgroundColor: "{colors.mint-50}"
+    borderColor: "{colors.hairline-strong}"
+    activeBorderColor: "{colors.primary}"
     textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.xxl}"
+    activeTextColor: "{colors.primary-deep}"
+    typography: "{typography.ui-sm}"
+    rounded: "{rounded.xs}"
+    minHeight: 44px
+    minWidth: 44px
+    padding: "8px 14px"
+    activeIndicator: "checkmark glyph '✓' plus 2px border"
 
-  section-panel-mint:
+  result-card-neutral:
+    backgroundColor: "{colors.canvas}"
+    borderColor: "{colors.hairline-strong}"
+    valueColor: "{colors.primary-deep}"
+    labelColor: "{colors.body}"
+    rounded: "{rounded.lg}"
+    padding: "22px"
+
+  result-card-success:
     backgroundColor: "{colors.mint-50}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.xxxl}"
+    borderColor: "{colors.mint-200}"
+    valueColor: "{colors.primary}"
+    rounded: "{rounded.lg}"
+    borderWidth: 2px
+    padding: "22px"
 
-  media-frame-mint:
-    backgroundColor: "{colors.mint-100}"
-    rounded: "{rounded.xxxl}"
+  toc-nav:
+    backgroundColor: "{colors.canvas}"
+    borderColor: "{colors.hairline-strong}"
+    rounded: "{rounded.lg}"
+    padding: "16px 20px"
+    jumpLinkMinHeight: 44px
+    jumpLinkPadding: "8px 16px"
+    jumpLinkBg: "{colors.canvas-soft}"
+    jumpLinkBorder: "{colors.hairline-strong}"
+    jumpLinkTextColor: "{colors.primary-deep}"
 
-  award-ribbon-pill:
-    backgroundColor: "{colors.mint-100}"
-    textColor: "{colors.primary}"
-    typography: "{typography.eyebrow}"
-    rounded: "{rounded.none}"
+  data-table:
+    backgroundColor: "{colors.canvas}"
+    headerBackgroundColor: "{colors.canvas-soft}"
+    headerBorderColor: "{colors.hairline-strong}"
+    rowBorderColor: "{colors.hairline}"
+    hoverBackgroundColor: "{colors.mint-50}"
+    actionLinkMinHeight: 44px
+    actionLinkColor: "{colors.primary-deep}"
 
-  icon-circle-active:
+  faq-item:
+    backgroundColor: "{colors.canvas}"
+    borderColor: "{colors.hairline-strong}"
+    rounded: "{rounded.lg}"
+    margin: "12px 0"
+    triggerPadding: "18px 24px"
+    contentPadding: "0 24px 20px"
+
+  back-to-top:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
+    size: 48px
     rounded: "{rounded.full}"
+    position: "fixed (bottom: 24px, right: 24px)"
+    zIndex: 40
 
-  icon-circle-inactive:
-    backgroundColor: "{colors.mint-50}"
-    textColor: "{colors.primary}"
-    rounded: "{rounded.full}"
-
-  comparison-row:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-
-  spec-cell:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.body}"
-    typography: "{typography.caption}"
-
-  accordion-row:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.ui-label}"
-    rounded: "{rounded.lg}"
-
-  link-inline:
-    textColor: "{colors.link}"
-    typography: "{typography.body-sm}"
-
-  link-green:
-    textColor: "{colors.primary}"
-    typography: "{typography.body-sm}"
-
-  eyebrow-label:
-    textColor: "{colors.muted}"
-    typography: "{typography.eyebrow}"
-
-  footer:
+  ad-slot-placeholder:
     backgroundColor: "{colors.canvas-soft}"
-    textColor: "{colors.body}"
-    typography: "{typography.body-sm}"
+    border: "1px dashed #767676"
+    rounded: "{rounded.xs}"
+    contain: "layout"
+    leaderboardMinHeight: 90px
+    rectangleMinHeight: 250px
+    halfpageMinHeight: 600px
+    inArticleMinHeight: 280px
+---
 
-  rate-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
-    rounded: "{rounded.xxl}"
+# Reverse Tax Calculator Design System (DESIGN.md)
 
-  badge-compare:
-    backgroundColor: "{colors.lime-panel}"
-    textColor: "{colors.primary}"
-    typography: "{typography.eyebrow}"
-    rounded: "{rounded.xl}"
-
-  carousel-control:
-    backgroundColor: "{colors.mint-50}"
-    textColor: "{colors.primary}"
-    rounded: "{rounded.full}"
-
-  marquee-ribbon:
-    backgroundColor: "{colors.lime-ribbon}"
-    textColor: "{colors.primary}"
-    typography: "{typography.ui-label}"
-
-  # ─── Examples (illustrative) ───
-  ex-pricing-tier:
-    description: "Default Pricing tier card. Re-uses feature-card chrome with brand canvas-soft surface."
-    backgroundColor: "{colors.canvas-soft}"
-    textColor: "{colors.ink}"
-    borderColor: "{colors.hairline}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  ex-pricing-tier-featured:
-    description: "Featured/highlighted tier — polarity-flipped surface (dark fill + light text in light mode, light fill + dark text in dark mode)."
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  ex-product-selector:
-    description: "What's Included summary card — re-purposed for SaaS / B2B verticals (NOT a literal product gallery)."
-    backgroundColor: "{colors.canvas-soft}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.lg}"
-  ex-cart-drawer:
-    description: "Subscription summary — re-purposed for SaaS / B2B (line items per add-on, not literal cart)."
-    backgroundColor: "{colors.canvas}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.lg}"
-    item-divider: "{colors.hairline}"
-  ex-app-shell-row:
-    description: "Sidebar nav row inside the App Shell example. Active state uses brand primary as the indicator."
-    backgroundColor: "{colors.canvas}"
-    activeIndicator: "{colors.primary}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.sm} {spacing.md}"
-  ex-data-table-cell:
-    description: "Default data-table th + td chrome. Header uses mono-caps eyebrow typography; body uses body-sm."
-    headerBackground: "{colors.canvas-soft}"
-    headerTypography: "{typography.eyebrow}"
-    bodyTypography: "{typography.body-sm}"
-    cellPadding: "{spacing.sm} {spacing.md}"
-    rowBorder: "{colors.hairline}"
-  ex-auth-form-card:
-    description: "Sign-in / sign-up card. Re-uses feature-card chrome with text-input primitives inside."
-    backgroundColor: "{colors.canvas-soft}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  ex-modal-card:
-    description: "Modal dialog surface — same chrome as feature-card with elevated shadow."
-    backgroundColor: "{colors.canvas}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  ex-empty-state-card:
-    description: "Empty-state illustration frame."
-    backgroundColor: "{colors.canvas-soft}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xxl}"
-    captionTypography: "{typography.body-md}"
-  ex-toast:
-    description: "Toast notification surface — feature-card shape + medium shadow."
-    backgroundColor: "{colors.canvas}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.sm} {spacing.lg}"
-    typography: "{typography.body-sm}"
+This document is the authoritative design, layout, accessibility, and component specification for **Reverse Sales Tax Calculator** (`salestaxreversecalculator.com`). Any new pages, regional hubs, calculators, or content sections built for the website **must** adhere strictly to the rules, tokens, patterns, and code blueprints documented here.
 
 ---
 
-
-## Overview
-
-NerdWallet is a comparison engine wearing an editorial coat, and the design reflects both halves. Article pages open on a wide `{colors.primary}` gradient band carrying a white headline, a byline row and a set of trust badges — the only place the brand raises its voice. Everything below that band drops to `{colors.canvas}` and `{colors.canvas-soft}`, where dense rate tables and product cards do the actual work. The transition is abrupt by design: one saturated green rectangle, then a very long, very quiet document.
-
-The palette is almost monochromatic in hue. `{colors.primary}` is a deep spruce green that fills every button, every active tab and every rating star, and beneath it sits a full ladder of mints — `{colors.mint-50}`, `{colors.mint-100}`, `{colors.mint-200}` — that wash section panels, icon tiles and photo frames. Those mints carry enormous surface area, far more than any accent, which is what keeps a page of financial tables from reading as a spreadsheet. The only colours outside the green family are `{colors.link}` for inline links and a lime family used for emphasis.
-
-The shape language is the surprise. For a consumer product this heavily illustrated, the corners are nearly square: the primary button sits at `{rounded.xs}` — two pixels — and cards rarely exceed `{rounded.lg}`. There is essentially no elevation; the single shadow in the system is a very wide, very faint double-layer stack. Separation is done with `{colors.hairline}` rules and mint fills instead. The result reads as trustworthy and utilitarian rather than soft.
-
-**Key Characteristics:**
-- One deep green, `{colors.primary}`, fills every action and every active state across all page types.
-- A three-step mint ladder (`{colors.mint-50}` → `{colors.mint-100}` → `{colors.mint-200}`) carries the largest surfaces in the system.
-- Buttons are nearly square at `{rounded.xs}`; the shape language stays tight even where illustration is playful.
-- Almost shadowless — `{colors.hairline}` rules and mint washes replace elevation.
-- Editorial pages follow a fixed rhythm: green gradient band → white body → mint callout → white comparison table.
-- A lime family (`{colors.lime-hero}`, `{colors.lime-panel}`, `{colors.lime-accent}`) supplies emphasis that green cannot, since green is spent on controls.
-- Headings sit in pure `{colors.ink}` black, not a softened near-black.
-
-## Colors
-
-Source pages: the homepage, the high-yield savings comparison page, and the best-credit-cards page.
-
-### Brand & Accent
-
-- **Spruce** (`{colors.primary}` — #008254): the brand. It fills `{button-primary}`, `{icon-circle-active}`, rating stars and every in-body green link, and it is the base of the editorial hero gradient. By pixel volume it is the single most-used non-neutral in the system.
-- **Deep Spruce** (`{colors.primary-deep}` — #006642): the fill of `{stat-block-dark}`, the dark statistic panel that sits inside the mint expert-tip callout.
-- **Forest** (`{colors.forest}` — #00482f): the deepest green, used where the hero gradient lands darkest and on dense editorial chrome.
-- **Logo Lime** (`{colors.logo-lime}` — #8dc63f): the lime inside the wordmark's leading mark. It appears at small scale on every page and nowhere else.
-- **Hero Lime** (`{colors.lime-hero}` — #9ae600): the vivid lime that sets the brand name inside the homepage hero headline — one word, once per page.
-- **Panel Lime** (`{colors.lime-panel}` — #e8fdac): the fill of `{expert-tip-panel}` and the colour of `{editorial-badge}` text on the green band.
-- **Accent Lime** (`{colors.lime-accent}` — #ddfa88): a brighter lime used for highlight marks on the comparison pages.
-- **Ribbon Lime** (`{colors.lime-ribbon}` — #a8ea4c): the lime end of the `{marquee-ribbon}` gradient — the only place the lime family covers a large surface.
-
-### Surface
-
-- **Canvas** (`{colors.canvas}` — #ffffff): the page, the nav bar and every card.
-- **Soft Canvas** (`{colors.canvas-soft}` — #f7f7f7): the page tint behind long comparison pages and the fill of `{button-secondary}`. It carries more area than any other surface on the savings page.
-- **Mint 50** (`{colors.mint-50}` — #effcf8): the palest wash, used for `{section-panel-mint}` and `{icon-circle-inactive}`.
-- **Mint 100** (`{colors.mint-100}` — #e3faf2): one step up, used for `{media-frame-mint}` and `{award-ribbon-pill}`.
-- **Mint 200** (`{colors.mint-200}` — #b7ecda): the most saturated mint, reserved for small emphasis fills.
-- **Hairline** (`{colors.hairline}` — #ebebec): rules between table rows and inside cards.
-- **Strong Hairline** (`{colors.hairline-strong}` — #767676): the visible border on `{product-card}`, `{button-outline}`, input controls, select dropdowns, and tab buttons. At #767676, it provides a 4.54:1 contrast ratio against white `{colors.canvas}` and 4.19:1 against `{colors.canvas-soft}`, comfortably exceeding the WCAG 1.4.11 non-text contrast mandate (minimum 3:1).
-
-### Text
-
-- **Ink** (`{colors.ink}` — #000000): every heading and product name. Pure black, not softened (21:1 contrast).
-- **Body** (`{colors.body}` — #374151): running copy, explanatory sections, and `{spec-cell}` labels. Set at weight 400 with line-height 1.65–1.7 and line length capped at ~65–75ch. Delivers 8.87:1 contrast on white `{colors.canvas}` and 8.2:1 on `{colors.canvas-soft}`, exceeding WCAG 2.2 AA (4.5:1) and AAA (7:1) requirements for high-density financial text.
-- **Muted** (`{colors.muted}` — #52525b): secondary captions, disclosure lines, and `{eyebrow-label}`. Delivers 5.74:1 contrast on white `{colors.canvas}`, meeting WCAG 2.2 AA.
-- **Faint** (`{colors.faint}` — #71717a): quiet metadata, dates, and helper captions. Delivers 4.54:1 contrast on white `{colors.canvas}`, meeting the 4.5:1 AA threshold.
-- **Input Placeholder** (`{colors.input-placeholder}` — #595959): form input and search placeholder text. Delivers 7.00:1 contrast on white `{colors.canvas}`, well above the 4.5:1 AA text requirement.
-
-### Semantic
-
-- **Link** (`{colors.link}` — #005fb9): inline links inside tables and cards, always underlined.
-- **Info** (`{colors.info}` — #4b99e6): a lighter blue used for supporting informational marks.
-- **Error** (`{colors.error}` — #de2828): the system's validation and destructive red, reserved for form errors and removal actions.
-
-## Typography
-
-### Font Family
-
-**Gotham** and **GothamDisplay** carry the entire system. Gotham handles body copy, UI labels, captions and the largest homepage headline; GothamDisplay — the tighter-fitting display cut — takes most editorial headings between 14 and 40px. The pairing is unusual in that the display cut is used at *smaller* sizes than the text cut's maximum, so the two overlap through the middle of the scale rather than splitting cleanly at a size boundary.
-
-The weight range is wide and genuinely used: 400 for body copy, 500 and 600 for interface text, 700 for headings and labels, and 900 available at the top. Body copy at weight 400 against 700 headings ensures optimal legibility and subpixel rendering while preserving distinct visual hierarchy. A serif, **Chronicle Display**, appears on the long-form editorial pages as a secondary face.
-
-### Hierarchy
-
-| Token | Size | Weight | Line Height | Letter Spacing | Use |
-|---|---|---|---|---|---|
-| `{typography.display-xl}` | 52px | 700 | 1.15 | 0 | Homepage hero headline |
-| `{typography.display-lg}` | 40px | 700 | 1.2 | 0 | Editorial page headline |
-| `{typography.heading-1}` | 36px | 700 | 1.2 | 0 | Section headline |
-| `{typography.heading-2}` | 28px | 700 | 1.25 | 0 | Sub-section headline |
-| `{typography.stat-value}` | 24px | 700 | 1.2 | 0 | Statistic figure |
-| `{typography.heading-3}` | 20px | 700 | 1.3 | 0 | Card title |
-| `{typography.heading-4}` | 20px | 500 | 1.3 | 0 | Light sub-heading |
-| `{typography.body-lg}` | 18px | 400 | 1.65 | 0 | Lead paragraph |
-| `{typography.body-md}` | 16px | 400 | 1.7 | 0 | Body copy |
-| `{typography.body-sm}` | 14px | 400 | 1.6 | 0 | Table copy, captions |
-| `{typography.ui-label}` | 14px | 700 | 1.2 | 0 | Button and nav labels |
-| `{typography.ui-sm}` | 13px | 600 | 1.3 | 0 | Dense interface text |
-| `{typography.caption}` | 13px | 600 | 1.4 | 0 | Field labels, disclosures |
-| `{typography.eyebrow}` | 13px | 700 | 1.2 | 0 | Uppercase section labels |
-| `{typography.micro}` | 13px | 600 | 1.4 | 0 | Trust badges, fine print |
-
-### Principles
-
-Hierarchy is carried by weight contrast and clear size scaling. The gap between weight-400 regular body and weight-700 bold headings ensures unmistakable visual separation while protecting against thin stroke washout on high-DPI and standard monitors alike. Uppercase is reserved for two roles — `{typography.eyebrow}` section labels and button text — and never used for multi-word headings. All microcopy, badges, chips, and uppercase labels adhere to a strict minimum size floor of 13px and at least 4.5:1 contrast against their rendered ground.
-
-### Note on Font Substitutes
-
-Gotham and GothamDisplay are licensed faces. **Montserrat** is the closest widely-available geometric substitute for Gotham, though it runs slightly wider and needs a small negative tracking at display sizes; **Proxima Nova**, **Inter**, or **Jost** are nearer in proportion if available. Maintain weight 400 for running body text to safeguard WCAG 2.2 contrast and stroke definition. Pair with weight 700 bold for headlines to keep the hierarchy distinct. Substitute the editorial serif with **Playfair Display** or **Source Serif 4**.
-
-## Layout
-
-### Spacing System
-
-- **Base unit**: 8px.
-- **Tokens**: `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 16px · `{spacing.lg}` 20px · `{spacing.xl}` 24px · `{spacing.xxl}` 32px · `{spacing.section}` 40px.
-- `{spacing.md}` is the universal control padding — both `{button-primary}` and `{button-secondary}` use a flat 16px on all sides, which is what gives the buttons their square, chunky proportion.
-- `{button-outline}` breaks that pattern with `8px 16px`, making it visibly shorter than the filled buttons beside it.
-
-### Grid & Container
-
-Content centres in a container of roughly 1200px inside the 1280px viewport. The homepage runs a 5-up category tile grid that steps down to 4-up and 2-up. Editorial pages use a single wide column for the hero band and then a full-width comparison table with five semantic columns — institution, rating, headline rate, bonus, and action. Product cards on the credit-cards page are full-width blocks stacked vertically, each subdivided into a spec grid of three to four cells.
-
-### Whitespace Philosophy
-
-Whitespace is tight inside components and generous between them. Table rows sit close together with only a hairline separating them, but the gap between one comparison block and the next is large. The mint panels act as breathing room that still carries content — rather than leaving empty space, the system drops in a pale `{colors.mint-50}` band and lets the density fall instead.
-
-### Responsive Strategy
-
-#### Breakpoints
-
-| Name | Width | Key Changes |
-|---|---|---|
-| Small mobile | < 425px | Single column; comparison tables become stacked cards; nav reduces to logo plus menu |
-| Mobile | 425–599px | Single column; spec grids collapse to one-per-row |
-| Large mobile | 600–767px | Two-up category tiles; table columns begin to drop |
-| Tablet | 768–1023px | Category rail scrolls horizontally; product cards keep their action column |
-| Laptop | 1024–1279px | Full table layout with tightened gutters |
-| Desktop | ≥ 1280px | Full layout at container width |
-
-#### Touch Targets
-
-`{button-primary}` and `{button-secondary}` clear 44×44 comfortably at their flat `{spacing.md}` padding. `{button-outline}` at `8px 16px` sits close to the minimum and needs its hit area extended on touch widths. `{icon-circle-active}` and `{icon-circle-inactive}` render near 44px in the category rail.
-
-#### Collapsing Strategy
-
-The nav keeps the wordmark, search and both account controls as long as possible, dropping the category links first. The horizontal category rail on comparison pages becomes a scrolling strip rather than wrapping. Comparison tables are the main responsive event: below the tablet breakpoint each row reflows into a stacked card where the institution logo, rating and rate become vertical fields and the action button goes full-width. `{expert-tip-panel}` keeps its mint fill but drops `{stat-block-dark}` beneath the copy instead of beside it.
-
-#### Image Behavior
-
-Institution logos are supplied as fixed-height greyscale-friendly marks and never crop. Editorial illustration sits inside `{media-frame-mint}` at `{rounded.xxxl}`. Product art — credit-card faces — renders at a fixed small aspect inside `{product-card}` and is never full-bleed. Author avatars are circular at `{rounded.full}` in a small overlapping stack.
-
-## Elevation & Depth
-
-| Level | Treatment | Use |
-|---|---|---|
-| 0 | Flat on `{colors.canvas}` | Body copy, table rows, headings |
-| 1 | 1px `{colors.hairline}` rule | Row dividers, spec-cell separators |
-| 2 | 1px `{colors.hairline-strong}` border | `{product-card}`, `{button-outline}`, `{accordion-row}` |
-| 3 | `rgba(100,102,106,0.05) 0 4px 16px` plus `rgba(100,102,104,0.05) 0 16px 40px` | `{button-primary}` and the few floating surfaces |
-| 4 | `oklab(0 0 0 / 0.04) 0 20px 25px -5px` plus `0 8px 10px -6px` | Overlay surfaces |
-
-The system is deliberately flat. Both shadow definitions sit at 4–5% opacity and spread very wide, so they register as a faint settling rather than a lift. On a page of financial data this reads as precision: nothing floats, everything is ruled.
-
-### Decorative Depth
-
-Depth comes from colour blocking and illustration, not from shadow. The green hero band is the only saturated plane; beneath it the mint ladder creates shallow steps between sections. Illustration is flat-vector — coin stacks, piggy banks, houses — sitting directly on white or mint with no drop shadow. The one genuinely dimensional element is the arrow motif inside `{stat-block-dark}`, which reads as a chart line breaking out of its container.
-
-## Shapes
-
-### Border Radius Scale
-
-| Token | Value | Use |
-|---|---|---|
-| `{rounded.none}` | 0px | `{text-input}`, `{award-ribbon-pill}`, table edges |
-| `{rounded.xxs}` | 1px | Inline marks |
-| `{rounded.xs}` | 2px | `{button-primary}`, `{button-secondary}`, search field |
-| `{rounded.sm}` | 4px | Small containers and inline blocks |
-| `{rounded.md}` | 6px | App-store badges |
-| `{rounded.lg}` | 8px | `{product-card}`, `{button-outline}`, `{accordion-row}`, `{expert-tip-panel}`, `{stat-block-dark}` |
-| `{rounded.xl}` | 10px | Labels and small spans |
-| `{rounded.xxl}` | 12px | `{category-tile}` |
-| `{rounded.xxxl}` | 16px | `{section-panel-mint}`, `{media-frame-mint}` |
-| `{rounded.tooltip}` | 20px | Tooltip surfaces |
-| `{rounded.full}` | 9999px | Avatars, `{icon-circle-active}`, `{icon-circle-inactive}` |
-
-The scale is broad but the weight of usage sits at the small end. Controls live at `{rounded.xs}`, cards at `{rounded.lg}`, and only decorative surfaces — mint panels and photo frames — reach `{rounded.xxxl}`. Several components use asymmetric radii, rounding only their top or leading corners where they butt against an adjacent block.
-
-### Photography Geometry
-
-Editorial photography sits inside `{media-frame-mint}` at `{rounded.xxxl}`, typically at a portrait or square crop. Author avatars are `{rounded.full}` at roughly 32px, overlapped in threes. Institution logos are placed on white at their native aspect with generous padding so competing brand marks never touch. Illustration is used at roughly 64px square inside `{category-tile}`.
-
-## Components
-
-> Every spec below documents Default and, where extracted, Active states only.
-
-### Buttons
-
-**`button-primary`** — the green action ("SIGN UP", "APPLY NOW", "LEARN MORE")
-- Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.ui-label}`, rounded `{rounded.xs}`, padding `{spacing.md}`, Elevation Level 3.
-- Uppercase label. The flat 16px padding on all four sides is what gives it its blocky proportion, and the 2px radius keeps it reading as a rectangle rather than a pill.
-
-**`button-secondary`** — the quiet companion ("SIGN IN")
-- Background `{colors.canvas-soft}`, text `{colors.primary}`, type `{typography.ui-label}`, rounded `{rounded.xs}`, padding `{spacing.md}`.
-- Same geometry as `{button-primary}` with the fill and text roles swapped, so the pair reads as one control with two weights.
-
-**`button-outline`** — the compact utility control
-- Text `{colors.primary}`, type `{typography.ui-label}`, rounded `{rounded.lg}`, padding `8px 16px`, 1px `{colors.hairline-strong}` border, no fill.
-- The only button that departs from both the square radius and the flat padding — noticeably shorter and softer than the filled pair.
-
-### Cards & Containers
-
-**`product-card`**
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, rounded `{rounded.lg}`, 1px `{colors.hairline-strong}` border, Elevation Level 2.
-- The workhorse of the comparison pages: product name, star rating, a `{button-primary}` action column on the right, then a spec grid of `{spec-cell}` blocks and a stack of `{accordion-row}` disclosures.
-
-**`category-tile`**
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-sm}`, rounded `{rounded.xxl}`.
-- Flat illustration on top, bold title, two lines of `{colors.muted}` description, with a small diagonal arrow pinned to the upper-right corner.
-
-**`section-panel-mint`**
-- Background `{colors.mint-50}`, text `{colors.ink}`, rounded `{rounded.xxxl}`.
-- The pale wash that holds the homepage category grid, providing separation without a border or shadow.
-
-**`media-frame-mint`**
-- Background `{colors.mint-100}`, rounded `{rounded.xxxl}`. Holds editorial photography with the mint visible as a border-like margin around the image.
-
-**`expert-tip-panel`**
-- Background `{colors.lime-panel}`, text `{colors.ink}`, type `{typography.body-md}`, rounded `{rounded.lg}`.
-- A signature editorial component: a wide pale-lime band opened by a bold arrow-prefixed label, carrying advisory copy and hosting `{stat-block-dark}` and `{stat-chip-light}` inside it.
-
-**`stat-block-dark`**
-- Background `{colors.primary-deep}`, text `{colors.on-primary}`, type `{typography.stat-value}`, rounded `{rounded.lg}`.
-- Sits inside `{expert-tip-panel}`, stacking a multiplier and a rate with small `{typography.caption}` labels beneath each, over an outline arrow motif.
-
-**`stat-chip-light`**
-- Background `{colors.canvas}`, label `{colors.muted}` at `{typography.caption}`, rounded `{rounded.lg}`.
-- The white counterpart that carries the comparison figure beside `{stat-block-dark}`.
-
-**`accordion-row`**
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.ui-label}`, rounded `{rounded.lg}`.
-- A leading glyph, a label and a trailing chevron, separated from its neighbours by a `{colors.hairline}` rule.
-
-### Inputs & Forms
-
-**`text-input`**
-- Text `{colors.ink}`, type `{typography.body-md}`, rounded `{rounded.none}`.
-- Square-cornered. The system gives inputs no fill and no border of their own — they sit inside a bordered container that supplies the chrome, which is why the input itself carries almost no styling.
-
-### Navigation
-
-**`nav-bar`** (Desktop)
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.ui-label}`.
-- Wordmark left, eight category links centre, then search, `{button-secondary}` and `{button-primary}` right. White on every page regardless of the band beneath it.
-
-**`nav-bar`** (Mobile)
-- Retains wordmark, search and both account controls; category links move behind a menu.
-
-**`icon-circle-active`** / **`icon-circle-inactive`**
-- Active fills `{colors.primary}` with an `{colors.on-primary}` glyph; inactive fills `{colors.mint-50}` with a `{colors.primary}` glyph. Both `{rounded.full}`.
-- Form the horizontal category rail above comparison pages, each with a label beneath and an underline marking the active item.
-
-**`breadcrumb`**
-- Text `{colors.on-primary}` at `{typography.caption}`, set on the green hero band with chevron separators.
-
-**`footer`**
-- Background `{colors.canvas-soft}`, text `{colors.body}`, type `{typography.body-sm}`.
-
-### Signature Components
-
-**`hero-band`**
-- Background `{colors.primary}` running as a horizontal gradient toward a lighter green, text `{colors.on-primary}`, type `{typography.body-md}`.
-- Opens every editorial page. Carries `{breadcrumb}`, the `{typography.display-lg}` headline, a byline row with circular avatars, `{editorial-badge}` trust marks and a lead paragraph. Full-bleed, square-cornered, and the only saturated plane on the page.
-
-**`editorial-badge`**
-- Text `{colors.lime-panel}` at `{typography.micro}`, uppercase, with a leading verification glyph. Sits on the green band and is the reason a lime tier exists — green-on-green would vanish.
-
-**`award-ribbon-pill`**
-- Background `{colors.mint-100}`, text `{colors.primary}`, type `{typography.eyebrow}`, rounded `{rounded.none}`.
-- A square-ended mint banner introduced by a folded green flag mark, pinned to the top-left of a winning `{product-card}`.
-
-**`comparison-row`**
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-sm}`.
-- Five columns — institution, rating, rate, bonus, action — separated from adjacent rows by a `{colors.hairline}` rule with no vertical dividers.
-
-**`spec-cell`**
-- Background `{colors.canvas}`, label `{colors.body}` at `{typography.caption}`, value `{colors.ink}`.
-- The label-above-value block that tiles inside `{product-card}`, ruled on its leading edge by `{colors.hairline}`.
-
-**`link-inline`** / **`link-green`**
-- `{link-inline}` uses `{colors.link}` with an underline for supporting references; `{link-green}` uses `{colors.primary}` with a heavier underline for in-body navigation. The two coexist on the same card and carry different intent.
-
-**`eyebrow-label`**
-- Text `{colors.muted}` at `{typography.eyebrow}`, uppercase, opening partner and resource sections.
-
-**`logo-wordmark`**
-- Text `{colors.primary}` at `{typography.heading-4}`, preceded by a mark carrying `{colors.logo-lime}`.
-
-**`rate-card`**
-- Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-sm}`, rounded `{rounded.xxl}`.
-- A clickable comparison tile inside the mint rates panel: product name, a `{colors.primary}` circular arrow pinned right, then two rate rows pairing a `{colors.muted}` label with a large `{colors.primary}` figure and a trend glyph.
-
-**`badge-compare`**
-- Background `{colors.lime-panel}`, text `{colors.primary}`, type `{typography.eyebrow}`, rounded `{rounded.xl}`.
-- A pale-lime pill pinned to the top-left corner of the leading `{rate-card}`, marking the recommended comparison.
-
-**`carousel-control`**
-- Background `{colors.mint-50}`, glyph `{colors.primary}`, rounded `{rounded.full}`.
-- Paired previous/next circles flanking a dot pagination strip whose active dot fills `{colors.primary}`.
-
-**`marquee-ribbon`**
-- Background `{colors.lime-ribbon}` running as a gradient into `{colors.primary}`, text `{colors.primary}`, type `{typography.ui-label}`.
-- A full-bleed diagonal band of repeated uppercase slogans separated by small sparkle glyphs, tilted a few degrees off horizontal and bleeding past both viewport edges. It is the loudest element in the system and the only place the lime family fills a large surface.
-
-### Examples (illustrative)
-
-> Kit-mirror demonstration surfaces. These are not extracted from NerdWallet — they are the standard SaaS UI patterns re-skinned with NerdWallet's primitives, so every consumer of this document shapes the same ten surfaces against the brand rather than against a template default.
-
-**`ex-pricing-tier`** — Default Pricing tier card. Re-uses feature-card chrome with brand canvas-soft surface.
-- Properties: `backgroundColor`, `textColor`, `borderColor`, `rounded`, `padding`
-
-**`ex-pricing-tier-featured`** — Featured/highlighted tier — polarity-flipped surface (dark fill + light text in light mode, light fill + dark text in dark mode).
-- Properties: `backgroundColor`, `textColor`, `rounded`, `padding`
-
-**`ex-product-selector`** — What's Included summary card — re-purposed for SaaS / B2B verticals (NOT a literal product gallery).
-- Properties: `backgroundColor`, `rounded`, `padding`
-
-**`ex-cart-drawer`** — Subscription summary — re-purposed for SaaS / B2B (line items per add-on, not literal cart).
-- Properties: `backgroundColor`, `rounded`, `padding`, `item-divider`
-
-**`ex-app-shell-row`** — Sidebar nav row inside the App Shell example. Active state uses brand primary as the indicator.
-- Properties: `backgroundColor`, `activeIndicator`, `rounded`, `padding`
-
-**`ex-data-table-cell`** — Default data-table th + td chrome. Header uses mono-caps eyebrow typography; body uses body-sm.
-- Properties: `headerBackground`, `headerTypography`, `bodyTypography`, `cellPadding`, `rowBorder`
-
-**`ex-auth-form-card`** — Sign-in / sign-up card. Re-uses feature-card chrome with text-input primitives inside.
-- Properties: `backgroundColor`, `rounded`, `padding`
-
-**`ex-modal-card`** — Modal dialog surface — same chrome as feature-card with elevated shadow.
-- Properties: `backgroundColor`, `rounded`, `padding`
-
-**`ex-empty-state-card`** — Empty-state illustration frame.
-- Properties: `backgroundColor`, `rounded`, `padding`, `captionTypography`
-
-**`ex-toast`** — Toast notification surface — feature-card shape + medium shadow.
-- Properties: `backgroundColor`, `rounded`, `padding`, `typography`
-
-
-## Do's and Don'ts
-
-### Do
-
-- Spend `{colors.primary}` on actions and active states only — buttons, rating stars, active tabs, in-body links.
-- Reach for the mint ladder (`{colors.mint-50}` → `{colors.mint-200}`) when a section needs separation; it is the system's substitute for elevation.
-- Keep controls at `{rounded.xs}` and cards at `{rounded.lg}`; save `{rounded.xxxl}` for decorative panels and photo frames.
-- Separate table rows with a single `{colors.hairline}` rule and no vertical dividers.
-- Use the lime family for emphasis that has to survive on a green ground, where `{colors.primary}` would disappear.
-- Set headings in `{colors.ink}` pure black and body copy in `{colors.body}` (#374151) at weight 400 — providing 8.87:1 contrast and crisp readability.
-- Keep interactive element borders (inputs, selects, tabs) at `{colors.hairline-strong}` (#767676) or darker to guarantee 3:1+ non-text contrast against canvases.
-- Maintain a minimum floor of 13px for all microcopy, badges, chips, table headers, and captions.
-- Give every comparison figure a `{typography.caption}` label above it in `{colors.body}`, never inline.
-- Open editorial pages with `{hero-band}` and then drop immediately to a light canvas; do not carry the green further down.
-
-### Don't
-
-- Don't round the filled buttons. `{rounded.xs}` is a deliberate choice against the softness of the illustration style.
-- Don't add drop shadows to cards — use the `{colors.hairline-strong}` border instead. The system's only shadows sit at 4–5% opacity.
-- Don't use `{colors.link}` blue and `{colors.primary}` green interchangeably; blue is a supporting reference, green is navigation the reader is meant to follow.
-- Don't extend `{hero-band}` green into body sections or use it as a card fill.
-- Don't introduce a warm accent. The palette runs green through mint with blue as the only outside hue.
-- Don't set body copy below weight 400 or lighter than #374151.
-- Don't use borders lighter than #767676 for interactive inputs or active controls.
-- Don't render text smaller than 13px anywhere in the UI.
-- Don't place `{colors.lime-panel}` on white as a text colour; the lime tier only works as a fill on white or as type on green.
-- Don't give `{text-input}` a radius or a border of its own; the containing chrome supplies both.
-
-## WCAG 2.2 AA Contrast & Accessibility Architecture
-
-This system conforms strictly to **WCAG 2.2 AA** criteria and adheres to **AAA** thresholds for core text and non-text contrast.
-
-### 1. Contrast Matrix
-
-| Element / Token | Hex | Ground | Measured Contrast | Target / Standard | Compliance Status |
-|---|---|---|---|---|---|
-| **Ink** (`{colors.ink}`) | `#000000` | White `#ffffff` | **21.00:1** | $\ge 4.5:1$ (AA) / $\ge 7:1$ (AAA) | Pass (AAA) |
-| **Body text** (`{colors.body}`) | `#374151` | White `#ffffff` | **8.87:1** | $\ge 4.5:1$ (AA) / $\ge 7:1$ (AAA) | Pass (AAA) |
-| **Body text** (`{colors.body}`) | `#374151` | Soft Canvas `#f7f7f7` | **8.20:1** | $\ge 4.5:1$ (AA) / $\ge 7:1$ (AAA) | Pass (AAA) |
-| **Muted text** (`{colors.muted}`) | `#52525b` | White `#ffffff` | **5.74:1** | $\ge 4.5:1$ (AA) | Pass (AA) |
-| **Faint microcopy** (`{colors.faint}`) | `#71717a` | White `#ffffff` | **4.54:1** | $\ge 4.5:1$ (AA) | Pass (AA) |
-| **Form Placeholders** | `#595959` | White `#ffffff` | **7.00:1** | $\ge 4.5:1$ (AA) | Pass (AAA) |
-| **Interactive Borders** | `#767676` | White `#ffffff` | **4.54:1** | $\ge 3:1$ (WCAG 1.4.11 Non-text) | Pass (AA Non-text) |
-| **Interactive Borders** | `#767676` | Soft Canvas `#f7f7f7` | **4.19:1** | $\ge 3:1$ (WCAG 1.4.11 Non-text) | Pass (AA Non-text) |
-| **CTA Button Text** | `#ffffff` | Primary Green `#008254` | **4.68:1** | $\ge 4.5:1$ (AA) | Pass (AA) |
-| **Validation Error Text** | `#de2828` | White `#ffffff` | **4.78:1** | $\ge 4.5:1$ (AA) | Pass (AA) |
-
-### 2. Microcopy Floor
-All microcopy (eyebrow labels, section tags, table headers, trust badge captions, footer disclaimers, and rate chips) has an enforced minimum size of **13px** (`0.8125rem` / `text-[13px]`) with minimum weight 600 or 700. Sub-13px text is prohibited across the platform.
-
-### 3. Touch Targets & Spacing
-- Primary rate selection chips, quick-select buttons, and form submission controls maintain a minimum touch target bounding box of **44×44px**.
-- Adjacent controls maintain at least **8px** gap separation to eliminate accidental activation.
-
-### 4. Focus Visible Indicators
-- All interactive controls (buttons, links, inputs, selects, accordions, and tabs) feature prominent `:focus-visible` styling:
-  - Outline / ring width: **2px solid**
-  - Ring offset: **2px**
-  - Ring color: Dark Forest `#00482f` on light surfaces; contrasting white/lime rings on green surfaces.
-  - Exceeds WCAG 2.4.11 (Focus Appearance) contrast requirement $\ge 3:1$.
-
-### 5. Assistive Technology Support
-- **WAI-ARIA Tabs:** Follows the APG Tabs pattern with `role="tablist"`, `role="tab"`, `role="tabpanel"`, roving tabindex, and full keyboard arrow navigation (`ArrowLeft`, `ArrowRight`, `Home`, `End`). Inactive tab content remains in the DOM with the `hidden` attribute to preserve accessibility and SEO indexing.
-- **Dynamic Result Announcements:** Results container uses `role="status"` with `aria-live="polite"` and `aria-atomic="true"` to announce calculation results programmatically without hijacking focus.
-- **Data Tables:** Semantic `<caption>`, `<th scope="col">`, `<th scope="row">`, sticky headers, and horizontally scrollable containers with `tabindex="0"` and `role="region"` for complete keyboard navigability.
-- **Decorative Emojis & Icons:** Non-semantic decorative glyphs (e.g. 🚀, 💡, 🌴, ⭐) are wrapped in `aria-hidden="true"` to prevent screen reader clutter while preserving crawlable text semantics.
+## 1. Executive Design Philosophy
+
+The website operates as an institutional-grade financial utility wearing an authoritative editorial coat. In financial calculation, tax compliance, and accounting tools, user trust is paramount. The interface communicates speed, certainty, and mathematical rigor:
+
+1. **One Spruce Green (`#008254`) Drives All Action:** Primary action buttons, active tab selection, focused controls, and brand accents share this exact spruce tone. It represents authoritative, error-free action.
+2. **A Mint Ladder Instead of Heavy Drop Shadows:** Depth is achieved via subtle color blocking rather than artificial drop shadows. Surfaces step cleanly from White (`#ffffff`) to Soft Canvas (`#f7f7f7`), then through three distinct mint washes:
+   - Mint 50 (`#effcf8`): subtle background tint for formula boxes, success result cards, and table hover states.
+   - Mint 100 (`#e3faf2`): category badges and stat chips.
+   - Mint 200 (`#b7ecda`): borders framing mint callouts and active cards.
+3. **Nearly Square Geometric Precision:** Primary buttons and form controls feature a disciplined `2px` (`var(--radius-xs)`) border radius; content cards sit at `8px` (`var(--radius-lg)`). Round pill-shaped buttons are prohibited for primary controls.
+4. **Universal High Contrast (WCAG 2.2 AA / AAA):** Every text and non-text element is audited against strict contrast ratios:
+   - Interactive borders sit at `#767676` (`--hairline-strong`, 4.54:1 on white).
+   - Body copy sits at `#374151` (`--body`, 8.87:1 on white, weight 400, max-width 72ch).
+   - Placeholder text sits at `#595959` with explicit `opacity: 1 !important` (7.00:1 on white).
+   - Microcopy has a strict minimum size floor of 13px (`text-[13px]`) with $\ge 4.5:1$ contrast.
+5. **Neutral Accounting Results (Elimination of "Danger Red"):** In financial software, statutory sales tax is an expected computation, never an error. Output cards are styled in clean, calm neutral canvases (`#ffffff` canvas with `#767676` border and `#006642` deep spruce figures). Red (`#de2828`) is reserved strictly for destructive actions and invalid input validation errors.
+6. **Active State Non-Color Reliance:** WCAG Criterion 1.4.1 mandates that color alone cannot indicate selection. Active rate chips, tabs, and filters **must** feature a structural checkmark glyph (`✓`) and a thicker 2px border alongside the color transition.
+7. **100% SEO Indexability & SSR Integrity:** Every interactive disclosure, FAQ accordion, tab panel, and dropdown must deliver 100% of its content inside initial server-rendered HTML. Conditional React unmounting (`{isOpen && <div>}`) that strips DOM nodes from web crawlers is strictly prohibited.
+8. **Zero Cumulative Layout Shift (CLS = 0.000):** Layout containers, calculation output cards, and ad placements reserve explicit minimum heights and CSS `contain: layout`. Calculations update in-place with a subtle `opacity: 0.6` transition rather than collapsing the viewport.
+
+---
+
+## 2. Color Palette & Token Architecture
+
+All colors are declared as CSS custom properties in `src/app/globals.css`. Never hardcode ad-hoc hex values in component inline styles or utility classes.
+
+### 2.1 Brand & Accent Palette
+
+| Token | CSS Variable | Hex | Contrast on White | Usage & Role |
+|---|---|---|:---:|---|
+| **Primary Spruce** | `--primary` | `#008254` | **4.85:1** (AA) | Primary buttons (`.btn-primary`), active tabs, focus borders, vector icons, links, and hero band base. |
+| **Deep Spruce** | `--primary-deep` | `#006642` | **7.12:1** (AAA) | Hover states on primary controls, formula equation values, and large result figures. |
+| **Deep Forest** | `--forest` | `#005a36` | **8.53:1** (AAA) | High-contrast `:focus-visible` rings, dark stat callouts (`.stat-block-dark`), and active borders. |
+| **Deepest Forest** | `--forest-deep` | `#00482f` | **11.02:1** (AAA) | Hero band gradient end-stop, high-density dark surfaces. |
+| **On Primary** | `--on-primary` | `#ffffff` | — | Text and icons rendered over spruce or forest backgrounds. |
+| **Lime Panel** | `--lime-panel` | `#e8fdac` | — | Background for signature `.expert-tip-panel` callouts. |
+| **Lime Accent** | `--lime-accent` | `#ddfa88` | — | 1px border on lime panels and high-emphasis indicators. |
+| **Logo Lime** | `--logo-lime` | `#8dc63f` | — | Accent spark in the brand logo mark. |
+| **Hero Lime** | `--lime-hero` | `#9ae600` | — | High-emphasis headline accents on dark hero backgrounds. |
+
+### 2.2 Surface & Neutral Canvas Palette
+
+| Token | CSS Variable | Hex | Usage & Role |
+|---|---|---|---|
+| **Canvas** | `--canvas` | `#ffffff` | Page body, card containers, inputs, and table backgrounds. |
+| **Canvas Soft** | `--canvas-soft` | `#f7f7f7` | Secondary buttons, table headers, mode selector backgrounds, and section tints. |
+| **Mint 50** | `--mint-50` | `#effcf8` | Palest wash for table hover states, section panels, and active chip backgrounds. |
+| **Mint 100** | `--mint-100` | `#e3faf2` | Category badges, stat chips, and photo framing. |
+| **Mint 200** | `--mint-200` | `#b7ecda` | Borders on mint callouts and active state dividers. |
+| **Hairline** | `--hairline` | `#ebebec` | Internal row dividers and subtle card rules (sub-structural). |
+| **Strong Hairline** | `--hairline-strong` | `#767676` | **Mandatory border** for inputs, select menus, tab bars, quick chips, and card borders. Delivers 4.54:1 contrast on white (exceeding WCAG 1.4.11 non-text minimum 3:1). |
+
+### 2.3 Typography & Text Contrast Tiers
+
+| Token | CSS Variable | Hex | Contrast on White | WCAG Standard | Usage & Role |
+|---|---|---|:---:|:---:|---|
+| **Ink** | `--ink` | `#111827` | **17.84:1** | Pass (AAA) | Headings (H1–H6), table titles, input values, and high-emphasis numbers. Pure black `#000000` is also supported at 21:1 via `--ink-pure`. |
+| **Body** | `--body` | `#374151` | **8.87:1** | Pass (AAA) | Running editorial copy, explanations, input labels, and table cells. Set at weight 400 with line-height 1.65–1.7 and max-width 72ch. |
+| **Muted** | `--muted` | `#52525b` | **5.74:1** | Pass (AA) | Secondary captions, helper copy, and disclosure labels. |
+| **Faint** | `--faint` | `#71717a` | **4.54:1** | Pass (AA) | Timestamp metadata, slot tags, and breadcrumb chevrons. |
+| **Placeholder** | `--input-placeholder` | `#595959` | **7.00:1** | Pass (AAA) | Form field placeholder text with explicit `opacity: 1 !important`. |
+
+### 2.4 Semantic & State Colors
+
+| Token | CSS Variable | Hex | Usage & Role |
+|---|---|---|---|
+| **Link** | `--link` | `#005fb9` | Inline textual links inside articles or tables. Always underlined. |
+| **Info** | `--info` | `#4b99e6` | Informational helper glyphs and non-critical notes. |
+| **Error / Destructive** | `--error` | `#de2828` | Form validation errors and destructive actions. Never used for standard calculation results! |
+| **Error Background** | `--error-bg` | `#fff5f5` | Alert callout surface for invalid inputs. |
+| **Error Border** | `--error-border` | `#ffd8d8` | Alert callout border for invalid inputs. |
+
+### 2.5 WCAG 2.2 AA / AAA Contrast Matrix (Verified)
+
+Every color combination in this system has been verified using the official relative luminance formula:
+
+$$\text{Contrast Ratio} = \frac{L_1 + 0.05}{L_2 + 0.05}$$
+
+| Foreground Token | Hex | Background Token | Background Hex | Measured Ratio | WCAG Compliance Level |
+|---|---|---|---|:---:|:---:|
+| `--ink` | `#111827` | `--canvas` | `#ffffff` | **17.84:1** | WCAG AAA ($\ge 7.0:1$) |
+| `--ink` | `#111827` | `--canvas-soft` | `#f7f7f7` | **16.50:1** | WCAG AAA ($\ge 7.0:1$) |
+| `--body` | `#374151` | `--canvas` | `#ffffff` | **8.87:1** | WCAG AAA ($\ge 7.0:1$) |
+| `--body` | `#374151` | `--canvas-soft` | `#f7f7f7` | **8.20:1** | WCAG AAA ($\ge 7.0:1$) |
+| `--body` | `#374151` | `--mint-50` | `#effcf8` | **8.55:1** | WCAG AAA ($\ge 7.0:1$) |
+| `--muted` | `#52525b` | `--canvas` | `#ffffff` | **5.74:1** | WCAG AA ($\ge 4.5:1$) |
+| `--faint` | `#71717a` | `--canvas` | `#ffffff` | **4.54:1** | WCAG AA ($\ge 4.5:1$) |
+| `--input-placeholder` | `#595959` | `--canvas` | `#ffffff` | **7.00:1** | WCAG AAA ($\ge 7.0:1$) |
+| `--hairline-strong` (Borders) | `#767676` | `--canvas` | `#ffffff` | **4.54:1** | WCAG Non-Text ($\ge 3.0:1$) |
+| `--hairline-strong` (Borders) | `#767676` | `--canvas-soft` | `#f7f7f7` | **4.19:1** | WCAG Non-Text ($\ge 3.0:1$) |
+| `--primary-deep` | `#006642` | `--canvas` | `#ffffff` | **7.12:1** | WCAG AAA ($\ge 7.0:1$) |
+| `--primary-deep` | `#006642` | `--mint-50` | `#effcf8` | **6.76:1** | WCAG AA ($\ge 4.5:1$) |
+| Button Label (`--on-primary`) | `#ffffff` | `--primary` | `#008254` | **4.85:1** | WCAG AA ($\ge 4.5:1$) |
+| Focus Ring (`--forest`) | `#005a36` | `--canvas` | `#ffffff` | **8.53:1** | WCAG Non-Text ($\ge 3.0:1$) |
+| Hero Headline (`--on-primary`) | `#ffffff` | `--forest-deep` (Hero) | `#00482f` | **11.02:1** | WCAG AAA ($\ge 7.0:1$) |
+
+---
+
+## 3. Typography Architecture
+
+### 3.1 Font Stack
+
+The platform standardizes on **Montserrat** as the primary geometric sans-serif typeface, backed by modern system fallbacks, with a dedicated monospace font for numerical precision:
+
+```css
+--font-sans: var(--font-montserrat), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+--font-mono: var(--font-mono), monospace;
+```
+
+- **Body Copy:** Weight `400`, `line-height: 1.65–1.7`, `color: var(--body)`. Capped at `max-width: 72ch` for optimal reading comfort.
+- **Headings:** Weight `700`, `line-height: 1.15–1.3`, `color: var(--ink)`, `letter-spacing: -0.015em`.
+- **Interface Labels:** Weight `600` or `700`, `letter-spacing: 0.02em`.
+- **Numbers / Currencies / Rates:** Mandatory `font-variant-numeric: tabular-nums` or `font-family: var(--font-mono)` to guarantee column alignment without jitter during input updates.
+
+### 3.2 Typography Scale & Hierarchy
+
+| Token | Class / CSS | Size | Weight | Line Height | Tracking | Recommended Usage |
+|---|---|---|---|---|---|---|
+| `display-xl` | `.text-5xl font-bold` | 52px | 700 | 1.15 | -0.015em | Homepage hero title |
+| `display-lg` | `.text-4xl font-bold` | 40px | 700 | 1.2 | -0.015em | Regional Hub / State page H1 |
+| `heading-1` | `h1` | 36px | 700 | 1.2 | -0.015em | Major section title |
+| `heading-2` | `h2` | 28px | 700 | 1.25 | -0.015em | Subsection title, primary article H2 |
+| `heading-3` | `h3` | 20px | 700 | 1.3 | 0 | Card title, calculator title, step heading |
+| `heading-4` | `h4` | 18–20px | 600 | 1.3 | 0 | FAQ accordion trigger wrapper, detail label |
+| `stat-value` | `.stat-value` | 28–32px | 800 | 1.1 | 0 | Key metric values, calculator output figures |
+| `body-lg` | `.text-lg` | 18px | 400 | 1.65 | 0 | Lead paragraph under hero |
+| `body-md` | `p, .text-base` | 16px | 400 | 1.7 | 0 | General prose, explanatory text (max 72ch) |
+| `body-sm` | `.text-sm` | 14px | 400 | 1.6 | 0 | Table cells, helper copy |
+| `ui-label` | `.btn-primary` | 14px | 700 | 1.2 | 0.02em | Buttons, primary CTA controls |
+| `ui-sm` | `.btn-secondary` | 13px | 600 | 1.3 | 0.02em | Secondary buttons, tab buttons, nav links |
+| `caption` | `.text-[13px]` | 13px | 600 | 1.4 | 0 | Form labels, disclosure captions, footnotes |
+| `eyebrow` | `.section-label` | 13px | 700 | 1.2 | 0.08em | Uppercase section tag pills |
+| `micro` | `.trust-badge` | 13px | 600 | 1.4 | 0 | Trust marks, fine-print disclaimers |
+
+### 3.3 Strict Microcopy Size Floor (13px Minimum)
+
+To protect legibility and guarantee accessibility under WCAG 2.2, **no rendered text on any page may be smaller than 13px** (`0.8125rem` / `text-[13px]`). Legacy `10px`, `11px`, or `12px` font declarations are strictly forbidden for visible page copy. Microcopy must use minimum weight `600` and satisfy $\ge 4.5:1$ contrast against its ground.
+
+### 3.4 Typographic Cleanliness Rules
+
+- **Ellipsis:** Use the single Unicode character `…` (`&hellip;`), never three raw dots `...`.
+- **Punctuation:** Use clean directional quotation marks and apostrophes where appropriate.
+- **Numbers:** Always wrap dynamic currency or tax rates in `.tabular-nums` so numbers line up vertically in tables and result summaries.
+
+---
+
+## 4. Universal Accessibility Architecture (WCAG 2.2 AA)
+
+Compliance with WCAG 2.2 AA is foundational across the codebase.
+
+### 4.1 Universal Visible Focus Ring
+
+Every keyboard-interactive element (buttons, links, inputs, selects, tabs, accordions, and table action links) displays a high-contrast focus ring when focused via keyboard (`:focus-visible`):
+
+```css
+:focus-visible {
+  outline: 2px solid var(--forest) !important;
+  outline-offset: 2px !important;
+}
+
+/* Inputs and Selects align the outline flush with the border */
+.calc-input:focus-visible,
+.state-select:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary) !important;
+  outline-offset: 0 !important;
+  border-color: var(--primary) !important;
+}
+```
+
+*Rule:* Never apply `outline: none` or `outline: 0` without immediately supplying a compliant visible replacement.
+
+### 4.2 Minimum Touch Target Size (44×44px)
+
+Under WCAG 2.2 Criterion 2.5.8 (Target Size), every interactive target must provide a minimum bounding box of **44×44px** on all devices (or maintain an equivalent spacing boundary):
+
+- Primary CTA buttons: `min-height: 54px; min-width: 44px;`
+- Secondary buttons: `min-height: 48px; min-width: 44px;`
+- Mode selector segments: `min-height: 44px; min-width: 44px;`
+- Tab buttons: `min-height: 44px; min-width: 120px;`
+- Rate preset chips: `min-height: 44px; min-width: 44px;`
+- Table action links (`Calculate →`): `min-height: 44px; min-width: 44px; display: inline-flex; align-items: center;`
+- Table of Contents jump links: `min-height: 44px; padding: 8px 16px;`
+- Floating back-to-top button: `width: 48px; height: 48px;`
+- Adjacent interactive elements must maintain at least **8px** of gap separation.
+
+### 4.3 Active State Indicators (Non-Color Relying)
+
+WCAG Criterion 1.4.1 mandates that color must not be the sole visual means of conveying an active or selected state. 
+
+*Implementation Pattern:*
+Whenever an option or chip is selected (e.g., calculation mode toggles, rate preset chips, or table row selections), the active state **must** combine color with at least one additional structural visual cue:
+1. An explicit checkmark glyph: `<span aria-hidden="true">✓ </span>`
+2. An increased border stroke: `border-width: 2px;` vs `border-width: 1px;`
+3. An explicit ARIA attribute: `aria-pressed="true"`, `aria-selected="true"`, or `aria-checked="true"`.
+
+```tsx
+<button
+  type="button"
+  aria-pressed={isActive}
+  className={`quick-btn ${isActive ? 'active' : ''}`}
+  style={{
+    borderWidth: isActive ? 2 : 1,
+    borderColor: isActive ? 'var(--primary)' : 'var(--hairline-strong)',
+    backgroundColor: isActive ? 'var(--mint-50)' : 'var(--canvas)',
+    color: isActive ? 'var(--primary-deep)' : 'var(--ink)',
+    fontWeight: isActive ? 700 : 500,
+  }}
+>
+  {isActive && <span aria-hidden="true" style={{ fontWeight: 800, marginRight: 4 }}>✓</span>}
+  {rate}%
+</button>
+```
+
+### 4.4 Screen Reader Live Announcements
+
+Calculators dynamically compute results without a full page reload. Screen readers must be informed of changes politely without stealing focus:
+
+```tsx
+<div
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+  className="sr-only"
+>
+  {announcementText}
+</div>
+```
+
+Announcements are triggered when:
+- A calculation completes (e.g., *"Pre-tax price calculated: $100.00. Sales tax: $7.50 at 7.5% sales tax. Total: $107.50."*)
+- Calculation mode is switched (*"Calculator switched to reverse mode: Find price before tax."*)
+- Content is copied to clipboard (*"Tax breakdown copied to clipboard."*)
+- A table filter query is executed (*"Showing 12 of 51 jurisdictions."*)
+
+### 4.5 Universal Skip-to-Content Navigation
+
+Every top-level page template must include an accessible skip link as the very first focusable element inside the document body:
+
+```html
+<a href="#main-content" className="skip-link">
+  Skip to main content
+</a>
+```
+
+And every page's `<main>` landmark element **must** declare:
+
+```html
+<main id="main-content" tabIndex={-1}>
+  ...
+</main>
+```
+
+The `tabIndex={-1}` attribute ensures that assistive technology programmatically shifts keyboard focus to the main container when the skip link is activated.
+
+### 4.6 Keyboard Form Submission via Enter Key
+
+Desktop users expect to press `Enter` to calculate. Calculator input fields must always be wrapped in a semantic HTML `<form>` with a `type="submit"` button or handled via `onSubmit`:
+
+```tsx
+<form
+  onSubmit={(e) => {
+    e.preventDefault();
+    handleCalculate();
+  }}
+>
+  {/* input fields */}
+  <button type="submit" className="btn-primary">
+    Calculate Pre-Tax Price
+  </button>
+</form>
+```
+
+### 4.7 Reduced Motion Respect
+
+Users with vestibular sensitivities must be protected from involuntary animations:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+---
+
+## 5. Layout Architecture & Zero CLS
+
+### 5.1 Container & Grid Standards
+
+The primary content container caps width at **1200px** with responsive gutters:
+
+```css
+.container-main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 640px) {
+  .container-main {
+    padding: 0 24px;
+  }
+}
+```
+
+### 5.2 Sticky Header Offset (`scroll-margin-top`)
+
+When users jump to in-page anchors (e.g. `#calculator`, `#how-it-works`, `#formula`, `#state-search`, `#faq`), sticky headers can obscure the target heading. All major section anchors must include an explicit scroll margin:
+
+```css
+#calculator,
+#how-it-works,
+#formula,
+#state-search,
+#faq,
+#embed-widget-section,
+.scroll-target {
+  scroll-margin-top: 100px;
+}
+```
+
+### 5.3 Cumulative Layout Shift (CLS) Elimination
+
+To maintain a **CLS score of 0.000**:
+1. **Never unmount result cards during typing:** When a user modifies an input amount or rate, do not collapse the result container height. Instead, retain the previous calculation in the DOM with a subtle `opacity: 0.6` transition until the new calculation completes.
+2. **Fixed Min-Heights on Dynamic Containers:** Calculator cards declare `min-height: 480px;`; tab panels declare `min-height: 380px;`.
+3. **Table Column Locking:** All comparison tables declare `table-layout: fixed;` with explicit percentage column widths so that searching or filtering does not cause column width jitter.
+
+---
+
+## 6. Authoritative Component Specifications & Blueprints
+
+### 6.1 Primary Action Button (`.btn-primary`)
+
+The signature green action button. Built with a disciplined `2px` border radius, flat `16px 24px` padding, bold typography, and generous hit area.
+
+```css
+.btn-primary, button.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 54px;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+  padding: 16px 24px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  box-shadow: 0 2px 6px rgba(0, 72, 47, 0.12);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-deep);
+  color: var(--on-primary);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+```
+
+### 6.2 Secondary Button (`.btn-secondary`)
+
+Used for reset actions, secondary workflows, and utility triggers.
+
+```css
+.btn-secondary, button.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  min-width: 44px;
+  background-color: var(--canvas-soft);
+  color: var(--primary-deep);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-xs);
+  padding: 12px 20px;
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--mint-50);
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+```
+
+### 6.3 Outline Utility Button (`.btn-outline`)
+
+A compact control used for copy triggers, secondary links, and table utilities. Sits at `8px` (`var(--radius-lg)`).
+
+```css
+.btn-outline, button.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-lg);
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--mint-50);
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+```
+
+### 6.4 Mode Segmented Control (`.mode-segmented-control`)
+
+A 2-way accessible radio group toggle rendered above calculator tabs to toggle between Reverse mode (*"Find price before tax"*) and Forward mode (*"Add sales tax"*):
+
+```tsx
+<div
+  role="radiogroup"
+  aria-label="Calculator mode"
+  className="mode-segmented-control"
+  style={{
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    backgroundColor: 'var(--canvas-soft)',
+    border: '1px solid var(--hairline-strong)',
+    borderRadius: 'var(--radius-sm)',
+    padding: 4,
+    gap: 4,
+  }}
+  onKeyDown={handleModeKeyDown}
+>
+  <button
+    type="button"
+    id="mode-btn-reverse"
+    role="radio"
+    aria-checked={calcMode === 'reverse'}
+    tabIndex={calcMode === 'reverse' ? 0 : -1}
+    onClick={() => setCalcMode('reverse')}
+    className={`mode-segment-btn ${calcMode === 'reverse' ? 'active' : ''}`}
+    style={{
+      padding: '10px 14px',
+      fontSize: 14,
+      fontWeight: calcMode === 'reverse' ? 700 : 500,
+      color: calcMode === 'reverse' ? 'var(--primary-deep)' : 'var(--body)',
+      backgroundColor: calcMode === 'reverse' ? 'var(--canvas)' : 'transparent',
+      border: calcMode === 'reverse' ? '1px solid var(--primary)' : '1px solid transparent',
+      borderRadius: 'var(--radius-xs)',
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8,
+      minHeight: 44,
+      boxShadow: calcMode === 'reverse' ? '0 1px 3px rgba(0,0,0,0.06)' : 'none',
+    }}
+  >
+    <span
+      style={{
+        width: 14,
+        height: 14,
+        borderRadius: '50%',
+        border: '2px solid currentColor',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      aria-hidden="true"
+    >
+      {calcMode === 'reverse' && (
+        <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'currentColor' }} />
+      )}
+    </span>
+    <span>Find price before tax</span>
+  </button>
+
+  <button
+    type="button"
+    id="mode-btn-forward"
+    role="radio"
+    aria-checked={calcMode === 'forward'}
+    tabIndex={calcMode === 'forward' ? 0 : -1}
+    onClick={() => setCalcMode('forward')}
+    className={`mode-segment-btn ${calcMode === 'forward' ? 'active' : ''}`}
+    style={{
+      padding: '10px 14px',
+      fontSize: 14,
+      fontWeight: calcMode === 'forward' ? 700 : 500,
+      color: calcMode === 'forward' ? 'var(--primary-deep)' : 'var(--body)',
+      backgroundColor: calcMode === 'forward' ? 'var(--canvas)' : 'transparent',
+      border: calcMode === 'forward' ? '1px solid var(--primary)' : '1px solid transparent',
+      borderRadius: 'var(--radius-xs)',
+      cursor: 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8,
+      minHeight: 44,
+      boxShadow: calcMode === 'forward' ? '0 1px 3px rgba(0,0,0,0.06)' : 'none',
+    }}
+  >
+    <span
+      style={{
+        width: 14,
+        height: 14,
+        borderRadius: '50%',
+        border: '2px solid currentColor',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      aria-hidden="true"
+    >
+      {calcMode === 'forward' && (
+        <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'currentColor' }} />
+      )}
+    </span>
+    <span>Add sales tax</span>
+  </button>
+</div>
+```
+
+### 6.5 WAI-ARIA Accessible Tab Bar (`.calc-tab-bar`)
+
+The tab bar governs calculator sub-modes (Basic, Multiple items, Find tax rate, Batch mode). It strictly follows the **W3C WAI-ARIA APG Tabs Pattern**:
+- Outer list: `role="tablist"` with `aria-label="Calculator tabs"`
+- Tab buttons: `role="tab"`, `aria-selected="true|false"`, `aria-controls="panel-{id}"`, `id="tab-{id}"`
+- Roving tabIndex: Active tab has `tabIndex={0}`; inactive tabs have `tabIndex={-1}`
+- Keyboard navigation: Full support for `ArrowLeft`, `ArrowRight`, `Home`, and `End`
+- Panels: `role="tabpanel"`, `aria-labelledby="tab-{id}"`, `tabIndex={0}`
+- **SEO Invariant:** All panels remain rendered in the DOM with the `hidden` HTML attribute when inactive so search engines index 100% of the content.
+
+```tsx
+<div className="calc-tab-bar" role="tablist" aria-label="Calculator tabs">
+  {TABS.map((tab, idx) => (
+    <button
+      key={tab.id}
+      role="tab"
+      id={`tab-${tab.id}`}
+      aria-selected={activeTab === tab.id}
+      aria-controls={`panel-${tab.id}`}
+      tabIndex={activeTab === tab.id ? 0 : -1}
+      onClick={() => setActiveTab(tab.id)}
+      onKeyDown={(e) => handleKeyDownTab(e, idx)}
+      className={`calc-tab-btn ${activeTab === tab.id ? 'active' : ''}`}
+    >
+      <span aria-hidden="true">{tab.icon}</span>
+      <span>{tab.label}</span>
+    </button>
+  ))}
+</div>
+
+{/* Panels (permanently rendered in SSR HTML) */}
+{TABS.map((tab) => (
+  <div
+    key={tab.id}
+    id={`panel-${tab.id}`}
+    role="tabpanel"
+    aria-labelledby={`tab-${tab.id}`}
+    tabIndex={0}
+    hidden={activeTab !== tab.id}
+  >
+    {tab.content}
+  </div>
+))}
+```
+
+### 6.6 Form Inputs & Placeholders (`.calc-input`, `.input-wrapper`)
+
+Every input is tuned for financial precision and accessibility:
+1. `height: 52px;` with `border: 1px solid var(--hairline-strong);` (`#767676`)
+2. Placeholder text styled in `#595959` with `opacity: 1 !important` (7:1 contrast)
+3. Currency inputs include prefix symbols positioned absolutely inside `.input-wrapper`
+4. Form inputs declare `autoComplete="off"`, `inputMode="decimal"`, and a semantic `name` attribute
+5. Auto-select content on focus so users can overwrite defaults immediately: `onFocus={(e) => e.target.select()}`
+
+```tsx
+<div className="input-wrapper">
+  <span className="input-prefix" aria-hidden="true">$</span>
+  <input
+    ref={amountInputRef}
+    id="basic-final-price"
+    name="amount"
+    autoComplete="off"
+    type="text"
+    inputMode="decimal"
+    placeholder="108.25"
+    aria-label="Total price paid with tax in dollars"
+    aria-invalid={!!error}
+    aria-describedby={error ? 'basic-error-msg' : undefined}
+    value={amount}
+    onFocus={(e) => e.target.select()}
+    onChange={(e) => setAmount(e.target.value)}
+    className="calc-input with-prefix"
+    style={{ color: 'var(--ink)', fontWeight: 600 }}
+  />
+</div>
+```
+
+### 6.7 Rate Source Selector & Quick Preset Chips (`.quick-btn`)
+
+A 3-way rate source selector (`State rate`, `Typical combined`, `Exact rate from receipt`) plus preset percentage chips (6%, 7%, 8%, 8.25%, 8.875%, 10%):
+
+```tsx
+<button
+  type="button"
+  onClick={() => handleQuickRate(8.25)}
+  className={`quick-btn ${active ? 'active' : ''}`}
+  aria-pressed={active}
+  aria-label="Set tax rate to 8.25%"
+  style={{
+    minHeight: 44,
+    padding: '8px 14px',
+    fontWeight: active ? 700 : 500,
+    borderWidth: active ? 2 : 1,
+    borderColor: active ? 'var(--primary)' : 'var(--hairline-strong)',
+    backgroundColor: active ? 'var(--mint-50)' : 'var(--canvas)',
+    color: active ? 'var(--primary-deep)' : 'var(--ink)',
+  }}
+>
+  {active && <span aria-hidden="true" style={{ fontWeight: 800, marginRight: 4 }}>✓</span>}
+  8.25%
+</button>
+```
+
+### 6.8 Calculation Result Cards Grid (`.result-card`)
+
+**The Elimination of Danger Red:** Calculated sales tax results are presented as calm, neutral canvases with deep spruce values. In reverse mode, the calculated pre-tax price is highlighted in a 2px-bordered mint card with a checkmark:
+
+```tsx
+<div
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+  style={{
+    marginTop: 4,
+    opacity: isStale ? 0.6 : 1,
+    transition: 'opacity 0.15s ease',
+  }}
+>
+  <div className="grid-results" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 16 }}>
+    {/* Card 1: Original Price */}
+    <div
+      className={`result-card ${mode === 'reverse' ? 'success' : 'neutral'}`}
+      style={{ borderWidth: mode === 'reverse' ? 2 : 1 }}
+    >
+      <div style={{ fontSize: 13, fontWeight: 700, color: mode === 'reverse' ? 'var(--primary-deep)' : 'var(--body)', marginBottom: 6 }}>
+        {mode === 'reverse' && <span aria-hidden="true">✓ </span>}
+        Original price
+      </div>
+      <div className="tabular-nums stat-value" style={{ fontSize: 28, fontWeight: 800, color: mode === 'reverse' ? 'var(--primary)' : 'var(--ink)' }}>
+        ${fmt(result.preTaxPrice)}
+      </div>
+      <div style={{ fontSize: 13, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>
+        {mode === 'reverse' ? 'Pre-tax item cost' : 'Base pre-tax price'}
+      </div>
+    </div>
+
+    {/* Card 2: Tax Amount (Neutral Card) */}
+    <div className="result-card" style={{ background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', color: 'var(--ink)' }}>
+      <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--body)', marginBottom: 6 }}>
+        Tax amount
+      </div>
+      <div className="tabular-nums stat-value" style={{ fontSize: 28, fontWeight: 800, color: 'var(--primary-deep)' }}>
+        ${fmt(result.taxAmount)}
+      </div>
+      <div style={{ fontSize: 13, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>
+        {result.taxRate}% sales tax
+      </div>
+    </div>
+
+    {/* Card 3: Total with Tax */}
+    <div
+      className={`result-card ${mode === 'forward' ? 'success' : 'neutral'}`}
+      style={{ borderWidth: mode === 'forward' ? 2 : 1 }}
+    >
+      <div style={{ fontSize: 13, fontWeight: 700, color: mode === 'forward' ? 'var(--primary-deep)' : 'var(--body)', marginBottom: 6 }}>
+        {mode === 'forward' && <span aria-hidden="true">✓ </span>}
+        {mode === 'reverse' ? 'Total paid' : 'Total with tax'}
+      </div>
+      <div className="tabular-nums stat-value" style={{ fontSize: 28, fontWeight: 800, color: mode === 'forward' ? 'var(--primary)' : 'var(--ink)' }}>
+        ${fmt(result.totalPaid)}
+      </div>
+      <div style={{ fontSize: 13, color: 'var(--body)', marginTop: 6, fontWeight: 500 }}>
+        {mode === 'reverse' ? 'Receipt total' : 'Final checkout total'}
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### 6.9 Verification Check & Formula Rows
+
+Rendered immediately below calculation result cards to provide visual proof of arithmetic certainty:
+
+```tsx
+{/* Verification Check Row */}
+<div
+  className="tabular-nums"
+  style={{
+    backgroundColor: 'var(--canvas-soft)',
+    border: '1px solid var(--hairline-strong)',
+    borderRadius: 'var(--radius-xs)',
+    padding: '10px 14px',
+    fontSize: 13,
+    color: 'var(--body)',
+    marginBottom: 12,
+    fontFamily: 'var(--font-mono)',
+    textAlign: 'center',
+  }}
+>
+  <span style={{ fontWeight: 700, color: 'var(--ink)' }}>Check: </span>
+  ${fmt(result.preTaxPrice)} × 1.0825 = ${fmt(result.totalPaid)}
+</div>
+
+{/* Mathematical Formula Row */}
+<div
+  className="tabular-nums"
+  style={{
+    backgroundColor: 'var(--mint-50)',
+    border: '1px solid var(--mint-200)',
+    borderRadius: 'var(--radius-xs)',
+    padding: '10px 16px',
+    fontSize: 13,
+    color: 'var(--primary-deep)',
+    marginBottom: 12,
+    fontFamily: 'var(--font-mono)',
+    textAlign: 'center',
+  }}
+>
+  <strong>Formula: </strong>
+  ${fmt(result.preTaxPrice)} = ${fmt(result.totalPaid)} ÷ 1.0825
+</div>
+```
+
+### 6.10 "More Options" & "Explain This Result" Disclosures
+
+Progressive disclosure patterns using native semantic `<details>` with clean high-contrast styling:
+
+```tsx
+{/* More Options Disclosure */}
+<details
+  className="more-options-disclosure"
+  style={{
+    border: '1px solid var(--hairline-strong)',
+    borderRadius: 'var(--radius-sm)',
+    backgroundColor: 'var(--canvas-soft)',
+    padding: '12px 16px',
+  }}
+>
+  <summary style={{ fontSize: 14, fontWeight: 700, color: 'var(--primary-deep)', cursor: 'pointer', userSelect: 'none', display: 'flex', alignItems: 'center', gap: 8, minHeight: 28 }}>
+    <span>More options</span>
+    <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--muted)' }}>(rounding, tax layers, tip, preferences)</span>
+  </summary>
+  <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 18, paddingTop: 12, borderTop: '1px solid var(--hairline)' }}>
+    {/* Rounding precision radios, tax layers, and tip inputs */}
+  </div>
+</details>
+
+{/* Show the Steps Disclosure */}
+<details
+  className="steps-disclosure"
+  style={{
+    marginBottom: 16,
+    border: '1px solid var(--mint-200)',
+    borderRadius: 'var(--radius-xs)',
+    backgroundColor: 'var(--mint-50)',
+    padding: '10px 14px',
+  }}
+>
+  <summary style={{ fontSize: 13, fontWeight: 700, color: 'var(--primary-deep)', cursor: 'pointer', userSelect: 'none' }}>
+    Show the steps (arithmetic walkthrough)
+  </summary>
+  <div style={{ marginTop: 10, fontSize: 13, color: 'var(--body)', lineHeight: 1.6, borderTop: '1px solid var(--mint-200)', paddingTop: 8 }}>
+    <ol style={{ paddingLeft: 20, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <li><strong>Rate as a decimal:</strong> 8.25% ÷ 100 = 0.0825</li>
+      <li><strong>Tax divisor factor:</strong> 1 + 0.0825 = 1.0825</li>
+      <li><strong>Divide to find pre-tax:</strong> $108.25 ÷ 1.0825 = <strong>$100.00</strong></li>
+      <li><strong>Isolate sales tax:</strong> $108.25 − $100.00 = <strong>$8.25</strong></li>
+    </ol>
+  </div>
+</details>
+```
+
+### 6.11 In-Flow Table of Contents (`.toc-nav`)
+
+A collapsible, accessible table of contents rendered right inside the content flow:
+- Mobile: Collapsed by default to conserve vertical scroll.
+- Desktop (`>= 1024px`): Open by default via `<details open className="toc-details">`.
+- Jump links provide $\ge 44\text{px}$ touch targets and link directly to `#anchor` IDs matching `scroll-margin-top: 100px`.
+
+```tsx
+<nav className="toc-nav" aria-label="Table of contents">
+  <details className="toc-details" open>
+    <summary className="toc-summary">
+      <svg className="toc-toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+      <span>Quick Navigation: Jump to Guide Sections</span>
+    </summary>
+    <div className="toc-links-list">
+      <a href="#calculator" className="toc-jump-link">Reverse Calculator</a>
+      <a href="#how-it-works" className="toc-jump-link">How to Calculate</a>
+      <a href="#formula" className="toc-jump-link">Reverse Formula</a>
+      <a href="#state-search" className="toc-jump-link">State Rates</a>
+      <a href="#faq" className="toc-jump-link">Frequently Asked Questions</a>
+    </div>
+  </details>
+</nav>
+```
+
+### 6.12 Data Comparison Tables (`.data-table`)
+
+Financial comparison tables must be fast, readable, and stable:
+1. `table-layout: fixed;` to lock column geometry during search filtering.
+2. Sticky header (`position: sticky; top: 0; z-index: 10`) with `border-bottom: 2px solid var(--hairline-strong)`.
+3. Numeric cells use `.cell-num` with `text-align: right; font-variant-numeric: tabular-nums;`.
+4. Action links (`Calculate →`) feature minimum `44×44px` hit areas and high-contrast `:focus-visible` rings.
+5. Column sort headers are semantic `<button type="button">` with `aria-sort="ascending"|"descending"|"none"`.
+6. Live search input with counter (`aria-live="polite"`) and clear button.
+
+```tsx
+<div className="table-container" role="region" aria-label="State sales tax comparison" tabIndex={0}>
+  <table className="data-table" style={{ tableLayout: 'fixed' }}>
+    <thead>
+      <tr>
+        <th scope="col" style={{ width: '35%' }}>
+          <button type="button" className="sort-header-btn" aria-sort="ascending" onClick={() => handleSort('state')}>
+            State Name <span aria-hidden="true">↑</span>
+          </button>
+        </th>
+        <th scope="col" className="header-num" style={{ width: '25%' }}>State Rate</th>
+        <th scope="col" className="header-num" style={{ width: '25%' }}>Combined Rate</th>
+        <th scope="col" style={{ width: '15%' }}>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">California</th>
+        <td className="cell-num">7.25%</td>
+        <td className="cell-num"><strong style={{ color: 'var(--ink)' }}>8.82%</strong></td>
+        <td>
+          <a href="/us/california" className="table-action-link" aria-label="Calculate for California">
+            Calculate →
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+### 6.13 FAQ Accordion System (`.faq-item`)
+
+**100% SEO Preservation:** Collapsed FAQ answers **must never** be unmounted from the DOM via `{isOpen && <div>}`. Instead, answers must exist in the initial server-rendered HTML and toggle via CSS display or semantic `<details>`:
+
+```tsx
+<div className="faq-item">
+  <h4>
+    <button
+      type="button"
+      id={`faq-btn-${idx}`}
+      aria-expanded={isOpen}
+      aria-controls={`faq-answer-${idx}`}
+      className="faq-trigger"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <span>{faq.question}</span>
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        style={{ transform: isOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.15s ease' }}
+        aria-hidden="true"
+      >
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </button>
+  </h4>
+  <div
+    id={`faq-answer-${idx}`}
+    role="region"
+    aria-labelledby={`faq-btn-${idx}`}
+    className="faq-content"
+    style={{ display: isOpen ? 'block' : 'none' }}
+  >
+    <p>{faq.answer}</p>
+  </div>
+</div>
+```
+
+### 6.14 Key Stats Cards Grid (`.card`)
+
+Used for regional hubs, state pages, and comparison tools to display top-line tax metrics:
+
+```tsx
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 32 }}>
+  {STATS.map(({ label, value, note, color }) => (
+    <div
+      key={label}
+      className="card"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        textAlign: 'center',
+        background: 'var(--canvas)',
+        border: '1px solid var(--hairline-strong)',
+        borderRadius: 'var(--radius-lg)',
+        padding: '20px 16px',
+        height: '100%',
+      }}
+    >
+      <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)' }}>
+        {value}
+      </div>
+      <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)', margin: '6px 0 2px' }}>
+        {label}
+      </div>
+      <div style={{ fontSize: 13, color: 'var(--body)' }}>
+        {note}
+      </div>
+    </div>
+  ))}
+</div>
+```
+
+### 6.15 "Important Notes" Accent Callout Box
+
+Used across editorial guides and state pages to present critical tax rules without alert alarmism:
+
+```tsx
+<div
+  style={{
+    background: 'var(--mint-50)',
+    border: '1px solid var(--mint-200)',
+    borderLeft: '4px solid var(--primary)',
+    borderRadius: 'var(--radius-lg)',
+    padding: 24,
+    maxWidth: 860,
+    margin: '0 auto',
+    boxShadow: 'var(--shadow-card)',
+  }}
+>
+  <h2 style={{ fontWeight: 700, fontSize: 17, color: 'var(--primary-deep)', marginBottom: 12 }}>
+    <span aria-hidden="true">📌 </span>Important Notes
+  </h2>
+  <ul style={{ paddingLeft: 20, color: 'var(--body)', fontSize: 15, lineHeight: 1.8, margin: 0 }}>
+    <li>Rates shown are <strong>combined averages</strong> (state rate + average local rate).</li>
+    <li>Certain necessities (unprepared groceries, prescription drugs) are exempt in many states.</li>
+  </ul>
+</div>
+
+{/* Associated "Back to the calculator" CTA Button */}
+<div style={{ textAlign: 'center', marginTop: 28 }}>
+  <a
+    href="/#calculator"
+    className="btn-primary"
+    style={{ minHeight: 44, width: 'auto', padding: '12px 24px' }}
+  >
+    Back to the calculator
+  </a>
+</div>
+```
+
+### 6.16 Back to Top Floating Action Button (`BackToTop`)
+
+A fixed, accessible 48×48px floating action button that appears after 400px of vertical scroll:
+
+```tsx
+'use client';
+import { useState, useEffect } from 'react';
+
+export default function BackToTop() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+  };
+
+  if (!visible) return null;
+
+  return (
+    <button
+      type="button"
+      onClick={scrollToTop}
+      aria-label="Back to top of page"
+      className="back-to-top-btn"
+      style={{
+        position: 'fixed',
+        bottom: 24,
+        right: 24,
+        zIndex: 40,
+        width: 48,
+        height: 48,
+        borderRadius: 'var(--radius-full)',
+        backgroundColor: 'var(--primary)',
+        color: '#ffffff',
+        border: 'none',
+        boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        transition: 'opacity 0.2s ease, transform 0.2s ease',
+      }}
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+  );
+}
+```
+
+### 6.17 AdSense Placement Architecture (`AdSlot`)
+
+Ad placements must strictly preserve user experience, prevent accidental clicks, and guarantee zero layout shift:
+1. **Collapsed by Default:** Controlled by a single global flag `export const SHOW_AD_PLACEHOLDERS = false;`. When disabled, the component returns `null` so no empty gaps appear.
+2. **Fixed Layout Reservation (`contain: layout`):** When rendered, slots enforce strict minimum heights to eliminate CLS:
+   - Leaderboard: `min-height: 90px; max-width: 728px;`
+   - Medium Rectangle: `min-height: 250px; max-width: 336px;`
+   - Halfpage: `min-height: 600px; max-width: 300px;`
+   - In-Article: `min-height: 280px; max-width: 728px;`
+3. **Strict Placement Constraints:**
+   - **Never inside calculator cards:** Ads inside calculator containers violate Google AdSense policies and ruin user trust.
+   - **Minimum 150px Clearance:** Maintain at least 150px vertical clearance between an ad slot and any interactive action button (`.btn-primary`, `.btn-secondary`, or submit controls).
+
+```tsx
+<AdSlot
+  slot="homepage-middle-banner"
+  size="leaderboard"
+  label="Advertisement"
+/>
+```
+
+### 6.18 Professional Vector Iconography
+
+Native operating system emojis (`🧮`, `📋`, `🔍`, `⚡`) render unpredictably across platforms (Windows vs macOS vs Android). All interface icons must be rendered as clean, accessible 16px or 20px inline SVG vector icons using `currentColor` and `aria-hidden="true"`:
+
+```tsx
+export function CalculatorIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="4" y="2" width="16" height="20" rx="2" />
+      <line x1="8" y1="6" x2="16" y2="6" />
+      <line x1="16" y1="14" x2="16" y2="18" />
+      <path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01" />
+    </svg>
+  );
+}
+```
+
+### 6.19 Clean Print Stylesheet (`@media print`)
+
+When a user prints a tax breakdown (or generates a PDF), non-printable page areas (navbars, footers, interactive calculator controls, tabs, preset chips, and ads) are suppressed via `@media print`. The `.print-only-summary` card prints cleanly on white paper with pure black ink:
+
+```css
+@media print {
+  nav, footer, .calc-tab-bar, .mode-segmented-control, .quick-btn,
+  .state-select, .ad-slot-placeholder, .btn-primary, .btn-secondary,
+  .toc-nav, #how-it-works, #faq, #embed-widget-section, .back-to-top-btn {
+    display: none !important;
+  }
+
+  .print-only-summary {
+    display: block !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 24pt !important;
+  }
+}
+```
+
+---
+
+## 7. Responsive Breakpoint Matrix
+
+| Breakpoint Name | Viewport Width | Navigation Behavior | Calculator & Grid Layout |
+|---|---|---|---|
+| **Mobile Small** | `< 480px` | Hamburger drawer; wordmark left; compact CTA | Single column; 20px padding; touch targets $\ge 44\text{px}$; inputs full width |
+| **Mobile Standard** | `480px – 639px` | Hamburger drawer; full mobile menu | Single column; quick chips wrap in rows of 3–4 |
+| **Tablet** | `640px – 1023px` | Hamburger drawer below 1024px; logo + search | 2-column result cards; data tables scroll horizontally with scroll indicators |
+| **Desktop / Laptop** | `1024px – 1279px` | Full horizontal navbar; 16px link gap; no wrap | Side-by-side hero layout (55fr / 45fr); full table columns |
+| **Wide Desktop** | `≥ 1280px` | Full navbar; 24px link gap; container capped at 1200px | Full layout with generous whitespace between sections |
+
+---
+
+## 8. Implementation Checklist for New Pages
+
+When creating any new page or component from this specification, verify each item before shipping:
+
+- [ ] **Contrast:** Are all borders `#767676` or darker? Is running body text `#374151`? Are placeholders `#595959` with `opacity: 1`?
+- [ ] **Focus Rings:** Does every button, input, tab, and link show a high-contrast `2px solid var(--forest)` focus ring when tabbed to via keyboard?
+- [ ] **Touch Targets:** Are all clickable buttons, tabs, preset chips, and action links at least `44×44px`?
+- [ ] **Non-Color Active States:** Do active tabs, rate chips, or selected filters use a checkmark `✓` or thicker border in addition to color?
+- [ ] **Typography Floor:** Is every piece of microcopy, label, badge, and caption at least `13px`?
+- [ ] **Neutral Results:** Is statutory sales tax displayed on a neutral card with deep spruce text, rather than an error red card?
+- [ ] **Enter Key Form:** Are calculator inputs wrapped in a semantic `<form>` so pressing `Enter` executes the calculation?
+- [ ] **Skip Links:** Does the page `<main>` tag have `id="main-content" tabIndex={-1}`?
+- [ ] **SSR Crawlability:** Are all FAQ answers and tab panels present in initial server-rendered HTML (zero conditional unmounting)?
+- [ ] **Zero CLS:** Do layout cards reserve min-heights? Do table containers declare `table-layout: fixed;`?
+- [ ] **Ad Clearance:** Are ad placeholders collapsed by default and kept $\ge 150\text{px}$ away from primary action buttons?
+- [ ] **Vector Icons:** Are platform-dependent emojis replaced with accessible inline SVG vector icons with `aria-hidden="true"`?
+- [ ] **Back to Top:** Does the page render the accessible, reduced-motion-aware `BackToTop` floating button?

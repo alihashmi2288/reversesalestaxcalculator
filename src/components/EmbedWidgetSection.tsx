@@ -96,21 +96,28 @@ export default function EmbedWidgetSection() {
                 420px iframe
               </span>
             </div>
-            <pre
+            <textarea
+              readOnly
+              rows={9}
+              aria-label="Widget Embed Code HTML snippet"
+              value={EMBED_SNIPPET}
+              onFocus={(e) => e.target.select()}
+              className="font-mono text-xs"
               style={{
+                width: '100%',
+                height: '190px',
                 backgroundColor: 'var(--canvas)',
                 border: '1px solid var(--hairline-strong)',
                 borderRadius: 'var(--radius-sm)',
                 padding: '12px 14px',
                 margin: 0,
-                overflowX: 'auto',
-                maxHeight: '130px',
                 lineHeight: 1.5,
                 color: 'var(--ink)',
+                fontFamily: 'var(--font-mono)',
+                resize: 'none',
+                boxSizing: 'border-box',
               }}
-            >
-              <code className="font-mono text-xs">{EMBED_SNIPPET}</code>
-            </pre>
+            />
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>

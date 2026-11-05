@@ -243,7 +243,7 @@ export default async function ProvincePage({ params }: Props) {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   {provinceData.faqs.map((faq, idx) => (
                     <details key={idx} className="faq-item" style={{ border: '1px solid var(--hairline)', borderRadius: 'var(--radius)' }}>
-                      <summary className="faq-trigger" style={{ outline: 'none' }}>
+                      <summary className="faq-trigger">
                         <span style={{ fontWeight: 700, color: 'var(--ink)' }}>{faq.question}</span>
                         <span style={{ color: 'var(--primary)', fontSize: 22 }}>+</span>
                       </summary>

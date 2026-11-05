@@ -80,10 +80,10 @@ export default function TaxRatesPage() {
             { label: 'Lowest Rate', value: '0%', note: `${zeroTaxCount} tax-free states`, color: 'var(--primary-deep)' },
             { label: 'States Covered', value: `${STATE_TAX_RATES.length}`, note: '50 states + DC', color: 'var(--ink)' },
           ].map(({ label, value, note, color }) => (
-            <div key={label} className="card" style={{ textAlign: 'center', background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: '20px 16px', boxShadow: 'var(--shadow-card)' }}>
+            <div key={label} className="card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center', background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)', padding: '20px 16px', boxShadow: 'var(--shadow-card)', height: '100%' }}>
               <div style={{ fontSize: 32, fontWeight: 800, color, fontFamily: 'var(--font-mono)' }}>{value}</div>
               <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)', margin: '6px 0 2px' }}>{label}</div>
-              <div style={{ fontSize: 12, color: 'var(--muted)' }}>{note}</div>
+              <div style={{ fontSize: 13, color: 'var(--body)' }}>{note}</div>
             </div>
           ))}
         </div>
@@ -123,15 +123,28 @@ export default function TaxRatesPage() {
 
       {/* Notes */}
       <div className="container-main" style={{ marginTop: 48, marginBottom: 64 }}>
-        <div style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderRadius: 'var(--radius-lg)', padding: 24, maxWidth: 860, margin: '0 auto' }}>
-          <h2 style={{ fontWeight: 700, fontSize: 17, color: 'var(--primary-deep)', marginBottom: 12 }}>📌 Important Notes</h2>
-          <ul style={{ paddingLeft: 20, color: 'var(--body)', fontSize: 15, lineHeight: 1.9, margin: 0 }}>
+        <div style={{ background: 'var(--mint-50)', border: '1px solid var(--mint-200)', borderLeft: '4px solid var(--primary)', borderRadius: 'var(--radius-lg)', padding: 24, maxWidth: 860, margin: '0 auto', boxShadow: 'var(--shadow-card)' }}>
+          <h2 style={{ fontWeight: 700, fontSize: 17, color: 'var(--primary-deep)', marginBottom: 12 }}>
+            <span aria-hidden="true">📌 </span>Important Notes
+          </h2>
+          <ul style={{ paddingLeft: 20, color: 'var(--body)', fontSize: 15, lineHeight: 1.8, margin: 0 }}>
             <li>Rates shown are <strong>combined averages</strong> (state rate + average local rate).</li>
             <li>Your actual rate may differ based on your specific city and county jurisdiction.</li>
             <li>Certain necessities (unprepared groceries, prescription drugs) are exempt in many states.</li>
             <li>Rates are sourced from official state Revenue Departments and updated periodically for 2026.</li>
             <li>Alaska, Delaware, Montana, New Hampshire, and Oregon have no general state sales tax.</li>
           </ul>
+        </div>
+
+        {/* Back to the calculator button */}
+        <div style={{ textAlign: 'center', marginTop: 28 }}>
+          <Link
+            href="/#calculator"
+            className="inline-flex items-center justify-center bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-white px-6 py-3 rounded-[var(--radius-xs)] font-bold text-sm transition-colors duration-150 no-underline shadow-xs focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
+            style={{ color: '#ffffff', minHeight: 44 }}
+          >
+            Back to the calculator
+          </Link>
         </div>
       </div>
     </main>

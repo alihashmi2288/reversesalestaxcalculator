@@ -156,6 +156,14 @@ export default function ArizonaPage({ stateData }: Props) {
     { name: 'Unincorporated Maricopa', stateRate: '5.60%', countyRate: '0.70% (Maricopa)', cityRate: '0.00%', combined: '6.30%', note: 'County islands without city tax' },
   ];
 
+  const arizonaPresets = [
+    { label: 'Phoenix (8.60%)', rate: 8.60 },
+    { label: 'Tucson (8.70%)', rate: 8.70 },
+    { label: 'Mesa (8.30%)', rate: 8.30 },
+    { label: 'Scottsdale (8.05%)', rate: 8.05 },
+    { label: 'Arizona Base (5.60%)', rate: 5.60 },
+  ];
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -220,7 +228,11 @@ export default function ArizonaPage({ stateData }: Props) {
 
           {/* Calculator Card */}
           <div style={{ marginBottom: 64 }}>
-            <StateCalculatorClient stateData={stateData} rateNote="Arizona state base TPT is 5.60%. Enter your specific city rate (e.g., 8.60% for Phoenix, 8.70% for Tucson, 8.05% for Scottsdale) to back out exact tax." />
+            <StateCalculatorClient
+              stateData={stateData}
+              presetRates={arizonaPresets}
+              rateNote="Arizona state base TPT is 5.60%. Enter your specific city rate (e.g., 8.60% for Phoenix, 8.70% for Tucson, 8.05% for Scottsdale) to back out exact tax."
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>

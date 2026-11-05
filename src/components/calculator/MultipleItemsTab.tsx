@@ -1,31 +1,41 @@
 'use client';
 import { useState, useCallback, useRef, useMemo } from 'react';
-import { calculateReverseTax, fmt } from '@/lib/taxCalc';
+import { calculateReverseTax, parseNumberSafe, fmt } from '@/lib/taxCalc';
 
 interface RowItem {
   id: number;
   name: string;
   totalPrice: string;
   taxRate: string;
+  taxable: boolean;
 }
 
 export default function MultipleItemsTab() {
   const nextIdRef = useRef(4);
   const [rows, setRows] = useState<RowItem[]>([
-    { id: 1, name: 'Item 1', totalPrice: '', taxRate: '8.25' },
-    { id: 2, name: 'Item 2', totalPrice: '', taxRate: '8.25' },
-    { id: 3, name: 'Item 3', totalPrice: '', taxRate: '8.25' },
+    { id: 1, name: 'Item 1', totalPrice: '', taxRate: '8.25', taxable: true },
+    { id: 2, name: 'Item 2', totalPrice: '', taxRate: '8.25', taxable: true },
+    { id: 3, name: 'Item 3', totalPrice: '', taxRate: '8.25', taxable: true },
   ]);
   const [calculated, setCalculated] = useState(false);
   const [announcement, setAnnouncement] = useState('');
 
-  const updateRow = (id: number, field: keyof RowItem, value: string) => {
+  const updateRow = <K extends keyof RowItem>(id: number, field: K, value: RowItem[K]) => {
     setRows((prev) => prev.map((r) => (r.id === id ? { ...r, [field]: value } : r)));
   };
 
   const addRow = () => {
     const id = nextIdRef.current++;
-    setRows((prev) => [...prev, { id, name: `Item ${id}`, totalPrice: '', taxRate: rows[0]?.taxRate || '8.25' }]);
+    setRows((prev) => [
+      ...prev,
+      {
+        id,
+        name: `Item ${id}`,
+        totalPrice: '',
+        taxRate: rows[0]?.taxRate || '8.25',
+        taxable: true,
+      },
+    ]);
   };
 
   const removeRow = (id: number) => {
@@ -34,9 +44,21 @@ export default function MultipleItemsTab() {
   };
 
   const getCalc = useCallback((row: RowItem) => {
-    const price = parseFloat(row.totalPrice);
-    const rate = parseFloat(row.taxRate);
-    if (isNaN(price) || isNaN(rate) || price <= 0) return null;
+    const price = parseNumberSafe(row.totalPrice);
+    const rate = parseNumberSafe(row.taxRate);
+    if (isNaN(price) || price <= 0) return null;
+
+    if (!row.taxable) {
+      // Exempt item (e.g. groceries, medicine) - zero sales tax
+      return {
+        preTaxPrice: price,
+        taxAmount: 0,
+        totalPaid: price,
+        taxRate: 0,
+      };
+    }
+
+    if (isNaN(rate) || rate < 0) return null;
     try {
       return calculateReverseTax(price, rate);
     } catch {
@@ -70,21 +92,23 @@ export default function MultipleItemsTab() {
     };
   }, [rowCalcs]);
 
-  const hasAnyData = rows.some((r) => r.totalPrice && r.taxRate);
+  const hasAnyData = rows.some((r) => r.totalPrice);
 
   const handleCalculate = () => {
     if (hasAnyData) {
       setCalculated(true);
-      setAnnouncement(`Calculated ${validCount} items. Combined pre-tax total: $${fmt(totals.preTax)}, combined sales tax: $${fmt(totals.taxAmount)}, receipt total: $${fmt(totals.totalPaid)}.`);
+      setAnnouncement(
+        `Calculated ${validCount} items. Pre-tax subtotal: $${fmt(totals.preTax)}, total tax: $${fmt(totals.taxAmount)}, total paid: $${fmt(totals.totalPaid)}.`
+      );
     }
   };
 
   const handleReset = () => {
     nextIdRef.current = 4;
     setRows([
-      { id: 1, name: 'Item 1', totalPrice: '', taxRate: '8.25' },
-      { id: 2, name: 'Item 2', totalPrice: '', taxRate: '8.25' },
-      { id: 3, name: 'Item 3', totalPrice: '', taxRate: '8.25' },
+      { id: 1, name: 'Item 1', totalPrice: '', taxRate: '8.25', taxable: true },
+      { id: 2, name: 'Item 2', totalPrice: '', taxRate: '8.25', taxable: true },
+      { id: 3, name: 'Item 3', totalPrice: '', taxRate: '8.25', taxable: true },
     ]);
     setCalculated(false);
     setAnnouncement('Multiple items calculator reset.');
@@ -97,26 +121,31 @@ export default function MultipleItemsTab() {
         {announcement}
       </div>
 
-      <p style={{ color: 'var(--body)', fontSize: 14, margin: 0 }}>
-        Enter multiple receipt items to calculate pre-tax amounts in bulk. Add as many rows as needed.
+      <p style={{ color: 'var(--body)', fontSize: 14, margin: 0, lineHeight: 1.5 }}>
+        Enter multiple receipt items to calculate pre-tax amounts in bulk. Uncheck &quot;Taxable&quot; for exempt items such as groceries or prescriptions.
       </p>
 
-      {/* Table */}
+      {/* Table Container */}
       <div
         tabIndex={0}
         role="region"
         aria-label="Multiple items table"
-        style={{ overflowX: 'auto', borderRadius: 'var(--radius-lg)', border: '1px solid var(--hairline-strong)' }}
+        style={{
+          overflowX: 'auto',
+          borderRadius: 'var(--radius-lg)',
+          border: '1px solid var(--hairline-strong)',
+        }}
       >
-        <table className="data-table" style={{ minWidth: 640, width: '100%' }}>
-          <caption className="sr-only">Multiple Items Reverse Tax Calculation List</caption>
+        <table className="data-table" style={{ minWidth: 680, width: '100%' }}>
+          <caption className="sr-only">Multiple items reverse tax calculation list</caption>
           <thead>
             <tr>
-              <th scope="col">Item Name</th>
-              <th scope="col">Total Price ($)</th>
-              <th scope="col">Tax Rate (%)</th>
-              <th scope="col">Pre-Tax Price</th>
-              <th scope="col">Tax Amount</th>
+              <th scope="col" style={{ width: '25%' }}>Item Name</th>
+              <th scope="col" style={{ width: '20%' }}>Total Price ($)</th>
+              <th scope="col" style={{ width: '18%' }}>Tax Rate (%)</th>
+              <th scope="col" style={{ width: '12%', textAlign: 'center' }}>Taxable</th>
+              <th scope="col" style={{ width: '15%' }}>Pre-Tax Price</th>
+              <th scope="col" style={{ width: '15%' }}>Tax Amount</th>
               <th scope="col" style={{ width: 44 }}>
                 <span className="sr-only">Actions</span>
               </th>
@@ -125,7 +154,7 @@ export default function MultipleItemsTab() {
           <tbody>
             {rowCalcs.map(({ row, calc }) => (
               <tr key={row.id}>
-                <th scope="row" style={{ fontWeight: 'normal', textAlign: 'left', padding: '12px 14px' }}>
+                <th scope="row" style={{ fontWeight: 'normal', textAlign: 'left', padding: '10px 12px' }}>
                   <input
                     type="text"
                     name={`itemName-${row.id}`}
@@ -137,7 +166,7 @@ export default function MultipleItemsTab() {
                     style={{
                       width: '100%',
                       height: 38,
-                      padding: '8px 12px',
+                      padding: '8px 10px',
                       fontSize: 14,
                       fontFamily: 'var(--font-sans)',
                     }}
@@ -145,23 +174,20 @@ export default function MultipleItemsTab() {
                   />
                 </th>
                 <td>
-                  <div style={{ position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--muted)', fontSize: 14, fontFamily: 'var(--font-mono)' }} aria-hidden="true">$</span>
+                  <div className="input-wrapper" style={{ width: '100%' }}>
+                    <span className="input-prefix" aria-hidden="true">$</span>
                     <input
-                      type="number"
+                      type="text"
                       name={`itemPrice-${row.id}`}
                       autoComplete="off"
                       inputMode="decimal"
-                      min="0"
-                      step="0.01"
                       aria-label={`Item ${row.id} total price in dollars`}
                       value={row.totalPrice}
                       onChange={(e) => updateRow(row.id, 'totalPrice', e.target.value)}
-                      className="calc-input"
+                      className="calc-input with-prefix"
                       style={{
                         width: '100%',
                         height: 38,
-                        padding: '8px 10px 8px 24px',
                         fontSize: 14,
                         fontFamily: 'var(--font-mono)',
                       }}
@@ -170,29 +196,48 @@ export default function MultipleItemsTab() {
                   </div>
                 </td>
                 <td>
-                  <div style={{ position: 'relative' }}>
+                  <div className="input-wrapper" style={{ width: '100%' }}>
                     <input
-                      type="number"
+                      type="text"
                       name={`itemTaxRate-${row.id}`}
                       autoComplete="off"
                       inputMode="decimal"
-                      min="0"
-                      step="0.001"
+                      disabled={!row.taxable}
                       aria-label={`Item ${row.id} tax rate percentage`}
-                      value={row.taxRate}
+                      value={row.taxable ? row.taxRate : '0.00'}
                       onChange={(e) => updateRow(row.id, 'taxRate', e.target.value)}
-                      className="calc-input"
+                      className="calc-input with-suffix"
                       style={{
                         width: '100%',
                         height: 38,
-                        padding: '8px 26px 8px 10px',
                         fontSize: 14,
                         fontFamily: 'var(--font-mono)',
+                        opacity: row.taxable ? 1 : 0.6,
                       }}
                       placeholder="8.25"
                     />
-                    <span style={{ position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)', color: 'var(--muted)', fontSize: 13, fontFamily: 'var(--font-mono)' }} aria-hidden="true">%</span>
+                    <span className="input-suffix" aria-hidden="true">%</span>
                   </div>
+                </td>
+                <td style={{ textAlign: 'center' }}>
+                  <label
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      minWidth: 44,
+                      minHeight: 44,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={row.taxable}
+                      onChange={(e) => updateRow(row.id, 'taxable', e.target.checked)}
+                      aria-label={`Item ${row.id} is taxable`}
+                      style={{ accentColor: 'var(--primary)', width: 18, height: 18, cursor: 'pointer' }}
+                    />
+                  </label>
                 </td>
                 <td className="tabular-nums" style={{ fontWeight: 700, color: 'var(--primary)', fontSize: 14, fontFamily: 'var(--font-mono)' }}>
                   {calculated && calc ? `$${fmt(calc.preTaxPrice)}` : '—'}
@@ -205,11 +250,24 @@ export default function MultipleItemsTab() {
                     type="button"
                     onClick={() => removeRow(row.id)}
                     aria-label={`Remove Item ${row.id}`}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--error)', padding: 8, minWidth: 44, minHeight: 44, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      color: 'var(--error)',
+                      padding: 8,
+                      minWidth: 44,
+                      minHeight: 44,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
                     title={`Remove Item ${row.id}`}
                   >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                      <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="15" y1="9" x2="9" y2="15" />
+                      <line x1="9" y1="9" x2="15" y2="15" />
                     </svg>
                   </button>
                 </td>
@@ -217,21 +275,21 @@ export default function MultipleItemsTab() {
             ))}
           </tbody>
 
-          {/* Totals row — after Calculate */}
+          {/* Totals Summary Row */}
           {calculated && hasAnyData && (
             <tfoot>
               <tr style={{ backgroundColor: 'var(--mint-50)', fontWeight: 700, borderTop: '2px solid var(--mint-200)' }}>
                 <td colSpan={2} style={{ padding: '14px 18px', fontSize: 13, color: 'var(--ink)' }}>
-                  Totals ({validCount} items)
+                  Summary ({validCount} items calculated)
                 </td>
-                <td className="tabular-nums" style={{ padding: '14px 18px', color: 'var(--body)', fontSize: 13, fontFamily: 'var(--font-mono)' }}>
-                  Total: ${fmt(totals.totalPaid)}
+                <td className="tabular-nums" colSpan={2} style={{ padding: '14px 18px', color: 'var(--body)', fontSize: 13, fontFamily: 'var(--font-mono)' }}>
+                  Receipt total: <strong>${fmt(totals.totalPaid)}</strong>
                 </td>
                 <td className="tabular-nums" style={{ padding: '14px 18px', color: 'var(--primary-deep)', fontSize: 15, fontFamily: 'var(--font-mono)' }}>
-                  ${fmt(totals.preTax)}
+                  Subtotal: ${fmt(totals.preTax)}
                 </td>
                 <td className="tabular-nums" style={{ padding: '14px 18px', color: 'var(--primary-deep)', fontSize: 14, fontFamily: 'var(--font-mono)' }}>
-                  ${fmt(totals.taxAmount)}
+                  Tax: ${fmt(totals.taxAmount)}
                 </td>
                 <td />
               </tr>
@@ -240,30 +298,32 @@ export default function MultipleItemsTab() {
         </table>
       </div>
 
-      {/* Action bar */}
+      {/* Action Bar */}
       <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
-        <button type="button" onClick={addRow} className="btn-secondary" style={{ flex: '1 1 auto' }}>
+        <button type="button" onClick={addRow} className="btn-secondary" style={{ flex: '1 1 auto', minHeight: 44 }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
           </svg>
-          Add Item
+          Add item
         </button>
 
         <button
           type="button"
           onClick={handleCalculate}
           className="btn-primary"
-          style={{ flex: '2 1 auto', opacity: hasAnyData ? 1 : 0.6, cursor: hasAnyData ? 'pointer' : 'not-allowed' }}
+          style={{ flex: '2 1 auto', minHeight: 44, opacity: hasAnyData ? 1 : 0.6, cursor: hasAnyData ? 'pointer' : 'not-allowed' }}
           disabled={!hasAnyData}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" />
           </svg>
-          Calculate All Items
+          Calculate all items
         </button>
 
         {calculated && (
-          <button type="button" onClick={handleReset} className="btn-secondary">
+          <button type="button" onClick={handleReset} className="btn-secondary" style={{ minHeight: 44 }}>
             Reset
           </button>
         )}

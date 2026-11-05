@@ -146,7 +146,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[var(--primary)] focus:text-white focus:rounded-[var(--radius-xs)] focus:font-bold focus:shadow-md focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
-          style={{ color: '#ffffff' }}
+          style={{ color: '#ffffff', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}
         >
           Skip to main content
         </a>

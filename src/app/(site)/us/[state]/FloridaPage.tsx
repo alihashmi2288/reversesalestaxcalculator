@@ -151,6 +151,13 @@ export default function FloridaPage({ stateData }: Props) {
     { name: 'Brevard County (Melbourne/Space Coast)', state: '6.00%', surtax: '1.00%', combined: '7.00%', note: 'Indian River Lagoon restoration tax' },
   ];
 
+  const floridaPresets = [
+    { label: 'Miami / Broward / Palm Beach (7.00%)', rate: 7.00 },
+    { label: 'Tampa / Hillsborough / Jacksonville (7.50%)', rate: 7.50 },
+    { label: 'Orlando / Orange (6.50%)', rate: 6.50 },
+    { label: 'Florida State Base (6.00%)', rate: 6.00 },
+  ];
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -215,7 +222,11 @@ export default function FloridaPage({ stateData }: Props) {
 
           {/* Calculator Card */}
           <div style={{ marginBottom: 64 }}>
-            <StateCalculatorClient stateData={stateData} rateNote="Florida state rate is 6.00%. Enter your county rate (e.g., 7.00% for Miami-Dade or Broward, 7.50% for Tampa/Hillsborough, 6.50% for Orlando/Orange) to calculate from your receipt." />
+            <StateCalculatorClient
+              stateData={stateData}
+              presetRates={floridaPresets}
+              rateNote="Florida state rate is 6.00%. Enter your county rate (e.g., 7.00% for Miami-Dade or Broward, 7.50% for Tampa/Hillsborough, 6.50% for Orlando/Orange) to calculate from your receipt."
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>

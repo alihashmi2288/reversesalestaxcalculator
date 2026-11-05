@@ -156,6 +156,12 @@ export default function TexasPage({ stateData }: Props) {
     { name: 'Unincorporated Areas', stateRate: '6.25%', cityRate: '0.00%', mtaRate: 'Varies (0-1.5%)', combined: '6.25% - 7.75%', county: 'Rural Counties' },
   ];
 
+  const texasPresets = [
+    { label: 'Houston / Dallas / Austin (8.25%)', rate: 8.25 },
+    { label: 'San Antonio / Fort Worth (8.25%)', rate: 8.25 },
+    { label: 'Texas State Base (6.25%)', rate: 6.25 },
+  ];
+
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -220,7 +226,11 @@ export default function TexasPage({ stateData }: Props) {
 
           {/* Calculator Card */}
           <div style={{ marginBottom: 64 }}>
-            <StateCalculatorClient stateData={stateData} rateNote="Texas state rate is 6.25% and all major metropolitan cities add 2.00% local tax, making 8.25% the standard receipt rate across the state." />
+            <StateCalculatorClient
+              stateData={stateData}
+              presetRates={texasPresets}
+              rateNote="Texas state rate is 6.25% and all major metropolitan cities add 2.00% local tax, making 8.25% the standard receipt rate across the state."
+            />
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
