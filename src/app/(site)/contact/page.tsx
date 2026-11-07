@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ContactForm from './ContactForm';
+import SocialLinks from '@/components/SocialLinks';
 
 export const metadata: Metadata = {
   title: 'Contact Us: Reverse Sales Tax Calculator',
@@ -78,6 +79,15 @@ export default function ContactPage() {
               <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 12, lineHeight: 1.6 }}>
                 We review submissions daily and respond within 1–2 business days.
               </p>
+            </div>
+
+            {/* Official Social Channels */}
+            <div className="card">
+              <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--text-primary)', marginBottom: 12 }}>🌐 Official Social Channels</h3>
+              <p style={{ fontSize: 13.5, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 14 }}>
+                Connect or message our team directly across our official social profiles:
+              </p>
+              <SocialLinks variant="sidebar" />
             </div>
 
             {/* Common Topics */}

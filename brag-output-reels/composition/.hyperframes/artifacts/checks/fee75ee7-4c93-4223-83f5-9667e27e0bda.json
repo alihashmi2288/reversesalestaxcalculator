@@ -1,0 +1,499 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 307 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output-reels\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split coherent scenes or layers into separate .html files under compositions/, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 25,
+    "samples": [
+      1.389,
+      4.167,
+      6.944,
+      9.722,
+      12.5,
+      15.278,
+      18.056,
+      20.833,
+      23.611
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.389,
+      6.944,
+      12.5,
+      18.056,
+      23.611
+    ],
+    "checked": 46,
+    "passed": 46
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 15 text elements stay under it for 0.5 s or more, the smallest \"State & Local Tax\" at 22 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "State & Local Tax",
+        "selector": "#card-ca > div:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 696.79,
+          "y": 906.07,
+          "width": 166.42,
+          "height": 26.39
+        },
+        "time": 12.5,
+        "times": [
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          7,
+          7.125,
+          7.25,
+          7.25,
+          12.375,
+          12.5,
+          12.75,
+          12.875,
+          14.75
+        ],
+        "fontPx": 21.5,
+        "floorPx": 28,
+        "seconds": 6.75,
+        "elements": [
+          {
+            "selector": "#card-ca > div:nth-of-type(3)",
+            "text": "State & Local Tax",
+            "fontPx": 21.5,
+            "time": 12.5,
+            "seconds": 6.75
+          },
+          {
+            "selector": "#card-tx > div:nth-of-type(3)",
+            "text": "State & Local Tax",
+            "fontPx": 21.56,
+            "time": 12.375,
+            "seconds": 6.875
+          },
+          {
+            "selector": "#card-global > div:nth-of-type(3)",
+            "text": "GST, HST & VAT",
+            "fontPx": 21.7,
+            "time": 12.875,
+            "seconds": 6.375
+          },
+          {
+            "selector": "#card-ny > div:nth-of-type(3)",
+            "text": "State & Local Tax",
+            "fontPx": 21.74,
+            "time": 12.75,
+            "seconds": 6.5
+          },
+          {
+            "selector": "#res-label-1",
+            "text": "Original Price",
+            "fontPx": 22,
+            "time": 7,
+            "seconds": 4.25
+          },
+          {
+            "selector": "#res-label-2",
+            "text": "Tax Amount",
+            "fontPx": 22,
+            "time": 7.125,
+            "seconds": 4.125
+          },
+          {
+            "selector": "#res-label-3",
+            "text": "TOTAL PAID",
+            "fontPx": 22,
+            "time": 7.25,
+            "seconds": 4
+          },
+          {
+            "selector": "#input-label-amount",
+            "text": "TOTAL WITH TAX",
+            "fontPx": 23.7,
+            "time": 5.125,
+            "seconds": 6.125
+          },
+          {
+            "selector": "div.input-grid > div:nth-of-type(2) > span:nth-of-type(1)",
+            "text": "Sales Tax Rate",
+            "fontPx": 23.7,
+            "time": 5.125,
+            "seconds": 6.125
+          },
+          {
+            "selector": "#privacy-pill > span:nth-of-type(1)",
+            "text": "100% Private · No sign-up · Free",
+            "fontPx": 25.26,
+            "time": 14.75,
+            "seconds": 4.5
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(1)",
+            "text": "Presets:",
+            "fontPx": 25.67,
+            "time": 5.125,
+            "seconds": 6.125
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(2)",
+            "text": "6%",
+            "fontPx": 25.67,
+            "time": 5.125,
+            "seconds": 6.125
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(3)",
+            "text": "7%",
+            "fontPx": 25.67,
+            "time": 5.125,
+            "seconds": 6.125
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(5)",
+            "text": "10%",
+            "fontPx": 25.67,
+            "time": 5.125,
+            "seconds": 6.125
+          },
+          {
+            "selector": "#formula-bar",
+            "text": "Remove Tax: $108.25 ÷ 1.0825 = $100.00 Pre-Tax",
+            "fontPx": 26,
+            "time": 7.25,
+            "seconds": 4
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 200
+  },
+  "audio": {
+    "ok": false,
+    "errorCount": 12,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/music.mp3 cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#audio-bgm",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "timeRange": [
+          0,
+          25
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/voice-1.wav cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#audio-voice-1",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0.4,
+        "timeRange": [
+          0.4,
+          4.13
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/voice-2.wav cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#audio-voice-2",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 5,
+        "timeRange": [
+          5,
+          11.059999999999999
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/voice-3.wav cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#audio-voice-3",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 11.6,
+        "timeRange": [
+          11.6,
+          17.81
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/voice-4.wav cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#audio-voice-4",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 19.6,
+        "timeRange": [
+          19.6,
+          24.19
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/keypress.wav cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#sfx-key-1",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 5.4,
+        "timeRange": [
+          5.4,
+          5.6000000000000005
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/keypress.wav cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#sfx-key-2",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 5.7,
+        "timeRange": [
+          5.7,
+          5.9
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/click.ogg cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#sfx-click",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 6.5,
+        "timeRange": [
+          6.5,
+          6.6
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/chime.ogg cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#sfx-chime",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 7,
+        "timeRange": [
+          7,
+          7.21
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/click.ogg cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#sfx-mode-click",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 8,
+        "timeRange": [
+          8,
+          8.1
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/select.ogg cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#sfx-select-1",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 12.8,
+        "timeRange": [
+          12.8,
+          12.850000000000001
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      },
+      {
+        "code": "audio_source_unreadable",
+        "severity": "error",
+        "message": "assets/select.ogg cannot be read as audio ([FFmpeg] ffprobe not found. Please install FFmpeg.), so the render's audio mix fails and the render stops.",
+        "selector": "#sfx-select-2",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 14.8,
+        "timeRange": [
+          14.8,
+          14.850000000000001
+        ],
+        "fixHint": "Point src at a file with an audio track, or re-export this one."
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

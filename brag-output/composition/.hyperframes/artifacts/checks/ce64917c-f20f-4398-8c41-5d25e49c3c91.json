@@ -1,0 +1,749 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 11,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"0\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"0.4\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"5.2\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"11.5\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"19.7\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"5.6\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"5.9\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"6.7\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"7.3\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"12.8\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "studio_missing_editable_id",
+        "severity": "warning",
+        "message": "<audio data-start=\"14.8\"> has no id, so Studio cannot use a stable edit target for its timeline and canvas controls.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a stable, human-readable id such as id=\"hero-title\" or id=\"scene-1-card\" to every timeline-visible element you want agents or Studio to edit."
+      },
+      {
+        "code": "media_missing_id",
+        "severity": "error",
+        "message": "<audio> has data-start but no id attribute. The renderer requires id to discover media elements, so this audio will be SILENT in renders.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\All Websites\\reverse-tax-calculator\\brag-output\\composition\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add a unique id attribute: <audio id=\"my-audio\" ...>"
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 8,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-1\" is 4.10s but its slot (data-duration) is 4.20s — the slot is shortened to the media length when rendered. Set data-duration to ~4.10s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-2\" is 4.86s but its slot (data-duration) is 5.00s — the slot is shortened to the media length when rendered. Set data-duration to ~4.86s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-3\" is 7.62s but its slot (data-duration) is 7.70s — the slot is shortened to the media length when rendered. Set data-duration to ~7.62s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-4\" is 4.67s but its slot (data-duration) is 4.80s — the slot is shortened to the media length when rendered. Set data-duration to ~4.67s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-7\" is 0.10s but its slot (data-duration) is 0.40s — the slot is shortened to the media length when rendered. Set data-duration to ~0.10s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-8\" is 0.21s but its slot (data-duration) is 1.20s — the slot is shortened to the media length when rendered. Set data-duration to ~0.21s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-9\" is 0.05s but its slot (data-duration) is 0.40s — the slot is shortened to the media length when rendered. Set data-duration to ~0.05s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      },
+      {
+        "code": "clip_media_fit",
+        "severity": "warning",
+        "message": "Audio \"hf-audio-10\" is 0.05s but its slot (data-duration) is 0.40s — the slot is shortened to the media length when rendered. Set data-duration to ~0.05s if that isn't intended.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "25",
+          "data-width": "1920",
+          "data-height": "1080"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 25,
+    "samples": [
+      1.389,
+      4.167,
+      6.944,
+      9.722,
+      12.5,
+      15.278,
+      18.056,
+      20.833,
+      23.611
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.389,
+      6.944,
+      12.5,
+      18.056,
+      23.611
+    ],
+    "checked": 47,
+    "passed": 47
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 31 text elements stay under it for 0.5 s or more, the smallest \"Total Amount Paid\" at 13 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Total Amount Paid",
+        "selector": "div.input-grid > div:nth-of-type(1) > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 569.03,
+          "y": 463.03,
+          "width": 127.07,
+          "height": 14.81
+        },
+        "time": 5.125,
+        "times": [
+          0,
+          0.375,
+          0.375,
+          0.375,
+          0.375,
+          0.375,
+          0.375,
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          5.125,
+          7.25,
+          7.5,
+          7.625,
+          8.375,
+          11.75,
+          12.375,
+          12.375,
+          12.5,
+          12.5,
+          12.75,
+          12.75,
+          12.875,
+          12.875,
+          14.75,
+          21,
+          21.5
+        ],
+        "fontPx": 12.83,
+        "floorPx": 28,
+        "seconds": 6,
+        "elements": [
+          {
+            "selector": "div.input-grid > div:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "Total Amount Paid",
+            "fontPx": 12.83,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "div.input-grid > div:nth-of-type(2) > span:nth-of-type(1)",
+            "text": "Sales Tax Rate",
+            "fontPx": 12.83,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "div.res-label.res-label-highlight",
+            "text": "Original Price",
+            "fontPx": 13,
+            "time": 7.25,
+            "seconds": 3.875
+          },
+          {
+            "selector": "#res-2 > div:nth-of-type(1)",
+            "text": "Sales Tax (8.25%)",
+            "fontPx": 13,
+            "time": 7.5,
+            "seconds": 3.625
+          },
+          {
+            "selector": "#res-3 > div:nth-of-type(1)",
+            "text": "Total Paid",
+            "fontPx": 13,
+            "time": 7.625,
+            "seconds": 3.5
+          },
+          {
+            "selector": "#card-ca > div:nth-of-type(3)",
+            "text": "7.25% State + 1.6% Local",
+            "fontPx": 13.6,
+            "time": 12.5,
+            "seconds": 6.75
+          },
+          {
+            "selector": "#card-global > div:nth-of-type(3)",
+            "text": "EU & UK VAT Compliant",
+            "fontPx": 13.62,
+            "time": 12.875,
+            "seconds": 6.375
+          },
+          {
+            "selector": "#card-tx > div:nth-of-type(3)",
+            "text": "6.25% State + 2.0% Local",
+            "fontPx": 13.72,
+            "time": 12.375,
+            "seconds": 6.875
+          },
+          {
+            "selector": "#card-ny > div:nth-of-type(3)",
+            "text": "4.0% State + 4.52% Local",
+            "fontPx": 13.73,
+            "time": 12.75,
+            "seconds": 6.5
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(1)",
+            "text": "Quick Presets:",
+            "fontPx": 13.82,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "#chip-825",
+            "text": "8.25%",
+            "fontPx": 14.22,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "span.mode-pill-active",
+            "text": "Reverse Tax Mode (Back Out Tax)",
+            "fontPx": 14.81,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(2)",
+            "text": "6%",
+            "fontPx": 15.8,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(3)",
+            "text": "7%",
+            "fontPx": 15.8,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "div.chips-row > span:nth-of-type(5)",
+            "text": "10%",
+            "fontPx": 15.8,
+            "time": 5.125,
+            "seconds": 6
+          },
+          {
+            "selector": "#formula-bar",
+            "text": "Reverse Formula: $108.25 ÷ (1 + 0.0825) = $100.00 Pre-Tax Price",
+            "fontPx": 16,
+            "time": 8.375,
+            "seconds": 2.75
+          },
+          {
+            "selector": "#privacy-pill > span:nth-of-type(1)",
+            "text": "100% Client-Side Private · Zero Data Sent to Servers · No Signup",
+            "fontPx": 17.49,
+            "time": 14.75,
+            "seconds": 4.5
+          },
+          {
+            "selector": "#receipt > div:nth-of-type(1) > span:nth-of-type(1)",
+            "text": "STORE RECEIPT",
+            "fontPx": 19.61,
+            "time": 0.375,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#receipt > div:nth-of-type(1) > span:nth-of-type(2)",
+            "text": "#4029",
+            "fontPx": 19.61,
+            "time": 0.375,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#receipt > div:nth-of-type(2) > span:nth-of-type(1)",
+            "text": "Subtotal",
+            "fontPx": 19.61,
+            "time": 0.375,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#receipt > div:nth-of-type(2) > span:nth-of-type(2)",
+            "text": "$??.??",
+            "fontPx": 19.61,
+            "time": 0.375,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#receipt > div:nth-of-type(3) > span:nth-of-type(1)",
+            "text": "Sales Tax (8.25%)",
+            "fontPx": 19.61,
+            "time": 0.375,
+            "seconds": 4.375
+          },
+          {
+            "selector": "#receipt > div:nth-of-type(3) > span:nth-of-type(2)",
+            "text": "$?.??",
+            "fontPx": 19.61,
+            "time": 0.375,
+            "seconds": 4.375
+          },
+          {
+            "selector": "div.s3-subtitle",
+            "text": "Pre-configured combined state and local averages updated for 2026",
+            "fontPx": 22,
+            "time": 11.75,
+            "seconds": 7.5
+          },
+          {
+            "selector": "#card-ca > div:nth-of-type(1)",
+            "text": "California",
+            "fontPx": 23.32,
+            "time": 12.5,
+            "seconds": 6.75
+          },
+          {
+            "selector": "#card-global > div:nth-of-type(1)",
+            "text": "Canada & VAT",
+            "fontPx": 23.35,
+            "time": 12.875,
+            "seconds": 6.375
+          },
+          {
+            "selector": "#s4-url",
+            "text": "salestaxreversecalculator.com",
+            "fontPx": 23.43,
+            "time": 21.5,
+            "seconds": 3.5
+          },
+          {
+            "selector": "#card-tx > div:nth-of-type(1)",
+            "text": "Texas",
+            "fontPx": 23.52,
+            "time": 12.375,
+            "seconds": 6.875
+          },
+          {
+            "selector": "#card-ny > div:nth-of-type(1)",
+            "text": "New York",
+            "fontPx": 23.54,
+            "time": 12.75,
+            "seconds": 6.5
+          },
+          {
+            "selector": "div.s1-header",
+            "text": "Everyday Accounting Problem",
+            "fontPx": 26,
+            "time": 0,
+            "seconds": 4.75
+          },
+          {
+            "selector": "#s4-tagline",
+            "text": "Pre-tax clarity. Instantly free.",
+            "fontPx": 26,
+            "time": 21,
+            "seconds": 4
+          }
+        ]
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.63 s (15.25–18.88 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 15.25,
+        "seconds": 3.625,
+        "floorSeconds": 3,
+        "until": 18.875
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 200
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

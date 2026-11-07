@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import SocialLinks from '@/components/SocialLinks';
 
 export const metadata: Metadata = {
   title: { absolute: 'About Reverse Sales Tax Calculator: PreTaxPrice' },
@@ -193,6 +194,16 @@ export default function AboutPage() {
           </p>
         </div>
 
+        {/* Official Social Channels */}
+        <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 32 }}>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🌐</div>
+          <h2 style={{ fontWeight: 800, fontSize: 24, color: 'var(--ink)', marginBottom: 14 }}>Connect With Us on Social Media</h2>
+          <p style={{ color: 'var(--body)', fontSize: 16, lineHeight: 1.8, marginBottom: 20 }}>
+            Stay updated with statutory tax rate changes, practical reverse calculation guides, accounting tips, and platform updates across our verified community channels:
+          </p>
+          <SocialLinks variant="cards" />
+        </div>
+
         {/* Contact */}
         <div className="card" style={{ borderLeft: '4px solid var(--primary)', marginBottom: 48 }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>✉️</div>
@@ -209,7 +220,7 @@ export default function AboutPage() {
             <Link href="/contact" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>
               Contact page
             </Link>
-            . We review all submissions within 1–2 business days.
+            . You can also reach us via direct message on any of our official social media channels. We review all submissions within 1–2 business days.
           </p>
         </div>
 

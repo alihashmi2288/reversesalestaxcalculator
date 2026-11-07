@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SocialLinks from './SocialLinks';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -54,6 +55,12 @@ export default function Footer() {
             <p style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--body)' }}>
               Calculate the original pre-tax price from any sales tax or VAT-inclusive total. Designed for accuracy, privacy, and speed.
             </p>
+            <div style={{ marginTop: 20 }}>
+              <div style={{ color: 'var(--ink)', fontWeight: 700, fontSize: 12, marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                Follow PreTaxPrice
+              </div>
+              <SocialLinks variant="icons" />
+            </div>
           </div>
 
           {/* Calculators */}

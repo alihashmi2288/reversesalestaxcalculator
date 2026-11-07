@@ -1,0 +1,11 @@
+Calculate both ways in one click: find the price before tax, or add sales tax before checkout.
+
+Meet the Sales Tax Reverse Calculator — simple, fast, and accurate down to the penny.
+
+• Two calculation modes: "Find price before tax" and "Add sales tax"
+• Built-in tax rates for all 50 US states (combined state & local rates)
+• Canada GST / HST / PST + European and UK VAT
+• 100% private in your browser — zero tracking, no signup needed
+• Completely free and works instantly on phone or desktop
+
+Try it free: https://salestaxreversecalculator.com
