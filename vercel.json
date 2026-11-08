@@ -10,6 +10,16 @@
       ],
       "destination": "https://salestaxreversecalculator.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/#faq",
+      "permanent": true
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/#how-it-works",
+      "permanent": true
     }
   ]
 }

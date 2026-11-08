@@ -114,8 +114,8 @@ export default function ContactPage() {
               <h3 style={{ fontWeight: 700, fontSize: 16, color: 'var(--text-primary)', marginBottom: 16 }}>🔗 Quick Links</h3>
               <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {[
-                  { href: '/faq', label: 'Read our FAQ' },
-                  { href: '/how-it-works', label: 'How the calculator works' },
+                  { href: '/#faq', label: 'Read our FAQ' },
+                  { href: '/#how-it-works', label: 'How the calculator works' },
                   { href: '/about', label: 'About our tool' },
                 ].map(({ href, label }) => (
                   <li key={href}>
