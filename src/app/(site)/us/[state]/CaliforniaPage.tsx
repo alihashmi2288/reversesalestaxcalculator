@@ -181,7 +181,7 @@ export default function CaliforniaPage({ stateData }: Props) {
               letterSpacing: '-0.025em',
             }}
           >
-            California Sales Tax Calculator 2026 (Forward &amp; Reverse Tax Tool)
+            California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)
           </h1>
 
           <div

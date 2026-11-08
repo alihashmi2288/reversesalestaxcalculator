@@ -167,7 +167,7 @@ export default function ConnecticutPage({ stateData }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            CT Sales Tax Calculator
+            Connecticut Sales Tax Calculator 2026: Calculate or Back Out Tax (6.35%)
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}

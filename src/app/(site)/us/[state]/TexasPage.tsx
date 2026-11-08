@@ -179,7 +179,7 @@ export default function TexasPage({ stateData }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            Texas Reverse Sales Tax Calculator
+            Texas Sales Tax Calculator 2026: Calculate or Back Out Tax (8.25%)
           </h1>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>

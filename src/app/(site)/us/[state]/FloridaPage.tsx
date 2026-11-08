@@ -175,7 +175,7 @@ export default function FloridaPage({ stateData }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            Florida Reverse Sales Tax Calculator
+            Florida Sales Tax Calculator 2026: Calculate or Back Out Tax (7.13%)
           </h1>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>
