@@ -32,38 +32,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stateData = getStateBySlug(stateSlug);
   if (!stateData) return { title: 'State Not Found' };
 
-  let title = `${stateData.state} Reverse Sales Tax Calculator (${stateData.rate}% Rate)`;
-  let description = `Free ${stateData.state} reverse sales tax calculator pre-filled with the ${stateData.rate}% rate. Find original pre-tax prices from ${stateData.state} receipts instantly.`;
+  const isZeroTax = stateData.rate === 0;
+  const rateDisplay = isZeroTax ? '0% Tax-Free' : `${stateData.rate}%`;
+  let title = `${stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax (${rateDisplay})`;
+  let description = isZeroTax
+    ? `Free ${stateData.state} sales tax and reverse tax calculator for 2026. ${stateData.state} has no state sales tax (0%). Calculate purchases and verify receipts tax-free.`
+    : `Free ${stateData.state} sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from receipts instantly. Includes local city and county rates.`;
 
   const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
 
   if (stateSlug === 'connecticut') {
-    title = 'Connecticut Reverse Sales Tax Calculator (6.35% Rate)';
-    description = 'Free Connecticut reverse sales tax calculator with 2026 rates. Find your pre-tax price from any receipt instantly. No signup required.';
+    title = 'Connecticut Sales Tax Calculator 2026: Calculate or Back Out Tax (6.35%)';
+    description = 'Free Connecticut sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from receipts instantly. Pre-filled with the 6.35% statewide rate.';
   } else if (stateSlug === 'california') {
-    title = 'California Sales Tax Calculator 2026 | Forward & Reverse Tool (7.25% - 10.75%)';
+    title = 'California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% - 10.75%)';
     description = 'Free 2026 California sales tax calculator. Calculate sales tax forward on retail purchases or back out sales tax from gross receipts. Includes all 58 CA counties, top city rates (7.25%–10.75%), CDTFA tax rules, and instant receipt breakdowns.';
   } else if (stateSlug === 'texas') {
-    title = 'Texas Reverse Sales Tax Calculator (8.25% Standard Rate)';
-    description = 'Free Texas reverse sales tax calculator pre-filled with the 8.25% combined rate. Find original pre-tax prices from Houston, Dallas, Austin, and San Antonio receipts.';
+    title = 'Texas Sales Tax Calculator 2026: Calculate or Back Out Tax (8.25%)';
+    description = 'Free Texas sales tax and reverse tax calculator for 2026. Calculate tax forward on retail purchases or back out 8.25% tax from Houston, Dallas, Austin, and San Antonio receipts.';
   } else if (stateSlug === 'florida') {
-    title = 'Florida Reverse Sales Tax Calculator (6.5% to 7.5% Surtax)';
-    description = 'Free Florida reverse sales tax calculator with 2026 county surtax rates. Find original pre-tax prices from Miami, Tampa, Orlando, and Jacksonville receipts.';
+    title = 'Florida Sales Tax Calculator 2026: Calculate or Back Out Tax (7.13%)';
+    description = 'Free Florida sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from Miami, Tampa, Orlando, and Jacksonville receipts with county surtaxes.';
   } else if (stateSlug === 'new-york') {
-    title = 'NY Sales Tax Calculator (NYC 8.875%)';
-    description = 'Unlock the true pre-tax cost of purchases in New York City with our reverse sales tax calculator. Pre-loaded with 8.875% NYC combined tax.';
+    title = 'New York Sales Tax Calculator 2026: Calculate or Back Out Tax (NYC 8.875%)';
+    description = 'Free New York sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out NYC 8.875% tax from receipts instantly. Includes all NY county rates.';
   } else if (stateSlug === 'arizona') {
-    title = 'Arizona Reverse Sales Tax Calculator (TPT Rates 7.8% - 9.2%)';
-    description = 'Free Arizona reverse sales tax calculator pre-loaded with ADOR Transaction Privilege Tax (TPT) rates. Back out TPT from Phoenix, Tucson, Mesa, and Scottsdale receipts.';
+    title = 'Arizona Sales Tax Calculator 2026: Calculate or Back Out Tax (8.51%)';
+    description = 'Free Arizona sales tax and reverse tax calculator for 2026. Calculate tax forward or back out Transaction Privilege Tax (TPT) from Phoenix, Tucson, Mesa, and Scottsdale receipts instantly.';
   } else if (stateSlug === 'south-carolina') {
-    title = 'South Carolina Reverse Sales Tax Calculator (6% to 9% Rates)';
-    description = 'Free South Carolina reverse sales tax calculator with 2026 county surtaxes. Back out sales tax from Charleston (9%), Columbia (8%), and Myrtle Beach receipts.';
+    title = 'South Carolina Sales Tax Calculator 2026: Calculate or Back Out Tax (7.51%)';
+    description = 'Free South Carolina sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from Charleston, Columbia, and Myrtle Beach receipts with local surtaxes.';
   } else if (stateData.rate === 0) {
-    title = `${stateData.state} Reverse Sales Tax Calculator (0% Tax Free)`;
-    description = `Free ${stateData.state} reverse sales tax calculator. ${stateData.state} has no state sales tax (0%). Calculate pre-tax and checkout amounts instantly.`;
+    title = `${stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax (0% Tax-Free)`;
+    description = `Free ${stateData.state} sales tax and reverse tax calculator for 2026. ${stateData.state} has no state sales tax (0%). Calculate purchases and verify receipts tax-free.`;
   } else if (stateData.avgLocalRate === 0) {
-    title = `${stateData.state} Reverse Sales Tax Calculator (${stateData.rate}% Flat Rate)`;
-    description = `Free ${stateData.state} reverse sales tax calculator pre-filled with ${stateData.state}'s flat ${stateData.rate}% rate. Find original pre-tax prices instantly.`;
+    title = `${stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax (${stateData.rate}% Flat Rate)`;
+    description = `Free ${stateData.state} sales tax and reverse tax calculator for 2026. Pre-filled with ${stateData.state}'s flat ${stateData.rate}% rate. Calculate tax forward on purchases or back out tax from receipts instantly.`;
   }
 
   ogUrl.searchParams.set('title', title);
@@ -161,14 +165,14 @@ export default async function StatePage({ params }: Props) {
   const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": `${stateData.state} Reverse Sales Tax Calculator`,
+    "name": `${stateData.state} Sales Tax Calculator (Forward & Reverse 2026)`,
     "url": `https://salestaxreversecalculator.com/us/${stateSlug}`,
     "applicationCategory": "FinanceApplication",
     "applicationSubCategory": "Sales Tax Calculation & Accounting",
     "softwareVersion": "2.4.0",
     "inLanguage": "en",
     "operatingSystem": "All modern browsers (Desktop & Mobile)",
-    "description": `Free ${stateData.state} reverse sales tax calculator. Find the original pre-tax price from any ${stateData.state} receipt instantly.`,
+    "description": `Free ${stateData.state} sales tax and reverse tax calculator. Calculate tax forward on purchases or back out tax from receipts instantly.`,
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -218,10 +222,9 @@ export default async function StatePage({ params }: Props) {
           </span>
 
           <h1
-            aria-label={`${stateData.state} Reverse Sales Tax Calculator`}
-            style={{ fontSize: 'clamp(32px, 6vw, 52px)', fontWeight: 700, color: '#ffffff', lineHeight: 1.15, margin: '16px 0 16px' }}
+            style={{ fontSize: 'clamp(28px, 4.5vw, 46px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '16px 0 16px', letterSpacing: '-0.02em' }}
           >
-            {stateData.state} Reverse Sales Tax Calculator
+            {stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
@@ -233,9 +236,9 @@ export default async function StatePage({ params }: Props) {
             <span>🏛️ Source: <strong>{stateData.source}</strong></span>
           </div>
 
-          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 660, margin: '0 auto', lineHeight: 1.6 }}>
             Pre-filled with {stateData.state}&apos;s {stateData.rate}% combined average tax rate.
-            Enter any total price to find the original pre-tax amount instantly.
+            Calculate tax forward on retail purchases or back out tax from receipts to uncover the original pre-tax price instantly.
           </p>
         </div>
       </section>
