@@ -22,13 +22,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const provinceData = getProvinceBySlug(provinceSlug);
   if (!provinceData) return { title: 'Province Not Found' };
 
+  let taxLabel = 'HST';
+  if (provinceData.type === 'GST+QST') taxLabel = 'GST/QST (TVQ)';
+  else if (provinceData.type === 'GST+PST') taxLabel = 'GST/PST';
+  else if (provinceData.type === 'GST') taxLabel = 'GST';
+
+  const title = `${provinceData.name} Reverse ${taxLabel} Calculator 2026: Back Out ${provinceData.rate}% Tax`;
+  const description = `Free 2026 ${provinceData.name} reverse ${taxLabel} calculator. Back out ${provinceData.rate}% tax from receipts, separate net base costs, and reconcile CRA Input Tax Credits (ITC) instantly.`;
+
   const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
-  ogUrl.searchParams.set('title', `${provinceData.name} Reverse Tax Calculator`);
+  ogUrl.searchParams.set('title', title);
   ogUrl.searchParams.set('location', provinceData.name);
   ogUrl.searchParams.set('rate', provinceData.rate.toString());
-
-  const title = `${provinceData.name} Reverse Sales Tax Calculator (${provinceData.rate}% ${provinceData.type})`;
-  const description = `Free ${provinceData.name} reverse sales tax calculator pre-filled with the ${provinceData.rate}% ${provinceData.type} rate. Find original pre-tax amounts instantly.`;
 
   return {
     title,
@@ -53,6 +58,11 @@ export default async function ProvincePage({ params }: Props) {
   const provinceData = getProvinceBySlug(provinceSlug);
   if (!provinceData) notFound();
 
+  let taxLabel = 'HST';
+  if (provinceData.type === 'GST+QST') taxLabel = 'GST/QST (TVQ)';
+  else if (provinceData.type === 'GST+PST') taxLabel = 'GST/PST';
+  else if (provinceData.type === 'GST') taxLabel = 'GST';
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -66,11 +76,11 @@ export default async function ProvincePage({ params }: Props) {
   const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": `${provinceData.name} Reverse Sales Tax Calculator`,
+    "name": `${provinceData.name} Reverse ${taxLabel} Calculator 2026`,
     "url": `https://salestaxreversecalculator.com/canada/${provinceSlug}`,
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
-    "description": `Free ${provinceData.name} reverse sales tax calculator. Find the original pre-tax price from any Canadian receipt in ${provinceData.name} instantly.`,
+    "description": `Free ${provinceData.name} reverse ${taxLabel} calculator. Back out ${provinceData.rate}% tax from receipts and reconcile CRA Input Tax Credits (ITC) instantly.`,
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -112,7 +122,6 @@ export default async function ProvincePage({ params }: Props) {
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
 
       {/* ── Hero Section ─────────────────────────────────────── */}
-      {/* ── Hero Section ─────────────────────────────────────── */}
       <section className="hero-band" style={{ padding: '56px 0 48px', textAlign: 'center' }}>
         <div className="container-main">
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '4px 12px', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 'var(--radius-xs)', fontSize: 12, fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--mint-100)', marginBottom: 16 }}>
@@ -120,15 +129,14 @@ export default async function ProvincePage({ params }: Props) {
           </div>
 
           <h1
-            aria-label={`${provinceData.name} Reverse Sales Tax Calculator`}
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            {provinceData.name} Reverse Sales Tax Calculator
+            {provinceData.name} Reverse {taxLabel} Calculator 2026: Back Out {provinceData.rate}% Tax
           </h1>
 
-          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 640, margin: '0 auto', lineHeight: 1.6 }}>
-            Pre-filled with {provinceData.name}&apos;s {provinceData.rate}% combined {provinceData.type} rate.
-            Enter any total price to find the original pre-tax amount instantly.
+          <p style={{ fontSize: 17, color: 'var(--mint-100)', maxWidth: 660, margin: '0 auto', lineHeight: 1.6 }}>
+            Pre-filled with {provinceData.name}&apos;s {provinceData.rate}% statutory {provinceData.type} rate.
+            Back out tax from gross receipts to isolate pre-tax costs and calculate CRA Input Tax Credit (ITC) claims.
           </p>
         </div>
       </section>
@@ -214,6 +222,50 @@ export default async function ProvincePage({ params }: Props) {
                 </p>
               </section>
             )}
+
+            {/* CRA Input Tax Credit (ITC) Reconciliation Section */}
+            <section style={{ maxWidth: 880 }} id="itc-reconciliation">
+              <span className="section-label">CRA Business Tax Guide</span>
+              <h2 style={{ fontSize: 28, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
+                Input Tax Credit (ITC) Reconciliation for {provinceData.name} Businesses
+              </h2>
+              <div className="card" style={{ padding: 28, border: '1px solid var(--mint-200)', background: 'var(--mint-50)', borderRadius: 'var(--radius)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <div>
+                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--primary-deep)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      Eligible Tax &amp; CRA Filing Target
+                    </h3>
+                    <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
+                      <strong>Eligible Tax:</strong> {provinceData.itcGuide.eligibleTax}
+                      <br />
+                      <strong>Filing Return:</strong> {provinceData.itcGuide.craForm}
+                      <br />
+                      <strong>Recovery Rate:</strong> {provinceData.itcGuide.taxRecoveryRate}
+                    </p>
+                  </div>
+
+                  <div style={{ borderTop: '1px solid var(--mint-200)', paddingTop: 16 }}>
+                    <h3 style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>
+                      CRA Documentary Rules &amp; Recovery Guidelines
+                    </h3>
+                    <ul style={{ margin: 0, paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 8, fontSize: 14, color: 'var(--body)', lineHeight: 1.6 }}>
+                      {provinceData.itcGuide.rules.map((rule, idx) => (
+                        <li key={idx}>{rule}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div style={{ borderTop: '1px solid var(--mint-200)', paddingTop: 16, background: 'rgba(255,255,255,0.7)', padding: 16, borderRadius: 'var(--radius-xs)' }}>
+                    <h4 style={{ fontSize: 13, fontWeight: 800, color: 'var(--primary-deep)', margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      Worked Example for {provinceData.name} Receipt
+                    </h4>
+                    <p style={{ fontSize: 14, color: 'var(--ink)', margin: 0, lineHeight: 1.6, fontFamily: 'var(--font-mono)' }}>
+                      {provinceData.itcGuide.mathExample}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
 
             {/* Use Cases */}
             {provinceData.useCases.length > 0 && (

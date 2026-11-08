@@ -1,3 +1,11 @@
+export interface ITCGuide {
+  eligibleTax: string;
+  craForm: string;
+  taxRecoveryRate: string;
+  rules: string[];
+  mathExample: string;
+}
+
 export interface ProvinceRate {
   name: string;
   slug: string;
@@ -11,9 +19,71 @@ export interface ProvinceRate {
   cities: { name: string; rate: number }[];
   useCases: { title: string; description: string }[];
   faqs: { question: string; answer: string }[];
+  itcGuide: ITCGuide;
 }
 
-export const CANADA_PROV_TAX_RATES: ProvinceRate[] = [
+export function getITCGuide(prov: Omit<ProvinceRate, 'itcGuide'>): ITCGuide {
+  if (prov.type === 'HST') {
+    return {
+      eligibleTax: `${prov.rate}% Harmonized Sales Tax (HST)`,
+      craForm: 'CRA Form GST34-2 (Line 106 / Line 108 Input Tax Credits)',
+      taxRecoveryRate: `100% of the ${prov.rate}% HST paid is eligible for commercial ITC recovery`,
+      rules: [
+        `Under CRA statutory guidelines, GST/HST-registered businesses in ${prov.name} can recover 100% of the ${prov.rate}% HST paid on eligible commercial purchases and operating expenses.`,
+        `Statutory Reverse Formula: Pre-Tax Amount = Total Paid ÷ ${(1 + prov.rate / 100).toFixed(2)}. Claimable ITC = Total Paid - Pre-Tax Amount.`,
+        `CRA Documentary Requirements: Invoices exceeding $30 must clearly state the supplier's 9-digit Business Number (BN / GST/HST registration number), transaction date, and total paid. Invoices over $150 require the buyer's business name and itemized tax breakdown.`,
+        `Time Limit: Eligible ITCs can generally be claimed within 4 years from the due date of the return for the reporting period in which the purchase was made.`,
+      ],
+      mathExample: `For a $${(100 * (1 + prov.rate / 100)).toFixed(2)} tax-inclusive receipt in ${prov.name}: Divide $${(100 * (1 + prov.rate / 100)).toFixed(2)} by ${(1 + prov.rate / 100).toFixed(2)} to find your $100.00 pre-tax operating expense. The remaining $${prov.rate.toFixed(2)} is your exact claimable Input Tax Credit entered on CRA Line 106.`,
+    };
+  }
+
+  if (prov.type === 'GST+QST') {
+    return {
+      eligibleTax: '5% Federal GST + 9.975% Quebec Sales Tax (QST / TVQ)',
+      craForm: 'Dual Filing: CRA Form GST34 (Line 106) for GST & Revenu Québec Form VD-358 (Line 207) for QST ITR',
+      taxRecoveryRate: '5% GST recovered via CRA ITC; 9.975% QST recovered via Revenu Québec Input Tax Refund (ITR)',
+      rules: [
+        'Businesses registered with Revenu Québec must separately track and report the 5% federal GST and 9.975% provincial QST components.',
+        'Statutory Reverse Formula: Pre-Tax Amount = Total Paid ÷ 1.14975. Federal GST ITC = Pre-Tax × 0.05. Provincial QST ITR = Pre-Tax × 0.09975.',
+        'Documentary Requirements: Invoices must display the supplier’s 9-digit federal Business Number and the 10-digit Revenu Québec QST identification number (TQ followed by numbers).',
+        'Large Business Restrictions: Large businesses in Quebec are subject to specific ITR recapture rules on certain road vehicles and telecommunications.',
+      ],
+      mathExample: 'For a $114.98 receipt in Quebec: Divide by 1.14975 to isolate the $100.00 net business expense. You claim $5.00 GST on CRA Line 106 and $9.98 QST on Revenu Québec Line 207 as an Input Tax Refund.',
+    };
+  }
+
+  if (prov.type === 'GST+PST') {
+    return {
+      eligibleTax: `5% Federal GST component only (${prov.pst}% provincial PST is expensed)`,
+      craForm: 'CRA Form GST34 (Line 106 / Line 108 Input Tax Credits)',
+      taxRecoveryRate: '5% Federal GST is 100% ITC recoverable; provincial PST is expensed on corporate tax filings',
+      rules: [
+        `In ${prov.name}, only the 5% federal GST portion qualifies for CRA Input Tax Credits. The ${prov.pst}% provincial PST does not qualify for an ITC because PST is a single-incident consumer tax.`,
+        `Accounting Treatment: The ${prov.pst}% PST paid on business inputs must be capitalized or expensed as an operating cost on your financial statements (T2 or T2125), rather than claimed as an input tax credit.`,
+        `Statutory Reverse Formula: Pre-Tax Base = Total Paid ÷ ${(1 + prov.rate / 100).toFixed(2)}. Claimable Federal GST ITC = Pre-Tax Base × 0.05. PST Expense = Pre-Tax Base × ${(prov.pst / 100).toFixed(2)}.`,
+        'Documentary Requirements: Vendor receipts must display their 9-digit GST registration number and show either the GST amount separately or state that GST is included.',
+      ],
+      mathExample: `For a $${(100 * (1 + prov.rate / 100)).toFixed(2)} tax-inclusive receipt in ${prov.name}: Divide by ${(1 + prov.rate / 100).toFixed(2)} to find the $100.00 pre-tax cost. Claim $5.00 federal GST as an ITC on Line 106. The remaining $${prov.pst.toFixed(2)} is recorded as provincial tax expense.`,
+    };
+  }
+
+  // GST only (Alberta, NWT, Nunavut, Yukon)
+  return {
+    eligibleTax: '5% Federal Goods and Services Tax (GST)',
+    craForm: 'CRA Form GST34 (Line 106 / Line 108 Input Tax Credits)',
+    taxRecoveryRate: '100% of the 5% GST paid is eligible for commercial ITC recovery',
+    rules: [
+      `Because ${prov.name} levies no provincial sales tax, 100% of the sales tax charged on business purchases is the 5% federal GST.`,
+      'Statutory Reverse Formula: Pre-Tax Base = Total Paid ÷ 1.05. Claimable GST ITC = Total Paid - Pre-Tax Base (or Total Paid × 5/105).',
+      'CRA Documentary Requirements: Retain receipts with the supplier’s 9-digit Business Number (BN) and transaction date to substantiate your ITC claims during CRA compliance audits.',
+      'Small Supplier Exemption: Businesses with annual taxable worldwide sales below $30,000 are not required to register for GST, but registering voluntarily allows claiming ITCs on all startup and operating costs.',
+    ],
+    mathExample: `For a $105.00 receipt in ${prov.name}: Divide $105.00 by 1.05 = $100.00 net business expense. The remaining $5.00 is claimed as an Input Tax Credit on CRA Line 106.`,
+  };
+}
+
+const RAW_PROV_TAX_RATES: Omit<ProvinceRate, 'itcGuide'>[] = [
   {
     name: 'Ontario',
     slug: 'ontario',
@@ -426,6 +496,11 @@ export const CANADA_PROV_TAX_RATES: ProvinceRate[] = [
     ]
   }
 ];
+
+export const CANADA_PROV_TAX_RATES: ProvinceRate[] = RAW_PROV_TAX_RATES.map((p) => ({
+  ...p,
+  itcGuide: getITCGuide(p),
+}));
 
 export function getProvinceBySlug(slug: string): ProvinceRate | undefined {
   return CANADA_PROV_TAX_RATES.find((p) => p.slug === slug.toLowerCase());
