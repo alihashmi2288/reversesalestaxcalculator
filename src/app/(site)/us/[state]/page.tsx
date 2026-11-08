@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title = 'Connecticut Sales Tax Calculator 2026: Calculate or Back Out Tax (6.35%)';
     description = 'Free Connecticut sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from receipts instantly. Pre-filled with the 6.35% statewide rate.';
   } else if (stateSlug === 'california') {
-    title = 'California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% - 10.75%)';
+    title = 'California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)';
     description = 'Free 2026 California sales tax calculator. Calculate sales tax forward on retail purchases or back out sales tax from gross receipts. Includes all 58 CA counties, top city rates (7.25%–10.75%), CDTFA tax rules, and instant receipt breakdowns.';
   } else if (stateSlug === 'texas') {
     title = 'Texas Sales Tax Calculator 2026: Calculate or Back Out Tax (8.25%)';
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description = 'Free New York sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out NYC 8.875% tax from receipts instantly. Includes all NY county rates.';
   } else if (stateSlug === 'arizona') {
     title = 'Arizona Sales Tax Calculator 2026: Calculate or Back Out Tax (8.51%)';
-    description = 'Free Arizona sales tax and reverse tax calculator for 2026. Calculate tax forward or back out Transaction Privilege Tax (TPT) from Phoenix, Tucson, Mesa, and Scottsdale receipts instantly.';
+    description = 'Free Arizona sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out Transaction Privilege Tax (TPT) from Phoenix, Tucson, Mesa, and Scottsdale receipts instantly.';
   } else if (stateSlug === 'south-carolina') {
     title = 'South Carolina Sales Tax Calculator 2026: Calculate or Back Out Tax (7.51%)';
     description = 'Free South Carolina sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from Charleston, Columbia, and Myrtle Beach receipts with local surtaxes.';
@@ -218,7 +218,7 @@ export default async function StatePage({ params }: Props) {
       <section className="hero-band" style={{ padding: '56px 0 64px', textAlign: 'center' }}>
         <div className="container-main" style={{ position: 'relative' }}>
           <span className="section-label" style={{ background: 'var(--mint-100)', color: 'var(--primary-deep)', border: '1px solid var(--mint-200)' }}>
-            🗺️ {stateData.abbreviation} · PRE-FILLED COMBINED RATE: {stateData.rate}%
+            🗺️ {stateData.abbreviation} · {stateData.rate > 0 ? `PRE-FILLED COMBINED RATE: ${stateData.rate}%` : 'NO STATE SALES TAX (0%)'}
           </span>
 
           <h1

@@ -64,7 +64,7 @@ export default function ArizonaPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Arizona Reverse Sales Tax Calculator',
+    name: 'Arizona Sales Tax Calculator (Forward & Reverse 2026)',
     alternateName: 'PreTaxPrice Arizona TPT Calculator',
     url: 'https://salestaxreversecalculator.com/us/arizona',
     applicationCategory: 'FinanceApplication',
@@ -73,7 +73,7 @@ export default function ArizonaPage({ stateData }: Props) {
     inLanguage: 'en',
     operatingSystem: 'All modern browsers (Desktop & Mobile)',
     description:
-      'Free Arizona reverse sales tax calculator pre-loaded with ADOR 2026 Transaction Privilege Tax (TPT) rates. Back out TPT from Phoenix (8.6%), Tucson (8.7%), Mesa (8.3%), and Scottsdale receipts.',
+      'Free Arizona sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out Transaction Privilege Tax (TPT) from Phoenix, Tucson, Mesa, and Scottsdale receipts instantly.',
     offers: {
       '@type': 'Offer',
       price: '0',

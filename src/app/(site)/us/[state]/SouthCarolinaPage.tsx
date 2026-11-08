@@ -59,7 +59,7 @@ export default function SouthCarolinaPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'South Carolina Reverse Sales Tax Calculator',
+    name: 'South Carolina Sales Tax Calculator (Forward & Reverse 2026)',
     alternateName: 'PreTaxPrice SC Tax Calculator',
     url: 'https://salestaxreversecalculator.com/us/south-carolina',
     applicationCategory: 'FinanceApplication',
@@ -68,7 +68,7 @@ export default function SouthCarolinaPage({ stateData }: Props) {
     inLanguage: 'en',
     operatingSystem: 'All modern browsers (Desktop & Mobile)',
     description:
-      'Free South Carolina reverse sales tax calculator pre-loaded with SCDOR 2026 rates. Back out sales tax from Charleston (9.0%), Columbia (8.0%), Myrtle Beach (8.0%), and Greenville receipts.',
+      'Free South Carolina sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from Charleston, Columbia, and Myrtle Beach receipts with local surtaxes.',
     offers: {
       '@type': 'Offer',
       price: '0',

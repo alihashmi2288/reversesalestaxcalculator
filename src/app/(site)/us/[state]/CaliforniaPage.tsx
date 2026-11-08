@@ -101,7 +101,7 @@ export default function CaliforniaPage({ stateData }: Props) {
             '@type': 'ListItem',
             position: 2,
             name: 'US Sales Tax Rates',
-            item: 'https://salestaxreversecalculator.com/us',
+            item: 'https://salestaxreversecalculator.com/tax-rates',
           },
           {
             '@type': 'ListItem',

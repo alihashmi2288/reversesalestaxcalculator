@@ -85,7 +85,7 @@ export default function NewYorkPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'NY Sales Tax Calculator',
+    name: 'New York Sales Tax Calculator (Forward & Reverse 2026)',
     url: 'https://salestaxreversecalculator.com/us/new-york',
     applicationCategory: 'FinanceApplication',
     applicationSubCategory: 'Sales Tax & Reverse Tax Calculation',
@@ -93,7 +93,7 @@ export default function NewYorkPage({ stateData }: Props) {
     inLanguage: 'en',
     operatingSystem: 'All modern browsers (Desktop & Mobile)',
     description:
-      'Unlock the true cost of your purchases in New York City with our reverse sales tax calculator. Get started now and take control of your spending!',
+      'Free New York sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out NYC 8.875% tax from receipts instantly. Includes all NY county rates.',
     offers: {
       '@type': 'Offer',
       price: '0',

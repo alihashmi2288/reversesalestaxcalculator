@@ -64,7 +64,7 @@ export default function TexasPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Texas Reverse Sales Tax Calculator',
+    name: 'Texas Sales Tax Calculator (Forward & Reverse 2026)',
     alternateName: 'PreTaxPrice Texas Sales Tax Tool',
     url: 'https://salestaxreversecalculator.com/us/texas',
     applicationCategory: 'FinanceApplication',
@@ -73,7 +73,7 @@ export default function TexasPage({ stateData }: Props) {
     inLanguage: 'en',
     operatingSystem: 'All modern browsers (Desktop & Mobile)',
     description:
-      'Free Texas reverse sales tax calculator pre-loaded with the 8.25% Texas combined rate. Remove sales tax from receipts in Houston, Dallas, Austin, San Antonio, and Fort Worth.',
+      'Free Texas sales tax and reverse tax calculator for 2026. Calculate tax forward on retail purchases or back out 8.25% tax from Houston, Dallas, Austin, and San Antonio receipts.',
     offers: {
       '@type': 'Offer',
       price: '0',

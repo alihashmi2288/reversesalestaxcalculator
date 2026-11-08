@@ -60,11 +60,11 @@ export default function ConnecticutPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Connecticut Reverse Sales Tax Calculator',
+    name: 'Connecticut Sales Tax Calculator (Forward & Reverse 2026)',
     url: 'https://salestaxreversecalculator.com/us/connecticut',
     applicationCategory: 'FinanceApplication',
     operatingSystem: 'All',
-    description: 'Free Connecticut reverse sales tax calculator with 2026 rates. Find your pre-tax price instantly. No signup needed. Covers standard and special rates.',
+    description: 'Free Connecticut sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from receipts instantly. Pre-filled with the 6.35% statewide rate.',
     offers: {
       '@type': 'Offer',
       price: '0',

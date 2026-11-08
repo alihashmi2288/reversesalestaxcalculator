@@ -2,23 +2,31 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { STATE_TAX_RATES } from '@/data/stateTaxRates';
 import { CANADA_PROV_TAX_RATES } from '@/data/canadaTaxRates';
+import { generateMetadata as generateStateMetadata } from '@/app/(site)/us/[state]/page';
 import fs from 'node:fs';
 import path from 'node:path';
 
 describe('SEO Audit Verification Tests', () => {
-  test('all 51 US states generate standardized bidirectional titles and descriptions', () => {
-    // Read page.tsx to verify the dynamic metadata template
-    const pageContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/page.tsx'), 'utf-8');
-    
-    // Must contain bidirectional template in default metadata
-    assert.ok(
-      pageContent.includes('Sales Tax Calculator 2026: Calculate or Back Out Tax'),
-      'src/app/(site)/us/[state]/page.tsx default title must include "Sales Tax Calculator 2026: Calculate or Back Out Tax"'
-    );
-    assert.ok(
-      pageContent.includes('Calculate tax forward on purchases or back out tax from receipts instantly'),
-      'src/app/(site)/us/[state]/page.tsx default description must include "Calculate tax forward on purchases or back out tax from receipts instantly"'
-    );
+  test('all 51 US states generate standardized bidirectional titles and descriptions dynamically', async () => {
+    for (const state of STATE_TAX_RATES) {
+      const slug = state.state.toLowerCase().replace(/\s+/g, '-');
+      const meta = await generateStateMetadata({ params: Promise.resolve({ state: slug }) });
+      const title = String(meta.title || '');
+      const description = String(meta.description || '');
+
+      assert.ok(
+        title.includes('Sales Tax Calculator 2026: Calculate or Back Out Tax'),
+        `State ${state.state} title missing two-way action phrase: ${title}`
+      );
+      assert.ok(
+        (description.includes('forward') && description.includes('back out')) || description.includes('tax-free'),
+        `State ${state.state} description missing forward/reverse copy: ${description}`
+      );
+
+      if (state.rate === 0) {
+        assert.ok(title.includes('(0% Tax-Free)'), `Zero-tax state ${state.state} must have (0% Tax-Free): ${title}`);
+      }
+    }
   });
 
   test('top 7 customized states (NY, CT, TX, CA, FL, AZ, SC) have standardized bidirectional metadata and H1s', () => {
@@ -42,8 +50,8 @@ describe('SEO Audit Verification Tests', () => {
       'Florida title must be standardized'
     );
     assert.ok(
-      pageContent.includes("title = 'California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% - 10.75%)'"),
-      'California title must be standardized'
+      pageContent.includes("title = 'California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)'"),
+      'California title must be standardized with en-dash'
     );
     assert.ok(
       pageContent.includes("title = 'Arizona Sales Tax Calculator 2026: Calculate or Back Out Tax (8.51%)'"),
@@ -78,6 +86,10 @@ describe('SEO Audit Verification Tests', () => {
       caContent.includes('California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)'),
       'CaliforniaPage.tsx H1 must be standardized'
     );
+    assert.ok(
+      caContent.includes("item: 'https://salestaxreversecalculator.com/tax-rates'"),
+      'CaliforniaPage.tsx breadcrumb item 2 must link directly to /tax-rates without redirect hop'
+    );
 
     const flContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/FloridaPage.tsx'), 'utf-8');
     assert.ok(
@@ -95,6 +107,33 @@ describe('SEO Audit Verification Tests', () => {
     assert.ok(
       scContent.includes('South Carolina Sales Tax Calculator 2026: Calculate or Back Out Tax (7.51%)'),
       'SouthCarolinaPage.tsx H1 must be standardized'
+    );
+  });
+
+  test('custom state pages have synchronized bidirectional WebApplication structured data schemas', () => {
+    const states = [
+      { file: 'ConnecticutPage.tsx', name: 'Connecticut Sales Tax Calculator (Forward & Reverse 2026)' },
+      { file: 'NewYorkPage.tsx', name: 'New York Sales Tax Calculator (Forward & Reverse 2026)' },
+      { file: 'TexasPage.tsx', name: 'Texas Sales Tax Calculator (Forward & Reverse 2026)' },
+      { file: 'FloridaPage.tsx', name: 'Florida Sales Tax Calculator (Forward & Reverse 2026)' },
+      { file: 'ArizonaPage.tsx', name: 'Arizona Sales Tax Calculator (Forward & Reverse 2026)' },
+      { file: 'SouthCarolinaPage.tsx', name: 'South Carolina Sales Tax Calculator (Forward & Reverse 2026)' },
+    ];
+
+    for (const { file, name } of states) {
+      const content = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]', file), 'utf-8');
+      assert.ok(
+        content.includes(`name: '${name}'`) || content.includes(`"name": "${name}"`),
+        `${file} WebApplication schema must have name "${name}"`
+      );
+    }
+  });
+
+  test('zero-tax state hero badges in generic state template show NO STATE SALES TAX (0%)', () => {
+    const pageContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/page.tsx'), 'utf-8');
+    assert.ok(
+      pageContent.includes("stateData.rate > 0 ? `PRE-FILLED COMBINED RATE: ${stateData.rate}%` : 'NO STATE SALES TAX (0%)'"),
+      'page.tsx must conditionally display NO STATE SALES TAX (0%) for zero-tax states'
     );
   });
 

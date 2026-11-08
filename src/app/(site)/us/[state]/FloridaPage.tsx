@@ -59,7 +59,7 @@ export default function FloridaPage({ stateData }: Props) {
   const webApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Florida Reverse Sales Tax Calculator',
+    name: 'Florida Sales Tax Calculator (Forward & Reverse 2026)',
     alternateName: 'PreTaxPrice Florida Tax Tool',
     url: 'https://salestaxreversecalculator.com/us/florida',
     applicationCategory: 'FinanceApplication',
@@ -68,7 +68,7 @@ export default function FloridaPage({ stateData }: Props) {
     inLanguage: 'en',
     operatingSystem: 'All modern browsers (Desktop & Mobile)',
     description:
-      'Free Florida reverse sales tax calculator pre-loaded with FDOR 2026 rates. Back out sales tax from Miami (7.0%), Tampa (7.5%), Orlando (6.5%), and Jacksonville receipts.',
+      'Free Florida sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from Miami, Tampa, Orlando, and Jacksonville receipts with county surtaxes.',
     offers: {
       '@type': 'Offer',
       price: '0',
