@@ -16,6 +16,21 @@ Free, client-side reverse sales tax calculator to extract original pre-tax price
 - [How Reverse Sales Tax Works](https://salestaxreversecalculator.com/#how-it-works): Mathematical guide and step-by-step examples.
 - [Sales Tax FAQ](https://salestaxreversecalculator.com/#faq): Answers to common sales tax, VAT, and accounting questions.
 
+## Canadian Provincial Calculators (All 13 Provinces & Territories)
+- [Ontario HST (13%)](https://salestaxreversecalculator.com/canada/ontario)
+- [Quebec GST+QST (14.975%)](https://salestaxreversecalculator.com/canada/quebec)
+- [British Columbia GST+PST (12%)](https://salestaxreversecalculator.com/canada/british-columbia)
+- [Alberta GST (5%)](https://salestaxreversecalculator.com/canada/alberta)
+- [Manitoba GST+PST (12%)](https://salestaxreversecalculator.com/canada/manitoba)
+- [Saskatchewan GST+PST (11%)](https://salestaxreversecalculator.com/canada/saskatchewan)
+- [Nova Scotia HST (15%)](https://salestaxreversecalculator.com/canada/nova-scotia)
+- [New Brunswick HST (15%)](https://salestaxreversecalculator.com/canada/new-brunswick)
+- [Newfoundland and Labrador HST (15%)](https://salestaxreversecalculator.com/canada/newfoundland)
+- [Prince Edward Island HST (15%)](https://salestaxreversecalculator.com/canada/pei)
+- [Northwest Territories GST (5%)](https://salestaxreversecalculator.com/canada/northwest-territories)
+- [Nunavut GST (5%)](https://salestaxreversecalculator.com/canada/nunavut)
+- [Yukon GST (5%)](https://salestaxreversecalculator.com/canada/yukon)
+
 ## US State Combined Average Rates (2026 Sample)
 - California (CA): 9.21% (State 7.25% + Local)
 - Texas (TX): 8.24% (State 6.25% + Local max 2%)

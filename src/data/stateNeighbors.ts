@@ -1,0 +1,62 @@
+import { getStateBySlug, type StateRate } from './stateTaxRates';
+
+export const STATE_NEIGHBORS: Record<string, string[]> = {
+  alabama: ['florida', 'georgia', 'mississippi', 'tennessee'],
+  alaska: ['washington', 'oregon', 'california'],
+  arizona: ['california', 'nevada', 'utah', 'new-mexico', 'colorado'],
+  arkansas: ['missouri', 'tennessee', 'mississippi', 'louisiana', 'texas', 'oklahoma'],
+  california: ['oregon', 'nevada', 'arizona'],
+  colorado: ['wyoming', 'nebraska', 'kansas', 'oklahoma', 'new-mexico', 'utah'],
+  connecticut: ['new-york', 'massachusetts', 'rhode-island'],
+  delaware: ['maryland', 'pennsylvania', 'new-jersey'],
+  'district-of-columbia': ['maryland', 'virginia'],
+  florida: ['georgia', 'alabama'],
+  georgia: ['florida', 'alabama', 'tennessee', 'north-carolina', 'south-carolina'],
+  hawaii: ['california', 'washington', 'oregon'],
+  idaho: ['washington', 'oregon', 'nevada', 'utah', 'wyoming', 'montana'],
+  illinois: ['wisconsin', 'iowa', 'missouri', 'kentucky', 'indiana'],
+  indiana: ['michigan', 'ohio', 'kentucky', 'illinois'],
+  iowa: ['minnesota', 'wisconsin', 'illinois', 'missouri', 'nebraska', 'south-dakota'],
+  kansas: ['nebraska', 'missouri', 'oklahoma', 'colorado'],
+  kentucky: ['indiana', 'ohio', 'west-virginia', 'virginia', 'tennessee', 'missouri', 'illinois'],
+  louisiana: ['texas', 'arkansas', 'mississippi'],
+  maine: ['new-hampshire', 'massachusetts'],
+  maryland: ['pennsylvania', 'delaware', 'virginia', 'west-virginia', 'district-of-columbia'],
+  massachusetts: ['new-york', 'vermont', 'new-hampshire', 'connecticut', 'rhode-island'],
+  michigan: ['ohio', 'indiana', 'wisconsin'],
+  minnesota: ['wisconsin', 'iowa', 'south-dakota', 'north-dakota'],
+  mississippi: ['louisiana', 'arkansas', 'tennessee', 'alabama'],
+  missouri: ['iowa', 'illinois', 'kentucky', 'tennessee', 'arkansas', 'oklahoma', 'kansas', 'nebraska'],
+  montana: ['idaho', 'wyoming', 'south-dakota', 'north-dakota'],
+  nebraska: ['south-dakota', 'iowa', 'missouri', 'kansas', 'colorado', 'wyoming'],
+  nevada: ['california', 'oregon', 'idaho', 'utah', 'arizona'],
+  'new-hampshire': ['maine', 'massachusetts', 'vermont'],
+  'new-jersey': ['new-york', 'pennsylvania', 'delaware'],
+  'new-mexico': ['colorado', 'oklahoma', 'texas', 'arizona', 'utah'],
+  'new-york': ['new-jersey', 'connecticut', 'massachusetts', 'vermont', 'pennsylvania'],
+  'north-carolina': ['virginia', 'tennessee', 'georgia', 'south-carolina'],
+  'north-dakota': ['minnesota', 'south-dakota', 'montana'],
+  ohio: ['michigan', 'indiana', 'kentucky', 'west-virginia', 'pennsylvania'],
+  oklahoma: ['kansas', 'missouri', 'arkansas', 'texas', 'new-mexico', 'colorado'],
+  oregon: ['washington', 'idaho', 'nevada', 'california'],
+  pennsylvania: ['new-york', 'new-jersey', 'delaware', 'maryland', 'west-virginia', 'ohio'],
+  'rhode-island': ['massachusetts', 'connecticut'],
+  'south-carolina': ['north-carolina', 'georgia'],
+  'south-dakota': ['north-dakota', 'minnesota', 'iowa', 'nebraska', 'wyoming', 'montana'],
+  tennessee: ['kentucky', 'virginia', 'north-carolina', 'georgia', 'alabama', 'mississippi', 'arkansas', 'missouri'],
+  texas: ['new-mexico', 'oklahoma', 'arkansas', 'louisiana'],
+  utah: ['idaho', 'wyoming', 'colorado', 'new-mexico', 'arizona', 'nevada'],
+  vermont: ['new-york', 'massachusetts', 'new-hampshire'],
+  virginia: ['maryland', 'district-of-columbia', 'north-carolina', 'tennessee', 'kentucky', 'west-virginia'],
+  washington: ['idaho', 'oregon'],
+  'west-virginia': ['ohio', 'pennsylvania', 'maryland', 'virginia', 'kentucky'],
+  wisconsin: ['michigan', 'illinois', 'iowa', 'minnesota'],
+  wyoming: ['montana', 'south-dakota', 'nebraska', 'colorado', 'utah', 'idaho'],
+};
+
+export function getNeighborStates(stateSlug: string): StateRate[] {
+  const neighbors = STATE_NEIGHBORS[stateSlug] || [];
+  return neighbors
+    .map((slug) => getStateBySlug(slug))
+    .filter((s): s is StateRate => s !== undefined);
+}

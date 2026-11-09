@@ -7,12 +7,27 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://salestaxreversecalculator.com/privacy-policy' },
 };
 
+const SITE_URL = 'https://salestaxreversecalculator.com';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: `${SITE_URL}/privacy-policy` },
+  ],
+};
+
 export default function PrivacyPolicyPage() {
   const updated = 'January 1, 2026';
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="container-main" style={{ maxWidth: 800, margin: '0 auto', padding: '64px 24px 80px' }}>
-        <nav style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 40 }}>
+        <nav aria-label="Breadcrumbs" style={{ fontSize: 14, color: 'var(--text-secondary)', marginBottom: 40 }}>
           <Link href="/" style={{ color: 'var(--primary)', textDecoration: 'none' }}>Home</Link>
           <span style={{ margin: '0 8px' }}>›</span>
           <span>Privacy Policy</span>

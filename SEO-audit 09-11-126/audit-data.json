@@ -1,0 +1,229 @@
+{
+  "summary": {
+    "health_score": 87,
+    "business_type": "Financial Web Application / Interactive Calculator Tool",
+    "top_findings": [
+      "9 Canadian provincial calculators are orphaned (in sitemap.xml with 0 incoming internal links)",
+      "55 page titles exceed 60 characters and 50 meta descriptions exceed 160 characters, causing mobile SERP snippet truncation",
+      "Severe CTR depression on high-volume state pages (e.g., /us/new-york at Pos 9.1 with 2,133 impressions has only 0.05% CTR)",
+      "GSC tracking URL fragment links (/#calculator, /#faq) due to on-page hash anchor navigation",
+      "Missing Content-Security-Policy (CSP) header despite strong HSTS and X-Frame-Options",
+      "Exceptional server-rendered content (8,413 words) and compliant llms.txt supporting AI search visibility"
+    ],
+    "quick_wins": [
+      "Link all 9 Canadian provincial pages from /canada province grid to resolve orphan page status immediately",
+      "Rewrite /us/new-york title and meta description to target high-intent NYC 8.875% tax extraction, lifting CTR from 0.05%",
+      "Trim state calculator titles to 52-58 chars (e.g. 'Arkansas Reverse Sales Tax Calculator (9.49%)') to prevent truncation",
+      "Add Content-Security-Policy header in next.config.mjs or vercel.json",
+      "Add BreadcrumbList schema to the 3 utility hub pages currently missing it"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 84,
+      "what_works": [
+        "100% canonical accuracy with zero mismatches or cross-domain issues across all 79 URLs",
+        "Clean robots.txt allowing search and AI crawlers with explicit sitemap reference",
+        "Solid edge performance on Vercel with 447ms average server TTFB",
+        "Real HTTP 404 response on non-existent endpoints (no soft-404 catch-alls)",
+        "Full HTTPS enforcement with Strict-Transport-Security (max-age=63072000; preload)"
+      ],
+      "findings": [
+        {
+          "title": "9 Canadian provincial pages orphaned with 0 internal links",
+          "severity": "Critical",
+          "description": "Pages for Manitoba, Saskatchewan, Nova Scotia, New Brunswick, Newfoundland, PEI, NWT, Nunavut, and Yukon exist in sitemap.xml but have zero internal inlinks.",
+          "recommendation": "Update /canada to include a full grid of all 13 provinces/territories with descriptive anchor text."
+        },
+        {
+          "title": "Fragment URLs accumulating impressions in Google Search Console",
+          "severity": "Medium",
+          "description": "URLs with hash fragments (/#calculator, /#faq, /#how-it-works) appear in GSC with over 140 combined impressions.",
+          "recommendation": "Audit internal navigation links and canonical references to ensure all links use clean path-based URLs without bare hash anchors."
+        },
+        {
+          "title": "Missing Content-Security-Policy (CSP) Header",
+          "severity": "Low",
+          "description": "Vercel edge responses include HSTS, X-Content-Type-Options, and X-Frame-Options, but no Content-Security-Policy is set.",
+          "recommendation": "Configure a Content-Security-Policy header in next.config.mjs to protect users against XSS and injection."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality & E-E-A-T",
+      "score": 86,
+      "what_works": [
+        "Comprehensive explanation of mathematical reverse sales tax formulas (Formula: Pre-Tax = Total / (1 + Rate))",
+        "Fully server-rendered content (8,413 words on homepage) accessible without client-side JS execution",
+        "High depth on state pages with local county/city tax nuance tables and exemptions",
+        "Clear authoritativeness signals including dedicated Person and Organization review team schemas"
+      ],
+      "findings": [
+        {
+          "title": "Boilerplate pattern across state pages risks repetitive content filtering",
+          "severity": "Medium",
+          "description": "50 state pages follow identical structural sections. While specific tax rates differ, intro and FAQ paragraphs share template phrasing.",
+          "recommendation": "Enrich top 15 highest-impression states (NY, CT, TX, UT, CA, NC, FL) with state-specific filing deadlines, nexus thresholds, and local tax nuance tables."
+        },
+        {
+          "title": "High impression query mismatches on specific tax math queries",
+          "severity": "Medium",
+          "description": "Users search for concrete math examples like 'christa went shopping for back-to-school clothes... if sales tax is 6% what was total' (27 imp, pos 9.4).",
+          "recommendation": "Add a 'Worked Examples & Word Problems' section to the FAQ addressing common receipt totals ($10, $50, $100, $176) at standard rates."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "score": 84,
+      "what_works": [
+        "100% single H1 tag coverage across all 79 site pages",
+        "Zero duplicate titles or duplicate meta descriptions detected across the entire site",
+        "Logical H2 and H3 heading hierarchies mirroring searcher intent",
+        "Consistent Open Graph and Twitter Card social metadata implementation"
+      ],
+      "findings": [
+        {
+          "title": "55 Page titles exceed 60 characters (SERP pixel truncation)",
+          "severity": "High",
+          "description": "Titles on state pages average 68-70 characters (e.g. 'Arkansas Sales Tax Calculator 2026: Calculate or Back Out Tax (9.49%)'), causing tax rates to truncate in mobile SERPs.",
+          "recommendation": "Refactor state title template to: '[State] Reverse Sales Tax Calculator ([Rate]%)' (under 55 characters)."
+        },
+        {
+          "title": "50 Meta descriptions exceed 160 characters",
+          "severity": "Medium",
+          "description": "Descriptions reach 172-201 characters, resulting in truncated snippets that hide the call to action.",
+          "recommendation": "Tighten meta descriptions to 145-155 characters, leading with the core utility and instant pre-tax extraction."
+        },
+        {
+          "title": "Low CTR on #1 Impression State Page: /us/new-york (0.05% CTR)",
+          "severity": "High",
+          "description": "/us/new-york ranks at average position 9.1 with 2,133 impressions but only 1 click, indicating snippet mismatch for NYC and county searchers.",
+          "recommendation": "Update New York meta title to: 'New York Reverse Sales Tax Calculator: 8.875% NYC Included' to match high-volume local search intent."
+        }
+      ]
+    },
+    {
+      "name": "Schema & Structured Data",
+      "score": 94,
+      "what_works": [
+        "Rich @graph implementation on state pages containing WebApplication, HowTo, FAQPage, and BreadcrumbList",
+        "Organization and WebSite schemas properly linked with logo and publisher identity",
+        "Interactive tool correctly classified as FinanceApplication / WebApplication",
+        "HowTo schema includes structured step-by-step instructions for reversing sales tax calculations"
+      ],
+      "findings": [
+        {
+          "title": "3 Utility hub pages missing BreadcrumbList schema",
+          "severity": "Low",
+          "description": "While 76 pages have complete BreadcrumbList markup, 3 utility pages (/tax-rates, /about, /contact) lack breadcrumb structured data.",
+          "recommendation": "Inject consistent BreadcrumbList JSON-LD across all pages for uniform SERP breadcrumb display."
+        }
+      ]
+    },
+    {
+      "name": "Performance & Core Web Vitals",
+      "score": 83,
+      "what_works": [
+        "Average TTFB of 447ms served globally via Vercel Edge Network",
+        "Preloaded web fonts (woff2) avoiding layout shifts and FOIT",
+        "Responsive image optimization via Next.js next/image with srcset and sizes",
+        "Clean responsive viewport with no horizontal scrolling or touch-target failures"
+      ],
+      "findings": [
+        {
+          "title": "Multiple small JavaScript chunk requests during Next.js hydration",
+          "severity": "Low",
+          "description": "Page loads 8+ script chunks for interactive state. Although TTFB is fast, bundling small chunks reduces HTTP overhead.",
+          "recommendation": "Ensure Turbopack script optimization combines smaller runtime chunks for faster mobile parsing."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness (GEO & Agentic)",
+      "score": 96,
+      "what_works": [
+        "Exceptional llms.txt (3,012 bytes) and llms-full.txt conforming to community standards",
+        "Robots.txt explicitly grants permission to GPTBot, ClaudeBot, PerplexityBot, CCBot, Google-Extended, and OAI-SearchBot",
+        "8,413 words of clean server-rendered content accessible to LLM web scraping agents without JavaScript",
+        "Mathematical formulas structured into clean markdown-friendly definition blocks"
+      ],
+      "findings": [
+        {
+          "title": "Missing Content-Signal header for AI training preference declaration",
+          "severity": "Info",
+          "description": "Optional Cloudflare / IETF Content-Signal header is not declared on robots.txt.",
+          "recommendation": "Optionally add 'Content-Signal: search=yes, ai-input=yes, ai-train=no' to establish content usage preferences."
+        },
+        {
+          "title": "Missing WebMCP declarative tool registration",
+          "severity": "Info",
+          "description": "The site provides financial calculation utilities but lacks WebMCP registerTool() wrappers for autonomous agent invocation.",
+          "recommendation": "Implement WebMCP tool registration on the calculator form for agentic browser interactions."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "score": 95,
+      "what_works": [
+        "100% of images possess descriptive, non-empty alt text attributes",
+        "Next.js optimized WebP/AVIF generation with responsive srcset attributes",
+        "Preloaded formula diagram image above the fold preventing LCP delay"
+      ],
+      "findings": [
+        {
+          "title": "Hero diagram image rendered at 3840px max width candidate",
+          "severity": "Low",
+          "description": "The formula diagram image srcset includes up to 3840w which is oversized for mobile screens.",
+          "recommendation": "Cap max srcset generation width to 1600px to save CDN bandwidth."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes & Orphan Elimination",
+        "timeframe": "Week 1",
+        "items": [
+          "Fix Canadian Province Orphans: Add all 9 missing provinces (MB, SK, NS, NB, NL, PE, NT, NU, YT) to the /canada hub navigation grid",
+          "Optimize High-Volume State SERP Snippets: Rewrite /us/new-york title and meta description to explicitly highlight 8.875% NYC tax extraction",
+          "Trim State Page Titles: Shorten all 55 state titles from ~69 chars to 52-58 chars to eliminate mobile SERP truncation"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact CTR & Content Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Target Striking Distance Keywords: Create dedicated on-page sections for 'how to calculate sales tax backwards from total' (Pos 9.7) and 'reverse tax calculator' (Pos 9.2)",
+          "Address Math Word Problem Queries: Add worked examples for common dollar figures ($10, $50, $100, $176) to capture featured snippets and AI Overviews",
+          "Compress Meta Descriptions: Shorten 50 state page descriptions to 145-155 characters with clear pre-tax calculation call-to-actions"
+        ]
+      },
+      {
+        "name": "Phase 3: Schema & Technical Hardening",
+        "timeframe": "Month 2",
+        "items": [
+          "Deploy Content-Security-Policy (CSP) headers in Vercel configuration",
+          "Audit Internal Hash Links: Replace bare #calculator and #faq internal links with canonical path structures",
+          "Standardize BreadcrumbList structured data across the remaining 3 utility pages"
+        ]
+      },
+      {
+        "name": "Phase 4: Agentic SEO & Continuous Monitoring",
+        "timeframe": "Ongoing",
+        "items": [
+          "Implement WebMCP registerTool() on calculator forms for AI agent accessibility",
+          "Track GSC striking distance keyword movements weekly",
+          "Monitor Google Search Console Generative AI control and AI citation metrics"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

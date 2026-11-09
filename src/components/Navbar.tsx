@@ -55,9 +55,6 @@ export default function Navbar() {
         e.preventDefault();
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
-        if (window.location.hash !== `#${targetId}`) {
-          window.history.pushState(null, '', `/#${targetId}`);
-        }
       }
     }
   };

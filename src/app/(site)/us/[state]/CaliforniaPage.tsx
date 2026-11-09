@@ -6,6 +6,7 @@ import CaliforniaCityTable from '@/components/california/CaliforniaCityTable';
 import CaliforniaCountyMatrix from '@/components/california/CaliforniaCountyMatrix';
 import TaxabilityMatrix from '@/components/california/TaxabilityMatrix';
 import FAQAccordion from '@/components/california/FAQAccordion';
+import NeighborStateComparison from '@/components/NeighborStateComparison';
 
 interface Props {
   stateData: StateRate;
@@ -181,7 +182,7 @@ export default function CaliforniaPage({ stateData }: Props) {
               letterSpacing: '-0.025em',
             }}
           >
-            California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)
+            California Reverse Sales Tax Calculator (8.85%)
           </h1>
 
           <div
@@ -751,6 +752,11 @@ export default function CaliforniaPage({ stateData }: Props) {
               </div>
             </div>
           </section>
+
+          {/* Lateral Border-State Cross-Linking Comparison */}
+          <div style={{ marginTop: 24 }}>
+            <NeighborStateComparison currentState={stateData} />
+          </div>
 
         </div>
       </div>

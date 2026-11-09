@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import LinkifiedText from '@/components/LinkifiedText';
+import { CANADA_PROV_TAX_RATES } from '@/data/canadaTaxRates';
 import CanadaCalculator from './CanadaCalculator';
 
 export const metadata: Metadata = {
@@ -341,30 +342,81 @@ export default function CanadaPage() {
               </div>
             </section>
 
-            {/* Individual Province Hubs Section */}
+            {/* Individual Province Hubs Section — 13 Provinces & Territories (Zero Orphans) */}
             <section className="card" style={{ padding: 28, background: 'var(--canvas-soft)', border: '1px solid var(--hairline)' }}>
-              <h3 style={{ fontSize: 18, fontWeight: 800, color: 'var(--ink)', marginBottom: 14 }}>
-                Explore Dedicated Canadian Province Calculators
-              </h3>
-              <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.7, marginBottom: 16 }}>
-                Access customized reverse calculation guides and rate matrices for key Canadian economic regions:
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-                <Link href="/canada/ontario" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
-                  Ontario 13% HST Calculator
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 12, marginBottom: 14 }}>
+                <div>
+                  <h3 style={{ fontSize: 20, fontWeight: 800, color: 'var(--ink)', marginBottom: 6 }}>
+                    🇨🇦 Dedicated Canadian Provincial &amp; Territorial Calculators
+                  </h3>
+                  <p style={{ fontSize: 14, color: 'var(--body)', lineHeight: 1.6, margin: 0 }}>
+                    Select any Canadian province or territory below for dedicated reverse tax calculation, CRA Input Tax Credit (ITC) fractions, and statutory rate breakdowns:
+                  </p>
+                </div>
+                <Link href="/tax-rates" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px', whiteSpace: 'nowrap' }}>
+                  US &amp; Global Tax Rates Directory →
                 </Link>
-                <Link href="/canada/quebec" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
-                  Quebec 14.975% GST/QST Calculator
-                </Link>
-                <Link href="/canada/british-columbia" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
-                  British Columbia 12% GST/PST
-                </Link>
-                <Link href="/canada/alberta" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
-                  Alberta 5% GST Calculator
-                </Link>
-                <Link href="/tax-rates" className="btn-secondary" style={{ textDecoration: 'none', fontSize: 13, padding: '8px 16px' }}>
-                  US & Global Tax Rates
-                </Link>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 14, marginTop: 20 }}>
+                {CANADA_PROV_TAX_RATES.map((prov) => {
+                  let badgeColor = 'var(--primary)';
+                  let taxDetail = `${prov.rate}% Combined`;
+                  if (prov.type === 'HST') {
+                    taxDetail = `${prov.rate}% Harmonized Sales Tax (HST)`;
+                  } else if (prov.type === 'GST+QST') {
+                    taxDetail = `5% GST + 9.975% QST (${prov.rate}%)`;
+                  } else if (prov.type === 'GST+PST') {
+                    taxDetail = `5% GST + ${prov.pst}% PST (${prov.rate}%)`;
+                  } else if (prov.type === 'GST') {
+                    taxDetail = '5% GST (No Provincial Tax)';
+                  }
+
+                  return (
+                    <Link
+                      key={prov.slug}
+                      href={`/canada/${prov.slug}`}
+                      className="card hover-lift"
+                      style={{
+                        padding: '16px 18px',
+                        textDecoration: 'none',
+                        background: 'var(--canvas)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        border: '1px solid var(--hairline)',
+                        borderRadius: 'var(--radius)',
+                        transition: 'all 0.15s ease-in-out',
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                        <span style={{ fontWeight: 800, fontSize: 15, color: 'var(--ink)' }}>
+                          {prov.name} ({prov.abbr})
+                        </span>
+                        <span
+                          style={{
+                            fontWeight: 800,
+                            color: badgeColor,
+                            fontSize: 14,
+                            fontFamily: 'monospace',
+                            padding: '2px 8px',
+                            background: 'var(--mint-50, rgba(0, 130, 84, 0.08))',
+                            borderRadius: 6,
+                          }}
+                        >
+                          {prov.rate}%
+                        </span>
+                      </div>
+                      <div style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.4, marginBottom: 10 }}>
+                        {taxDetail}
+                      </div>
+                      <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <span>{prov.name} Reverse Tax Calculator</span>
+                        <span>→</span>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
             </section>
 

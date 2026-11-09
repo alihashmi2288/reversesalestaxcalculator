@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import LinkifiedText from '@/components/LinkifiedText';
+import NeighborStateComparison from '@/components/NeighborStateComparison';
 import { getStateBySlug, STATE_TAX_RATES, type StateRate } from '@/data/stateTaxRates';
 import { getStateContentBySlug } from '@/data/stateContent';
 import { getStateRevenueInfo } from '@/data/stateRevenueLinks';
@@ -34,40 +35,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const isZeroTax = stateData.rate === 0;
   const rateDisplay = isZeroTax ? '0% Tax-Free' : `${stateData.rate}%`;
-  let title = `${stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax (${rateDisplay})`;
+  let title = `${stateData.state} Reverse Sales Tax Calculator (${rateDisplay})`;
   let description = isZeroTax
-    ? `Free ${stateData.state} sales tax and reverse tax calculator for 2026. ${stateData.state} has no state sales tax (0%). Calculate purchases and verify receipts tax-free.`
-    : `Free ${stateData.state} sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from receipts instantly. Includes local city and county rates.`;
+    ? `Calculate purchases tax-free in ${stateData.state} (0% state sales tax). Verify receipts, calculate pre-tax amounts, and check local tax rules free.`
+    : `Calculate pre-tax price or add sales tax in ${stateData.state} instantly. Pre-filled with ${stateData.state}'s ${stateData.rate}% rate plus local county and city surtaxes free.`;
 
   const ogUrl = new URL('https://salestaxreversecalculator.com/api/og');
 
   if (stateSlug === 'connecticut') {
-    title = 'Connecticut Sales Tax Calculator 2026: Calculate or Back Out Tax (6.35%)';
-    description = 'Free Connecticut sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from receipts instantly. Pre-filled with the 6.35% statewide rate.';
+    title = 'Connecticut Reverse Sales Tax Calculator (6.35%)';
+    description = 'Calculate pre-tax price or add sales tax in Connecticut instantly. Pre-filled with the statewide 6.35% rate and luxury surcharge breakdown free.';
   } else if (stateSlug === 'california') {
-    title = 'California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)';
-    description = 'Free 2026 California sales tax calculator. Calculate sales tax forward on retail purchases or back out sales tax from gross receipts. Includes all 58 CA counties, top city rates (7.25%–10.75%), CDTFA tax rules, and instant receipt breakdowns.';
+    title = 'California Reverse Sales Tax Calculator (8.85%)';
+    description = 'Calculate pre-tax price or add sales tax in California instantly. Includes 7.25% base rate, district taxes up to 10.75%, and all 58 counties free.';
   } else if (stateSlug === 'texas') {
-    title = 'Texas Sales Tax Calculator 2026: Calculate or Back Out Tax (8.25%)';
-    description = 'Free Texas sales tax and reverse tax calculator for 2026. Calculate tax forward on retail purchases or back out 8.25% tax from Houston, Dallas, Austin, and San Antonio receipts.';
+    title = 'Texas Reverse Sales Tax Calculator (8.25%)';
+    description = 'Calculate pre-tax price or add sales tax in Texas instantly. Pre-filled with the 8.25% combined rate for Houston, Dallas, Austin, and San Antonio receipts.';
   } else if (stateSlug === 'florida') {
-    title = 'Florida Sales Tax Calculator 2026: Calculate or Back Out Tax (7.13%)';
-    description = 'Free Florida sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from Miami, Tampa, Orlando, and Jacksonville receipts with county surtaxes.';
+    title = 'Florida Reverse Sales Tax Calculator (7.13%)';
+    description = 'Calculate pre-tax price or add sales tax in Florida instantly. Pre-filled with 7.13% average rate plus Miami, Orlando, and Tampa county surtaxes free.';
   } else if (stateSlug === 'new-york') {
-    title = 'New York Sales Tax Calculator 2026: Calculate or Back Out Tax (NYC 8.875%)';
-    description = 'Free New York sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out NYC 8.875% tax from receipts instantly. Includes all NY county rates.';
+    title = 'New York Reverse Sales Tax Calculator (NYC 8.875%)';
+    description = 'Calculate pre-tax price from any New York receipt instantly. Includes New York City 8.875% rate, statewide 4% tax, and all county surcharges free.';
   } else if (stateSlug === 'arizona') {
-    title = 'Arizona Sales Tax Calculator 2026: Calculate or Back Out Tax (8.51%)';
-    description = 'Free Arizona sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out Transaction Privilege Tax (TPT) from Phoenix, Tucson, Mesa, and Scottsdale receipts instantly.';
+    title = 'Arizona Reverse Sales Tax Calculator (8.51%)';
+    description = 'Calculate pre-tax price or add Transaction Privilege Tax (TPT) in Arizona instantly. Pre-filled with Phoenix 8.60% and statewide local rates free.';
   } else if (stateSlug === 'south-carolina') {
-    title = 'South Carolina Sales Tax Calculator 2026: Calculate or Back Out Tax (7.51%)';
-    description = 'Free South Carolina sales tax and reverse tax calculator for 2026. Calculate tax forward on purchases or back out tax from Charleston, Columbia, and Myrtle Beach receipts with local surtaxes.';
+    title = 'South Carolina Reverse Sales Tax Calculator (7.51%)';
+    description = 'Calculate pre-tax price or add sales tax in South Carolina instantly. Pre-filled with Charleston 9% and statewide county surtax rates free.';
   } else if (stateData.rate === 0) {
-    title = `${stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax (0% Tax-Free)`;
-    description = `Free ${stateData.state} sales tax and reverse tax calculator for 2026. ${stateData.state} has no state sales tax (0%). Calculate purchases and verify receipts tax-free.`;
+    title = `${stateData.state} Reverse Sales Tax Calculator (0% Tax-Free)`;
+    description = `Calculate purchases tax-free in ${stateData.state} (0% state sales tax). Verify receipts, calculate pre-tax amounts, and check local tax rules free.`;
   } else if (stateData.avgLocalRate === 0) {
-    title = `${stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax (${stateData.rate}% Flat Rate)`;
-    description = `Free ${stateData.state} sales tax and reverse tax calculator for 2026. Pre-filled with ${stateData.state}'s flat ${stateData.rate}% rate. Calculate tax forward on purchases or back out tax from receipts instantly.`;
+    title = `${stateData.state} Reverse Sales Tax Calculator (${stateData.rate}%)`;
+    description = `Calculate pre-tax price or add sales tax in ${stateData.state} instantly. Pre-filled with ${stateData.state}'s flat ${stateData.rate}% rate with zero local surtaxes free.`;
   }
 
   ogUrl.searchParams.set('title', title);
@@ -130,6 +131,8 @@ export default async function StatePage({ params }: Props) {
 
   const stateContent = getStateContentBySlug(stateSlug);
   const revenueInfo = getStateRevenueInfo(stateSlug);
+  const isZeroTax = stateData.rate === 0;
+  const rateDisplay = isZeroTax ? '0% Tax-Free' : `${stateData.rate}%`;
 
   const localizedUseCases = getLocalizedUseCases(stateData);
   const localizedFaqs = getLocalizedFaqs(stateData);
@@ -224,7 +227,7 @@ export default async function StatePage({ params }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 46px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '16px 0 16px', letterSpacing: '-0.02em' }}
           >
-            {stateData.state} Sales Tax Calculator 2026: Calculate or Back Out Tax
+            {stateData.state} Reverse Sales Tax Calculator ({rateDisplay})
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
@@ -407,6 +410,11 @@ export default async function StatePage({ params }: Props) {
                 ))}
               </div>
             </section>
+
+            {/* Lateral Border-State Cross-Linking Comparison */}
+            <div style={{ marginTop: 8 }}>
+              <NeighborStateComparison currentState={stateData} />
+            </div>
 
             <div style={{ marginTop: 16, marginBottom: 64 }}>
               <AdSlot slot={`${stateSlug}-rectangle`} size="rectangle" />

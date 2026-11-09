@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 describe('SEO Audit Verification Tests', () => {
-  test('all 51 US states generate standardized bidirectional titles and descriptions dynamically', async () => {
+  test('all 51 US states generate standardized concise titles under 58 characters', async () => {
     for (const state of STATE_TAX_RATES) {
       const slug = state.state.toLowerCase().replace(/\s+/g, '-');
       const meta = await generateStateMetadata({ params: Promise.resolve({ state: slug }) });
@@ -15,12 +15,16 @@ describe('SEO Audit Verification Tests', () => {
       const description = String(meta.description || '');
 
       assert.ok(
-        title.includes('Sales Tax Calculator 2026: Calculate or Back Out Tax'),
-        `State ${state.state} title missing two-way action phrase: ${title}`
+        title.includes('Reverse Sales Tax Calculator'),
+        `State ${state.state} title missing core head phrase: ${title}`
       );
       assert.ok(
-        (description.includes('forward') && description.includes('back out')) || description.includes('tax-free'),
-        `State ${state.state} description missing forward/reverse copy: ${description}`
+        title.length <= 58,
+        `State ${state.state} title (${title.length} chars) exceeds 58-character mobile SERP limit: "${title}"`
+      );
+      assert.ok(
+        description.length <= 160,
+        `State ${state.state} description (${description.length} chars) exceeds 160-character SERP limit: "${description}"`
       );
 
       if (state.rate === 0) {
@@ -29,61 +33,61 @@ describe('SEO Audit Verification Tests', () => {
     }
   });
 
-  test('top 7 customized states (NY, CT, TX, CA, FL, AZ, SC) have standardized bidirectional metadata and H1s', () => {
+  test('top 7 customized states (NY, CT, TX, CA, FL, AZ, SC) have standardized concise metadata and H1s under 58 chars', () => {
     const pageContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/page.tsx'), 'utf-8');
 
-    // Check titles in generateMetadata overrides
+    // Check titles in generateMetadata overrides (<58 chars)
     assert.ok(
-      pageContent.includes("title = 'New York Sales Tax Calculator 2026: Calculate or Back Out Tax (NYC 8.875%)'"),
-      'New York title must be standardized'
+      pageContent.includes("title = 'New York Reverse Sales Tax Calculator (NYC 8.875%)'"),
+      'New York title must be concise and highlight NYC 8.875%'
     );
     assert.ok(
-      pageContent.includes("title = 'Connecticut Sales Tax Calculator 2026: Calculate or Back Out Tax (6.35%)'"),
-      'Connecticut title must be standardized'
+      pageContent.includes("title = 'Connecticut Reverse Sales Tax Calculator (6.35%)'"),
+      'Connecticut title must be concise'
     );
     assert.ok(
-      pageContent.includes("title = 'Texas Sales Tax Calculator 2026: Calculate or Back Out Tax (8.25%)'"),
-      'Texas title must be standardized'
+      pageContent.includes("title = 'Texas Reverse Sales Tax Calculator (8.25%)'"),
+      'Texas title must be concise'
     );
     assert.ok(
-      pageContent.includes("title = 'Florida Sales Tax Calculator 2026: Calculate or Back Out Tax (7.13%)'"),
-      'Florida title must be standardized'
+      pageContent.includes("title = 'Florida Reverse Sales Tax Calculator (7.13%)'"),
+      'Florida title must be concise'
     );
     assert.ok(
-      pageContent.includes("title = 'California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)'"),
-      'California title must be standardized with en-dash'
+      pageContent.includes("title = 'California Reverse Sales Tax Calculator (8.85%)'"),
+      'California title must be concise'
     );
     assert.ok(
-      pageContent.includes("title = 'Arizona Sales Tax Calculator 2026: Calculate or Back Out Tax (8.51%)'"),
-      'Arizona title must be standardized'
+      pageContent.includes("title = 'Arizona Reverse Sales Tax Calculator (8.51%)'"),
+      'Arizona title must be concise'
     );
     assert.ok(
-      pageContent.includes("title = 'South Carolina Sales Tax Calculator 2026: Calculate or Back Out Tax (7.51%)'"),
-      'South Carolina title must be standardized'
+      pageContent.includes("title = 'South Carolina Reverse Sales Tax Calculator (7.51%)'"),
+      'South Carolina title must be concise'
     );
 
     // Check H1s in custom components
     const nyContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/NewYorkPage.tsx'), 'utf-8');
     assert.ok(
-      nyContent.includes('New York Sales Tax Calculator 2026: Calculate or Back Out Tax (NYC 8.875%)'),
+      nyContent.includes('New York Reverse Sales Tax Calculator (NYC 8.875%)'),
       'NewYorkPage.tsx H1 must be standardized'
     );
 
     const ctContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/ConnecticutPage.tsx'), 'utf-8');
     assert.ok(
-      ctContent.includes('Connecticut Sales Tax Calculator 2026: Calculate or Back Out Tax (6.35%)'),
+      ctContent.includes('Connecticut Reverse Sales Tax Calculator (6.35%)'),
       'ConnecticutPage.tsx H1 must be standardized'
     );
 
     const txContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/TexasPage.tsx'), 'utf-8');
     assert.ok(
-      txContent.includes('Texas Sales Tax Calculator 2026: Calculate or Back Out Tax (8.25%)'),
+      txContent.includes('Texas Reverse Sales Tax Calculator (8.25%)'),
       'TexasPage.tsx H1 must be standardized'
     );
 
     const caContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/CaliforniaPage.tsx'), 'utf-8');
     assert.ok(
-      caContent.includes('California Sales Tax Calculator 2026: Calculate or Back Out Tax (7.25% – 10.75%)'),
+      caContent.includes('California Reverse Sales Tax Calculator (8.85%)'),
       'CaliforniaPage.tsx H1 must be standardized'
     );
     assert.ok(
@@ -93,20 +97,20 @@ describe('SEO Audit Verification Tests', () => {
 
     const flContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/FloridaPage.tsx'), 'utf-8');
     assert.ok(
-      flContent.includes('Florida Sales Tax Calculator 2026: Calculate or Back Out Tax (7.13%)'),
+      flContent.includes('Florida Reverse Sales Tax Calculator (7.13%)'),
       'FloridaPage.tsx H1 must be standardized'
     );
 
     const azContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/ArizonaPage.tsx'), 'utf-8');
     assert.ok(
-      azContent.includes('Arizona Sales Tax Calculator 2026: Calculate or Back Out Tax (8.51%)'),
+      azContent.includes('Arizona Reverse Sales Tax Calculator (8.51%)'),
       'ArizonaPage.tsx H1 must be standardized'
     );
 
     const scContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/SouthCarolinaPage.tsx'), 'utf-8');
     assert.ok(
-      scContent.includes('South Carolina Sales Tax Calculator 2026: Calculate or Back Out Tax (7.51%)'),
-      'SouthCarolinaPage.tsx H1 must be standardized'
+      scContent.includes('South Carolina Reverse Sales Tax Calculator (7.51%)'),
+      'South Carolina title must be standardized'
     );
   });
 
@@ -156,6 +160,15 @@ describe('SEO Audit Verification Tests', () => {
     }
   });
 
+  test('all 13 Canadian provinces and territories are linked from /canada (zero orphan pages)', () => {
+    const canadaPageContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/canada/page.tsx'), 'utf-8');
+    assert.strictEqual(CANADA_PROV_TAX_RATES.length, 13, 'Must contain all 13 Canadian provinces and territories');
+    assert.ok(
+      canadaPageContent.includes('CANADA_PROV_TAX_RATES.map') && canadaPageContent.includes('href={`/canada/${prov.slug}`'),
+      '/canada page must dynamically map and link all 13 provinces via CANADA_PROV_TAX_RATES to eliminate orphan pages'
+    );
+  });
+
   test('no internal links in src point to standalone /faq or /how-it-works (must use /#faq or /#how-it-works)', () => {
     const srcDir = path.resolve(process.cwd(), 'src');
     const checkDir = (dir: string) => {
@@ -192,5 +205,96 @@ describe('SEO Audit Verification Tests', () => {
     assert.ok(howItWorksRedirect, 'vercel.json must define /how-it-works redirect');
     assert.strictEqual(howItWorksRedirect.destination, '/#how-it-works');
     assert.strictEqual(howItWorksRedirect.permanent, true);
+  });
+
+  test('FAQSection and HomePage include Worked Math & Word Problems for high-impression GSC queries', () => {
+    const faqContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/FAQSection.tsx'), 'utf-8');
+    const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
+
+    assert.ok(
+      faqContent.includes('Word Problems & Worked Math Examples'),
+      'FAQSection must include dedicated Word Problems category'
+    );
+    assert.ok(
+      faqContent.includes('$176') && faqContent.includes('6%'),
+      'FAQSection must address the high-intent $176 at 6% shopping word problem'
+    );
+    assert.ok(
+      faqContent.includes('$100') && faqContent.includes('8.875%'),
+      'FAQSection must address the NYC 8.875% $100 purchase word problem'
+    );
+    assert.ok(
+      homeContent.includes('How Our Reverse Tax Calculator Works'),
+      'HomePage must use optimized H2 "How Our Reverse Tax Calculator Works" to target head keyword'
+    );
+    assert.ok(
+      homeContent.includes('Pre-Tax Price = Receipt Total ÷ (1 + Tax Rate)'),
+      'HomePage must prominently display the statutory reverse formula card'
+    );
+  });
+
+  test('next.config.ts defines Content-Security-Policy (CSP) configured for Google AdSense and analytics', () => {
+    const nextConfigContent = fs.readFileSync(path.resolve(process.cwd(), 'next.config.ts'), 'utf-8');
+
+    assert.ok(
+      nextConfigContent.includes("'Content-Security-Policy'"),
+      'next.config.ts must define Content-Security-Policy header'
+    );
+    assert.ok(
+      nextConfigContent.includes('pagead2.googlesyndication.com'),
+      'CSP must permit Google AdSense scripts for monetization'
+    );
+    assert.ok(
+      nextConfigContent.includes('googleads.g.doubleclick.net'),
+      'CSP must permit Google Ads frames'
+    );
+  });
+
+  test('utility pages (privacy-policy, terms-of-service, tax-rates, about, contact) have BreadcrumbList schema', () => {
+    const pages = [
+      'src/app/(site)/privacy-policy/page.tsx',
+      'src/app/(site)/terms-of-service/page.tsx',
+      'src/app/(site)/tax-rates/page.tsx',
+      'src/app/(site)/about/page.tsx',
+      'src/app/(site)/contact/page.tsx',
+    ];
+
+    for (const pagePath of pages) {
+      const content = fs.readFileSync(path.resolve(process.cwd(), pagePath), 'utf-8');
+      assert.ok(
+        content.includes("'BreadcrumbList'") || content.includes('"BreadcrumbList"'),
+        `Page ${pagePath} must contain Schema.org BreadcrumbList structured data`
+      );
+    }
+  });
+
+  test('Navbar does not mutate browser history with bare URL anchor fragments', () => {
+    const navbarContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/Navbar.tsx'), 'utf-8');
+    assert.ok(
+      !navbarContent.includes('pushState(null, \'\', `/#${targetId}`)'),
+      'Navbar must not push bare hash fragments into window.history to prevent GSC URL fragmentation'
+    );
+  });
+
+  test('lateral border-state cross linking connects neighboring states across all 50 states', () => {
+    const { STATE_NEIGHBORS, getNeighborStates } = require('@/data/stateNeighbors');
+    const stateKeys = Object.keys(STATE_NEIGHBORS);
+    assert.ok(stateKeys.length >= 50, 'Must cover all 50 US states');
+
+    // Check specific high-priority border clusters from audit
+    const nyNeighbors = getNeighborStates('new-york').map((s: { state: string }) => s.state);
+    assert.ok(nyNeighbors.includes('New Jersey') && nyNeighbors.includes('Connecticut'), 'NY must link to NJ and CT');
+
+    const caNeighbors = getNeighborStates('california').map((s: { state: string }) => s.state);
+    assert.ok(caNeighbors.includes('Oregon') && caNeighbors.includes('Nevada'), 'CA must link to OR and NV');
+
+    const txNeighbors = getNeighborStates('texas').map((s: { state: string }) => s.state);
+    assert.ok(txNeighbors.includes('Louisiana') && txNeighbors.includes('Oklahoma'), 'TX must link to LA and OK');
+
+    const pageContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/us/[state]/page.tsx'), 'utf-8');
+    assert.ok(
+      pageContent.includes('NeighborStateComparison'),
+      'Generic state page must render NeighborStateComparison widget'
+    );
   });
 });

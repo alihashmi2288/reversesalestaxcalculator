@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import type { StateRate } from '@/data/stateTaxRates';
+import NeighborStateComparison from '@/components/NeighborStateComparison';
 import NYCalculatorClient from './NYCalculatorClient';
 
 interface Props {
@@ -180,7 +181,7 @@ export default function NewYorkPage({ stateData }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            New York Sales Tax Calculator 2026: Calculate or Back Out Tax (NYC 8.875%)
+            New York Reverse Sales Tax Calculator (NYC 8.875%)
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
@@ -811,6 +812,11 @@ export default function NewYorkPage({ stateData }: Props) {
                 </Link>
               </div>
             </section>
+
+            {/* Lateral Border-State Cross-Linking Comparison */}
+            <div style={{ marginTop: 8 }}>
+              <NeighborStateComparison currentState={stateData} />
+            </div>
 
             {/* AdSlot */}
             <div style={{ marginTop: 12, marginBottom: 48 }}>

@@ -42,6 +42,31 @@ const FAQ_CATEGORIES = [
     ],
   },
   {
+    label: 'Word Problems & Worked Math Examples',
+    faqs: [
+      {
+        q: 'Christa went shopping for back-to-school clothes. If her pre-tax total was $176 and sales tax is 6%, what was the total paid? (And what if $176 was the final receipt?)',
+        a: 'Case A (Forward tax from $176 shelf price): Sales tax = $176.00 × 0.06 = $10.56. Total amount paid = $176.00 + $10.56 = $186.56. Case B (Reverse tax if $176 was the final checkout total): Pre-tax price = $176.00 ÷ 1.06 = $166.04. Sales tax paid = $176.00 - $166.04 = $9.96.',
+      },
+      {
+        q: 'How do you back out 8.875% NYC sales tax from a $100 purchase?',
+        a: 'To back out 8.875% New York City sales tax from a $100.00 total receipt: Divide $100.00 by 1.08875. Pre-tax price = $91.85. Sales tax paid = $100.00 - $91.85 = $8.15. Never multiply $100 by 0.08875 and subtract (that yields $91.13, which is mathematically incorrect).',
+      },
+      {
+        q: 'How do you back out 7% sales tax from a $50 receipt?',
+        a: 'Divide $50.00 by 1.07. Pre-tax price = $46.73. Sales tax paid = $50.00 - $46.73 = $3.27. Check: $46.73 × 1.07 = $50.00.',
+      },
+      {
+        q: 'How do you calculate sales tax backwards from a $20 total at 4% tax?',
+        a: 'Divide $20.00 by 1.04. Pre-tax price = $19.23. Sales tax paid = $20.00 - $19.23 = $0.77. Check: $19.23 × 1.04 = $20.00.',
+      },
+      {
+        q: 'How do you calculate sales tax backwards from total amount?',
+        a: 'To calculate sales tax backwards from any total: 1) Convert your sales tax percentage into a decimal (e.g., 6% = 0.06). 2) Add 1 to create the divisor (1 + 0.06 = 1.06). 3) Divide your final total receipt amount by this divisor to isolate the pre-tax base. 4) Subtract the pre-tax base from the total to get the exact tax paid.',
+      },
+    ],
+  },
+  {
     label: 'US State Sales Tax',
     faqs: [
       {

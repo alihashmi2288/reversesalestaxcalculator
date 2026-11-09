@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import type { StateRate } from '@/data/stateTaxRates';
+import NeighborStateComparison from '@/components/NeighborStateComparison';
 import StateCalculatorClient from './StateCalculatorClient';
 
 interface Props {
@@ -167,7 +168,7 @@ export default function ConnecticutPage({ stateData }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            Connecticut Sales Tax Calculator 2026: Calculate or Back Out Tax (6.35%)
+            Connecticut Reverse Sales Tax Calculator (6.35%)
           </h1>
 
           {/* E-E-A-T Trust Signals Bar */}
@@ -574,6 +575,11 @@ export default function ConnecticutPage({ stateData }: Props) {
                 </p>
               </div>
             </section>
+
+            {/* Lateral Border-State Cross-Linking Comparison */}
+            <div style={{ marginTop: 8 }}>
+              <NeighborStateComparison currentState={stateData} />
+            </div>
 
             <div style={{ marginTop: 12, marginBottom: 48 }}>
               <AdSlot slot="connecticut-rectangle" size="rectangle" />

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import AdSlot from '@/components/AdSlot';
 import type { StateRate } from '@/data/stateTaxRates';
+import NeighborStateComparison from '@/components/NeighborStateComparison';
 import StateCalculatorClient from './StateCalculatorClient';
 
 interface Props {
@@ -176,7 +177,7 @@ export default function SouthCarolinaPage({ stateData }: Props) {
           <h1
             style={{ fontSize: 'clamp(28px, 4.5vw, 44px)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em' }}
           >
-            South Carolina Sales Tax Calculator 2026: Calculate or Back Out Tax (7.51%)
+            South Carolina Reverse Sales Tax Calculator (7.51%)
           </h1>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 16, fontSize: 13, color: 'var(--mint-100)', marginBottom: 16 }}>
@@ -449,6 +450,11 @@ export default function SouthCarolinaPage({ stateData }: Props) {
                 </Link>
               </div>
             </section>
+
+            {/* Lateral Border-State Cross-Linking Comparison */}
+            <div style={{ marginTop: 8 }}>
+              <NeighborStateComparison currentState={stateData} />
+            </div>
 
             <AdSlot slot="sc-bottom-slot" size="rectangle" />
           </div>

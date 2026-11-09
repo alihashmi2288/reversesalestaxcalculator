@@ -540,11 +540,11 @@
   <h1>salestaxreversecalculator.com</h1>
   <div class="subtitle">Prepared by Claude SEO</div>
   <div class="score-box">
-    <div class="score-number">86<span style="font-size: 20pt; color: #94a3b8;">/100</span></div>
+    <div class="score-number">87<span style="font-size: 20pt; color: #94a3b8;">/100</span></div>
     <div class="score-label">SEO Health Score</div>
   </div>
   <div class="meta">
-    <span>October 26, 2026</span>
+    <span>November 09, 2026</span>
     <span>Full Audit</span>
   </div>
 </div>
@@ -572,12 +572,12 @@
     <h2>1. Executive Summary</h2>
   </div>
 
-  <p>This report presents a comprehensive SEO audit of <strong>salestaxreversecalculator.com</strong> for a <strong>Financial Web Application &amp; Calculator (US 50 States, Canada GST/HST, VAT)</strong> site, generated on October 26, 2026. Findings combine technical, content, schema, performance, visual, and search-readiness evidence as available.</p>
+  <p>This report presents a comprehensive SEO audit of <strong>salestaxreversecalculator.com</strong> for a <strong>Financial Web Application / Interactive Calculator Tool</strong> site, generated on November 09, 2026. Findings combine technical, content, schema, performance, visual, and search-readiness evidence as available.</p>
 
   <div class="two-col">
     <div class="col">
       <div class="metric-card">
-        <div class="value" style="color: #d4740e;">86/100</div>
+        <div class="value" style="color: #d4740e;">87/100</div>
         <div class="label">SEO Health Score</div>
       </div>
 
@@ -587,22 +587,22 @@
   <div class="critical-box">
     <strong>Critical Issues Found:</strong>
     <ol>
-      <li>Content Enrichment Disparity: The two states with custom deep guides (New York: 2,409 words, Connecticut: 1,525 words) hold Google Page 1 rankings (pos 9.4 and 10.9), while 48 templated state pages (633-996 words) linger in positions 15-40.</li>
-      <li>Google Search Console Indexation Success: 100% of sampled regional and root pages passed GSC inspection with &#x27;Submitted and indexed&#x27; status, verified Mobile crawler fetch, and valid Breadcrumb rich results.</li>
-      <li>SEO Drift Confirmed Positive: Title tags have been tightened (eliminating redundant brand repetition), H1 spacing glitch resolved, and schema expanded from 5 to 7 structured blocks.</li>
-      <li>AI &amp; Agentic Readiness High: llms.txt is 100% valid under Lighthouse standards (3,010 bytes), primary content is 100% server-rendered (7,683 words without JS), and robots.txt explicitly welcomes GPTBot, ClaudeBot, PerplexityBot, and Google-Extended.</li>
-      <li>Duplicate Endpoint Equity Leak: /how-it-works and /faq return HTTP 200 with identical homepage content and canonical tags to root rather than permanent 301 redirects, diluting crawl budget and equity.</li>
+      <li>9 Canadian provincial calculators are orphaned (in sitemap.xml with 0 incoming internal links)</li>
+      <li>55 page titles exceed 60 characters and 50 meta descriptions exceed 160 characters, causing mobile SERP snippet truncation</li>
+      <li>Severe CTR depression on high-volume state pages (e.g., /us/new-york at Pos 9.1 with 2,133 impressions has only 0.05% CTR)</li>
+      <li>GSC tracking URL fragment links (/#calculator, /#faq) due to on-page hash anchor navigation</li>
+      <li>Missing Content-Security-Policy (CSP) header despite strong HSTS and X-Frame-Options</li>
     </ol>
   </div>
 
   <div class="success-box">
     <strong>Quick Wins:</strong>
     <ol>
-      <li>Implement 301 redirects from /how-it-works and /faq to /#how-it-works and /#faq to concentrate all historical query equity into the primary homepage URL.</li>
-      <li>Fix Schema name glitch on New York state page from &#x27;New York Sales Tax Calculator&#x27; to &#x27;New York Reverse Sales Tax Calculator&#x27; for 100% entity consistency.</li>
-      <li>Enrich the top 5 high-impression state pages (Texas: 618 impr, California: 454 impr, South Carolina: 345 impr, Florida: 311 impr, Arizona: 299 impr) using the proven New York/Connecticut depth playbook.</li>
-      <li>Expand lean international hubs (Canada: 723 words, UK VAT: 437 words, Germany VAT: 374 words) with local invoice compliance rules and reverse VAT refund workflows.</li>
-      <li>Standardize sitemap.xml trailing slash formatting to perfectly mirror server canonical endpoints.</li>
+      <li>Link all 9 Canadian provincial pages from /canada province grid to resolve orphan page status immediately</li>
+      <li>Rewrite /us/new-york title and meta description to target high-intent NYC 8.875% tax extraction, lifting CTR from 0.05%</li>
+      <li>Trim state calculator titles to 52-58 chars (e.g. &#x27;Arkansas Reverse Sales Tax Calculator (9.49%)&#x27;) to prevent truncation</li>
+      <li>Add Content-Security-Policy header in next.config.mjs or vercel.json</li>
+      <li>Add BreadcrumbList schema to the 3 utility hub pages currently missing it</li>
     </ol>
   </div>
 
@@ -615,122 +615,145 @@
   </div>
 
   <h3>2.1 Technical SEO</h3>
-  <p><strong>Score:</strong> <span class="status-pass">90/100</span></p>
+  <p><strong>Score:</strong> <span class="status-pass">84/100</span></p>
   <h4>What Works</h4>
   <ul>
-    <li>100% Server-Side Rendered (SSR) content via Next.js Turbopack — 7,683 words delivered on initial HTML payload without client JS requirement</li>
-    <li>Edge global delivery via Vercel CDN with sub-50ms TTFB and HTTP/2 gzip compression</li>
-    <li>Enterprise security headers: Strict-Transport-Security (max-age 63072000; includeSubDomains; preload), nosniff, and SAMEORIGIN X-Frame-Options</li>
-    <li>All 79 sitemap URLs verified indexed with zero sitemap parse errors in Google Search Console</li>
-    <li>Clean HTTP 404 response codes for non-existent routes (soft-404 tests passed)</li>
+    <li>100% canonical accuracy with zero mismatches or cross-domain issues across all 79 URLs</li>
+    <li>Clean robots.txt allowing search and AI crawlers with explicit sitemap reference</li>
+    <li>Solid edge performance on Vercel with 447ms average server TTFB</li>
+    <li>Real HTTP 404 response on non-existent endpoints (no soft-404 catch-alls)</li>
+    <li>Full HTTPS enforcement with Strict-Transport-Security (max-age=63072000; preload)</li>
   </ul>
   <h4>Findings</h4>
   <div class="action-item medium">
-    <h4>Duplicate URL Handlers on /how-it-works and /faq <span class="status-warn">Medium</span></h4>
-    <p>/how-it-works and /faq return HTTP 200 with 6,706 words identical to the homepage and self-referential canonical pointing to root. While canonical tags prevent indexation conflicts, returning HTTP 200 wastes Googlebot crawl frequency.</p>
-    <p><strong>Recommendation:</strong> Deploy permanent HTTP 301 redirects in next.config.mjs from /how-it-works to /#how-it-works and from /faq to /#faq.</p>
+    <h4>9 Canadian provincial pages orphaned with 0 internal links <span class="status-warn">Critical</span></h4>
+    <p>Pages for Manitoba, Saskatchewan, Nova Scotia, New Brunswick, Newfoundland, PEI, NWT, Nunavut, and Yukon exist in sitemap.xml but have zero internal inlinks.</p>
+    <p><strong>Recommendation:</strong> Update /canada to include a full grid of all 13 provinces/territories with descriptive anchor text.</p>
   </div>
   <div class="action-item medium">
-    <h4>Canonical &amp; Sitemap Trailing Slash Uniformity <span class="status-warn">Low</span></h4>
-    <p>Sitemap URLs list URLs without trailing slash while canonical link tags in HTML include trailing slashes. Harmonizing these avoids unnecessary redirect reconciliation.</p>
-    <p><strong>Recommendation:</strong> Standardize all URLs in sitemap.xml to match exact canonical URLs.</p>
+    <h4>Fragment URLs accumulating impressions in Google Search Console <span class="status-warn">Medium</span></h4>
+    <p>URLs with hash fragments (/#calculator, /#faq, /#how-it-works) appear in GSC with over 140 combined impressions.</p>
+    <p><strong>Recommendation:</strong> Audit internal navigation links and canonical references to ensure all links use clean path-based URLs without bare hash anchors.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Missing Content-Security-Policy (CSP) Header <span class="status-warn">Low</span></h4>
+    <p>Vercel edge responses include HSTS, X-Content-Type-Options, and X-Frame-Options, but no Content-Security-Policy is set.</p>
+    <p><strong>Recommendation:</strong> Configure a Content-Security-Policy header in next.config.mjs to protect users against XSS and injection.</p>
   </div>
   <hr class="divider">
-  <h3>2.2 Content Quality &amp; Depth</h3>
-  <p><strong>Score:</strong> <span class="status-warn">74/100</span></p>
+  <h3>2.2 Content Quality &amp; E-E-A-T</h3>
+  <p><strong>Score:</strong> <span class="status-pass">86/100</span></p>
   <h4>What Works</h4>
   <ul>
-    <li>Homepage contains 7,737 words of exhaustive mathematical, tax law, and accounting guidance with an Information Density score of 1.0 and zero filler</li>
-    <li>New York state page upgraded to 2,409 words covering NYC 8.875% combined rate, MTA surcharge, clothing exemptions, and local audit guidelines</li>
-    <li>Connecticut state page enriched to 1,525 words, directly propelling it to Google Page 1 (Position 10.9 with 1,566 impressions)</li>
-    <li>Official citations and outbound links to IRS, Tax Foundation, Sales Tax Institute, CRA, and OECD establish high E-E-A-T trust</li>
+    <li>Comprehensive explanation of mathematical reverse sales tax formulas (Formula: Pre-Tax = Total / (1 + Rate))</li>
+    <li>Fully server-rendered content (8,413 words on homepage) accessible without client-side JS execution</li>
+    <li>High depth on state pages with local county/city tax nuance tables and exemptions</li>
+    <li>Clear authoritativeness signals including dedicated Person and Organization review team schemas</li>
   </ul>
   <h4>Findings</h4>
   <div class="action-item medium">
-    <h4>48 US State Pages Remain on Standard Templated Footprint <span class="status-warn">Critical</span></h4>
-    <p>48 of 50 state pages average between 633 and 996 words with recurring boilerplate paragraphs. GSC data proves that enriched states (NY and CT) achieve Page 1 ranks, while templated states lag on Pages 2-4 despite high search interest.</p>
-    <p><strong>Recommendation:</strong> Execute Phase 2 content expansion across the top 10 highest-traffic states (Texas, California, Florida, South Carolina, Arizona, Pennsylvania, Illinois, Ohio, Georgia, North Carolina), adding county-level local brackets, food/clothing exemptions, and real receipt examples.</p>
+    <h4>Boilerplate pattern across state pages risks repetitive content filtering <span class="status-warn">Medium</span></h4>
+    <p>50 state pages follow identical structural sections. While specific tax rates differ, intro and FAQ paragraphs share template phrasing.</p>
+    <p><strong>Recommendation:</strong> Enrich top 15 highest-impression states (NY, CT, TX, UT, CA, NC, FL) with state-specific filing deadlines, nexus thresholds, and local tax nuance tables.</p>
   </div>
   <div class="action-item medium">
-    <h4>International VAT &amp; Canada Hubs Thin Content Gap <span class="status-warn">High</span></h4>
-    <p>Canada (/canada: 723 words) and international VAT pages (UK: 437 words, Germany: 374 words, Australia: 313 words) lack the depth required to compete for high-volume overseas accounting queries.</p>
-    <p><strong>Recommendation:</strong> Expand international country guides with cross-border invoice rules, reverse-charge VAT mechanisms, and Canadian provincial tax blend breakdowns (GST + PST/HST/QST).</p>
+    <h4>High impression query mismatches on specific tax math queries <span class="status-warn">Medium</span></h4>
+    <p>Users search for concrete math examples like &#x27;christa went shopping for back-to-school clothes... if sales tax is 6% what was total&#x27; (27 imp, pos 9.4).</p>
+    <p><strong>Recommendation:</strong> Add a &#x27;Worked Examples &amp; Word Problems&#x27; section to the FAQ addressing common receipt totals ($10, $50, $100, $176) at standard rates.</p>
   </div>
   <hr class="divider">
   <h3>2.3 On-Page SEO</h3>
-  <p><strong>Score:</strong> <span class="status-pass">88/100</span></p>
+  <p><strong>Score:</strong> <span class="status-pass">84/100</span></p>
   <h4>What Works</h4>
   <ul>
-    <li>Primary H1 tags clearly aligned with target intent across all audited pages</li>
-    <li>Homepage title tag successfully refined to &#x27;Reverse Sales Tax Calculator: Find Pre-Tax Price Free&#x27; (53 characters), removing brand redundancy</li>
-    <li>Comprehensive OpenGraph and Twitter card metadata including dynamic OG images with calculated rate overlays</li>
-    <li>Logical heading hierarchy across desktop and mobile viewports with 1 H1, 25 H2s, and 44 H3s</li>
+    <li>100% single H1 tag coverage across all 79 site pages</li>
+    <li>Zero duplicate titles or duplicate meta descriptions detected across the entire site</li>
+    <li>Logical H2 and H3 heading hierarchies mirroring searcher intent</li>
+    <li>Consistent Open Graph and Twitter Card social metadata implementation</li>
   </ul>
   <h4>Findings</h4>
   <div class="action-item medium">
-    <h4>Internal Link Equity Anchor Distribution <span class="status-warn">Medium</span></h4>
-    <p>Internal links from state pages back to the homepage frequently use generic anchor text rather than keyword-rich contextual anchors like &#x27;free reverse sales tax calculator&#x27;.</p>
-    <p><strong>Recommendation:</strong> Refine internal footer and contextual breadcrumb links to use descriptive anchors.</p>
+    <h4>55 Page titles exceed 60 characters (SERP pixel truncation) <span class="status-warn">High</span></h4>
+    <p>Titles on state pages average 68-70 characters (e.g. &#x27;Arkansas Sales Tax Calculator 2026: Calculate or Back Out Tax (9.49%)&#x27;), causing tax rates to truncate in mobile SERPs.</p>
+    <p><strong>Recommendation:</strong> Refactor state title template to: &#x27;[State] Reverse Sales Tax Calculator ([Rate]%)&#x27; (under 55 characters).</p>
   </div>
-  <hr class="divider">
-  <h3>2.4 Schema / Structured Data</h3>
-  <p><strong>Score:</strong> <span class="status-pass">92/100</span></p>
-  <h4>What Works</h4>
-  <ul>
-    <li>Homepage deploys 7 distinct valid JSON-LD schemas: Organization, WebSite, WebApplication, HowTo, Person, FAQPage, and ImageObject</li>
-    <li>Rich breadcrumbs valid and verified by GSC across state and international pages</li>
-    <li>FAQPage schema correctly reflects 6 high-value questions and answers, unlocking search result accordion features</li>
-  </ul>
-  <h4>Findings</h4>
   <div class="action-item medium">
-    <h4>WebApplication Schema Entity Name Discrepancy on New York Page <span class="status-warn">Low</span></h4>
-    <p>The WebApplication schema on /us/new-york declares name as &#x27;New York Sales Tax Calculator&#x27; instead of &#x27;New York Reverse Sales Tax Calculator&#x27;.</p>
-    <p><strong>Recommendation:</strong> Update the JSON-LD schema builder to inject &#x27;Reverse Sales Tax Calculator&#x27; uniformly across all state applications.</p>
+    <h4>50 Meta descriptions exceed 160 characters <span class="status-warn">Medium</span></h4>
+    <p>Descriptions reach 172-201 characters, resulting in truncated snippets that hide the call to action.</p>
+    <p><strong>Recommendation:</strong> Tighten meta descriptions to 145-155 characters, leading with the core utility and instant pre-tax extraction.</p>
   </div>
-  <hr class="divider">
-  <h3>2.5 Performance (Core Web Vitals)</h3>
-  <p><strong>Score:</strong> <span class="status-pass">88/100</span></p>
-  <h4>What Works</h4>
-  <ul>
-    <li>Next.js optimized responsive image delivery serves WebP format at just 46.7 KB for the primary diagram</li>
-    <li>Clean DOM architecture with zero layout-shifting ads or intrusive modal scripts</li>
-    <li>Mobile viewport meta tag configured properly with disabled horizontal scroll and compliant touch targets</li>
-  </ul>
-  <h4>Findings</h4>
   <div class="action-item medium">
-    <h4>CSS &amp; Script Chunk Preload Optimization <span class="status-warn">Low</span></h4>
-    <p>Multiple small Turbopack chunk files are loaded asynchronously. Bundling or inlining critical paths can shave an additional 15-25ms off mobile render times.</p>
-    <p><strong>Recommendation:</strong> Ensure Next.js experimental optimizePackageImports is enabled for UI icon libraries.</p>
+    <h4>Low CTR on #1 Impression State Page: /us/new-york (0.05% CTR) <span class="status-warn">High</span></h4>
+    <p>/us/new-york ranks at average position 9.1 with 2,133 impressions but only 1 click, indicating snippet mismatch for NYC and county searchers.</p>
+    <p><strong>Recommendation:</strong> Update New York meta title to: &#x27;New York Reverse Sales Tax Calculator: 8.875% NYC Included&#x27; to match high-volume local search intent.</p>
   </div>
   <hr class="divider">
-  <h3>2.6 AI Search Readiness (GEO &amp; Agentic)</h3>
+  <h3>2.4 Schema &amp; Structured Data</h3>
   <p><strong>Score:</strong> <span class="status-pass">94/100</span></p>
   <h4>What Works</h4>
   <ul>
-    <li>100% compliant llms.txt file (3,010 bytes) passing Lighthouse agentic checks</li>
-    <li>Explicit crawler access configured in robots.txt for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, and CCBot</li>
-    <li>Content structured with direct definition boxes, formula proofs, and worked mathematical examples highly quotable by LLMs and AI Overviews</li>
+    <li>Rich @graph implementation on state pages containing WebApplication, HowTo, FAQPage, and BreadcrumbList</li>
+    <li>Organization and WebSite schemas properly linked with logo and publisher identity</li>
+    <li>Interactive tool correctly classified as FinanceApplication / WebApplication</li>
+    <li>HowTo schema includes structured step-by-step instructions for reversing sales tax calculations</li>
   </ul>
   <h4>Findings</h4>
   <div class="action-item medium">
-    <h4>Content-Signal Preference Header <span class="status-warn">Info</span></h4>
-    <p>Robots.txt does not currently declare the optional Content-Signal header (search=yes, ai-input=yes, ai-train=no).</p>
-    <p><strong>Recommendation:</strong> Consider adding Content-Signal metadata if specific AI training restrictions are desired.</p>
+    <h4>3 Utility hub pages missing BreadcrumbList schema <span class="status-warn">Low</span></h4>
+    <p>While 76 pages have complete BreadcrumbList markup, 3 utility pages (/tax-rates, /about, /contact) lack breadcrumb structured data.</p>
+    <p><strong>Recommendation:</strong> Inject consistent BreadcrumbList JSON-LD across all pages for uniform SERP breadcrumb display.</p>
   </div>
   <hr class="divider">
-  <h3>2.7 Images &amp; Visual Assets</h3>
-  <p><strong>Score:</strong> <span class="status-pass">85/100</span></p>
+  <h3>2.5 Performance &amp; Core Web Vitals</h3>
+  <p><strong>Score:</strong> <span class="status-pass">83/100</span></p>
   <h4>What Works</h4>
   <ul>
-    <li>Homepage formula infographic has descriptive alt text and ImageObject structured data</li>
-    <li>All 4 viewport screenshots (Desktop, Laptop, Tablet, Mobile) render cleanly without overlaps or text clipping</li>
-    <li>Next.js responsive picture element automatically handles dynamic device sizing</li>
+    <li>Average TTFB of 447ms served globally via Vercel Edge Network</li>
+    <li>Preloaded web fonts (woff2) avoiding layout shifts and FOIT</li>
+    <li>Responsive image optimization via Next.js next/image with srcset and sizes</li>
+    <li>Clean responsive viewport with no horizontal scrolling or touch-target failures</li>
   </ul>
   <h4>Findings</h4>
   <div class="action-item medium">
-    <h4>State-Specific Visual Infographics Missing <span class="status-warn">Medium</span></h4>
-    <p>State pages currently rely purely on text and interactive form inputs without visual breakdown graphics for state vs county tax splits.</p>
-    <p><strong>Recommendation:</strong> Generate lightweight SVG or WebP regional rate cards for the top 10 states to capture Google Image Search traffic.</p>
+    <h4>Multiple small JavaScript chunk requests during Next.js hydration <span class="status-warn">Low</span></h4>
+    <p>Page loads 8+ script chunks for interactive state. Although TTFB is fast, bundling small chunks reduces HTTP overhead.</p>
+    <p><strong>Recommendation:</strong> Ensure Turbopack script optimization combines smaller runtime chunks for faster mobile parsing.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.6 AI Search Readiness (GEO &amp; Agentic)</h3>
+  <p><strong>Score:</strong> <span class="status-pass">96/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>Exceptional llms.txt (3,012 bytes) and llms-full.txt conforming to community standards</li>
+    <li>Robots.txt explicitly grants permission to GPTBot, ClaudeBot, PerplexityBot, CCBot, Google-Extended, and OAI-SearchBot</li>
+    <li>8,413 words of clean server-rendered content accessible to LLM web scraping agents without JavaScript</li>
+    <li>Mathematical formulas structured into clean markdown-friendly definition blocks</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Missing Content-Signal header for AI training preference declaration <span class="status-warn">Info</span></h4>
+    <p>Optional Cloudflare / IETF Content-Signal header is not declared on robots.txt.</p>
+    <p><strong>Recommendation:</strong> Optionally add &#x27;Content-Signal: search=yes, ai-input=yes, ai-train=no&#x27; to establish content usage preferences.</p>
+  </div>
+  <div class="action-item medium">
+    <h4>Missing WebMCP declarative tool registration <span class="status-warn">Info</span></h4>
+    <p>The site provides financial calculation utilities but lacks WebMCP registerTool() wrappers for autonomous agent invocation.</p>
+    <p><strong>Recommendation:</strong> Implement WebMCP tool registration on the calculator form for agentic browser interactions.</p>
+  </div>
+  <hr class="divider">
+  <h3>2.7 Images</h3>
+  <p><strong>Score:</strong> <span class="status-pass">95/100</span></p>
+  <h4>What Works</h4>
+  <ul>
+    <li>100% of images possess descriptive, non-empty alt text attributes</li>
+    <li>Next.js optimized WebP/AVIF generation with responsive srcset attributes</li>
+    <li>Preloaded formula diagram image above the fold preventing LCP delay</li>
+  </ul>
+  <h4>Findings</h4>
+  <div class="action-item medium">
+    <h4>Hero diagram image rendered at 3840px max width candidate <span class="status-warn">Low</span></h4>
+    <p>The formula diagram image srcset includes up to 3840w which is oversized for mobile screens.</p>
+    <p><strong>Recommendation:</strong> Cap max srcset generation width to 1600px to save CDN bandwidth.</p>
   </div>
   <hr class="divider">
 </div>
@@ -742,36 +765,35 @@
   </div>
 
   <div class="roadmap-phase">
-    <h4>Phase 1: Critical URL Equity &amp; Schema Hygiene <span class="effort">Week 1</span></h4>
+    <h4>Phase 1: Critical Fixes &amp; Orphan Elimination <span class="effort">Week 1</span></h4>
     <ul>
-      <li>Deploy 301 permanent redirects from /how-it-works to /#how-it-works and /faq to /#faq in next.config.mjs</li>
-      <li>Fix WebApplication schema name on /us/new-york to &#x27;New York Reverse Sales Tax Calculator&#x27;</li>
-      <li>Standardize trailing slash conventions across sitemap.xml to mirror canonical headers</li>
+      <li>Fix Canadian Province Orphans: Add all 9 missing provinces (MB, SK, NS, NB, NL, PE, NT, NU, YT) to the /canada hub navigation grid</li>
+      <li>Optimize High-Volume State SERP Snippets: Rewrite /us/new-york title and meta description to explicitly highlight 8.875% NYC tax extraction</li>
+      <li>Trim State Page Titles: Shorten all 55 state titles from ~69 chars to 52-58 chars to eliminate mobile SERP truncation</li>
     </ul>
   </div>
   <div class="roadmap-phase">
-    <h4>Phase 2: High-Impact State Content Expansion <span class="effort">Weeks 2-3</span></h4>
+    <h4>Phase 2: High-Impact CTR &amp; Content Improvements <span class="effort">Weeks 2-3</span></h4>
     <ul>
-      <li>Enrich California (/us/california) to 2,000+ words with district tax rules, CDTFA audit nuances, and city rate ranges</li>
-      <li>Enrich Texas (/us/texas) to 2,000+ words covering Texas Comptroller single local use tax and city/county brackets</li>
-      <li>Enrich Florida (/us/florida) to 1,800+ words covering county discretionary sales surtaxes (DR-15 rules)</li>
-      <li>Enrich South Carolina and Arizona following the New York/Connecticut blueprint</li>
+      <li>Target Striking Distance Keywords: Create dedicated on-page sections for &#x27;how to calculate sales tax backwards from total&#x27; (Pos 9.7) and &#x27;reverse tax calculator&#x27; (Pos 9.2)</li>
+      <li>Address Math Word Problem Queries: Add worked examples for common dollar figures ($10, $50, $100, $176) to capture featured snippets and AI Overviews</li>
+      <li>Compress Meta Descriptions: Shorten 50 state page descriptions to 145-155 characters with clear pre-tax calculation call-to-actions</li>
     </ul>
   </div>
   <div class="roadmap-phase">
-    <h4>Phase 3: International Hub Expansion &amp; Visual Assets <span class="effort">Month 2</span></h4>
+    <h4>Phase 3: Schema &amp; Technical Hardening <span class="effort">Month 2</span></h4>
     <ul>
-      <li>Expand Canada hub (/canada) and top provinces (Ontario, BC, Quebec) with GST/HST/QST breakdown guides</li>
-      <li>Deepen UK and EU VAT hubs with reverse-charge accounting instructions and B2B export guidelines</li>
-      <li>Add state tax breakdown SVG cards to top 10 US states to target Google Image Search and visual snippets</li>
+      <li>Deploy Content-Security-Policy (CSP) headers in Vercel configuration</li>
+      <li>Audit Internal Hash Links: Replace bare #calculator and #faq internal links with canonical path structures</li>
+      <li>Standardize BreadcrumbList structured data across the remaining 3 utility pages</li>
     </ul>
   </div>
   <div class="roadmap-phase">
-    <h4>Phase 4: Authority Building &amp; Brand Signals <span class="effort">Ongoing</span></h4>
+    <h4>Phase 4: Agentic SEO &amp; Continuous Monitoring <span class="effort">Ongoing</span></h4>
     <ul>
-      <li>Submit calculator to reputable accounting software, small business, and bookkeeping resource directories</li>
-      <li>Publish embeddable widget documentation with outbound attribution backlinks to reverse sales tax calculator</li>
-      <li>Track GSC keyword position momentum weekly as enriched state pages gain traction</li>
+      <li>Implement WebMCP registerTool() on calculator forms for AI agent accessibility</li>
+      <li>Track GSC striking distance keyword movements weekly</li>
+      <li>Monitor Google Search Console Generative AI control and AI citation metrics</li>
     </ul>
   </div>
 </div>
@@ -803,7 +825,7 @@
     </tbody>
   </table>
   <p style="color: #94a3b8; font-size: 9pt; margin-top: 5mm;">
-    Report generated by Claude SEO &mdash; Google SEO Intelligence Skill &mdash; October 26, 2026<br>
+    Report generated by Claude SEO &mdash; Google SEO Intelligence Skill &mdash; November 09, 2026<br>
     Methodology based on Google Web Vitals thresholds, Search Console documentation, and Lighthouse scoring algorithms.
   </p>
 </div>
