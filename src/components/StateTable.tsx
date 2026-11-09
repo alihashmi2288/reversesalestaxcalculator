@@ -259,13 +259,13 @@ export default function StateTable() {
           aria-label="State sales tax rates table"
           style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', maxHeight: 620, overflowY: 'auto' }}
         >
-          <table className="data-table" style={{ tableLayout: 'fixed', minWidth: 640, width: '100%' }}>
+          <table className="data-table" style={{ tableLayout: 'fixed', minWidth: 760, width: '100%' }}>
             <caption className="sr-only">
               2026 US State and Local Sales Tax Rates and Reverse Multipliers
             </caption>
             <thead>
               <tr>
-                <th scope="col" aria-sort={getAriaSort('state')} style={{ width: '26%', textAlign: 'left' }}>
+                <th scope="col" aria-sort={getAriaSort('state')} style={{ width: '22%', textAlign: 'left' }}>
                   <button
                     type="button"
                     onClick={() => handleSort('state')}
@@ -274,7 +274,7 @@ export default function StateTable() {
                     State{getSortIcon('state')}
                   </button>
                 </th>
-                <th scope="col" aria-sort={getAriaSort('abbreviation')} style={{ width: '12%', textAlign: 'center' }}>
+                <th scope="col" aria-sort={getAriaSort('abbreviation')} style={{ width: '10%', textAlign: 'center' }}>
                   <button
                     type="button"
                     onClick={() => handleSort('abbreviation')}
@@ -283,7 +283,7 @@ export default function StateTable() {
                     Abbr.{getSortIcon('abbreviation')}
                   </button>
                 </th>
-                <th scope="col" aria-sort={getAriaSort('stateRate')} className="header-num" style={{ width: '16%' }}>
+                <th scope="col" aria-sort={getAriaSort('stateRate')} className="header-num" style={{ width: '14%' }}>
                   <button
                     type="button"
                     onClick={() => handleSort('stateRate')}
@@ -292,7 +292,7 @@ export default function StateTable() {
                     State Base{getSortIcon('stateRate')}
                   </button>
                 </th>
-                <th scope="col" aria-sort={getAriaSort('avgLocalRate')} className="header-num" style={{ width: '16%' }}>
+                <th scope="col" aria-sort={getAriaSort('avgLocalRate')} className="header-num" style={{ width: '14%' }}>
                   <button
                     type="button"
                     onClick={() => handleSort('avgLocalRate')}
@@ -310,7 +310,7 @@ export default function StateTable() {
                     Combined Average{getSortIcon('rate')}
                   </button>
                 </th>
-                <th scope="col" className="header-num" style={{ width: '12%' }}>Action</th>
+                <th scope="col" className="header-num" style={{ width: '22%' }}>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -337,7 +337,14 @@ export default function StateTable() {
                   return (
                     <tr key={s.abbreviation}>
                       <th scope="row">
-                        {s.state}
+                        <Link
+                          href={`/us/${s.state.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="state-table-link hover:underline focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
+                          style={{ color: 'var(--ink)', textDecoration: 'none', fontWeight: 600 }}
+                          title={`View ${s.state} reverse sales tax rates and calculator`}
+                        >
+                          {s.state}
+                        </Link>
                       </th>
                       <td style={{ textAlign: 'center' }}>
                         <span
@@ -397,9 +404,10 @@ export default function StateTable() {
                         <Link
                           href={`/us/${s.state.toLowerCase().replace(/\s+/g, '-')}`}
                           className="table-action-link focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
-                          aria-label={`Calculate for ${s.state}`}
+                          aria-label={`Calculate ${s.state} reverse sales tax`}
+                          style={{ whiteSpace: 'nowrap' }}
                         >
-                          Calculate →
+                          Calculate {s.state} Tax →
                         </Link>
                       </td>
                     </tr>

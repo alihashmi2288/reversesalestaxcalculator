@@ -755,6 +755,18 @@ input::placeholder, select::placeholder, textarea::placeholder {
   font-family: var(--font-mono);
 }
 
+.state-table-link {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.state-table-link:hover {
+  color: var(--primary-deep);
+  text-decoration: underline;
+}
+
 .table-action-link {
   display: inline-flex;
   align-items: center;

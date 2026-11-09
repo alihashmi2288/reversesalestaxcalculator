@@ -318,19 +318,19 @@ describe('SEO Audit Verification Tests', () => {
     );
   });
 
-  test('Hero diagram Image component defines fetchPriority="high" and priority', () => {
+  test('Below-the-fold formula diagram uses loading="lazy" without competing for high priority preload', () => {
     const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
     assert.ok(
-      homeContent.includes('fetchPriority="high"'),
-      'Hero diagram image must define fetchPriority="high" for optimal LCP'
+      homeContent.includes('loading="lazy"'),
+      'Below-the-fold formula diagram image must define loading="lazy" for optimal LCP/TBT'
     );
     assert.ok(
-      homeContent.includes('priority={true}') || homeContent.includes('priority'),
-      'Hero diagram image must define priority'
+      !homeContent.includes('priority={true}') && !homeContent.includes('fetchPriority="high"'),
+      'Below-the-fold diagram must not compete with critical above-the-fold assets for priority preloading'
     );
   });
 
-  test('HomePage includes striking-distance core terms and clean howToSchema step URLs', () => {
+  test('HomePage includes striking-distance core terms and unified Schema.org @graph', () => {
     const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
     
     // Striking-distance search query targeting
@@ -351,14 +351,66 @@ describe('SEO Audit Verification Tests', () => {
       'HomePage must target "how to calculate sales tax backwards from total"'
     );
 
-    // howToSchema step URL cleanliness (no fragment leakage into GSC)
+    // Schema consolidation into unified @graph
     assert.ok(
-      !homeContent.includes('url": `${SITE_URL}/#calculator`') && !homeContent.includes("url': `${SITE_URL}/#calculator`"),
-      'howToSchema step URLs must not contain #calculator fragment'
+      homeContent.includes('"@graph": [') || homeContent.includes("'@graph': ["),
+      'HomePage must consolidate JSON-LD into unified @graph'
     );
     assert.ok(
-      !homeContent.includes('url": `${SITE_URL}/#formula`') && !homeContent.includes("url': `${SITE_URL}/#formula`"),
-      'howToSchema step URLs must not contain #formula fragment'
+      !homeContent.includes('"@type": "SearchAction"') && !homeContent.includes("'@type': 'SearchAction'"),
+      'HomePage must remove retired Sitelinks SearchAction'
+    );
+    assert.ok(
+      !homeContent.includes('"@type": "HowTo"') && !homeContent.includes("'@type': 'HowTo'"),
+      'HomePage must remove deprecated HowTo schema'
+    );
+    assert.ok(
+      homeContent.includes('"@type": "FAQPage"') || homeContent.includes("'@type': 'FAQPage'"),
+      'HomePage must preserve FAQPage for AI search engines in @graph'
+    );
+  });
+
+  test('trailing slash normalization is configured across next.config.ts and vercel.json', () => {
+    const nextConfigContent = fs.readFileSync(path.resolve(process.cwd(), 'next.config.ts'), 'utf-8');
+    const vercelConfig = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'vercel.json'), 'utf-8'));
+
+    assert.ok(
+      nextConfigContent.includes('trailingSlash: false'),
+      'next.config.ts must explicitly configure trailingSlash: false'
+    );
+    assert.strictEqual(
+      vercelConfig.trailingSlash,
+      false,
+      'vercel.json must explicitly configure trailingSlash: false'
+    );
+  });
+
+  test('StateTable links state names and provides descriptive state-specific anchor text', () => {
+    const tableContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/StateTable.tsx'), 'utf-8');
+    assert.ok(
+      tableContent.includes('state-table-link') && tableContent.includes('/us/${s.state.toLowerCase()'),
+      'StateTable must link the state name in column 1'
+    );
+    assert.ok(
+      tableContent.includes('Calculate {s.state} Tax →'),
+      'StateTable action button must use descriptive anchor text Calculate {s.state} Tax →'
+    );
+  });
+
+  test('HomePage displays above-the-fold E-E-A-T reviewer trust pill and spaced sidebar links', () => {
+    const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
+    assert.ok(
+      homeContent.includes('Statutory tax rates verified for 2026'),
+      'HomePage must render statutory tax rates verified trust signal'
+    );
+    assert.ok(
+      homeContent.includes('Tax Compliance &amp; Accounting Team') || homeContent.includes('Tax Compliance & Accounting Team'),
+      'HomePage must render visible reviewer team attribution'
+    );
+    assert.ok(
+      homeContent.includes('aria-label={`${state.state}: ${state.rate}% combined sales tax rate`}') ||
+      homeContent.includes('aria-label={`${state.state}: ${state.rate}%'),
+      'Sidebar state links must provide descriptive aria-labels and whitespace between spans'
     );
   });
 

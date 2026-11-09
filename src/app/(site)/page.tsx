@@ -38,270 +38,207 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const SITE_URL = 'https://salestaxreversecalculator.com';
 
-  const websiteSchema = {
+  const unifiedSchema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Reverse Sales Tax Calculator by PreTaxPrice",
-    "alternateName": "PreTaxPrice",
-    "url": SITE_URL,
-    "description": "Free reverse sales tax calculator. Find the original pre-tax price from any receipt total. Works for all 50 US states, Canada GST/HST, and EU VAT.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Reverse Sales Tax Calculator",
-      "alternateName": "PreTaxPrice",
-      "url": SITE_URL,
-      "logo": {
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        "name": "Reverse Sales Tax Calculator",
+        "alternateName": "PreTaxPrice",
+        "url": SITE_URL,
+        "logo": {
+          "@type": "ImageObject",
+          "@id": `${SITE_URL}/#logo`,
+          "url": `${SITE_URL}/og-image.png`,
+          "caption": "PreTaxPrice Reverse Sales Tax Calculator"
+        },
+        "sameAs": [
+          "https://www.instagram.com/pretaxprice/",
+          "https://x.com/PreTaxPrice",
+          "https://www.linkedin.com/company/pretaxprice/",
+          "https://www.facebook.com/pretaxprice/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "salestaxreversecalculator@gmail.com",
+          "contactType": "customer service",
+          "url": `${SITE_URL}/contact`
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        "url": SITE_URL,
+        "name": "Reverse Sales Tax Calculator by PreTaxPrice",
+        "alternateName": "PreTaxPrice",
+        "description": "Free reverse sales tax calculator. Find the original pre-tax price from any receipt total. Works for all 50 US states, Canada GST/HST, and EU VAT.",
+        "publisher": {
+          "@id": `${SITE_URL}/#organization`
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": `${SITE_URL}/#webapp`,
+        "name": "Reverse Sales Tax Calculator",
+        "alternateName": "PreTaxPrice",
+        "url": SITE_URL,
+        "applicationCategory": "FinanceApplication",
+        "applicationSubCategory": "Sales Tax Calculation & Accounting",
+        "softwareVersion": "2.4.0",
+        "inLanguage": "en",
+        "operatingSystem": "All modern web browsers (Desktop, Tablet, Mobile)",
+        "browserRequirements": "Requires JavaScript for real-time calculations. Pre-rendered HTML available for search crawlers.",
+        "description": "A free reverse sales tax calculator that works backwards from a tax-inclusive total to find the original pre-tax price. Supports all 50 US states, Canada GST/HST/PST/QST, and European VAT.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "128",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "featureList": [
+          "Instant real-time reverse sales tax calculations",
+          "All 50 US State verified 2026 sales tax rates",
+          "Local county and municipal sales tax surtax lookups",
+          "Canada GST, PST, and HST provincial tax calculation",
+          "Global Value Added Tax (VAT) reverse calculations",
+          "Zero advertisement clutter and complete data privacy"
+        ],
+        "screenshot": `${SITE_URL}/og-image.png`,
+        "author": {
+          "@id": `${SITE_URL}/#organization`
+        },
+        "publisher": {
+          "@id": `${SITE_URL}/#organization`
+        },
+        "reviewedBy": {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/about#review-team`,
+          "name": "Tax Compliance & Accounting Review Team",
+          "url": `${SITE_URL}/about`
+        }
+      },
+      {
+        "@type": "DefinedTermSet",
+        "@id": `${SITE_URL}/#glossary`,
+        "name": "Reverse Sales Tax Definitions and Accounting Rules",
+        "hasDefinedTerm": [
+          {
+            "@type": "DefinedTerm",
+            "name": "Reverse Sales Tax",
+            "description": "The mathematical calculation of extracting the original pre-tax selling price from a gross sales-tax-inclusive invoice total by dividing by (1 + tax rate)."
+          },
+          {
+            "@type": "DefinedTerm",
+            "name": "Pre-Tax Price",
+            "description": "The base cost of goods or services before mandatory statutory state, municipal, or value-added taxes are applied."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE_URL}/#faq-schema`,
+        "isPartOf": {
+          "@id": `${SITE_URL}/#website`
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to calculate sales tax backwards from total amount?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To calculate sales tax backwards from any total: 1) Convert your sales tax percentage into a decimal (e.g., 6% = 0.06). 2) Add 1 to create the divisor (1 + 0.06 = 1.06). 3) Divide your final total receipt amount by this divisor to isolate the pre-tax base. 4) Subtract the pre-tax base from the total to get the exact tax paid."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Christa went shopping for back-to-school clothes. If her pre-tax total was $176 and sales tax is 6%, what was the total paid? (And what if $176 was the final receipt?)",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Case A (Forward tax from $176 shelf price): Sales tax = $176.00 × 0.06 = $10.56. Total amount paid = $176.00 + $10.56 = $186.56. Case B (Reverse tax if $176 was the final checkout total): Pre-tax price = $176.00 ÷ 1.06 = $166.04. Sales tax paid = $176.00 - $166.04 = $9.96."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you back out 8.875% NYC sales tax from a $100 purchase?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To back out 8.875% New York City sales tax from a $100.00 total receipt: Divide $100.00 by 1.08875. Pre-tax price = $91.85. Sales tax paid = $100.00 - $91.85 = $8.15. Never multiply $100 by 0.08875 and subtract (that yields $91.13, which is mathematically incorrect)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a reverse sales tax calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A reverse sales tax calculator works backwards from a tax-inclusive total price to find the original pre-tax amount. Instead of adding tax to a price, it removes the tax using the formula: Original Price = Final Price divided by (1 + Tax Rate / 100)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the formula for reverse sales tax?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The reverse sales tax formula is: Original Price = Final Price divided by (1 + Tax Rate / 100). For example, if you paid $107.50 at a 7.5% tax rate: $107.50 / 1.075 = $100.00 pre-tax price."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do you divide instead of subtract the tax percentage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because sales tax is applied to the pre-tax price, not the final total. Division is the exact mathematical inverse of the original multiplication. Subtracting the percentage from the total gives a slightly wrong answer because you would be calculating a percentage of the wrong base."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which US states have no sales tax?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Five US states have no state-level general sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon. Note that some Alaska localities do charge local sales taxes, giving Alaska a small combined average rate of about 1.76%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this calculator work for Canada and Europe?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The calculator supports Canadian taxes including federal GST (5%), HST for applicable provinces (13-15%), provincial PST, and Quebec's QST (9.975%). It also supports EU and UK VAT at all standard rates. The reverse calculation formula is identical regardless of what the tax is called."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this calculator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, completely free with no account required. All calculations run entirely in your browser — no data is sent to any server."
+            }
+          }
+        ]
+      },
+      {
         "@type": "ImageObject",
-        "url": `${SITE_URL}/og-image.png`
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${SITE_URL}/tax-rates?s={search_term_string}`
-      },
-      "query-input": "required name=search_term_string"
-    }
-  };
-
-  const webApplicationSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "@id": `${SITE_URL}/#webapp`,
-    "name": "Reverse Sales Tax Calculator",
-    "alternateName": "PreTaxPrice",
-    "url": SITE_URL,
-    "applicationCategory": "FinanceApplication",
-    "applicationSubCategory": "Sales Tax Calculation & Accounting",
-    "softwareVersion": "2.4.0",
-    "inLanguage": "en",
-    "operatingSystem": "All modern web browsers (Desktop, Tablet, Mobile)",
-    "browserRequirements": "Requires JavaScript for real-time calculations. Pre-rendered HTML available for search crawlers.",
-    "description": "A free reverse sales tax calculator that works backwards from a tax-inclusive total to find the original pre-tax price. Supports all 50 US states, Canada GST/HST/PST/QST, and European VAT.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "128",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "featureList": [
-      "Instant real-time reverse sales tax calculations",
-      "All 50 US State verified 2026 sales tax rates",
-      "Local county and municipal sales tax surtax lookups",
-      "Canada GST, PST, and HST provincial tax calculation",
-      "Global Value Added Tax (VAT) reverse calculations",
-      "Zero advertisement clutter and complete data privacy"
-    ],
-    "screenshot": `${SITE_URL}/og-image.png`,
-    "author": {
-      "@type": "Organization",
-      "name": "PreTaxPrice",
-      "url": SITE_URL
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Reverse Sales Tax Calculator",
-      "alternateName": "PreTaxPrice",
-      "url": SITE_URL
-    },
-    "reviewedBy": {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/about#review-team`,
-      "name": "Tax Compliance & Accounting Review Team",
-      "url": `${SITE_URL}/about`
-    }
-  };
-
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How to Calculate Reverse Sales Tax (Back Out Tax from Total)",
-    "description": "Step-by-step mathematical guide to reverse-calculate the pre-tax price from any sales-tax inclusive receipt or invoice total.",
-    "image": `${SITE_URL}/images/reverse-sales-tax-formula-diagram.jpg`,
-    "totalTime": "PT1M",
-    "tool": [
-      {
-        "@type": "HowToTool",
-        "name": "Reverse Sales Tax Calculator"
-      }
-    ],
-    "step": [
-      {
-        "@type": "HowToStep",
-        "position": 1,
-        "name": "Identify Total Price and Tax Rate",
-        "text": "Locate the gross receipt total paid and find the sales tax rate applicable to your purchase (e.g., $107.50 total at a 7.5% combined rate).",
-        "url": SITE_URL
-      },
-      {
-        "@type": "HowToStep",
-        "position": 2,
-        "name": "Convert Tax Rate to Decimal and Add 1",
-        "text": "Divide the tax rate percentage by 100 to convert it to a decimal, then add 1. For example, 7.5% becomes 0.075, and adding 1 gives a divisor of 1.075.",
-        "url": SITE_URL
-      },
-      {
-        "@type": "HowToStep",
-        "position": 3,
-        "name": "Divide Total Price by Tax Divisor",
-        "text": "Divide the total receipt amount by the divisor: $107.50 / 1.075 = $100.00 original pre-tax price. The tax paid is $107.50 - $100.00 = $7.50.",
-        "url": SITE_URL
+        "@id": `${SITE_URL}/#formula-diagram`,
+        "name": "Reverse Sales Tax Calculation Formula Diagram",
+        "contentUrl": `${SITE_URL}/images/reverse-sales-tax-formula-diagram.jpg`,
+        "description": "Visual infographic diagram illustrating the reverse sales tax calculation formula, division factor, and worked receipt example."
       }
     ]
-  };
-
-  const reviewerOrganizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${SITE_URL}/about#review-team`,
-    "name": "Tax Compliance & Accounting Review Team",
-    "description": "Financial compliance team verifying statutory 2026 US state, local, Canadian GST/HST, and European VAT rates.",
-    "url": `${SITE_URL}/about`
-  };
-
-  const definedTermSetSchema = {
-    "@context": "https://schema.org",
-    "@type": "DefinedTermSet",
-    "@id": `${SITE_URL}/#glossary`,
-    "name": "Reverse Sales Tax Definitions and Accounting Rules",
-    "hasDefinedTerm": [
-      {
-        "@type": "DefinedTerm",
-        "name": "Reverse Sales Tax",
-        "description": "The mathematical calculation of extracting the original pre-tax selling price from a gross sales-tax-inclusive invoice total by dividing by (1 + tax rate)."
-      },
-      {
-        "@type": "DefinedTerm",
-        "name": "Pre-Tax Price",
-        "description": "The base cost of goods or services before mandatory statutory state, municipal, or value-added taxes are applied."
-      }
-    ]
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How to calculate sales tax backwards from total amount?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To calculate sales tax backwards from any total: 1) Convert your sales tax percentage into a decimal (e.g., 6% = 0.06). 2) Add 1 to create the divisor (1 + 0.06 = 1.06). 3) Divide your final total receipt amount by this divisor to isolate the pre-tax base. 4) Subtract the pre-tax base from the total to get the exact tax paid."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Christa went shopping for back-to-school clothes. If her pre-tax total was $176 and sales tax is 6%, what was the total paid? (And what if $176 was the final receipt?)",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Case A (Forward tax from $176 shelf price): Sales tax = $176.00 × 0.06 = $10.56. Total amount paid = $176.00 + $10.56 = $186.56. Case B (Reverse tax if $176 was the final checkout total): Pre-tax price = $176.00 ÷ 1.06 = $166.04. Sales tax paid = $176.00 - $166.04 = $9.96."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do you back out 8.875% NYC sales tax from a $100 purchase?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To back out 8.875% New York City sales tax from a $100.00 total receipt: Divide $100.00 by 1.08875. Pre-tax price = $91.85. Sales tax paid = $100.00 - $91.85 = $8.15. Never multiply $100 by 0.08875 and subtract (that yields $91.13, which is mathematically incorrect)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is a reverse sales tax calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A reverse sales tax calculator works backwards from a tax-inclusive total price to find the original pre-tax amount. Instead of adding tax to a price, it removes the tax using the formula: Original Price = Final Price divided by (1 + Tax Rate / 100)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the formula for reverse sales tax?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The reverse sales tax formula is: Original Price = Final Price divided by (1 + Tax Rate / 100). For example, if you paid $107.50 at a 7.5% tax rate: $107.50 / 1.075 = $100.00 pre-tax price."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why do you divide instead of subtract the tax percentage?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Because sales tax is applied to the pre-tax price, not the final total. Division is the exact mathematical inverse of the original multiplication. Subtracting the percentage from the total gives a slightly wrong answer because you would be calculating a percentage of the wrong base."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which US states have no sales tax?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Five US states have no state-level general sales tax: Alaska, Delaware, Montana, New Hampshire, and Oregon. Note that some Alaska localities do charge local sales taxes, giving Alaska a small combined average rate of about 1.76%."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does this calculator work for Canada and Europe?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The calculator supports Canadian taxes including federal GST (5%), HST for applicable provinces (13-15%), provincial PST, and Quebec's QST (9.975%). It also supports EU and UK VAT at all standard rates. The reverse calculation formula is identical regardless of what the tax is called."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is this calculator free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, completely free with no account required. All calculations run entirely in your browser — no data is sent to any server."
-        }
-      }
-    ]
-  };
-
-  const imageSchema = {
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    "name": "Reverse Sales Tax Calculation Formula Diagram",
-    "contentUrl": `${SITE_URL}/images/reverse-sales-tax-formula-diagram.jpg`,
-    "description": "Visual infographic diagram illustrating the reverse sales tax calculation formula, division factor, and worked receipt example."
   };
 
   return (
     <main id="main-content" tabIndex={-1}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webApplicationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewerOrganizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(definedTermSetSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(unifiedSchema) }}
       />
 
       {/* ── Editorial Hero Band (NerdWallet Style - Compact for Above-The-Fold Visibility) ── */}
@@ -314,6 +251,44 @@ export default function HomePage() {
           <p style={{ fontSize: 'clamp(14px, 1.8vw, 16px)', color: '#ffffff', maxWidth: 740, margin: '0 auto', lineHeight: 1.5, fontWeight: 400 }}>
             Instantly calculate the original price before tax from any receipt or invoice total. Enter your total amount paid and tax rate for a complete arithmetic breakdown.
           </p>
+
+          {/* Above-The-Fold E-E-A-T Editorial Review & Verification Trust Pill */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              gap: 8,
+              backgroundColor: 'rgba(255, 255, 255, 0.12)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+              borderRadius: 'var(--radius-full)',
+              padding: '6px 16px',
+              marginTop: 14,
+              fontSize: 'clamp(12px, 1.4vw, 13px)',
+              color: '#ffffff',
+              backdropFilter: 'blur(4px)',
+            }}
+          >
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontWeight: 600 }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ color: '#dcfce7', flexShrink: 0 }}>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              Statutory tax rates verified for 2026
+            </span>
+            <span style={{ opacity: 0.6 }} aria-hidden="true">•</span>
+            <span>
+              Reviewed by the{' '}
+              <Link href="/about" style={{ color: '#ffffff', fontWeight: 700, textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+                Tax Compliance &amp; Accounting Team
+              </Link>
+            </span>
+            <span style={{ opacity: 0.6 }} aria-hidden="true">•</span>
+            <Link href="/about" style={{ color: '#ffffff', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+              Editorial Standards
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -487,8 +462,15 @@ export default function HomePage() {
                 <span aria-hidden="true">🇺🇸 </span>Popular States
               </div>
               {getPopularStates().map((state) => (
-                <Link key={state.abbr} href={`/us/${state.state.toLowerCase().replace(/\s+/g, '-')}`} className="sidebar-state-link" style={{ display: 'flex', justifyContent: 'space-between', padding: '7px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}>
+                <Link
+                  key={state.abbr}
+                  href={`/us/${state.state.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="sidebar-state-link"
+                  aria-label={`${state.state}: ${state.rate}% combined sales tax rate`}
+                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', padding: '7px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}
+                >
                   <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>{state.state}</span>
+                  {' '}
                   <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>{state.rate}%</span>
                 </Link>
               ))}
@@ -504,16 +486,34 @@ export default function HomePage() {
               <div style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--ink)', marginTop: 8, marginBottom: 10 }}>
                 <span aria-hidden="true">🌍 </span>International
               </div>
-              <Link href="/canada" className="sidebar-state-link" style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}>
+              <Link
+                href="/canada"
+                className="sidebar-state-link"
+                aria-label="Canada: 5% to 15% GST and HST"
+                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}
+              >
                 <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>🇨🇦 Canada GST/HST</span>
+                {' '}
                 <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>5–15%</span>
               </Link>
-              <Link href="/vat-calculator" className="sidebar-state-link" style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}>
+              <Link
+                href="/vat-calculator"
+                className="sidebar-state-link"
+                aria-label="European Union: 20% to 27% VAT"
+                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}
+              >
                 <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>🇪🇺 EU VAT</span>
+                {' '}
                 <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>20–27%</span>
               </Link>
-              <Link href="/vat-calculator" className="sidebar-state-link" style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}>
+              <Link
+                href="/vat-calculator"
+                className="sidebar-state-link"
+                aria-label="United Kingdom: 20% VAT"
+                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', padding: '6px 0', borderBottom: '1px solid var(--hairline)', textDecoration: 'none' }}
+              >
                 <span className="sidebar-state-name" style={{ color: 'var(--ink)', fontSize: 13, fontWeight: 500 }}>🇬🇧 UK VAT</span>
+                {' '}
                 <span className="sidebar-state-rate" style={{ color: 'var(--primary-deep)', fontFamily: 'var(--font-mono)', fontSize: 12, fontWeight: 700 }}>20%</span>
               </Link>
               <AdSlot slot="sidebar-rectangle" size="rectangle" />
@@ -639,8 +639,7 @@ export default function HomePage() {
                       height={450}
                       sizes="(max-width: 768px) 100vw, 840px"
                       style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-lg)' }}
-                      priority={true}
-                      fetchPriority="high"
+                      loading="lazy"
                     />
                     <div style={{ padding: '12px 14px 4px', fontSize: 13, color: 'var(--muted)', textAlign: 'center' }}>
                       Figure 1: Reverse sales tax formula breakdown ($107.50 receipt total divided by 1.075 equals $100.00 base pre-tax amount).

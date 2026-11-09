@@ -25,19 +25,30 @@ export default function Analytics() {
       gtag('config', 'G-MVWDKTE5V4');
     }
 
-    // 2. Initialize Microsoft Clarity (y4hti2qol5)
-    if (!document.querySelector('script[src*="clarity.ms"]')) {
-      const clarityScript = document.createElement('script');
-      clarityScript.async = true;
-      clarityScript.src = 'https://www.clarity.ms/tag/y4hti2qol5';
-      document.head.appendChild(clarityScript);
+    // 2. Initialize Microsoft Clarity (y4hti2qol5) with deferred idle loading and cookieless tracking
+    const initClarity = () => {
+      if (!document.querySelector('script[src*="clarity.ms"]')) {
+        const clarityScript = document.createElement('script');
+        clarityScript.async = true;
+        clarityScript.src = 'https://www.clarity.ms/tag/y4hti2qol5';
+        document.head.appendChild(clarityScript);
 
-      window.clarity =
-        window.clarity ||
-        function (...args: unknown[]) {
-          ((window.clarity as unknown as { q: unknown[] }).q =
-            (window.clarity as unknown as { q: unknown[] }).q || []).push(args);
-        };
+        window.clarity =
+          window.clarity ||
+          function (...args: unknown[]) {
+            ((window.clarity as unknown as { q: unknown[] }).q =
+              (window.clarity as unknown as { q: unknown[] }).q || []).push(args);
+          };
+
+        // Enforce cookieless mode to prevent 3rd-party tracking cookie overhead
+        window.clarity('consent', false);
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(initClarity, { timeout: 2500 });
+    } else {
+      setTimeout(initClarity, 1500);
     }
   }, []);
 
