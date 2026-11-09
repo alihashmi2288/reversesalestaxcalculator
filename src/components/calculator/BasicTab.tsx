@@ -572,6 +572,7 @@ Total Amount: $${fmt(result.totalPaid, rounding)}${result.tipAmount ? `\nTip Ded
             <label htmlFor={stateSelectId} className="sr-only">Select your state</label>
             <select
               id={stateSelectId}
+              name="state"
               aria-label="Select US state to auto-fill combined sales tax rate"
               className="state-select"
               value={selectedState}
@@ -712,6 +713,8 @@ Total Amount: $${fmt(result.totalPaid, rounding)}${result.tipAmount ? `\nTip Ded
                 {taxLayers.map((layer) => (
                   <div key={layer.id} style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
                     <input
+                      id={`tax-layer-name-${layer.id}`}
+                      name={`taxLayerName-${layer.id}`}
                       type="text"
                       value={layer.name}
                       onChange={(e) => updateTaxLayer(layer.id, 'name', e.target.value)}
@@ -722,6 +725,8 @@ Total Amount: $${fmt(result.totalPaid, rounding)}${result.tipAmount ? `\nTip Ded
                     />
                     <div className="input-wrapper" style={{ flex: 1 }}>
                       <input
+                        id={`tax-layer-rate-${layer.id}`}
+                        name={`taxLayerRate-${layer.id}`}
                         type="text"
                         inputMode="decimal"
                         value={layer.rate}
@@ -803,8 +808,10 @@ Total Amount: $${fmt(result.totalPaid, rounding)}${result.tipAmount ? `\nTip Ded
 
           {/* Remember Choices */}
           <div>
-            <label style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--ink)', cursor: 'pointer', fontWeight: 600, minHeight: 44, padding: '4px 0' }}>
+            <label htmlFor="remember-choices" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--ink)', cursor: 'pointer', fontWeight: 600, minHeight: 44, padding: '4px 0' }}>
               <input
+                id="remember-choices"
+                name="rememberChoices"
                 type="checkbox"
                 checked={rememberChoices}
                 onChange={(e) => {

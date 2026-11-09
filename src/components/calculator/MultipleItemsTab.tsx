@@ -156,6 +156,7 @@ export default function MultipleItemsTab() {
               <tr key={row.id}>
                 <th scope="row" style={{ fontWeight: 'normal', textAlign: 'left', padding: '10px 12px' }}>
                   <input
+                    id={`item-name-${row.id}`}
                     type="text"
                     name={`itemName-${row.id}`}
                     autoComplete="off"
@@ -177,6 +178,7 @@ export default function MultipleItemsTab() {
                   <div className="input-wrapper" style={{ width: '100%' }}>
                     <span className="input-prefix" aria-hidden="true">$</span>
                     <input
+                      id={`item-price-${row.id}`}
                       type="text"
                       name={`itemPrice-${row.id}`}
                       autoComplete="off"
@@ -198,6 +200,7 @@ export default function MultipleItemsTab() {
                 <td>
                   <div className="input-wrapper" style={{ width: '100%' }}>
                     <input
+                      id={`item-tax-rate-${row.id}`}
                       type="text"
                       name={`itemTaxRate-${row.id}`}
                       autoComplete="off"
@@ -221,6 +224,7 @@ export default function MultipleItemsTab() {
                 </td>
                 <td style={{ textAlign: 'center' }}>
                   <label
+                    htmlFor={`item-taxable-${row.id}`}
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -231,6 +235,8 @@ export default function MultipleItemsTab() {
                     }}
                   >
                     <input
+                      id={`item-taxable-${row.id}`}
+                      name={`itemTaxable-${row.id}`}
                       type="checkbox"
                       checked={row.taxable}
                       onChange={(e) => updateRow(row.id, 'taxable', e.target.checked)}

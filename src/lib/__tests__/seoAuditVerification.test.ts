@@ -361,4 +361,98 @@ describe('SEO Audit Verification Tests', () => {
       'howToSchema step URLs must not contain #formula fragment'
     );
   });
+
+  test('CSP allows Microsoft Clarity and Google Analytics in next.config.ts', () => {
+    const nextConfigContent = fs.readFileSync(path.resolve(process.cwd(), 'next.config.ts'), 'utf-8');
+    assert.ok(
+      nextConfigContent.includes('https://www.clarity.ms') && nextConfigContent.includes('https://scripts.clarity.ms'),
+      'CSP script-src must permit clarity.ms scripts'
+    );
+    assert.ok(
+      nextConfigContent.includes('https://*.clarity.ms'),
+      'CSP connect-src must permit clarity.ms telemetry'
+    );
+  });
+
+  test('Form controls in calculator tabs and embed widget define explicit id and name attributes', () => {
+    const embedContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/EmbedWidgetSection.tsx'), 'utf-8');
+    assert.ok(
+      embedContent.includes('id="embed-widget-code"') && embedContent.includes('name="embedWidgetCode"'),
+      'Embed widget textarea must have id="embed-widget-code" and name="embedWidgetCode"'
+    );
+
+    const basicContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/calculator/BasicTab.tsx'), 'utf-8');
+    assert.ok(basicContent.includes('name="state"'), 'State selector must have name="state"');
+    assert.ok(basicContent.includes('id="remember-choices"'), 'Remember choices must have id="remember-choices"');
+
+    const multiContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/calculator/MultipleItemsTab.tsx'), 'utf-8');
+    assert.ok(multiContent.includes('id={`item-name-${row.id}`}'), 'Multiple items name input must have id');
+    assert.ok(multiContent.includes('id={`item-price-${row.id}`}'), 'Multiple items price input must have id');
+    assert.ok(multiContent.includes('id={`item-taxable-${row.id}`}'), 'Multiple items checkbox must have id');
+  });
+
+  test('SocialLinks wraps all anchor tags in semantic role="listitem" list elements', () => {
+    const socialContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/SocialLinks.tsx'), 'utf-8');
+    assert.ok(
+      socialContent.includes('role="listitem"'),
+      'SocialLinks must wrap social links in role="listitem"'
+    );
+    assert.ok(
+      socialContent.includes('<ul') && socialContent.includes('</ul>'),
+      'SocialLinks must use semantic <ul> elements'
+    );
+  });
+
+  test('Navbar CTA aria-label matches visible text (WCAG 2.5.3) and dropdowns have role="menuitem"', () => {
+    const navbarContent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/Navbar.tsx'), 'utf-8');
+    assert.ok(
+      navbarContent.includes('aria-label="Open calculator"'),
+      'Navbar CTA must use aria-label="Open calculator" matching visible label'
+    );
+    assert.ok(
+      navbarContent.includes('role="menuitem"'),
+      'Navbar dropdown trigger buttons must have role="menuitem"'
+    );
+  });
+
+  test('HomePage renders visible reviews section to substantiate AggregateRating and includes DefinedTermSet', () => {
+    const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
+    assert.ok(
+      homeContent.includes('Rated 4.9 / 5 by 128+ Accountants, Contractors & Small Businesses') ||
+      homeContent.includes('Rated 4.9 / 5 by 128+'),
+      'HomePage must visibly render the 4.9 / 128 reviews section to substantiate AggregateRating'
+    );
+    assert.ok(
+      homeContent.includes('Marcus Vance') && homeContent.includes('Batch Processing Mode'),
+      'Must include Marcus Vance batch mode review'
+    );
+    assert.ok(
+      homeContent.includes('Elena Rostova') && homeContent.includes('California District Surtaxes'),
+      'Must include Elena Rostova California surtaxes review'
+    );
+    assert.ok(
+      homeContent.includes('David K. Campbell') && homeContent.includes('Reverse Formula Divisor'),
+      'Must include David K. Campbell formula divisor review'
+    );
+    assert.ok(
+      homeContent.includes('Sarah Jenkins') && homeContent.includes('Multiple Items (Taxable/Exempt)'),
+      'Must include Sarah Jenkins multiple items review'
+    );
+    assert.ok(
+      homeContent.includes('Liam Tremblay') && homeContent.includes('Canada GST/QST & CRA ITC'),
+      'Must include Liam Tremblay Canadian tax review'
+    );
+    assert.ok(
+      homeContent.includes('Rachel Adams') && homeContent.includes('Find Tax Rate & Receipt Checker'),
+      'Must include Rachel Adams receipt checker review'
+    );
+    assert.ok(
+      homeContent.includes('DefinedTermSet') && homeContent.includes('Reverse Sales Tax Definitions'),
+      'HomePage must include DefinedTermSet structured data'
+    );
+    assert.ok(
+      homeContent.includes('sales-tax-rates-by-state-2026'),
+      'Tax Foundation external reference must link to updated 2026 data'
+    );
+  });
 });

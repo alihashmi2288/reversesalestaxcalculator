@@ -97,6 +97,8 @@ export default function EmbedWidgetSection() {
               </span>
             </div>
             <textarea
+              id="embed-widget-code"
+              name="embedWidgetCode"
               readOnly
               rows={9}
               aria-label="Widget Embed Code HTML snippet"

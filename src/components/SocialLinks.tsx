@@ -123,114 +123,117 @@ export default function SocialLinks({ variant = 'cards', className = '' }: Socia
   // Footer Minimal Icon Buttons (WCAG >= 44x44px target)
   if (variant === 'icons') {
     return (
-      <div
-        className={`flex items-center gap-2 flex-wrap ${className}`}
+      <ul
+        className={`flex items-center gap-2 flex-wrap m-0 p-0 list-none ${className}`}
         role="list"
         aria-label="Social media profiles"
       >
         {SOCIAL_CHANNELS.map((item) => (
-          <a
-            key={item.name}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer me"
-            aria-label={item.ariaLabel}
-            title={item.name}
-            className="w-11 h-11 flex items-center justify-center rounded-[var(--radius-xs)] border border-[var(--hairline-strong)] bg-[var(--canvas)] text-[var(--body)] hover:text-[var(--primary)] hover:border-[var(--primary)] hover:bg-[var(--mint-50)] transition-all duration-150 focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
-          >
-            <SocialIcon name={item.name} size={18} />
-          </a>
+          <li key={item.name} role="listitem">
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer me"
+              aria-label={item.ariaLabel}
+              title={item.name}
+              className="w-11 h-11 flex items-center justify-center rounded-[var(--radius-xs)] border border-[var(--hairline-strong)] bg-[var(--canvas)] text-[var(--body)] hover:text-[var(--primary)] hover:border-[var(--primary)] hover:bg-[var(--mint-50)] transition-all duration-150 focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
+            >
+              <SocialIcon name={item.name} size={18} />
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     );
   }
 
   // Sidebar Compact List (Contact Page)
   if (variant === 'sidebar') {
     return (
-      <div className={`flex flex-col gap-2.5 ${className}`} role="list">
+      <ul className={`flex flex-col gap-2.5 m-0 p-0 list-none ${className}`} role="list">
         {SOCIAL_CHANNELS.map((item) => (
-          <a
-            key={item.name}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer me"
-            aria-label={item.ariaLabel}
-            className="flex items-center justify-between p-3 rounded-[var(--radius-sm)] border border-[var(--hairline)] bg-[var(--canvas-soft)] hover:bg-[var(--mint-50)] hover:border-[var(--primary)] text-[var(--ink)] hover:text-[var(--primary-deep)] transition-all duration-150 group focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2 min-h-[48px]"
-          >
-            <div className="flex items-center gap-3">
-              <span
-                className="w-8 h-8 rounded-[var(--radius-xs)] flex items-center justify-center text-white shrink-0 shadow-xs"
-                style={{ backgroundColor: item.color }}
-              >
-                <SocialIcon name={item.name} size={16} />
-              </span>
-              <div className="text-left">
-                <span className="block text-[13.5px] font-bold leading-tight group-hover:text-[var(--primary)] transition-colors">
-                  {item.name}
-                </span>
-                <span className="block text-[12px] text-[var(--muted)] font-medium leading-tight mt-0.5">
-                  {item.handle}
-                </span>
-              </div>
-            </div>
-            <span
-              className="text-[var(--muted)] group-hover:text-[var(--primary)] group-hover:translate-x-0.5 transition-all duration-150 text-sm font-semibold pl-2"
-              aria-hidden="true"
+          <li key={item.name} role="listitem">
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer me"
+              aria-label={item.ariaLabel}
+              className="flex items-center justify-between p-3 rounded-[var(--radius-sm)] border border-[var(--hairline)] bg-[var(--canvas-soft)] hover:bg-[var(--mint-50)] hover:border-[var(--primary)] text-[var(--ink)] hover:text-[var(--primary-deep)] transition-all duration-150 group focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2 min-h-[48px]"
             >
-              ↗
-            </span>
-          </a>
+              <div className="flex items-center gap-3">
+                <span
+                  className="w-8 h-8 rounded-[var(--radius-xs)] flex items-center justify-center text-white shrink-0 shadow-xs"
+                  style={{ backgroundColor: item.color }}
+                >
+                  <SocialIcon name={item.name} size={16} />
+                </span>
+                <div className="text-left">
+                  <span className="block text-[13.5px] font-bold leading-tight group-hover:text-[var(--primary)] transition-colors">
+                    {item.name}
+                  </span>
+                  <span className="block text-[12px] text-[var(--muted)] font-medium leading-tight mt-0.5">
+                    {item.handle}
+                  </span>
+                </div>
+              </div>
+              <span
+                className="text-[var(--muted)] group-hover:text-[var(--primary)] group-hover:translate-x-0.5 transition-all duration-150 text-sm font-semibold pl-2"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     );
   }
 
   // Default Grid Cards (About Page)
   return (
-    <div
-      className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${className}`}
+    <ul
+      className={`grid grid-cols-1 sm:grid-cols-2 gap-4 m-0 p-0 list-none ${className}`}
       role="list"
       aria-label="Official PreTaxPrice Social Channels"
     >
       {SOCIAL_CHANNELS.map((item) => (
-        <a
-          key={item.name}
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer me"
-          aria-label={item.ariaLabel}
-          className="flex flex-col justify-between p-5 rounded-[var(--radius)] border border-[var(--hairline-strong)] bg-[var(--canvas)] hover:border-[var(--primary)] hover:bg-[var(--mint-50)] transition-all duration-150 group focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2 min-h-[110px]"
-        >
-          <div className="flex items-start justify-between gap-3 mb-2">
-            <div className="flex items-center gap-3">
-              <span
-                className="w-9 h-9 rounded-[var(--radius-xs)] flex items-center justify-center text-white shrink-0 shadow-xs"
-                style={{ backgroundColor: item.color }}
-              >
-                <SocialIcon name={item.name} size={18} />
-              </span>
-              <div>
-                <span className="block text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--primary)] transition-colors leading-tight">
-                  {item.name}
+        <li key={item.name} role="listitem" className="flex">
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer me"
+            aria-label={item.ariaLabel}
+            className="w-full flex flex-col justify-between p-5 rounded-[var(--radius)] border border-[var(--hairline-strong)] bg-[var(--canvas)] hover:border-[var(--primary)] hover:bg-[var(--mint-50)] transition-all duration-150 group focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2 min-h-[110px]"
+          >
+            <div className="flex items-start justify-between gap-3 mb-2">
+              <div className="flex items-center gap-3">
+                <span
+                  className="w-9 h-9 rounded-[var(--radius-xs)] flex items-center justify-center text-white shrink-0 shadow-xs"
+                  style={{ backgroundColor: item.color }}
+                >
+                  <SocialIcon name={item.name} size={18} />
                 </span>
-                <span className="block text-[13px] text-[var(--primary-deep)] font-semibold mt-0.5 font-mono">
-                  {item.handle}
-                </span>
+                <div>
+                  <span className="block text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--primary)] transition-colors leading-tight">
+                    {item.name}
+                  </span>
+                  <span className="block text-[13px] text-[var(--primary-deep)] font-semibold mt-0.5 font-mono">
+                    {item.handle}
+                  </span>
+                </div>
               </div>
+              <span
+                className="text-[var(--muted)] group-hover:text-[var(--primary)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150 text-base font-bold"
+                aria-hidden="true"
+              >
+                ↗
+              </span>
             </div>
-            <span
-              className="text-[var(--muted)] group-hover:text-[var(--primary)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-150 text-base font-bold"
-              aria-hidden="true"
-            >
-              ↗
-            </span>
-          </div>
-          <p className="text-[13px] text-[var(--body)] leading-relaxed m-0 mt-1">
-            {item.description}
-          </p>
-        </a>
+            <p className="text-[13px] text-[var(--body)] leading-relaxed m-0 mt-1">
+              {item.description}
+            </p>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

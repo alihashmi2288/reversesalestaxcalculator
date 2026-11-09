@@ -149,10 +149,11 @@ export default function Navbar() {
           </Link>
 
           {/* 3. Guides Dropdown */}
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative' }} role="none">
             <button
               ref={guidesBtnRef}
               type="button"
+              role="menuitem"
               className="nav-trigger-btn"
               onClick={() => {
                 setGuidesOpen(!guidesOpen);
@@ -250,10 +251,11 @@ export default function Navbar() {
           </Link>
 
           {/* 5. More Tools Dropdown */}
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative' }} role="none">
             <button
               ref={moreBtnRef}
               type="button"
+              role="menuitem"
               className="nav-trigger-btn"
               onClick={() => {
                 setMoreOpen(!moreOpen);
@@ -360,7 +362,7 @@ export default function Navbar() {
             onClick={(e) => handleSectionScroll(e, 'calculator')}
             className="inline-flex items-center justify-center min-h-[44px] bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-white px-[18px] py-[10px] rounded-[var(--radius-xs)] font-bold text-[13px] uppercase tracking-[0.04em] transition-colors duration-150 no-underline shadow-xs focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
             style={{ color: '#ffffff' }}
-            aria-label="Open reverse sales tax calculator"
+            aria-label="Open calculator"
           >
             Open calculator
           </Link>
@@ -470,7 +472,7 @@ export default function Navbar() {
               }}
               className="block text-center bg-[var(--primary)] hover:bg-[var(--primary-deep)] text-white px-[18px] py-[12px] rounded-[var(--radius-xs)] font-bold text-[13px] uppercase tracking-[0.04em] no-underline transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[var(--forest)] focus-visible:outline-offset-2"
               style={{ color: '#ffffff' }}
-              aria-label="Open reverse sales tax calculator"
+              aria-label="Open calculator"
             >
               Open calculator
             </Link>
