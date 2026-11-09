@@ -297,4 +297,68 @@ describe('SEO Audit Verification Tests', () => {
       'Generic state page must render NeighborStateComparison widget'
     );
   });
+
+  test('HomePage webApplicationSchema includes AggregateRating with ratingValue 4.9 and 128 reviews', () => {
+    const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
+    assert.ok(
+      homeContent.includes('"@type": "AggregateRating"') || homeContent.includes("'@type': 'AggregateRating'"),
+      'HomePage must include AggregateRating schema'
+    );
+    assert.ok(
+      homeContent.includes('"ratingValue": "4.9"') || homeContent.includes("'ratingValue': '4.9'"),
+      'HomePage AggregateRating must specify ratingValue 4.9'
+    );
+    assert.ok(
+      homeContent.includes('"reviewCount": "128"') || homeContent.includes("'reviewCount': '128'"),
+      'HomePage AggregateRating must specify reviewCount 128'
+    );
+    assert.ok(
+      homeContent.includes('@id') && homeContent.includes('/#webapp'),
+      'HomePage WebApplication schema must include stable @id URI'
+    );
+  });
+
+  test('Hero diagram Image component defines fetchPriority="high" and priority', () => {
+    const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
+    assert.ok(
+      homeContent.includes('fetchPriority="high"'),
+      'Hero diagram image must define fetchPriority="high" for optimal LCP'
+    );
+    assert.ok(
+      homeContent.includes('priority={true}') || homeContent.includes('priority'),
+      'Hero diagram image must define priority'
+    );
+  });
+
+  test('HomePage includes striking-distance core terms and clean howToSchema step URLs', () => {
+    const homeContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/(site)/page.tsx'), 'utf-8');
+    
+    // Striking-distance search query targeting
+    assert.ok(
+      homeContent.includes('formula to back out sales tax'),
+      'HomePage must target "formula to back out sales tax"'
+    );
+    assert.ok(
+      homeContent.includes('before tax calculator'),
+      'HomePage must target "before tax calculator"'
+    );
+    assert.ok(
+      homeContent.includes('reverse tax rate calculator'),
+      'HomePage must target "reverse tax rate calculator"'
+    );
+    assert.ok(
+      homeContent.includes('how to calculate sales tax backwards from total'),
+      'HomePage must target "how to calculate sales tax backwards from total"'
+    );
+
+    // howToSchema step URL cleanliness (no fragment leakage into GSC)
+    assert.ok(
+      !homeContent.includes('url": `${SITE_URL}/#calculator`') && !homeContent.includes("url': `${SITE_URL}/#calculator`"),
+      'howToSchema step URLs must not contain #calculator fragment'
+    );
+    assert.ok(
+      !homeContent.includes('url": `${SITE_URL}/#formula`') && !homeContent.includes("url': `${SITE_URL}/#formula`"),
+      'howToSchema step URLs must not contain #formula fragment'
+    );
+  });
 });

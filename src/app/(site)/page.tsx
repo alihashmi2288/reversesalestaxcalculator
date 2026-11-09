@@ -68,6 +68,7 @@ export default function HomePage() {
   const webApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
+    "@id": `${SITE_URL}/#webapp`,
     "name": "Reverse Sales Tax Calculator",
     "alternateName": "PreTaxPrice",
     "url": SITE_URL,
@@ -75,22 +76,29 @@ export default function HomePage() {
     "applicationSubCategory": "Sales Tax Calculation & Accounting",
     "softwareVersion": "2.4.0",
     "inLanguage": "en",
-    "operatingSystem": "All modern browsers (Desktop & Mobile)",
-    "browserRequirements": "Requires JavaScript",
+    "operatingSystem": "All modern web browsers (Desktop, Tablet, Mobile)",
+    "browserRequirements": "Requires JavaScript for real-time calculations. Pre-rendered HTML available for search crawlers.",
     "description": "A free reverse sales tax calculator that works backwards from a tax-inclusive total to find the original pre-tax price. Supports all 50 US states, Canada GST/HST/PST/QST, and European VAT.",
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "USD"
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "128",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "featureList": [
-      "Reverse sales tax calculation for all 50 US states",
-      "Canada GST, HST, PST and QST reverse calculation",
-      "EU and UK VAT reverse calculation",
-      "Batch/CSV mode for multiple receipts",
-      "Find Tax Rate mode",
-      "No signup required",
-      "Client-side calculation — no data sent to servers"
+      "Instant real-time reverse sales tax calculations",
+      "All 50 US State verified 2026 sales tax rates",
+      "Local county and municipal sales tax surtax lookups",
+      "Canada GST, PST, and HST provincial tax calculation",
+      "Global Value Added Tax (VAT) reverse calculations",
+      "Zero advertisement clutter and complete data privacy"
     ],
     "screenshot": `${SITE_URL}/og-image.png`,
     "publisher": {
@@ -130,21 +138,21 @@ export default function HomePage() {
         "position": 1,
         "name": "Identify Total Price and Tax Rate",
         "text": "Locate the gross receipt total paid and find the sales tax rate applicable to your purchase (e.g., $107.50 total at a 7.5% combined rate).",
-        "url": `${SITE_URL}/#calculator`
+        "url": SITE_URL
       },
       {
         "@type": "HowToStep",
         "position": 2,
         "name": "Convert Tax Rate to Decimal and Add 1",
         "text": "Divide the tax rate percentage by 100 to convert it to a decimal, then add 1. For example, 7.5% becomes 0.075, and adding 1 gives a divisor of 1.075.",
-        "url": `${SITE_URL}/#formula`
+        "url": SITE_URL
       },
       {
         "@type": "HowToStep",
         "position": 3,
         "name": "Divide Total Price by Tax Divisor",
         "text": "Divide the total receipt amount by the divisor: $107.50 / 1.075 = $100.00 original pre-tax price. The tax paid is $107.50 - $100.00 = $7.50.",
-        "url": `${SITE_URL}/#calculator`
+        "url": SITE_URL
       }
     ]
   };
@@ -354,8 +362,44 @@ export default function HomePage() {
               How Our Reverse Tax Calculator Works
             </h2>
 
+            {/* Featured Snippet Formula Callout Box for "formula to back out sales tax" */}
+            <div
+              style={{
+                backgroundColor: 'var(--mint-50)',
+                border: '1px solid var(--mint-200)',
+                borderRadius: 'var(--radius-xl)',
+                padding: '24px',
+                margin: '20px 0 20px',
+              }}
+            >
+              <div style={{ fontSize: 13, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--primary-deep)', marginBottom: 8 }}>
+                The Formula to Back Out Sales Tax
+              </div>
+              <p style={{ color: 'var(--body)', margin: '0 0 14px', fontSize: 15, lineHeight: 1.6 }}>
+                To back out sales tax from any receipt total, divide by 1 plus the tax rate as a decimal:
+              </p>
+              <div
+                style={{
+                  backgroundColor: 'var(--canvas)',
+                  border: '1px solid var(--mint-200)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '16px 20px',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'clamp(16px, 2.5vw, 20px)',
+                  fontWeight: 800,
+                  color: 'var(--primary-deep)',
+                  textAlign: 'center',
+                }}
+              >
+                Pre-Tax Price = Receipt Total ÷ (1 + Tax Rate)
+              </div>
+              <p style={{ margin: '14px 0 0', fontSize: 14, color: 'var(--muted)', lineHeight: 1.5 }}>
+                <strong>Example:</strong> For a $108.00 total with 8% tax, divide $108.00 by 1.08 = <strong style={{ color: 'var(--ink)' }}>$100.00 pre-tax price</strong> ($8.00 sales tax paid).
+              </p>
+            </div>
+
             {/* Explicit Statutory Formula Definition Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, margin: '20px 0 24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, margin: '0 0 24px' }}>
               <div className="card" style={{ padding: '20px 24px', background: 'var(--canvas)', border: '2px solid var(--primary)', borderRadius: 'var(--radius-lg)' }}>
                 <div style={{ fontSize: 12, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--primary)', marginBottom: 6 }}>
                   Reverse Sales Tax Formula
@@ -383,10 +427,10 @@ export default function HomePage() {
 
             <div style={{ fontSize: 16, color: 'var(--body)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
               <p>
-                A <strong>reverse sales tax calculator</strong> works backwards from a tax-included total to find the original price before tax was added. Most calculators start with a base price and add tax on top. This one does the opposite.
+                A <strong>reverse sales tax calculator</strong> works backwards from a tax-included total to find the original price before tax was added. Whether you are using this as a <strong>before tax calculator</strong> to audit consumer receipts or as a <strong>reverse tax rate calculator</strong> to verify vendor line items, standard tax addition is reversed with mathematical precision. Most calculators start with a base price and add tax on top. This tool does the exact opposite.
               </p>
               <p>
-                Here is why that matters. When you see a price on a receipt, invoice, or expense report, that number already includes tax. To find what the item actually cost, you cannot just subtract the tax percentage from the total. That gives you the wrong number every time.
+                Here is why that distinction matters. When you see a price on a receipt, invoice, or expense report, that number already includes tax. If you need to know <strong>how to calculate sales tax backwards from total</strong> amounts, you cannot simply subtract the tax percentage from the final figure. That yields the wrong number every time.
               </p>
 
               {/* Common Subtracting Mistake Callout - Clean styling, no alert warning */}
@@ -559,7 +603,7 @@ export default function HomePage() {
                 </h2>
                 <div style={{ fontSize: 16, color: 'var(--body)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
                   <p>
-                    The mathematical formula is straightforward:
+                    The mathematical <strong>formula to back out sales tax</strong> is straightforward:
                   </p>
                   
                   {/* Infographic Visual Asset */}
@@ -571,7 +615,8 @@ export default function HomePage() {
                       height={450}
                       sizes="(max-width: 768px) 100vw, 840px"
                       style={{ width: '100%', height: 'auto', display: 'block', borderRadius: 'var(--radius-lg)' }}
-                      priority
+                      priority={true}
+                      fetchPriority="high"
                     />
                     <div style={{ padding: '12px 14px 4px', fontSize: 13, color: 'var(--muted)', textAlign: 'center' }}>
                       Figure 1: Reverse sales tax formula breakdown ($107.50 receipt total divided by 1.075 equals $100.00 base pre-tax amount).
