@@ -23,7 +23,7 @@ const SITE_NAME = 'Reverse Sales Tax Calculator';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Reverse Sales Tax Calculator: Find Pre-Tax Price Free',
+    default: 'Reverse Sales Tax Calculator | Instantly Find the Original Price',
     template: '%s',
   },
   description:
