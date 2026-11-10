@@ -356,83 +356,20 @@ export default function HomePage() {
 
           {/* ── Primary Definitional Section (FIRST H2 of Homepage) ── */}
           <div style={{ maxWidth: 840, margin: '0 auto' }}>
-            <span className="section-label">Formula &amp; Method</span>
+            <span className="section-label">About</span>
             <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 34px)', fontWeight: 700, color: 'var(--ink)', margin: '12px 0 20px', letterSpacing: '-0.02em' }}>
-              How Our Reverse Tax Calculator Works
+              What Is a Reverse Sales Tax Calculator?
             </h2>
-
-            {/* Featured Snippet Formula Callout Box for "formula to back out sales tax" */}
-            <div
-              style={{
-                backgroundColor: 'var(--mint-50)',
-                border: '1px solid var(--mint-200)',
-                borderRadius: 'var(--radius-xl)',
-                padding: '24px',
-                margin: '20px 0 20px',
-              }}
-            >
-              <div style={{ fontSize: 13, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--primary-deep)', marginBottom: 8 }}>
-                The Formula to Back Out Sales Tax
-              </div>
-              <p style={{ color: 'var(--body)', margin: '0 0 14px', fontSize: 15, lineHeight: 1.6 }}>
-                To back out sales tax from any receipt total, divide by 1 plus the tax rate as a decimal:
-              </p>
-              <div
-                style={{
-                  backgroundColor: 'var(--canvas)',
-                  border: '1px solid var(--mint-200)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '16px 20px',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: 'clamp(16px, 2.5vw, 20px)',
-                  fontWeight: 800,
-                  color: 'var(--primary-deep)',
-                  textAlign: 'center',
-                }}
-              >
-                Pre-Tax Price = Receipt Total ÷ (1 + Tax Rate)
-              </div>
-              <p style={{ margin: '14px 0 0', fontSize: 14, color: 'var(--muted)', lineHeight: 1.5 }}>
-                <strong>Example:</strong> For a $108.00 total with 8% tax, divide $108.00 by 1.08 = <strong style={{ color: 'var(--ink)' }}>$100.00 pre-tax price</strong> ($8.00 sales tax paid).
-              </p>
-            </div>
-
-            {/* Explicit Statutory Formula Definition Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, margin: '0 0 24px' }}>
-              <div className="card" style={{ padding: '20px 24px', background: 'var(--canvas)', border: '2px solid var(--primary)', borderRadius: 'var(--radius-lg)' }}>
-                <div style={{ fontSize: 12, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--primary)', marginBottom: 6 }}>
-                  Reverse Sales Tax Formula
-                </div>
-                <div style={{ fontFamily: 'monospace', fontSize: 18, fontWeight: 800, color: 'var(--ink)' }}>
-                  Pre-Tax Price = Receipt Total ÷ (1 + Tax Rate)
-                </div>
-                <div style={{ fontSize: 13, color: 'var(--muted)', marginTop: 6 }}>
-                  Isolates exact original price before state, local, or VAT taxes were applied.
-                </div>
-              </div>
-
-              <div className="card" style={{ padding: '20px 24px', background: 'var(--canvas)', border: '1px solid var(--hairline-strong)', borderRadius: 'var(--radius-lg)' }}>
-                <div style={{ fontSize: 12, fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--muted)', marginBottom: 6 }}>
-                  Sales Tax Extraction Formula
-                </div>
-                <div style={{ fontFamily: 'monospace', fontSize: 18, fontWeight: 800, color: 'var(--ink)' }}>
-                  Sales Tax Paid = Receipt Total - Pre-Tax Price
-                </div>
-                <div style={{ fontSize: 13, color: 'var(--muted)', marginTop: 6 }}>
-                  Calculates exact dollar tax amount for bookkeeping and expense deduction records.
-                </div>
-              </div>
-            </div>
 
             <div style={{ fontSize: 16, color: 'var(--body)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: 16 }}>
               <p>
-                A <strong>reverse sales tax calculator</strong> works backwards from a tax-included total to find the original price before tax was added. Whether you are using this as a <strong>before tax calculator</strong> to audit consumer receipts or as a <strong>reverse tax rate calculator</strong> to verify vendor line items, standard tax addition is reversed with mathematical precision. Most calculators start with a base price and add tax on top. This tool does the exact opposite.
+                A <strong>reverse sales tax calculator</strong> works backwards from a tax-included total to find the original price before tax was added. Whether you need a <strong>before tax calculator</strong> to audit consumer receipts or a <strong>reverse tax rate calculator</strong> to verify vendor line items, standard tax addition is reversed with mathematical precision. Most calculators start with a base price and add tax on top. This one does the opposite.
               </p>
               <p>
-                Here is why that distinction matters. When you see a price on a receipt, invoice, or expense report, that number already includes tax. If you need to know <strong>how to calculate sales tax backwards from total</strong> amounts, you cannot simply subtract the tax percentage from the final figure. That yields the wrong number every time.
+                Here is why that matters. When you see a price on a receipt, invoice, or expense report, that number already includes tax. If you need to know <strong>how to calculate sales tax backwards from total</strong> amounts to find what an item actually cost, you cannot just subtract the tax percentage from the total. That gives you the wrong number every time.
               </p>
 
-              {/* Common Subtracting Mistake Callout - Clean styling, no alert warning */}
+              {/* Common Subtracting Mistake Callout */}
               <div style={{ backgroundColor: 'var(--mint-50)', borderLeft: '4px solid var(--primary-deep)', borderRight: '1px solid var(--mint-200)', borderTop: '1px solid var(--mint-200)', borderBottom: '1px solid var(--mint-200)', padding: '20px 24px', borderRadius: 'var(--radius-lg)', margin: '8px 0' }}>
                 <p style={{ color: 'var(--primary-deep)', margin: 0, fontWeight: 700, textTransform: 'uppercase', fontSize: 13, letterSpacing: '0.04em' }}>
                   Common Subtracting Mistake:
@@ -651,7 +588,10 @@ export default function HomePage() {
                       The Standard Equation
                     </div>
                     <div className="formula-text" style={{ fontSize: 'clamp(18px, 3.5vw, 24px)' }}>
-                      Original Price = Final Price ÷ (1 + Tax Rate / 100)
+                      Pre-Tax Price = Receipt Total ÷ (1 + Tax Rate)
+                    </div>
+                    <div style={{ fontSize: 14, color: 'var(--muted)', marginTop: 8, fontFamily: 'var(--font-mono)' }}>
+                      (or Original Price = Final Price ÷ (1 + Tax Rate / 100))
                     </div>
                   </div>
 

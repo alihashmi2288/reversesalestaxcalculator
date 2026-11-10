@@ -224,8 +224,8 @@ describe('SEO Audit Verification Tests', () => {
       'FAQSection must address the NYC 8.875% $100 purchase word problem'
     );
     assert.ok(
-      homeContent.includes('How Our Reverse Tax Calculator Works'),
-      'HomePage must use optimized H2 "How Our Reverse Tax Calculator Works" to target head keyword'
+      homeContent.includes('What Is a Reverse Sales Tax Calculator?'),
+      'HomePage must use definitional H2 "What Is a Reverse Sales Tax Calculator?" to match entity search intent'
     );
     assert.ok(
       homeContent.includes('Pre-Tax Price = Receipt Total ÷ (1 + Tax Rate)'),
